@@ -1,5 +1,5 @@
 question,option1,option2,option3,option4,correct
-"What is the output of the following code? int x = 7; int y = x++ + ++x; System.out.println(y);","14","15","16","17","16"
+"What is the output of the following code? int x = 7;\n int y = x++ + ++x;\n System.out.println(y);","14","15","16","17","16"
 "What does the following expression evaluate to? System.out.println(3 + 4 + '5' + 6 + 7);","'34567'","'75'","'345'","'75'","'34567'"
 "What is the default value of an instance variable of type boolean in Java?","true","false","null","0","false"
 "Which of the following data types can store the largest value?","int","double","float","long","double"
