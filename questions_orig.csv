@@ -1,3 +1,4 @@
+question;option1;option2;option3;option4;option4;correct_option_number;question number
 What will the output be after executing the following code snippet?\n	print(9** 3 ** 0 ** 1);3;9;1;18;;1;1
 "What will the output be if we run the following code?\n	weekdays = (""""Monday"""",""""Tuesday"""",""""Wednesday"""",""""Thursday"""")\n	weekdays.append(""""Friday"""")\n	print (weekdays)";Monday, Tuesday, Wednesday, Thursday;Friday;None;AttributeError: 'tuple' object has no attribute 'append';;3;2
 What will be the output of the following code?\n	Tupl=['Python','Tuple']\n	print(tuple(Tupl));('Python','Tuple');[Python,Tuple];['Python','Tuple'];(Python, Tuple);;0;3

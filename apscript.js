@@ -9,7 +9,7 @@ async function loadQuestions() {
     }
 
     return rows.slice(1).map(row => {
-        const columns = row.split(',');
+        const columns = row.split('@');
 
         // Ensure there are at least 6 columns (1 question, 4 options, 1 correct answer)
         if (columns.length < 6) {
