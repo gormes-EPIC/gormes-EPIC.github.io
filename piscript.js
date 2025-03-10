@@ -1,5 +1,5 @@
 async function loadQuestions() {
-    const response = await fetch('pisquestions.csv');
+    const response = await fetch('pisquestions2.csv');
     const data = await response.text();
     const rows = data.trim().split('\n'); 
 
