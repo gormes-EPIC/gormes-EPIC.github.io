@@ -28,7 +28,7 @@ def convert_csv(input_filename, output_filename):
 
             # Create the desired output format
             correct_answer = options[correct_option_number]
-            formatted_row = [question] + options[:4] + [correct_answer]
+            formatted_row = ['"{}"'.format(x) for x in [question] + options[:4] + [correct_answer]]
             
             # Write the formatted row to the output file
             writer.writerow(formatted_row)
