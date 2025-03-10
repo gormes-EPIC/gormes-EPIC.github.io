@@ -3,7 +3,6 @@ question,option1,option2,option3,option4,correct
 "What does the following expression evaluate to? System.out.println(3 + 4 + '5' + 6 + 7);","'34567'","'75'","'345'","'75'","'34567'"
 "What is the default value of an instance variable of type boolean in Java?","true","false","null","0","false"
 "Which of the following data types can store the largest value?","int","double","float","long","double"
-"What will be the output of the following Java snippet? String str = 'APCS'; System.out.println(str.substring(1\, 3));","'AP'","'PC'","'PCS'","'CS'","'PC'"
 "Which of the following is NOT a valid method header in Java?","public void example() {}","private static int example(int x) {}","public static double example(double x, int y) {}","void example() private {}","void example() private {}"
 "What does Math.floor(4.9) return?","4.9","5.0","4.0","5","4.0"
 "What is the result of the expression 5 / 2 in Java?","2","2.5","2.0","3","2"
