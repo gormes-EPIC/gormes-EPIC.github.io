@@ -18,22 +18,25 @@
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            const assignments = [
-                { title: "Quantum Computing Basics", url: "https://github.com/yourrepo/quantum-basics" },
-                { title: "Cryptography with Python", url: "https://github.com/yourrepo/crypto-python" },
-                { title: "AI Model Exploration", url: "https://github.com/yourrepo/ai-exploration" }
-            ];
-            
-            const list = document.getElementById("assignment-list");
-            assignments.forEach(assignment => {
-                const li = document.createElement("li");
-                const a = document.createElement("a");
-                a.href = assignment.url;
-                a.textContent = assignment.title;
-                a.target = "_blank";
-                li.appendChild(a);
-                list.appendChild(li);
-            });
+            fetch("assignments.csv")
+                .then(response => response.text())
+                .then(data => {
+                    const rows = data.split("\n").slice(1);
+                    const list = document.getElementById("assignment-list");
+                    rows.forEach(row => {
+                        const [title, url] = row.split(",").map(item => item.trim());
+                        if (title && url) {
+                            const li = document.createElement("li");
+                            const a = document.createElement("a");
+                            a.href = url;
+                            a.textContent = title;
+                            a.target = "_blank";
+                            li.appendChild(a);
+                            list.appendChild(li);
+                        }
+                    });
+                })
+                .catch(error => console.error("Error loading CSV file:", error));
         });
     </script>
 </body>
