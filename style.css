@@ -1,45 +1,30 @@
-/* General styling */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-}
-
-/* Styling for headings */
-h1 {
-    color: #333;
     text-align: center;
 }
-
-/* Styling for paragraphs */
-p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.5;
-    margin: 10px 20px;
-}
-
-/* A simple button style */
-button {
-    background-color: #007BFF;
+header {
+    background: #333;
     color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #0056b3;
-}
-
-/* A simple container */
-.container {
-    width: 80%;
-    margin: auto;
     padding: 20px;
-    background: white;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+}
+main {
+    padding: 20px;
+}
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin: 10px 0;
+}
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 18px;
+}
+a:hover {
+    text-decoration: underline;
 }
