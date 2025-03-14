@@ -22,8 +22,8 @@
                     const rows = data.split("\n").slice(1);
                     const list = document.getElementById("assignment-list");
                     rows.forEach(row => {
-                        const [title, url, tag] = row.split(",").map(item => item.trim());
-                        if (title && url && tag) {
+                        const [title, url] = row.split(",").map(item => item.trim());
+                        if (title && url) {
                             const li = document.createElement("li");
                             const a = document.createElement("a");
                             a.href = url;
