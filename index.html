@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Source Assignments</title>
-    <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
     <header>
@@ -12,7 +9,22 @@
         <p>Browse and use these assignments hosted on GitHub.</p>
     </header>
     <main>
-        <ul id="assignment-list"></ul>
+        <div id="Data Structures and Algorithms" class="class-section">
+            <h2>Data Structures and Algorithms</h2>
+            <ul></ul>
+        </div>
+        <div id="Raspberry Pis and Python" class="class-section">
+            <h2>Raspberry Pi's and Python</h2>
+            <ul></ul>
+        </div>
+        <div id="Software Engineering" class="class-section">
+            <h2>Software Engineering</h2>
+            <ul></ul>
+        </div>
+        <div id="Foundations of AI" class="class-section">
+            <h2>Foundations of AI</h2>
+            <ul></ul>
+        </div>
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
@@ -20,16 +32,21 @@
                 .then(response => response.text())
                 .then(data => {
                     const rows = data.split("\n").slice(1);
-                    const list = document.getElementById("assignment-list");
                     rows.forEach(row => {
-                        const [title, url] = row.split(",").map(item => item.trim());
-                        if (title && url) {
+                        const [title, url, className, tags] = row.split(",").map(item => item.trim());
+                        if (title && url && className) {
+                            const section = document.getElementById(className) || document.getElementById("Other");
+                            const list = section.querySelector("ul");
                             const li = document.createElement("li");
                             const a = document.createElement("a");
                             a.href = url;
                             a.textContent = title;
                             a.target = "_blank";
+                            const tagSpan = document.createElement("span");
+                            tagSpan.classList.add("tags");
+                            tagSpan.textContent = ` [${tags}]`;
                             li.appendChild(a);
+                            li.appendChild(tagSpan);
                             list.appendChild(li);
                         }
                     });
@@ -39,3 +56,4 @@
     </script>
 </body>
 </html>
+
