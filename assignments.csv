@@ -1,4 +1,5 @@
 title,url,class,tags
+Fun with IO Streams,https://github.com/gormes-EPIC/cpp_iostreams,Data Structures and Algorithms,"C++,24-25"
 Wordle,https://github.com/gormes-EPIC/Lab2Wordle,Data Structures and Algorithms,"Java,24-25"
 Game of Life,https://github.com/gormes-EPIC/Lab2GameOfLife,Data Structures and Algorithms,"Java,24-25"
 Sort Review,https://github.com/gormes-EPIC/,Data Structures and Algorithms,"Java,24-25"
@@ -24,5 +25,5 @@ Stoplight,https://github.com/gormes-EPIC/Stoplight,Raspberry Pis and Python,"Pyt
 7-Segment Display,https://github.com/gormes-EPIC/7SegmentDisplay,Raspberry Pis and Python,"Python,24-25"
 Morse Code,https://github.com/gormes-EPIC/MorseCode,Raspberry Pis and Python,"Python,24-25"
 Invention Project,https://github.com/gormes-EPIC/InventionProject,Raspberry Pis and Python,"Python,24-25"
-Python PEMMMDDAS Generator,https://github.com/gormes-EPIC/Python-PEMMDDAS-Generator,Raspbery Pis and Python,"Python,24-25"
+Python PEMMMDDAS Generator,https://github.com/gormes-EPIC/Python-PEMMDDAS-Generator,Raspberry Pis and Python,"Python,24-25"
 PCEP Quiz Generator,https://github.com/gormes-EPIC/PCEP_quiz_generator,Raspberry Pis and Python,"Python,24-25"
