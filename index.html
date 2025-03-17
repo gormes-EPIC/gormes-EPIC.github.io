@@ -9,12 +9,12 @@
         <p>Browse and use these assignments hosted on GitHub.</p>
     </header>
     <main>
-        <div id="Data Structures and Algorithms" class="class-section">
-            <h2>Data Structures and Algorithms</h2>
-            <ul></ul>
-        </div>
         <div id="Raspberry Pis and Python" class="class-section">
             <h2>Raspberry Pi's and Python</h2>
+            <ul></ul>
+        </div>
+        <div id="Data Structures and Algorithms" class="class-section">
+            <h2>Data Structures and Algorithms</h2>
             <ul></ul>
         </div>
         <div id="Software Engineering" class="class-section">
@@ -31,23 +31,32 @@
             fetch("assignments.csv")
                 .then(response => response.text())
                 .then(data => {
-                    const rows = data.split("\n").slice(1);
+                    console.log("CSV Data Loaded:\n", data);
+                    const rows = data.trim().split("\n").slice(1);
                     rows.forEach(row => {
-                        const [title, url, className, tags] = row.split(",").map(item => item.trim());
-                        if (title && url && className) {
+                        const columns = row.match(/(?:"([^"]+)"|([^,]+))/g).map(col => col.replace(/"/g, '').trim());
+                        if (columns.length >= 3) {
+                            const [title, url, className, tags = ""] = columns;
+                            console.log(`Processing: ${title}, ${url}, ${className}, ${tags}`);
                             const section = document.getElementById(className) || document.getElementById("Other");
-                            const list = section.querySelector("ul");
-                            const li = document.createElement("li");
-                            const a = document.createElement("a");
-                            a.href = url;
-                            a.textContent = title;
-                            a.target = "_blank";
-                            const tagSpan = document.createElement("span");
-                            tagSpan.classList.add("tags");
-                            tagSpan.textContent = ` [${tags}]`;
-                            li.appendChild(a);
-                            li.appendChild(tagSpan);
-                            list.appendChild(li);
+                            if (section) {
+                                const list = section.querySelector("ul");
+                                const li = document.createElement("li");
+                                const a = document.createElement("a");
+                                a.href = url;
+                                a.textContent = title;
+                                a.target = "_blank";
+                                const tagSpan = document.createElement("span");
+                                tagSpan.classList.add("tags");
+                                tagSpan.textContent = ` [${tags}]`;
+                                li.appendChild(a);
+                                li.appendChild(tagSpan);
+                                list.appendChild(li);
+                            } else {
+                                console.warn(`No section found for class: ${className}`);
+                            }
+                        } else {
+                            console.warn("Invalid CSV row:", row);
                         }
                     });
                 })
@@ -56,4 +65,3 @@
     </script>
 </body>
 </html>
-
