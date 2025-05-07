@@ -1,6 +1,6 @@
 title,url,class,tags
 Light the LED,https://github.com/gormes-EPIC/LightTheLED/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
-Stoplight,,Raspberry Pis and Python,"Python,25-26"
+Stoplight,https://github.com/gormes-EPIC/Stoplight,Raspberry Pis and Python,"Python,25-26"
 Red Light Green Light,https://github.com/gormes-EPIC/RedLightGreenLight/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
 Temperature in Color,https://github.com/gormes-EPIC/TemperatureInColor/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
 Slot Machine,,Raspberry Pis and Python,"Python,25-26"
@@ -26,7 +26,6 @@ Titanic Classification Model,https://github.com/gormes-EPIC/TitanicClassificatio
 Airline Sentiment Classifier,https://github.com/gormes-EPIC/AirlineSentimentClassifier,Foundations of AI,"Python,24-25"
 Pokemon API,https://github.com/gormes-EPIC/pokeapi,Software Engineering,"Python,24-25"
 CS50 Weeks 0-4,https://cs50.harvard.edu/python/2022/,Raspberry Pis and Python,"Python,24-25"
-Stoplight,https://github.com/gormes-EPIC/Stoplight,Raspberry Pis and Python,"Python,24-25"
 7-Segment Display,https://github.com/gormes-EPIC/7SegmentDisplay,Raspberry Pis and Python,"Python,24-25"
 Morse Code,https://github.com/gormes-EPIC/MorseCode,Raspberry Pis and Python,"Python,24-25"
 Invention Project,https://github.com/gormes-EPIC/InventionProject,Raspberry Pis and Python,"Python,24-25"
