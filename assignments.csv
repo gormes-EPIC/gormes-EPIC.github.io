@@ -1,4 +1,9 @@
 title,url,class,tags
+Light the LED,https://github.com/gormes-EPIC/LightTheLED/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
+Stoplight,,Raspberry Pis and Python,"Python,25-26"
+Red Light Green Light,https://github.com/gormes-EPIC/RedLightGreenLight/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
+Temperature in Color,https://github.com/gormes-EPIC/TemperatureInColor/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
+Slot Machine,,Raspberry Pis and Python,"Python,25-26"
 Fun with IO Streams,https://github.com/gormes-EPIC/cpp_iostreams,Data Structures and Algorithms,"C++,24-25"
 Wordle,https://github.com/gormes-EPIC/Lab2Wordle,Data Structures and Algorithms,"Java,24-25"
 Game of Life,https://github.com/gormes-EPIC/Lab2GameOfLife,Data Structures and Algorithms,"Java,24-25"
@@ -30,8 +35,3 @@ PCEP Quiz Generator,https://github.com/gormes-EPIC/PCEP_quiz_generator,Raspberry
 Radix Sort,https://github.com/gormes-EPIC/radixSort,Data Structures and Algorithms,"Java,23-24"
 Priority Queue,https://github.com/gormes-EPIC/PriorityQueue,Data Structures and Algorithms,"Java,23-24"
 Tempeature Model with TensorFlow,https://github.com/gormes-EPIC/TemperatureTensorFlow,Foundations of AI,"Python,24-25"
-Light the LED,https://github.com/gormes-EPIC/LightTheLED/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
-Stoplight,,Raspberry Pis and Python,"Python,25-26"
-Red Light Green Light,https://github.com/gormes-EPIC/RedLightGreenLight/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
-Temperature in Color,https://github.com/gormes-EPIC/TemperatureInColor/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
-Slot Machine,,Raspberry Pis and Python,"Python,25-26"
