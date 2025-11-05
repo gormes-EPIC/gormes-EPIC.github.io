@@ -1,5 +1,6 @@
 title,url,class,tags
 Light the LED,https://github.com/gormes-EPIC/LightTheLED/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
+Dim the LED,https://github.com/gormes-EPIC/DimTheLED,Raspberry Pis and Python,"Python,25-26"
 Stoplight,https://github.com/gormes-EPIC/Stoplight,Raspberry Pis and Python,"Python,25-26"
 Red Light Green Light,https://github.com/gormes-EPIC/RedLightGreenLight/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
 Temperature in Color,https://github.com/gormes-EPIC/TemperatureInColor/blob/main/README.md,Raspberry Pis and Python,"Python,25-26"
