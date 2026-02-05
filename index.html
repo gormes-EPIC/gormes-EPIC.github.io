@@ -96,7 +96,8 @@
                     console.log("CSV Data Loaded:\n", data);
                     const rows = data.trim().split("\n").slice(1);
                     rows.forEach(row => {
-                        const columns = row.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(col => col.replace(/^"|"$/g, '').trim());
+                        co
+        <!-- epicnst columns = row.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(col => col.replace(/^"|"$/g, '').trim());
                             if (columns.length >= 3) {
                             const [title, url, className, tags = ""] = columns;
                             console.log(`Processing: ${title}, ${url}, ${className}, ${tags}`);
