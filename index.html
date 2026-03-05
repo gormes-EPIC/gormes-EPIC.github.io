@@ -8,11 +8,11 @@
     <style>
         /* Default Dark Mode Variables */
         :root {
-            --primary: #60a5fa;
-            --bg: #0f172a;
-            --surface: #1e293b;
+            --primary: #60fa65;
+            --bg: #1f251f;
+            --surface: #2d392d;
             --text: #f8fafc;
-            --border: #334155;
+            --border: #425542;
             
             --badge-note-bg: rgba(37, 99, 235, 0.2);
             --badge-note-text: #60a5fa;
@@ -178,7 +178,7 @@
         .markdown-body img { max-width: 100%; border-radius: 6px; }
         .markdown-body pre { background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
         .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
-        .markdown-body a { color: #10b981; }
+        .markdown-body a { color: #9056d6; }
         .error { color: #fca5a5; padding: 1rem; background: #7f1d1d; border-radius: 6px; }
         
         /* Markdown Table Styles */
@@ -230,6 +230,7 @@
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
                 { file: "Working-with-Raspberry-Pi-Notes", type: "notes" },
                 { file: "Light-the-LED-Lab", type: "assignment" },
+                { file: "Fun-With-Objects-Lab", type: "assignment" }
                 
                 
             ],
@@ -417,6 +418,31 @@
                         ${htmlContent}
                     </div>
                 `;
+
+                // --- NEW CODE: INTERNAL LINK INTERCEPTOR ---
+                const markdownLinks = appDiv.querySelectorAll('.markdown-body a');
+                
+                markdownLinks.forEach(link => {
+                    const href = link.getAttribute('href');
+                    
+                    // If the link starts with #, doesn't have a slash, and isn't a Class name
+                    if (href && href.startsWith('#') && !href.includes('/') && !curriculum[href.substring(1)]) {
+                        
+                        link.addEventListener('click', (e) => {
+                            e.preventDefault(); // Stop the router from changing the page
+                            
+                            const targetId = href.substring(1);
+                            const targetElement = document.getElementById(targetId);
+                            
+                            if (targetElement) {
+                                // Smoothly scroll to the header!
+                                targetElement.scrollIntoView({ behavior: 'smooth' });
+                            }
+                        });
+                    }
+                });
+                // --- END NEW CODE ---
+
             } catch (error) {
                 appDiv.innerHTML = `
                     <div class="nav-buttons"><a href="#${className}" class="btn">← Back to Class</a></div>
