@@ -1,9 +1,9 @@
-# Over the Wire
+# Over the Wire Lab
 <img src="/assets/bandit-header.png">
 
 ## Objective
 
-In this lab, you will learn common terminal commands using the Over the Wire wargame **bandit**.
+1. Learn common terminal commands using the Over the Wire wargame **bandit**.
 
 ## Vocabulary
 | Vocabulary| Description |
