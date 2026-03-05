@@ -6,13 +6,24 @@
     <title>Student Hub</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+        /* Default Dark Mode Variables */
         :root {
+            --primary: #60a5fa;
+            --bg: #0f172a;
+            --surface: #1e293b;
+            --text: #f8fafc;
+            --border: #334155;
+        }
+
+        /* Light Mode Variables */
+        body.light-mode {
             --primary: #2563eb;
             --bg: #f8fafc;
             --surface: #ffffff;
             --text: #0f172a;
             --border: #e2e8f0;
         }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
@@ -20,22 +31,61 @@
             line-height: 1.6;
             margin: 0;
             padding: 2rem;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
+
+        #theme-toggle {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+
         #app {
             max-width: 800px;
-            margin: 0 auto;
+            margin: 2rem auto 0;
             background: var(--surface);
             padding: 2rem 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for dark mode */
+            transition: background-color 0.3s ease;
         }
+
         h1, h2, h3 { color: var(--primary); }
+        
+        /* Search Bar Styles */
+        .search-container {
+            margin-bottom: 2rem;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        .search-bar:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        /* 2-Column Grid */
         .grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
+        
+        @media (max-width: 600px) {
+            .grid { grid-template-columns: 1fr; }
+            #app { padding: 1.5rem; }
+        }
+
         .card {
             display: block;
             padding: 1.5rem;
@@ -53,6 +103,7 @@
             color: var(--primary);
             transform: translateY(-2px);
         }
+        
         .list-item {
             display: block;
             padding: 1rem;
@@ -60,10 +111,12 @@
             text-decoration: none;
             color: var(--text);
         }
-        .list-item:hover { background: var(--bg); color: var(--primary); }
+        .list-item:hover { background: var(--surface); color: var(--primary); }
+        
         .nav-buttons { margin-bottom: 2rem; }
+        
         .btn {
-            background: var(--bg);
+            background: var(--surface);
             border: 1px solid var(--border);
             padding: 0.5rem 1rem;
             border-radius: 6px;
@@ -71,23 +124,39 @@
             text-decoration: none;
             color: var(--text);
             font-size: 0.9rem;
+            transition: background-color 0.2s;
         }
-        .btn:hover { background: var(--border); }
+        .btn:hover { background: var(--bg); border-color: var(--primary); }
+        
         .markdown-body img { max-width: 100%; border-radius: 6px; }
         .markdown-body pre { background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
         .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
-        .error { color: #dc2626; padding: 1rem; background: #fee2e2; border-radius: 6px; }
+        .error { color: #fca5a5; padding: 1rem; background: #7f1d1d; border-radius: 6px; }
     </style>
 </head>
 <body>
 
+    <button id="theme-toggle" class="btn">🌗 Toggle Theme</button>
+
     <div id="app"></div>
-    <!-- epicCTF{h@ck1ng_i5_t0o_muCh_fuN_ablkfhdn} -->
-     
+
     <script>
-        // --- 1. DEFINE YOUR CLASSES AND ASSIGNMENTS HERE ---
-        // Because browsers can't automatically read your computer's folders, 
-        // you must list your files here so the site knows what to look for.
+        // --- 0. DARK MODE (DEFAULT) LOGIC ---
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check if the user previously saved a LIGHT mode preference
+        if (localStorage.getItem('theme') === 'light') {
+            body.classList.add('light-mode');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            // Save preference to local storage based on the light-mode class
+            localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
+        });
+
+        // --- 1. CURRICULUM DATA ---
         const curriculum = {
             "Class-1": ["assignment-1", "assignment-2"],
             "Class-2": ["assignment-1"],
@@ -99,7 +168,6 @@
 
         // --- 2. ROUTING LOGIC ---
         function render() {
-            // Get the current URL hash (e.g., #Class-1/assignment-1)
             const hash = window.location.hash.substring(1); 
             
             if (!hash) {
@@ -113,21 +181,75 @@
         }
 
         // --- 3. RENDER FUNCTIONS ---
-        // Renders the main central hub
         function renderHub() {
-            let html = `<h1>Central Hub</h1><p>Select a class to view assignments:</p><div class="grid">`;
+            let html = `
+                <h1>Central Hub</h1>
+                
+                <div class="search-container">
+                    <input type="text" id="search-input" class="search-bar" placeholder="Search for an assignment...">
+                </div>
+
+                <div id="default-view">
+                    <p>Select a class to view assignments:</p>
+                    <div class="grid">
+            `;
+            
             for (const className in curriculum) {
-                // Replace hyphens with spaces for a cleaner display name
                 const displayName = className.replace(/-/g, ' '); 
                 html += `<a href="#${className}" class="card">${displayName}</a>`;
             }
-            html += `</div>`;
+            
+            html += `
+                    </div>
+                </div>
+                <div id="search-results"></div>
+            `;
+            
             appDiv.innerHTML = html;
+            document.getElementById('search-input').addEventListener('input', handleSearch);
         }
 
-        // Renders the list of assignments for a specific class
+        // --- 4. SEARCH LOGIC ---
+        function handleSearch(event) {
+            const query = event.target.value.toLowerCase();
+            const defaultView = document.getElementById('default-view');
+            const searchResults = document.getElementById('search-results');
+
+            if (query.trim() === '') {
+                defaultView.style.display = 'block';
+                searchResults.innerHTML = '';
+                return;
+            }
+
+            defaultView.style.display = 'none';
+            let resultsHtml = `<h3>Search Results</h3><div>`;
+            let matchCount = 0;
+
+            for (const className in curriculum) {
+                curriculum[className].forEach(assignment => {
+                    const cleanAssignmentName = assignment.replace(/-/g, ' ');
+                    const cleanClassName = className.replace(/-/g, ' ');
+                    
+                    if (cleanAssignmentName.toLowerCase().includes(query) || cleanClassName.toLowerCase().includes(query)) {
+                        resultsHtml += `<a href="#${className}/${assignment}" class="list-item">
+                            📄 <strong>${cleanClassName}</strong>: ${cleanAssignmentName}
+                        </a>`;
+                        matchCount++;
+                    }
+                });
+            }
+
+            resultsHtml += `</div>`;
+
+            if (matchCount === 0) {
+                searchResults.innerHTML = `<p>No assignments found matching "${query}".</p>`;
+            } else {
+                searchResults.innerHTML = resultsHtml;
+            }
+        }
+
         function renderClassPage(className) {
-            if (!curriculum[className]) return renderHub(); // Failsafe
+            if (!curriculum[className]) return renderHub(); 
             
             const displayName = className.replace(/-/g, ' ');
             let html = `
@@ -147,17 +269,13 @@
             appDiv.innerHTML = html;
         }
 
-        // Fetches and renders the actual markdown file
         async function renderAssignment(className, assignmentName) {
             appDiv.innerHTML = `<p>Loading...</p>`;
             try {
-                // Look for the file in the /markdown folder
                 const response = await fetch(`markdown/${className}/${assignmentName}.md`);
-                
                 if (!response.ok) throw new Error('Markdown file not found.');
                 
                 const markdownText = await response.text();
-                // Parse markdown to HTML
                 const htmlContent = marked.parse(markdownText); 
                 
                 appDiv.innerHTML = `
@@ -179,14 +297,9 @@
             }
         }
 
-        // --- 4. EVENT LISTENERS ---
-        // Listen for changes in the URL hash to update the page
+        // --- 5. EVENT LISTENERS ---
         window.addEventListener('hashchange', render);
-        
-        // Initial render when the page first loads
         render();
     </script>
 </body>
 </html>
-        
-    
