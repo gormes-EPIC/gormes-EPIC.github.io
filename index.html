@@ -13,6 +13,10 @@
             --surface: #1e293b;
             --text: #f8fafc;
             --border: #334155;
+            --badge-note-bg: rgba(37, 99, 235, 0.2);
+            --badge-note-text: #60a5fa;
+            --badge-assign-bg: rgba(220, 38, 38, 0.2);
+            --badge-assign-text: #f87171;
         }
 
         /* Light Mode Variables */
@@ -22,6 +26,10 @@
             --surface: #ffffff;
             --text: #0f172a;
             --border: #e2e8f0;
+            --badge-note-bg: #dbeafe;
+            --badge-note-text: #1d4ed8;
+            --badge-assign-bg: #fee2e2;
+            --badge-assign-text: #b91c1c;
         }
 
         body {
@@ -47,7 +55,7 @@
             background: var(--surface);
             padding: 2rem 3rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5); /* Slightly darker shadow for dark mode */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.5);
             transition: background-color 0.3s ease;
         }
 
@@ -73,6 +81,25 @@
             border-color: var(--primary);
         }
 
+        /* Badges for Classification */
+        .badge {
+            font-size: 0.7rem;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            white-space: nowrap; /* Prevents badge text from wrapping */
+        }
+        .badge-notes {
+            background-color: var(--badge-note-bg);
+            color: var(--badge-note-text);
+        }
+        .badge-assignment {
+            background-color: var(--badge-assign-bg);
+            color: var(--badge-assign-text);
+        }
+
+        /* 2-Column Grid */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -104,13 +131,19 @@
         }
         
         .list-item {
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* This pushes text left and badge right */
             padding: 1rem;
             border-bottom: 1px solid var(--border);
             text-decoration: none;
             color: var(--text);
+            transition: background-color 0.2s;
         }
         .list-item:hover { background: var(--surface); color: var(--primary); }
+        .list-item-text {
+            padding-right: 1rem; /* Adds a little breathing room before the badge */
+        }
         
         .nav-buttons { margin-bottom: 2rem; }
         
@@ -144,23 +177,32 @@
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
 
-        // Check if the user previously saved a LIGHT mode preference
         if (localStorage.getItem('theme') === 'light') {
             body.classList.add('light-mode');
         }
 
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('light-mode');
-            // Save preference to local storage based on the light-mode class
             localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
         });
 
-        // --- 1. CURRICULUM DATA ---
+        // --- 1. CLASSIFIED CURRICULUM DATA ---
         const curriculum = {
-            "Pi's and Python": ["Over the Wire", "Text Editors", "Light the LED", "Fun with Objects"],
-            "Class-2": ["assignment-1"],
-            "Class-3": ["project"],
-            "Class-4": ["notes"]
+            "Pi's-and-Python": [
+                { file: "Over-the-Wire", type: "assignment" },
+                { file: "Light-the-LED", type: "assignment" },
+                { file: "chapter-1-notes", type: "notes" }
+            ],
+            "Data-Structures-and-Algorithms": [
+                { file: "assignment-1", type: "assignment" },
+                { file: "lecture-notes", type: "notes" }
+            ],
+            "Software-Engineering": [
+                { file: "project", type: "assignment" }
+            ],
+            "Foundations-of-AI": [
+                { file: "notes", type: "notes" }
+            ]
         };
 
         const appDiv = document.getElementById('app');
@@ -179,17 +221,37 @@
             }
         }
 
+        // --- Helper Function to Render List Items ---
+        function generateFileListHTML(className, files) {
+            if (files.length === 0) return `<p>No matching files found.</p>`;
+            
+            let html = '';
+            files.forEach(item => {
+                const cleanFileName = item.file.replace(/-/g, ' ');
+                const badgeClass = item.type === 'notes' ? 'badge-notes' : 'badge-assignment';
+                
+                // HTML structure reversed: text first, badge second
+                html += `
+                    <a href="#${className}/${item.file}" class="list-item">
+                        <span class="list-item-text">${cleanFileName}</span>
+                        <span class="badge ${badgeClass}">${item.type.toUpperCase()}</span>
+                    </a>
+                `;
+            });
+            return html;
+        }
+
         // --- 3. RENDER FUNCTIONS ---
         function renderHub() {
             let html = `
                 <h1>Central Hub</h1>
                 
                 <div class="search-container">
-                    <input type="text" id="search-input" class="search-bar" placeholder="Search for an assignment...">
+                    <input type="text" id="search-input" class="search-bar" placeholder="Search all files globally...">
                 </div>
 
                 <div id="default-view">
-                    <p>Select a class to view assignments:</p>
+                    <p>Select a class to view assignments and notes:</p>
                     <div class="grid">
             `;
             
@@ -205,11 +267,11 @@
             `;
             
             appDiv.innerHTML = html;
-            document.getElementById('search-input').addEventListener('input', handleSearch);
+            document.getElementById('search-input').addEventListener('input', handleGlobalSearch);
         }
 
-        // --- 4. SEARCH LOGIC ---
-        function handleSearch(event) {
+        // --- 4. GLOBAL SEARCH LOGIC ---
+        function handleGlobalSearch(event) {
             const query = event.target.value.toLowerCase();
             const defaultView = document.getElementById('default-view');
             const searchResults = document.getElementById('search-results');
@@ -225,14 +287,23 @@
             let matchCount = 0;
 
             for (const className in curriculum) {
-                curriculum[className].forEach(assignment => {
-                    const cleanAssignmentName = assignment.replace(/-/g, ' ');
+                curriculum[className].forEach(item => {
+                    const cleanFileName = item.file.replace(/-/g, ' ');
                     const cleanClassName = className.replace(/-/g, ' ');
                     
-                    if (cleanAssignmentName.toLowerCase().includes(query) || cleanClassName.toLowerCase().includes(query)) {
-                        resultsHtml += `<a href="#${className}/${assignment}" class="list-item">
-                            📄 <strong>${cleanClassName}</strong>: ${cleanAssignmentName}
-                        </a>`;
+                    if (cleanFileName.toLowerCase().includes(query) || 
+                        cleanClassName.toLowerCase().includes(query) ||
+                        item.type.toLowerCase().includes(query)) {
+                        
+                        const badgeClass = item.type === 'notes' ? 'badge-notes' : 'badge-assignment';
+                        
+                        // HTML structure reversed here as well
+                        resultsHtml += `
+                            <a href="#${className}/${item.file}" class="list-item">
+                                <span class="list-item-text"><strong>${cleanClassName}</strong>: ${cleanFileName}</span>
+                                <span class="badge ${badgeClass}">${item.type.toUpperCase()}</span>
+                            </a>
+                        `;
                         matchCount++;
                     }
                 });
@@ -241,12 +312,13 @@
             resultsHtml += `</div>`;
 
             if (matchCount === 0) {
-                searchResults.innerHTML = `<p>No assignments found matching "${query}".</p>`;
+                searchResults.innerHTML = `<p>No files found matching "${query}".</p>`;
             } else {
                 searchResults.innerHTML = resultsHtml;
             }
         }
 
+        // --- 5. CLASS PAGE WITH SEARCH ---
         function renderClassPage(className) {
             if (!curriculum[className]) return renderHub(); 
             
@@ -255,19 +327,32 @@
                 <div class="nav-buttons">
                     <a href="#" class="btn">← Back to Hub</a>
                 </div>
-                <h2>${displayName} Assignments</h2>
-                <div>
+                <h2>${displayName} Files</h2>
+                
+                <div class="search-container">
+                    <input type="text" id="class-search-input" class="search-bar" placeholder="Search within ${displayName}...">
+                </div>
+
+                <div id="class-file-list">
+                    ${generateFileListHTML(className, curriculum[className])}
+                </div>
             `;
             
-            curriculum[className].forEach(assignment => {
-                const assignmentName = assignment.replace(/-/g, ' ');
-                html += `<a href="#${className}/${assignment}" class="list-item">📄 ${assignmentName}</a>`;
-            });
-            
-            html += `</div>`;
             appDiv.innerHTML = html;
+
+            document.getElementById('class-search-input').addEventListener('input', (event) => {
+                const query = event.target.value.toLowerCase();
+                
+                const filteredFiles = curriculum[className].filter(item => {
+                    const cleanFileName = item.file.replace(/-/g, ' ').toLowerCase();
+                    return cleanFileName.includes(query) || item.type.includes(query);
+                });
+                
+                document.getElementById('class-file-list').innerHTML = generateFileListHTML(className, filteredFiles);
+            });
         }
 
+        // --- 6. RENDER INDIVIDUAL FILE ---
         async function renderAssignment(className, assignmentName) {
             appDiv.innerHTML = `<p>Loading...</p>`;
             try {
@@ -296,7 +381,7 @@
             }
         }
 
-        // --- 5. EVENT LISTENERS ---
+        // --- 7. EVENT LISTENERS ---
         window.addEventListener('hashchange', render);
         render();
     </script>
