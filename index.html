@@ -178,7 +178,27 @@
         .markdown-body img { max-width: 100%; border-radius: 6px; }
         .markdown-body pre { background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
         .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
+        .markdown-body a { color: #10b981; }
         .error { color: #fca5a5; padding: 1rem; background: #7f1d1d; border-radius: 6px; }
+        
+        /* Markdown Table Styles */
+.markdown-body table {
+    width: 100%;
+    border-collapse: collapse; /* This ensures borders combine into a single line */
+    margin: 1.5rem 0;
+}
+
+.markdown-body th, 
+.markdown-body td {
+    border: 1px solid var(--border); /* Uses your auto-switching border color */
+    padding: 0.75rem 1rem; /* Adds the breathing room (top/bottom, left/right) */
+    text-align: left;
+}
+
+.markdown-body th {
+    background-color: var(--bg); /* Gives the header row a subtle contrasting background */
+    font-weight: 600;
+}
     </style>
 </head>
 <body>
