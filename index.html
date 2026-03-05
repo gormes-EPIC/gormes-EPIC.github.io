@@ -3,128 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Source Assignments</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Student Hub</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
+        :root {
+            --primary: #2563eb;
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --text: #0f172a;
+            --border: #e2e8f0;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
             margin: 0;
-            padding: 0;
-            background-color: #121212;
-            color: #e0e0e0;
-            text-align: center;
+            padding: 2rem;
         }
-        header {
-            background: #1e1e1e;
-            color: white;
-            padding: 20px;
+        #app {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface);
+            padding: 2rem 3rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
-        main {
-            padding: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+        h1, h2, h3 { color: var(--primary); }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
-        .class-section {
-            width: 45%;
-            margin: 10px;
-            padding: 15px;
-            background: #222;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-        }
-        h2 {
-            border-bottom: 2px solid #555;
-            padding-bottom: 5px;
-            color: #f5f5f5;
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            margin: 10px 0;
-        }
-        a {
+        .card {
+            display: block;
+            padding: 1.5rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
             text-decoration: none;
-            color: #64b5f6;
-            font-size: 18px;
+            color: var(--text);
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.2s ease;
         }
-        a:hover {
-            text-decoration: underline;
-            color: #90caf9;
+        .card:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            transform: translateY(-2px);
         }
-        .tags {
-            font-size: 14px;
-            color: #bbb;
+        .list-item {
+            display: block;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            text-decoration: none;
+            color: var(--text);
         }
+        .list-item:hover { background: var(--bg); color: var(--primary); }
+        .nav-buttons { margin-bottom: 2rem; }
+        .btn {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+        .btn:hover { background: var(--border); }
+        .markdown-body img { max-width: 100%; border-radius: 6px; }
+        .markdown-body pre { background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
+        .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
+        .error { color: #dc2626; padding: 1rem; background: #fee2e2; border-radius: 6px; }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Ormes Open Source Assignments</h1>
-        <p>Browse my assignments open source on GitHub.</p>
-    </header>
-    <main>
-        <div id="Raspberry Pis and Python" class="class-section">
-            <h2>Raspberry Pi's and Python</h2>
-            <ul></ul>
-        </div>
-        <div id="Data Structures and Algorithms" class="class-section">
-            <h2>Data Structures and Algorithms</h2>
-            <ul></ul>
-        </div>
-        <div id="Software Engineering" class="class-section">
-            <h2>Software Engineering</h2>
-            <ul></ul>
-        </div>
-        <div id="Foundations of AI" class="class-section">
-            <h2>Foundations of AI</h2>
-            <ul></ul>
-        </div>
-         <div id="AP Computer Science A" class="class-section">
-            <h2>AP Computer Science A</h2>
-            <ul></ul>
-        </div> 
-        <!-- epicCTF{h@ck1ng_i5_t0o_muCh_fuN_ablkfhdn} -->
-    </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            fetch("assignments.csv")
-                .then(response => response.text())
-                .then(data => {
-                    console.log("CSV Data Loaded:\n", data);
-                    const rows = data.trim().split("\n").slice(1);
-                    rows.forEach(row => {
-                        const columns = row.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/).map(col => col.replace(/^"|"$/g, '').trim());
-                            if (columns.length >= 3) {
-                            const [title, url, className, tags = ""] = columns;
-                            console.log(`Processing: ${title}, ${url}, ${className}, ${tags}`);
-                            const section = document.getElementById(className) || document.getElementById("Other");
-                            if (section) {
-                                const list = section.querySelector("ul");
-                                const li = document.createElement("li");
-                                const a = document.createElement("a");
-                                a.href = url;
-                                a.textContent = title;
-                                a.target = "_blank";
-                                const tagSpan = document.createElement("span");
-                                tagSpan.classList.add("tags");
-                                tagSpan.textContent = ` [${tags}]`;
-                                li.appendChild(a);
-                                li.appendChild(tagSpan);
-                                list.appendChild(li);
-                            } else {
-                                console.warn(`No section found for class: ${className}`);
-                            }
-                        } else {
-                            console.warn("Invalid CSV row:", row);
-                        }
-                    });
-                })
-                .catch(error => console.error("Error loading CSV file:", error));
-        });
-    </script>
 
+    <div id="app"></div>
+    <!-- epicCTF{h@ck1ng_i5_t0o_muCh_fuN_ablkfhdn} -->
+     
+    <script>
+        // --- 1. DEFINE YOUR CLASSES AND ASSIGNMENTS HERE ---
+        // Because browsers can't automatically read your computer's folders, 
+        // you must list your files here so the site knows what to look for.
+        const curriculum = {
+            "Class-1": ["assignment-1", "assignment-2"],
+            "Class-2": ["assignment-1"],
+            "Class-3": ["project"],
+            "Class-4": ["notes"]
+        };
+
+        const appDiv = document.getElementById('app');
+
+        // --- 2. ROUTING LOGIC ---
+        function render() {
+            // Get the current URL hash (e.g., #Class-1/assignment-1)
+            const hash = window.location.hash.substring(1); 
+            
+            if (!hash) {
+                renderHub();
+            } else if (hash.includes('/')) {
+                const [className, assignmentName] = hash.split('/');
+                renderAssignment(className, assignmentName);
+            } else {
+                renderClassPage(hash);
+            }
+        }
+
+        // --- 3. RENDER FUNCTIONS ---
+        // Renders the main central hub
+        function renderHub() {
+            let html = `<h1>Central Hub</h1><p>Select a class to view assignments:</p><div class="grid">`;
+            for (const className in curriculum) {
+                // Replace hyphens with spaces for a cleaner display name
+                const displayName = className.replace(/-/g, ' '); 
+                html += `<a href="#${className}" class="card">${displayName}</a>`;
+            }
+            html += `</div>`;
+            appDiv.innerHTML = html;
+        }
+
+        // Renders the list of assignments for a specific class
+        function renderClassPage(className) {
+            if (!curriculum[className]) return renderHub(); // Failsafe
+            
+            const displayName = className.replace(/-/g, ' ');
+            let html = `
+                <div class="nav-buttons">
+                    <a href="#" class="btn">← Back to Hub</a>
+                </div>
+                <h2>${displayName} Assignments</h2>
+                <div>
+            `;
+            
+            curriculum[className].forEach(assignment => {
+                const assignmentName = assignment.replace(/-/g, ' ');
+                html += `<a href="#${className}/${assignment}" class="list-item">📄 ${assignmentName}</a>`;
+            });
+            
+            html += `</div>`;
+            appDiv.innerHTML = html;
+        }
+
+        // Fetches and renders the actual markdown file
+        async function renderAssignment(className, assignmentName) {
+            appDiv.innerHTML = `<p>Loading...</p>`;
+            try {
+                // Look for the file in the /markdown folder
+                const response = await fetch(`markdown/${className}/${assignmentName}.md`);
+                
+                if (!response.ok) throw new Error('Markdown file not found.');
+                
+                const markdownText = await response.text();
+                // Parse markdown to HTML
+                const htmlContent = marked.parse(markdownText); 
+                
+                appDiv.innerHTML = `
+                    <div class="nav-buttons">
+                        <a href="#${className}" class="btn">← Back to Class</a>
+                    </div>
+                    <div class="markdown-body">
+                        ${htmlContent}
+                    </div>
+                `;
+            } catch (error) {
+                appDiv.innerHTML = `
+                    <div class="nav-buttons"><a href="#${className}" class="btn">← Back to Class</a></div>
+                    <div class="error">
+                        <strong>Error:</strong> Could not load <code>markdown/${className}/${assignmentName}.md</code>. <br>
+                        Make sure the file exists and that you are running a local web server.
+                    </div>
+                `;
+            }
+        }
+
+        // --- 4. EVENT LISTENERS ---
+        // Listen for changes in the URL hash to update the page
+        window.addEventListener('hashchange', render);
+        
+        // Initial render when the page first loads
+        render();
+    </script>
 </body>
 </html>
+        
+    
