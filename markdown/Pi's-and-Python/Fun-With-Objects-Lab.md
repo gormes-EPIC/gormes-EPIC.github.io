@@ -226,6 +226,7 @@ Kernel Panic,Null Pointer
 
 
 ## Tips, Tricks, and Resources
+- [Objects in Python Notes](#Pi's-and-Python/Objects-In-Python-Notes)
 - [W3 Schools](https://www.w3schools.com/python/python_classes.asp)
 - [Geeks for Geeks](https://www.geeksforgeeks.org/python/python-object/)
 - [Introduction to Classes and Objects](https://www.youtube.com/watch?v=8yjkWGRlUmY) and [Using Classes and Objects in Python](https://www.youtube.com/watch?v=wfcWRAxRVBA)
