@@ -1,0 +1,18 @@
+const curriculum = {
+            "Pi's-and-Python": [
+                { file: "Over-the-Wire", type: "assignment" },
+                { file: "Light-the-LED", type: "assignment" },
+                { file: "Working-with-Raspberry-Pi", type: "notes" },
+                { file: "Terminal-Commands", type: "exercises" }
+            ],
+            "Data-Structures-and-Algorithms": [
+                { file: "assignment-1", type: "assignment" },
+                { file: "lecture-notes", type: "notes" }
+            ],
+            "Software-Engineering": [
+                { file: "project", type: "assignment" }
+            ],
+            "Foundations-of-AI": [
+                { file: "notes", type: "notes" }
+            ]
+        };

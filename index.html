@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Hub</title>
+    <title>EPIC Software Dev Hub</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <style>
         /* Default Dark Mode Variables */
@@ -13,10 +13,14 @@
             --surface: #1e293b;
             --text: #f8fafc;
             --border: #334155;
+            
             --badge-note-bg: rgba(37, 99, 235, 0.2);
             --badge-note-text: #60a5fa;
             --badge-assign-bg: rgba(220, 38, 38, 0.2);
             --badge-assign-text: #f87171;
+            /* New Exercise Colors (Emerald Green) */
+            --badge-exercise-bg: rgba(16, 185, 129, 0.2); 
+            --badge-exercise-text: #34d399;
         }
 
         /* Light Mode Variables */
@@ -26,10 +30,13 @@
             --surface: #ffffff;
             --text: #0f172a;
             --border: #e2e8f0;
+            
             --badge-note-bg: #dbeafe;
             --badge-note-text: #1d4ed8;
             --badge-assign-bg: #fee2e2;
             --badge-assign-text: #b91c1c;
+            --badge-exercise-bg: #d1fae5;
+            --badge-exercise-text: #059669;
         }
 
         body {
@@ -88,7 +95,7 @@
             border-radius: 4px;
             font-weight: 700;
             letter-spacing: 0.5px;
-            white-space: nowrap; /* Prevents badge text from wrapping */
+            white-space: nowrap;
         }
         .badge-notes {
             background-color: var(--badge-note-bg);
@@ -97,6 +104,11 @@
         .badge-assignment {
             background-color: var(--badge-assign-bg);
             color: var(--badge-assign-text);
+        }
+        /* New Exercise Badge Class */
+        .badge-exercise {
+            background-color: var(--badge-exercise-bg);
+            color: var(--badge-exercise-text);
         }
 
         /* 2-Column Grid */
@@ -133,7 +145,7 @@
         .list-item {
             display: flex;
             align-items: center;
-            justify-content: space-between; /* This pushes text left and badge right */
+            justify-content: space-between; 
             padding: 1rem;
             border-bottom: 1px solid var(--border);
             text-decoration: none;
@@ -142,7 +154,7 @@
         }
         .list-item:hover { background: var(--surface); color: var(--primary); }
         .list-item-text {
-            padding-right: 1rem; /* Adds a little breathing room before the badge */
+            padding-right: 1rem; 
         }
         
         .nav-buttons { margin-bottom: 2rem; }
@@ -160,6 +172,9 @@
         }
         .btn:hover { background: var(--bg); border-color: var(--primary); }
         
+        /* Markdown Styles including Links */
+        .markdown-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
+        .markdown-body a:hover { text-decoration: underline; }
         .markdown-body img { max-width: 100%; border-radius: 6px; }
         .markdown-body pre { background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
         .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
@@ -191,7 +206,8 @@
             "Pi's-and-Python": [
                 { file: "Over-the-Wire", type: "assignment" },
                 { file: "Light-the-LED", type: "assignment" },
-                { file: "Working-with-Raspberry-Pi", type: "notes" }
+                { file: "Working-with-Raspberry-Pi", type: "notes" },
+                { file: "Terminal-Commands", type: "exercise" }
             ],
             "Data-Structures-and-Algorithms": [
                 { file: "assignment-1", type: "assignment" },
@@ -204,6 +220,7 @@
                 { file: "notes", type: "notes" }
             ]
         };
+
 
         const appDiv = document.getElementById('app');
 
@@ -221,6 +238,14 @@
             }
         }
 
+        // --- Helper Function to get Badge Class ---
+        function getBadgeClass(type) {
+            if (type === 'notes') return 'badge-notes';
+            if (type === 'assignment') return 'badge-assignment';
+            if (type === 'exercise') return 'badge-exercise';
+            return ''; // Default fallback
+        }
+
         // --- Helper Function to Render List Items ---
         function generateFileListHTML(className, files) {
             if (files.length === 0) return `<p>No matching files found.</p>`;
@@ -228,9 +253,8 @@
             let html = '';
             files.forEach(item => {
                 const cleanFileName = item.file.replace(/-/g, ' ');
-                const badgeClass = item.type === 'notes' ? 'badge-notes' : 'badge-assignment';
+                const badgeClass = getBadgeClass(item.type);
                 
-                // HTML structure reversed: text first, badge second
                 html += `
                     <a href="#${className}/${item.file}" class="list-item">
                         <span class="list-item-text">${cleanFileName}</span>
@@ -244,7 +268,7 @@
         // --- 3. RENDER FUNCTIONS ---
         function renderHub() {
             let html = `
-                <h1>Central Hub</h1>
+                <h1>EPIC Software Development Courses</h1>
                 
                 <div class="search-container">
                     <input type="text" id="search-input" class="search-bar" placeholder="Search all files globally...">
@@ -295,9 +319,8 @@
                         cleanClassName.toLowerCase().includes(query) ||
                         item.type.toLowerCase().includes(query)) {
                         
-                        const badgeClass = item.type === 'notes' ? 'badge-notes' : 'badge-assignment';
+                        const badgeClass = getBadgeClass(item.type);
                         
-                        // HTML structure reversed here as well
                         resultsHtml += `
                             <a href="#${className}/${item.file}" class="list-item">
                                 <span class="list-item-text"><strong>${cleanClassName}</strong>: ${cleanFileName}</span>
