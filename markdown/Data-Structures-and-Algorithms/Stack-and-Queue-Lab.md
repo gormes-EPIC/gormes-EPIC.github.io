@@ -2,22 +2,16 @@
 
 ## Objective
 
-In this lab, you will learn 
+1. Implement a stack and queue class using an array of integer values. 
+2. Program in teams of two, where one person completes `Stack` and the other completes `Queue`.
+
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-|       |  |
+| stack  | an abstract data structure that follows the "last in, first out" property |
+| queue  | an abstract data structure that follows the "first in, first out" property |
 
 ## Your Task
-
-# Stacks and Queues
-
-## Objective
-
-- Implement a stack and queue class using an array of integer values. 
-- Program in teams of two, where one person completes `Stack` and the other completes `Queue`.
-
-## Project Details
 
 - Create a class `Stack` which implements a simple stack using an array of integer values and contains the following methods.
 	- `void push(int element)`: push element onto the top of the stack
@@ -33,27 +27,12 @@ In this lab, you will learn
 	- `isEmpty()`: returns true of there are no elements in the queue, false otherwise.
 - For each class, add appropriate Javadoc comments and generate Stack.HTML and Queue.HTML for your classes. **Include the runtime of each method in each Javadoc comment description.**
 
-## Tips
-
-- To copy arrays easily, you can use the built in Java method: ` System.arraycopy();`
-
-- 
-## Test Cases
-
-- To assess your Stack and Queue classes, you will be responsible for creating your own test cases to check the accuracy of your program before turning it in.
-- Make sure your test cases check for correctness against a variety of inputs. 
-
-## Reflection Questions
-
-
-## Getting Started
-
-1. 
-
 ## Tips, Tricks, and Resources
-- 
+- To copy arrays easily, you can use the built in Java method: ` System.arraycopy();`
+- [Stacks and Queues](https://www.andrew.cmu.edu/course/15-121/lectures/Stacks%20and%20Queues/Stacks%20and%20Queues.html)
 
 ## Extensions
+1. Change your implementation to use a linked list instead.
 
 ## Reflection Questions
 1. What is the fundamental principle behind a stack?
@@ -64,7 +43,7 @@ In this lab, you will learn
 
 ## Deliverables Checklist
 - [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
+- [ ] A repository with your program with Javadoc comments attached to Google Classroom
 - [ ] Answers to the reflection questions, either written or in person
 
 ## Rubric
