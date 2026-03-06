@@ -1,4 +1,4 @@
-# Assignment Title
+# Dim the LED Lab
 
 ## Objective
 
