@@ -1,9 +1,9 @@
-# Assignment Title
-<img src="/assets/bandit-header.png">
+# Binary Search Tree Lab
 
 ## Objective
 
-In this lab, you will learn 
+1. 
+
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |

@@ -51,7 +51,7 @@ Your task is to implement four sorting algorithms: Bubble Sort, Selection Sort, 
 - [ ] Demonstrate a working program to your instructor in class
 - [ ] A repository with your program attached to Google Classroom
 - [ ] Attach your graph to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person. 
+- [ ] Answers to the reflection questions, either written or in person
 
 
 ## Rubric

@@ -1,4 +1,5 @@
 # Assignment Title
+
 <img src="/assets/bandit-header.png">
 
 ## Objective
@@ -26,9 +27,7 @@ In this lab, you will learn
 1. 
 
 ## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+- [ ] 
 
 ## Rubric
 - **6 points** - All required items are present.

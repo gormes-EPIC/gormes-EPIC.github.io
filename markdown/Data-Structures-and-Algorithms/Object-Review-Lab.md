@@ -1,13 +1,15 @@
-# Assignment Title
-<img src="/assets/bandit-header.png">
+# Object Review Lab
 
 ## Objective
 
-In this lab, you will learn 
+1. Review objects and classes
+2. Learn how to use basic constructions in Java
+3. Learn how to use IntelliJ with GitHub
+
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-|       |  |
+|  |  |
 
 ## Your Task
 
@@ -26,9 +28,7 @@ In this lab, you will learn
 1. 
 
 ## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+- [ ] 
 
 ## Rubric
 - **6 points** - All required items are present.
