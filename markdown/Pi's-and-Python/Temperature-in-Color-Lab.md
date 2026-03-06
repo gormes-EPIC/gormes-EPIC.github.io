@@ -9,7 +9,7 @@
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-|       |  |
+| DHT11 | A humidity and temperature sensor |
 
 ## Your Task
 
