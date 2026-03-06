@@ -173,7 +173,7 @@ For your `Node` class and `DoublyLinkedList` class, generate proper Javadoc docu
 
 ## Deliverables Checklist
 - [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
+- [ ] A repository with your program and test class attached to Google Classroom
 - [ ] Answers to the reflection questions, either written or in person. 
 
 ## Rubric
