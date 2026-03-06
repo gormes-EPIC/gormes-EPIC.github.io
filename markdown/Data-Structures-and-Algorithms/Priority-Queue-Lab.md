@@ -2,7 +2,7 @@
 
 ## Objective
 
-1. 
+1. Implement a priority queue using a heap
 
 ## Vocabulary
 | Vocabulary| Description |
