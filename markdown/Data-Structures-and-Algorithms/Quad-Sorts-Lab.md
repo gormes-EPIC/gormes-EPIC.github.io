@@ -2,12 +2,20 @@
 
 ## Objective
 
-1. In this lab, you will learn to implement multiple sorting algorithms and present 
+1. In this lab, you will learn to implement multiple sorting algorithms
+2. Then, you will graph each algorithm to compares its runtime over different inputs of n.
 
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-| Big O Notation |  describe the efficiency, scalability, and performance of an algorithm as the input size (\(n\)) grows |
+| Big O Notation | Describes the efficiency, scalability, and performance of an algorithm as the input size n grows |
+| Bubble Sort | Sorts an array by continuously swaping adjacent elements |
+| Selection Sort | Sorts an array by selecting the smallest element and swapping it to the front |
+| Insertion Sort | Sorts an array by separating the array into a sorted and non-sorted section and moving elements one by one into the sorted section |
+| Recursive Methods | Methods that call themselves |
+| Merge Sort | Sorts an array by recursively separating the array into smaller arrays and merge sorting them |
+
+
 
 ## Your Task
 
@@ -25,6 +33,8 @@ Your task is to implement four sorting algorithms: Bubble Sort, Selection Sort, 
 
 ## Tips, Tricks, and Resources
 - [VisualAlgo](https://visualgo.net/en/sorting)
+- [Other Algorithm Visualizer](https://www.cs.usfca.edu/~galles/visualization/ComparisonSort.html)
+- [Another Visualizer](https://algorithm-visualizer.seancoughlin.me/sorting/bubbleSort)
 - [W3 Schools](https://www.w3schools.com/dsa/dsa_algo_bubblesort.php)
 
 ## Extensions
