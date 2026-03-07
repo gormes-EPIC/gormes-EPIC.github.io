@@ -73,11 +73,7 @@ while True:
 
 1. Modify your program above to send your  output to a new file, `temperature.csv`, instead of printing to the terminal. "CSV" stands for comma separated values. Each line of your file should contain "time, temperature". Make sure your file is writing to new lines! It will not automatically add the line breaks for you! Otherwise you will have one really long line and need to split it apart. 
 2. The next step is to record temperature decay of cold air. Place an ice pack on your sensor for a few minutes then remove the ice pack. The temperature should slowly rise until it returns to room temperature. 
-
-## Plotting and Results
-
-2. Open `temperature.csv` in Google Sheets or a similar program. Using our data, we will make two different graphs.
-3. Also, open a new Markdown document to paste screenshots of your graphs and answer the following questions.
+3. Open `temperature.csv` in Google Sheets or a similar program. Using our data, we will make two different graphs.
 4. First, plot Celsius vs Fahrenheit. Then, add a line of best fit. Make sure to add a title and axis labels!
 5. Second, plot Celsius or Fahrenheit over time. Make sure to add a title and axis labels!
 
