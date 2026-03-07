@@ -227,13 +227,13 @@ Kernel Panic,Null Pointer
 
 ## Tips, Tricks, and Resources
 - [Objects in Python Notes](#Pi's-and-Python/Objects-In-Python-Notes)
-- [W3 Schools](https://www.w3schools.com/python/python_classes.asp)
-- [Geeks for Geeks](https://www.geeksforgeeks.org/python/python-object/)
+- [W3 Schools - Classes](https://www.w3schools.com/python/python_classes.asp)
+- [Geeks for Geeks - Python Objects](https://www.geeksforgeeks.org/python/python-object/)
 - [Introduction to Classes and Objects](https://www.youtube.com/watch?v=8yjkWGRlUmY) and [Using Classes and Objects in Python](https://www.youtube.com/watch?v=wfcWRAxRVBA)
-
+- [Reading Files in Python](https://www.w3schools.com/python/python_file_open.asp)
 
 ## Extensions
-1.  Write a `shuffle()` method that randomizes the order of the `Song` objects in the playlist array. Research and implement the **Fisher-Yates Shuffle** (sometimes called the Knuth Shuffle). It’s an algorithm that shuffles an array "in-place" in O(n) time by looping through the array and swapping the current element with a randomly chosen element that comes before it.
+1.  For Playist, Write a `shuffle()` method that randomizes the order of the `Song` objects in the playlist array. Research and implement the **Fisher-Yates Shuffle** (sometimes called the Knuth Shuffle). It’s an algorithm that shuffles an array "in-place" in O(n) time by looping through the array and swapping the current element with a randomly chosen element that comes before it.
 
 ## Reflection Questions
 1. When you create three different `Song` objects from the same class, what do they share, and what is entirely unique to each of them?

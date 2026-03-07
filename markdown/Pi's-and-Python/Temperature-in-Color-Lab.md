@@ -28,7 +28,8 @@ Create a program that lights a red LED when the temperature sensor reads over 72
 
 <img src="/assets/temperature-in-color-wiring.png">
 
-3. Wire your DHT11 temperature and humidity sensor using the diagram above. **Note: There are two different types of DHT11. Be careful about which one you have.** Attach the sensor to GPIO pin 16 or adjust the code accordingly.
+3. Wire you
+In this lab, you will learn r DHT11 temperature and humidity sensor using the diagram above. **Note: There are two different types of DHT11. Be careful about which one you have.** Attach the sensor to GPIO pin 16 or adjust the code accordingly.
 4. Activate your virtual environment and install the necessary library with `python3 -m pip install adafruit-circuitpython-dht` in your terminal. 
 5. Copy the following starter code into your program. Complete the method `to_farienheit(c)` before running.
 
