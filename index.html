@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EPIC Software Dev Hub</title>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <style>
         /* Default Dark Mode Variables */
         :root {
@@ -176,7 +179,41 @@
         .markdown-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
         .markdown-body a:hover { text-decoration: underline; }
         .markdown-body img { max-width: 100%; border-radius: 6px; }
-        .markdown-body pre { background: var(--bg); padding: 1rem; border-radius: 6px; overflow-x: auto; }
+        /* Code Block & Copy Button Styles */
+        .markdown-body pre { 
+            background: var(--bg); 
+            padding: 1rem; 
+            border-radius: 6px; 
+            overflow-x: auto; 
+            position: relative; /* Crucial for positioning the copy button */
+            border: 1px solid var(--border);
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            cursor: pointer;
+            opacity: 0; /* Hidden by default... */
+            transition: opacity 0.2s, background-color 0.2s, color 0.2s;
+        }
+
+        /* ...Revealed when you hover over the code block */
+        .markdown-body pre:hover .copy-btn {
+            opacity: 1;
+        }
+
+        .copy-btn:hover {
+            background: var(--bg);
+            border-color: var(--primary);
+            color: var(--primary);
+        }
         .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
         .markdown-body a { color: #495cd8; }
         .error { color: #fca5a5; padding: 1rem; background: #7f1d1d; border-radius: 6px; }
@@ -265,7 +302,7 @@
                 { file: "File-Reading-and-Writing-Notes", type: "notes" },
                 { file: "Fun-With-Objects-Lab", type: "assignment" },
                 { file: "Digital-Slot-Machine-Lab", type:"assignment"},
-                
+                { file: "Recursion-Notes", type:"notes"},
                 { file: "Recursion-Lab", type:"assignment"},
                 { file: "Binary-Display-Lab", type:"assignment"},
                 
@@ -469,6 +506,60 @@
                         ${htmlContent}
                     </div>
                 `;
+                // --- NEW CODE: COPY TO CLIPBOARD BUTTONS ---
+                const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
+                
+                codeBlocks.forEach(pre => {
+                    // Create the button element
+                    const copyBtn = document.createElement('button');
+                    copyBtn.className = 'copy-btn';
+                    copyBtn.textContent = 'Copy';
+                    
+                    // Add the click event to copy text
+                    copyBtn.addEventListener('click', () => {
+                        // Find the actual <code> element inside the <pre>
+                        const codeElement = pre.querySelector('code');
+                        if (!codeElement) return;
+
+                        // Use the modern clipboard API
+                        navigator.clipboard.writeText(codeElement.innerText).then(() => {
+                            // Give the user visual feedback
+                            copyBtn.textContent = 'Copied!';
+                            copyBtn.style.color = '#34d399'; // Turn green temporarily
+                            copyBtn.style.borderColor = '#34d399';
+                            
+                            // Reset the button after 2 seconds
+                            setTimeout(() => {
+                                copyBtn.textContent = 'Copy';
+                                copyBtn.style.color = '';
+                                copyBtn.style.borderColor = '';
+                            }, 2000);
+                        }).catch(err => {
+                            console.error('Failed to copy text: ', err);
+                            copyBtn.textContent = 'Error';
+                        });
+                    });
+                    
+                    // Append the button to the pre block
+                    pre.appendChild(copyBtn);
+                });
+                // --- END NEW CODE ---
+                
+// --- NEW CODE: RENDER LATEX MATH ---
+                // We wrap this in a setTimeout of 0 to ensure the DOM has updated
+                // and the KaTeX script has fully loaded before it tries to run.
+                setTimeout(() => {
+                    if (window.renderMathInElement) {
+                        renderMathInElement(appDiv, {
+                            delimiters: [
+                                {left: '$$', right: '$$', display: true}, // Block math
+                                {left: '$', right: '$', display: false}   // Inline math
+                            ],
+                            throwOnError: false // Prevents the whole page from breaking if you make a typo in your math
+                        });
+                    }
+                }, 0);
+                // --- END NEW CODE ---
 
                 // --- NEW CODE: INTERNAL LINK INTERCEPTOR ---
                 const markdownLinks = appDiv.querySelectorAll('.markdown-body a');
