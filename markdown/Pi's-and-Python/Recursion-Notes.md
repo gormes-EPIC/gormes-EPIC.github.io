@@ -92,4 +92,28 @@ Our **base case** is returning 1 when `n==1`. Our **recursive case** is `n * fac
 
 </details>
 
-## More Complex Recusrive
+## Exercise
+
+We want to calculate the number of chicken wings present for `n` chickens.
+
+| Input | Output |
+| ----------- | ----------- |
+| wings(0) | 0 |
+| wings(2) | 4 |
+| wings(4) | 8 |
+| wings(7) | 14 |
+
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```python
+def wings(n):
+    if n == 0:
+        return 0
+    else 
+        return 2 + wings(n-1)
+
+```
+
+Our **base case** is returning 0 when `n==0`. Our **recursive case** is `2 + wings(n-1)`.
