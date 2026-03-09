@@ -40,7 +40,7 @@ What is your weight on Earth? 150
 2. Venus
 3. Jupiter
 Selection? 1
-Your weight on Mars would be 
+Your weight on Mars would be 57
 ```
 
 Remember to get input from the user we can use a `Scanner` object shown below
