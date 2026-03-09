@@ -1,18 +1,43 @@
 const curriculum = {
             "Pi's-and-Python": [
-                { file: "Over-the-Wire", type: "assignment" },
-                { file: "Light-the-LED", type: "assignment" },
-                { file: "Working-with-Raspberry-Pi", type: "notes" },
-                { file: "Terminal-Commands", type: "exercises" }
+                { file: "Over-the-Wire-Lab", type: "assignment" },
+                // { file: "Terminal-Commands-Exercises", type: "exercise" },
+                { file: "Text-Editors-Lab", type: "assignment" },
+                { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
+                // {  file: "Working-with-Raspberry-Pi-Notes", type: "notes" },
+                { file: "Light-the-LED-Lab", type: "assignment" },
+                { file: "Dim-the-LED-Lab", type:"assignment"},
+                { file: "Temperature-in-Color-Lab", type:"assignment"},
+                { file: "Objects-Notes", type: "notes" },
+                { file: "File-Reading-and-Writing-Notes", type: "notes" },
+                { file: "Fun-With-Objects-Lab", type: "assignment" },
+                { file: "Digital-Slot-Machine-Lab", type:"assignment"},
+                
+                { file: "Recursion-Lab", type:"assignment"},
+                { file: "Binary-Display-Lab", type:"assignment"},
+                
+                
             ],
             "Data-Structures-and-Algorithms": [
-                { file: "assignment-1", type: "assignment" },
-                { file: "lecture-notes", type: "notes" }
+                // TODO: Attach starter files 
+                { file: "Object-Review-Lab", type: "assignment"},
+                { file: "Quad-Sorts-Lab", type: "assignment" },
+                { file: "Stack-and-Queue-Lab", type: "assignment" },
+                { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
+                { file: "ArrayList-Lab", type: "assignment" },
+                { file: "Doubly-Linked-List-Lab", type: "assignment" },
+                { file: "Binary-Search-Tree-Lab", type: "assignment" },
+                { file: "Priority-Queue-Lab", type: "assignment" },
+                { file: "Graphs-Lab", type: "assignment" },
+                { file: "Radix-Sort-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
                 { file: "project", type: "assignment" }
             ],
             "Foundations-of-AI": [
                 { file: "notes", type: "notes" }
+            ],
+            "Workforce-Readiness": [
+                { file: "Creating-a-Resume", type: "assignment" }
             ]
         };
