@@ -65,7 +65,7 @@ Our **base case** is returning 1 when `n==0` or `n==1`. Our **recursive case** i
 
 ### Exercise
 
-Given `n` of 1 or more, return the factorial of `n`, which is `n * (n-1) * (n-2) ... 1`. Compute the result recursively (without loops).
+Given `n` of 1 or more, return the factorial of `n`, which is `n * (n-1) * (n-2) ... 1`. Write a function to compute the results recursively.
 
 | Input | Output |
 | ----------- | ----------- |
@@ -92,9 +92,9 @@ Our **base case** is returning 1 when `n==1`. Our **recursive case** is `n * fac
 
 </details>
 
-## Exercise
+### Exercise
 
-We want to calculate the number of chicken wings present for `n` chickens.
+We want to calculate the number of chicken wings present for `n` chickens. Write a recursive function to find the number of wings.
 
 | Input | Output |
 | ----------- | ----------- |
