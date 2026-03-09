@@ -7,12 +7,6 @@
 3. Create a virtual Python environment for your Pi
 4. Upload documents to GitHub using the browser
 
-| Vocabulary| Description |
-| ----------- | ----------- |
-| Raspberry Pi |  |
-| CPU | central processing unit |
-| GPIO | general purpose input/output int |
-
 
 ## Your Task
 
@@ -31,7 +25,7 @@ Set up your Raspberry Pi and create a diagram describing each of its components.
 
 ## Setting Up Your Pi Operating System
 
-1. Follow these steps to get your Raspberry Pi set up: https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi
+1. Follow [these steps](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) to get your Raspberry Pi set up 
 2. When complete, you should get to the Pi's desktop
 3. You should use the same username as your user account on your laptop for simplicity. If you need to write down your login information so you don't forget it, **please do that**.
 4. Optional: Install VS Code with `sudo apt install code`. 
@@ -45,7 +39,7 @@ _Every day that you use your Raspberry Pi, you are responsible for cleaning up a
 2. Using Google Drawings or Google Slides or another similar program, label all of the components of your Pi. Make sure you label all of the parts in the image below.
 <img src="/assets/meet-your-raspberry-pi-demo.png">
 3. Create an Obsidian PDF to elaborate on each component and it's purpose
-4. You may want to consult the official Raspberry Pi Documentation: https://www.raspberrypi.com/documentation/
+4. You may want to consult the [official Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)
 
 ## Creating a Virtual Environment for Python
 
@@ -93,11 +87,10 @@ hint: See PEP 668 for the detailed specification.
 - [Official Raspberry Pi Docs](https://www.raspberrypi.com/documentation/)
 - [venv documentation](https://code.visualstudio.com/docs/python/environments)
 
-## Extensions
-1. 
-
 ## Reflection Questions
-1. 
+1. What does GPIO stand for and what is its purpose?
+2. What does CPU stand for and what is its purpose?
+3. What does RAM stand for and what is its purpose?
 
 ## Deliverables Checklist
 - [ ] A imaged Raspberry Pi with virtual environment set up 
