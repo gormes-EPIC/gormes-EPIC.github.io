@@ -16,7 +16,6 @@
 | Merge Sort | Sorts an array by recursively separating the array into smaller arrays and merge sorting them |
 
 
-
 ## Your Task
 
 Your task is to implement four sorting algorithms: Bubble Sort, Selection Sort, Insertion Sort, Merge Sort.
