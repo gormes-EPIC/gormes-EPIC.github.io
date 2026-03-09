@@ -38,6 +38,7 @@ _Every day that you use your Raspberry Pi, you are responsible for cleaning up a
 1. Take a good quality picture of your Raspberry Pi from the top down
 2. Using Google Drawings or Google Slides or another similar program, label all of the components of your Pi. Make sure you label all of the parts in the image below.
 <img src="/assets/meet-your-raspberry-pi-demo.png">
+
 3. Create an Obsidian PDF to elaborate on each component and it's purpose
 4. You may want to consult the [official Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)
 
