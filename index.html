@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
         /* Default Dark Mode Variables */
         :root {
@@ -180,13 +182,20 @@
         .markdown-body a:hover { text-decoration: underline; }
         .markdown-body img { max-width: 100%; border-radius: 6px; }
         /* Code Block & Copy Button Styles */
+        /* 1. Wrapper: Match the VS Code/Atom Dark colors exactly */
         .markdown-body pre { 
-            background: var(--bg); 
+            background: #1e1921; /* The official Atom One Dark background */
             padding: 1rem; 
             border-radius: 6px; 
             overflow-x: auto; 
-            position: relative; /* Crucial for positioning the copy button */
-            border: 1px solid var(--border);
+            position: relative; 
+            border: 1px solid #3e4451; /* A subtle border that matches the dark theme */
+        }
+
+        /* 2. Inner Code: Remove Highlight.js's default background and padding */
+        .markdown-body pre code.hljs {
+            background: transparent !important;
+            padding: 0 !important;
         }
 
         .copy-btn {
@@ -214,7 +223,13 @@
             border-color: var(--primary);
             color: var(--primary);
         }
-        .markdown-body code { background: var(--bg); padding: 0.2rem 0.4rem; border-radius: 4px; }
+        /* Only style inline code, let Highlight.js handle the big blocks */
+        .markdown-body :not(pre) > code { 
+            background: var(--bg); 
+            padding: 0.2rem 0.4rem; 
+            border-radius: 4px; 
+            /*color: var(--primary); /* Optional: makes inline code pop! */
+        }
         .markdown-body a { color: #495cd8; }
         .error { color: #fca5a5; padding: 1rem; background: #7f1d1d; border-radius: 6px; }
         
@@ -506,7 +521,11 @@
                         ${htmlContent}
                     </div>
                 `;
-                // --- NEW CODE: COPY TO CLIPBOARD BUTTONS ---
+
+                appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
+                    hljs.highlightElement(block);
+                });
+                
                 const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
                 
                 codeBlocks.forEach(pre => {
@@ -543,9 +562,7 @@
                     // Append the button to the pre block
                     pre.appendChild(copyBtn);
                 });
-                // --- END NEW CODE ---
                 
-// --- NEW CODE: RENDER LATEX MATH ---
                 // We wrap this in a setTimeout of 0 to ensure the DOM has updated
                 // and the KaTeX script has fully loaded before it tries to run.
                 setTimeout(() => {
@@ -559,9 +576,7 @@
                         });
                     }
                 }, 0);
-                // --- END NEW CODE ---
 
-                // --- NEW CODE: INTERNAL LINK INTERCEPTOR ---
                 const markdownLinks = appDiv.querySelectorAll('.markdown-body a');
                 
                 markdownLinks.forEach(link => {
@@ -583,7 +598,6 @@
                         });
                     }
                 });
-                // --- END NEW CODE ---
 
             } catch (error) {
                 appDiv.innerHTML = `
