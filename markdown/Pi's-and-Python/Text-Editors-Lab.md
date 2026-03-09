@@ -1,7 +1,7 @@
 # Text Editors Lab
 
 ## Objective
-1. Use wget to download a file from the terminal
+1. Use `wget` to download a file from the terminal
 2. Use a command-line text editor to edit files
 
 ## Vocabulary
