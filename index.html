@@ -182,23 +182,52 @@
         .error { color: #fca5a5; padding: 1rem; background: #7f1d1d; border-radius: 6px; }
         
         /* Markdown Table Styles */
-.markdown-body table {
-    width: 100%;
-    border-collapse: collapse; /* This ensures borders combine into a single line */
-    margin: 1.5rem 0;
-}
+        .markdown-body table {
+            width: 100%;
+            border-collapse: collapse; /* This ensures borders combine into a single line */
+            margin: 1.5rem 0;
+        }
 
-.markdown-body th, 
-.markdown-body td {
-    border: 1px solid var(--border); /* Uses your auto-switching border color */
-    padding: 0.75rem 1rem; /* Adds the breathing room (top/bottom, left/right) */
-    text-align: left;
-}
+        .markdown-body th, 
+        .markdown-body td {
+            border: 1px solid var(--border); /* Uses your auto-switching border color */
+            padding: 0.75rem 1rem; /* Adds the breathing room (top/bottom, left/right) */
+            text-align: left;
+        }
 
-.markdown-body th {
-    background-color: var(--bg); /* Gives the header row a subtle contrasting background */
-    font-weight: 600;
-}
+        .markdown-body th {
+            background-color: var(--bg); /* Gives the header row a subtle contrasting background */
+            font-weight: 600;
+        }
+
+        /* Expandable Details/Summary Sections */
+        .markdown-body details {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.75rem 1rem;
+            margin: 1.5rem 0;
+            transition: all 0.2s ease;
+        }
+
+        .markdown-body summary {
+            font-weight: 600;
+            cursor: pointer;
+            color: var(--primary);
+            outline: none;
+            list-style-position: inside; /* Keeps the little arrow aligned nicely */
+        }
+
+        /* Adds a nice dividing line when the section is expanded */
+        .markdown-body details[open] summary {
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .markdown-body details:hover {
+            border-color: var(--primary);
+        }
     </style>
 </head>
 <body>
@@ -250,6 +279,7 @@
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
                 { file: "ArrayList-Lab", type: "assignment" },
                 { file: "Doubly-Linked-List-Lab", type: "assignment" },
+                { file: "BST-and-AVL-Tree-Exercises", type: "exercise" },
                 { file: "Binary-Search-Tree-Lab", type: "assignment" },
                 { file: "Priority-Queue-Lab", type: "assignment" },
                 { file: "Graphs-Lab", type: "assignment" },
