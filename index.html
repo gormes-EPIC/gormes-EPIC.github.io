@@ -280,6 +280,21 @@
         .markdown-body details:hover {
             border-color: var(--primary);
         }
+
+        /* Blockquote Styling */
+        .markdown-body blockquote {
+            background: var(--bg); /* Uses your darker background color */
+            border-left: 4px solid var(--primary); /* The classic colored indent line */
+            padding: 1rem 1.5rem; /* Breathing room inside the box */
+            margin: 1.5rem 0; /* Space above and below the quote */
+            border-radius: 0 8px 8px 0; /* Rounds the right side, keeps the left side flat */
+            opacity: 0.9; /* Makes the text slightly muted to differentiate it */
+        }
+
+        /* Removes the extra gap caused by paragraphs inside the quote */
+        .markdown-body blockquote p {
+            margin: 0;
+        }
     </style>
 </head>
 <body>
@@ -309,7 +324,7 @@
                 // { file: "Terminal-Commands-Exercises", type: "exercise" },
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
-                // {  file: "Working-with-Raspberry-Pi-Notes", type: "notes" },
+                // {  file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
                 { file: "Light-the-LED-Lab", type: "assignment" },
                 { file: "Dim-the-LED-Lab", type:"assignment"},
                 { file: "Temperature-in-Color-Lab", type:"assignment"},
