@@ -5,7 +5,7 @@
 Create a new file `demo.txt` with the following contents:
 ```
 Hello!
-This is a test file.
+This is a file.
 It has three lines.
 ```
 

@@ -137,7 +137,7 @@ print(dog2.species) # Canis familiaris
 
 Just like we have **instance variables**, there are also **instance methods** or functions that belong to an instance of a class. 
 
-For example,  we can take a look at the class `Bank Account` 
+For example,  we can take a look at the class `Bank Account`:
 ```python
 class BankAccount:
     # Constructor The __init__ method initializes the instance variables
