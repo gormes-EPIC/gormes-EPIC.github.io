@@ -311,6 +311,57 @@
             height: auto;
             width: 100%;
         }
+
+        /* PRINT MODE */
+        @media print {
+            /* 1. Hide everything that isn't the document itself */
+            #theme-toggle,
+            .nav-buttons,
+            .search-container,
+            .copy-btn,
+            .toc-sidebar {
+                display: none !important;
+            }
+
+            /* 2. Force a white background and black text */
+            body, 
+            #app, 
+            .markdown-body {
+                background: white !important;
+                color: black !important;
+                box-shadow: none !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+
+            /* 3. Expand the main container to fill the page */
+            #app {
+                max-width: 100% !important;
+                border: none !important;
+            }
+
+            /* 4. Format links for paper (black and underlined) */
+            .markdown-body a {
+                color: black !important;
+                text-decoration: underline !important;
+            }
+
+            /* 5. Make code blocks printer-friendly */
+            .markdown-body pre {
+                background: #f8f9fa !important; /* Very light gray */
+                border: 1px solid #ccc !important;
+                color: black !important;
+                white-space: pre-wrap !important; /* Forces long code lines to wrap instead of running off the page */
+            }
+
+            /* 6. Prevent awkward page breaks right in the middle of elements */
+            .markdown-body pre, 
+            .markdown-body blockquote, 
+            .markdown-body img,
+            .markdown-body table {
+                page-break-inside: avoid;
+            }
+        }
     </style>
 </head>
 <body>
@@ -319,7 +370,10 @@
 
     <div id="app"></div>
 
+    <script src="curriculum.js"></script>
+
     <script>
+
         // --- 0. DARK MODE (DEFAULT) LOGIC ---
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
@@ -332,68 +386,6 @@
             body.classList.toggle('light-mode');
             localStorage.setItem('theme', body.classList.contains('light-mode') ? 'light' : 'dark');
         });
-
-        // --- 1. CLASSIFIED CURRICULUM DATA ---
-        const curriculum = {
-            "Pi's-and-Python": [
-                { file: "Over-the-Wire-Lab", type: "assignment" },
-                // { file: "Terminal-Commands-Exercises", type: "exercise" },
-                { file: "Text-Editors-Lab", type: "assignment" },
-                { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
-                // {  file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
-                { file: "Light-the-LED-Lab", type: "assignment" },
-                { file: "Dim-the-LED-Lab", type:"assignment"},
-                { file: "Temperature-in-Color-Lab", type:"assignment"},
-                { file: "Objects-Notes", type: "notes" },
-                { file: "File-Reading-and-Writing-Notes", type: "notes" },
-                { file: "Fun-With-Objects-Lab", type: "assignment" },
-                { file: "Digital-Slot-Machine-Lab", type:"assignment"},
-                { file: "Recursion-Notes", type:"notes"},
-                { file: "Recursion-Lab", type:"assignment"},
-                { file: "Binary-Display-Lab", type:"assignment"},
-                
-                
-            ],
-            "Data-Structures-and-Algorithms": [
-                // TODO: Attach starter files 
-                { file: "Object-Review-Lab", type: "assignment"},
-                { file: "Quad-Sorts-Lab", type: "assignment" },
-                { file: "Stack-and-Queue-Lab", type: "assignment" },
-                { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
-                // { file: "List-Exercises", type: "exercise" },
-                { file: "ArrayList-Lab", type: "assignment" },
-                { file: "Doubly-Linked-List-Lab", type: "assignment" },
-                { file: "Tree-Notes", type: "notes" },
-                { file: "BST-and-AVL-Tree-Exercises", type: "exercise" },
-                { file: "Binary-Search-Tree-Lab", type: "assignment" },
-                //{ file: "Autocomplete-Trie-Lab", type: "assignment" },
-                { file: "Priority-Queue-Lab", type: "assignment" },
-                { file: "Graphs-Lab", type: "assignment" },
-                { file: "Radix-Sort-Lab", type: "assignment" }
-                //{ file: "URL-Shortener-Lab", type: "assignment" }
-            ],
-            "Software-Engineering": [
-                { file: "project", type: "assignment" }
-            ],
-            "Foundations-of-AI": [
-                { file: "notes", type: "notes" }
-            ],
-            "Workforce-Readiness": [
-                { file: "Intentions-and-Goal-setting", type: "assignment" },
-                { file: "Elevator-Pitch", type: "assignment" },
-                { file: "Job-Research-Presentation", type: "assignment"},
-                { file: "Workforce-Readiness-Reflection", type: "assignment"},
-                { file: "STAR-Format-Notes", type: "notes"},
-                { file: "Preparing-for-the-Interview", type: "assignment"},    
-                { file: "Creating-a-Resume", type: "assignment" },
-                { file: "Update-Your-Portfolio", type: "assignment" },
-                // { file: "Technical-Writing-Notes", type: "notes"},
-                // { file: "Effective-READMEs", type: "assignment" },
-                
-                { file: "Writing-a-Cover-Letter", type: "assignment" }
-            ]
-        };
-
 
         const appDiv = document.getElementById('app');
 
