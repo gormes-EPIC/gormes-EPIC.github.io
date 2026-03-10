@@ -12,6 +12,8 @@
 | object | A variable of a custom type, as defined by the class |
 | instance variable | Variables that belong to each object instance |
 | constructor | A special method that instantiates instance variables when an object is created |
+| instance method | A method that belongs to the instance of a class |
+| class attribute | A variable that is shared between all instances of a class |
 
 ## Your Task
 
