@@ -15,7 +15,9 @@
 
 ## Your Task
 
-Solve these 4 programming challenges:
+Review the [Object Notes](#Pi's-and-Python/Objects-Notes) and the [File Reading and Writing Notes](#Pi's-and-Python/File-Reading-and-Writing-Notes)
+
+Then, solve these 4 programming challenges:
 - [Parking Lot](#parking-lot)
 - [Bookshelf](#bookshelf)
 - [Coffee Shop](#coffee-shop)
