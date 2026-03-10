@@ -7,57 +7,54 @@
 | class | The template for an object |
 | object | A variable of a custom type, as defined by the class |
 | instance variable | Variables that belong to each object instance |
+| class attributes | Variables that belong to all objects of a certain type |
 | constructor | A special method that instantiates instance variables when an object is created |
+| instance method | A method that belongs to a specific class and can only be called on an instance of a class |
 
 ## A Thought Experiment
 
-What if I wanted to create a program that stored information about my car? I want to store the  make, model, gas mileage, and current gas level in my car. 
+What if I wanted to create a program that stored information about a dog? I want to store the  name, breed, and age of a dog.  
 
 My program might look something like this:
 ```python
-make = "Toyota"
-model = "Prius"
-mpg = 38
-gas = 8
+name = "Buddy"
+breed = "Golden Retriever"
+age = 3
 ```
 
-What if I wanted to make another car that stored the same information? Now my program might look something like this.
+What if I wanted to make another dog that stored the same information? Now my program might look something like this.
 ```python
-make_1 = "Toyota"
-model_1 = "Prius"
-mpg_1 = 38
-gas_1 = 8
+name_1 = "Buddy"
+breed_1 = "Golden Retriever"
+age_1 = 3
 
-make_2 = "Ford"
-model_2 = "F150"
-mpg_2 = 25
-gas_2 = 14
-
+name_2 = "Luna"
+breed_2 = "Husky"
+age_2 = 5
 ```
 
 or 
 
 ```python
-makes = ["Toyota", "Ford"]
-models = ["Prius", "F150"]
-mpg = [38, 25]
-gas = [8, 14]
+names = ["Buddy", "Luna"]
+breeds = ["Golden Retriever", "Husky"]
+age = [3, 5]
 ```
 
-If I know what attributes and actions I want every car to have, is there a way to define my own data type? 
+If I know what attributes and actions I want every dog to have, is there a way to define my own data type? 
 
 ## Classes and Objects
 
-By writing **classes** you are creating a blueprint for variables of type **object**. Each **object** has it's own set of **instance variables** and **methods** that belong to it. This way you can easily store and manipulate information in your own custom data type.
+By writing **classes** you are creating a blueprint for variables of type **object** or **instance**. Each **object** has it's own set of **instance variables** and **methods** that belong to it. This way you can easily store and manipulate information in your own custom data type.
 
-Thinking about our car example from above. I could create a new class `Car`.
-```python 
-class Car: # defines a new class Car
-    def __init__(self, make, model, mpg, gas): # constructor 
-        self.make = make
-        self.model = model
-        self.mpg = mpg
-        self.gas = gas
+Thinking about our Dog example from above. I could create a new class `Dog`.
+```python
+class Dog:
+    # The __init__ method initializes the object's attributes
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
 ```
 
 To create a class you start with the header `class ClassName`. Typically we capitalize the names of classes. 
@@ -66,36 +63,74 @@ To create a class you start with the header `class ClassName`. Typically we capi
 
 Inside our class, we can then create a special method called a **constructor**. This method, defined as `def __init__(self,...)`, is automatically called when you create a new instance of a class. It defines and initializes all of our **instance variables** or variable that belong to an instance of a class.
 
-To create a new instance of type `Car`(an **object**), we will call it's constructor. 
+To create a new instance of type `Dog`(an **object**), we will call it's constructor. 
 ```python
-my_car = Car("Toyota", "Prius", 38, 8)
+dog1 = Dog("Buddy", "Golden Retriever", 3)
 ```
 
-In memory, our car would look like:
+In memory, our dog would look like:
 <img src="/assets/obj-notes-figure-1.png">
 
 
-To create another car, I can just call the constructor again:
+To create another dog, I can just call the constructor again:
 ```python
-your_car = Car("Ford", "F150", 25, 14)
+dog2 = Dog("Luna", "Husky", 5)
 ```
 
 Now, our memory diagram would look like: 
 <img src="/assets/obj-notes-figure-2.png">
 
-**Notice** how each instance of `Car` has there own instance of `make` and `model` that are different. This is what it means to be an **instance variable**.
+**Notice** how each instance of `Dog` has there own instance of `name` and `breed` that are different. This is what it means to be an **instance variable**.
 
 ### Instance Variables
 
-To access the instance variables we can call them using the name of the object.
+To access the instance variables we can call them outside of the class using the name of the object.
 ```python
-print(my_car.make) #Toyota
-print(my_car.model) #Prius
+print(dog1.name)  # Buddy
+print(dog2.breed) # Husky
 ```
-If I wanted to update the `gas` variable, I could subtract some gas with:
+If I wanted to update the `age` variable, I could add some age with:
 ```python
-my_car.gas -= 2
-print(my_car.gas) # 6
+dog1.age += 1
+print(dog1.age) # 4
+```
+
+Inside the class, I can access them using the `self` keyword. 
+```python
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+
+    def have_birthday(self):
+        self.age += 1
+```
+### Class Attributes
+
+**Instance variables** belong to instances of a class. **Class attributes** are the same across all instances.
+
+Say I wanted to store the species of dog. Since all dogs are the same species(Canis familiaris) I could create a **class attribute** to store the information. Look at the difference between instance variables and class attributes below. 
+
+```python
+class Dog:
+    # Class attribute: Shared by all dogs
+    species = "Canis familiaris"
+
+    def __init__(self, name, age):
+        # Instance attributes: Unique to each dog
+        self.name = name
+        self.age = age
+```
+
+Each instance shares class attributes. 
+
+```python
+dog1 = Dog("Buddy", 3)
+dog2 = Dog("Luna", 5)
+
+print(dog1.species) # Canis familiaris
+print(dog2.species) # Canis familiaris
 ```
 
 ### Instance Methods
@@ -141,11 +176,15 @@ my_account = BankAccount("Alice", 100.00)
 
 Then, we can call instance methods on the instance of the class as well.
 ```python
-my_account.display_balance()  # Output: Account Owner: Alice | Current Balance: $100.00
-my_account.deposit(50.00)     # Output: Deposited $50.00. New balance is $150.00.
-my_account.withdraw(20.00)    # Output: Withdrew $20.00. New balance is $130.00.
-my_account.withdraw(200.00)   # Output: Insufficient funds! You only have $130.00.
+my_account.display_balance()  # Account Owner: Alice | Current Balance: $100.00
+my_account.deposit(50.00)     # Deposited $50.00. New balance is $150.00.
+my_account.withdraw(20.00)    # Withdrew $20.00. New balance is $130.00.
+my_account.withdraw(200.00)   # Insufficient funds! You only have $130.00.
 ```
+
+Notice what parameter is part of each instance method header. **The `self` keyword** is critical. Without it you cannot call the method on the instance of class. 
+
+
 
 What do you think would happen if I tried to call `deposit()` on its own like: 
 ```
