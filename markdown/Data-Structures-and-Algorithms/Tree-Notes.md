@@ -25,3 +25,5 @@ We typically describe the relationship between nodes in a tree similarly to fami
 ## Binary Search Trees
 
 Each node in a **binary tree** has between 0 and 2 children. **Binary search trees** are binary trees where each left child is smaller than or equal to the node and each right child is greater than the node.
+
+<img src="/assets/tree-notes-figure-3.png">
