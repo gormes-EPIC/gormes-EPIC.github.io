@@ -1,5 +1,11 @@
 # Dim the LED Lab
 
+
+<video controls width="100%">
+  <source src="assets/dim-the-led.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## Objective
 
 1. Write a program to create a dimmable LED

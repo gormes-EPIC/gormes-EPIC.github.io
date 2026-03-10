@@ -1,5 +1,10 @@
 # Binary Display Lab
 
+<video controls width="100%">
+  <source src="assets/binary-display.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## Objective
 
 1. Create a recursive function to convert base 10(decimal) into base 2(binary)

@@ -1,5 +1,11 @@
 # Digital Slot Machine Lab
 
+<video controls width="100%">
+  <source src="assets/digital-slot-machine.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Objective
 
 1. Create a button activated slot machine using Python. 
