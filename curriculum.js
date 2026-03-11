@@ -24,6 +24,7 @@ const curriculum = {
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
+                { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes" },
                 { file: "List-Exercises", type: "exercise" },
                 { file: "ArrayList-Lab", type: "assignment" },
                 { file: "Doubly-Linked-List-Lab", type: "assignment" },
