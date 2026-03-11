@@ -110,7 +110,7 @@ Your terminal window is getting cluttered with previous commands and outputs. Wh
 
 </details>
 
-Exercise 11
+## Exercise 11
 
 You want to create a new directory named reports inside a directory named `2026`, but the `2026` directory doesn't exist yet. What command do you use to create both the parent (`2026`) and child (`reports`) directories at the exact same time without getting an error?
 
