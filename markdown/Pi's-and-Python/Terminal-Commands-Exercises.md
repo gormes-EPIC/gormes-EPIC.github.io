@@ -77,7 +77,7 @@ You realized `notes.txt` is a bad name. What command do you use to rename `notet
 
 </details>
 
-# Exercise 8
+## Exercise 8
 
 You no longer need `backup.txt`. What command do you use to permanently delete it?
 
