@@ -1,7 +1,7 @@
 const curriculum = {
             "Pi's-and-Python": [
                 { file: "Over-the-Wire-Lab", type: "assignment" },
-                // { file: "Terminal-Commands-Exercises", type: "exercise" },
+                { file: "Terminal-Commands-Exercises", type: "exercise" },
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
                 // {  file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
@@ -20,6 +20,8 @@ const curriculum = {
             ],
             "Data-Structures-and-Algorithms": [
                 // TODO: Attach starter files 
+                // { file: "Welcome-to-Java-Notes", type: "notes"},
+                // { file: "Objects-in-Java-Notes", type: "notes"},
                 { file: "Object-Review-Lab", type: "assignment"},
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
