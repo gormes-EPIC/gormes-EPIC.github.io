@@ -1,7 +1,8 @@
 const curriculum = {
             "Pi's-and-Python": [
-                { file: "Over-the-Wire-Lab", type: "assignment" },
+
                 { file: "Terminal-Commands-Exercises", type: "exercise" },
+                { file: "Over-the-Wire-Lab", type: "assignment" },
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
                 // {  file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
