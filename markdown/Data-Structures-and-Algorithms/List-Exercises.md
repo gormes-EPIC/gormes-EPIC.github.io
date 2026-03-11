@@ -305,3 +305,81 @@ public void add(int index, E element) {
 ```
 
 </details>
+
+
+## Exercise 10
+
+Trace the following code. What exception is thrown, and why? How can you modify the code to safely remove the element without throwing an exception?
+
+```java
+List<String> list = new ArrayList<>(Arrays.asList("apple", "banana", "cherry"));
+for (String fruit : list) {
+    if (fruit.equals("banana")) {
+        list.remove(fruit);
+    }
+}
+```
+<details>
+<summary>Click here to view the answer</summary>
+
+This code will throw a `ConcurrentModificationException` because you modified the list as you were using an `Iterator` in a enhanced for loop to traverse the list.
+
+```java
+for (int i = list.size() - 1; i >= 0; i--) {
+    if (list.get(i).equals("banana")) {
+        list.remove(i);
+    }
+}
+```
+
+</details>
+
+
+## Exercise 11
+
+Assume you have a custom doubly linked list. Write a method `public void insertAfter(Node<E> target, E data)` that inserts a new node containing data immediately after the target node. Assume target is not null and is already a valid node in the list.
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```java
+public void insertAfter(Node<E> target, E data) {
+    // 1. Create the new node
+    Node<E> newNode = new Node<>(data);
+    
+    // 2. Identify the node currently sitting after our target
+    Node<E> nextNode = target.getNext();
+    
+    // 3. Link the new node to its surroundings
+    newNode.setPrev(target);
+    newNode.setNext(nextNode);
+    
+    // 4. Update the target node to point forward to the new node
+    target.setNext(newNode);
+    
+    // 5. If the target wasn't the tail, update the next node to point back to the new node
+    if (nextNode != null) {
+        nextNode.setPrev(newNode);
+    }
+}
+```
+
+</details>
+
+
+## Exercise 12
+
+You are designing a system that reads a continuous stream of sensor data. You frequently need to add new readings to both the beginning and the end of the sequence, but you rarely need to look up a reading by a specific index.
+
+Which `List` implementation (`ArrayList` or `LinkedList`) is the better choice for this specific scenario, and why?
+
+<details>
+<summary>Click here to view the answer</summary>
+
+`LinkedList` is the better choice for this scenario.
+
+Adding an element to the end of either list is generally $O(1)$, though it can be $O(n)$ for `ArrayList`. However, adding an element to the beginning of an ArrayList requires shifting every existing element one index to the right, which takes $O(n)$ time.
+
+A `LinkedList` (specifically a doubly linked list, which is how Java's `LinkedList` is implemented) maintains pointers to both the head and the tail. Adding to the beginning or the end simply requires updating a few pointers, which operates in constant $O(1)$ time. Since you rarely need random access lookups (which is where `ArrayList` excels), `LinkedList` is much more efficient for frequent head/tail insertions.
+
+</details>
