@@ -83,7 +83,7 @@ Give the pre-order, in-order, and post-order traversals of the following tree.
 <details>
 <summary>Click here to view the answer</summary>
 
-- **Pre-order:** 50, 30, 20, 25, 40, 70, 60, 50, 80
+- **Pre-order:** 50, 30, 20, 25, 40, 70, 60, 55, 80
 - **In-order:** 20, 25, 30, 40, 50, 55, 60, 70, 80 
 - **Post-order:** 25, 20, 40, 30, 55, 60, 80, 70, 50
 
@@ -442,4 +442,141 @@ public class TreeSearcher {
 }
 
 ```
+</details>
+
+### Exercise 15
+
+For this code segment, draw a memory simulation and the resulting output.
+
+```java
+ArrayList<Integer> nums = new ArrayList<Integer>(2);
+for(int i = 0; i < 5; i ++){
+    nums.add(i * 2 + 1);
+}
+System.out.println(nums.remove(3));
+System.out.println(nums.get(1));
+nums.add(10, 2);
+nums.add(21, 2);
+System.out.println(nums.size());
+```
+
+<details>
+<summary>Click here to view the answer</summary>
+
+<img src="/assets/bst-and-avl-ex-9.png">
+
+</details>
+
+### Exercise 16
+
+For this code segment, draw a memory simulation and the resulting output.
+
+```java
+LinkedList<Integer> nums = new LinkedList<Integer>();
+for(int i = 0; i < 5; i ++){
+    nums.add(i * 2);
+}
+System.out.println(nums.remove(2));
+System.out.println(nums.get(1));
+nums.add(10, 2);
+nums.add(21, 2);
+System.out.println(nums.size());
+```
+
+<details>
+<summary>Click here to view the answer</summary>
+
+<img src="/assets/bst-and-avl-ex-10.png">
+
+</details>
+
+### Exercise 17
+
+Assume you have a generic `Node` class that contains a value and a reference to the next node (`next()`). In a `LinkedList` class, you will add a method called `addToFront`, which will add a value to the front of the list. Write the method below. Assume the `LinkedList` has a private instance variable called `headNode`.
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```java
+public void addToFront(Node<E> node){
+
+    // If the head is null, set the head to the new node
+    if(headNode == null){
+        headNode = node;
+        return;
+    }
+
+    // If not, save the head as a temp node, set the head to the new node and connect the new head to the old head.
+    Node<E> temp = headNode;
+    headNode = node;
+    node.setNextNode(temp);
+}
+
+```
+
+</details>
+
+### Exercise 18
+
+The following code is supposed to delete the node at a given index. Why does this not work?
+```java
+public E delete(int index){
+    Node<E> temp = headNode;
+    Node<E> toReturn = headNode;
+    if(headNode == null)
+        return null;
+    for(int k = 0; k < index-1; k++){
+        temp = temp.getNextNode();
+    }
+    toReturn = temp.getNextNode();
+    temp.setNextNode(temp.getNextNode().getNextNode());
+    return toReturn.getValue();
+}
+```
+
+<details>
+<summary>Click here to view the answer</summary>
+
+There are two problems. First, of a user calls `delete(0)`, your for loop doesn't run, and the code immediately tries to delete `temp.getNextNode()`. In a zero-indexed world, if index is 0, you need to update the headNode itself. This code completely ignores the possibility of deleting the first element. Second, if you are "walking" down the list with `temp.getNextNode()`, but you never check if `temp` or `temp.getNextNode()` is actually null. If the list has 2 items and I ask to delete index 50, your code will throw a `NullPointerException` as it "marches" off the end of the list.
+
+</details>
+
+### Exercise 19
+
+Write a method that will delete the tail element of a singly `LinkedList`. Assume the `LinkedList` has a private instance variable called `headNode`.
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```java
+public E removeTail() {
+    // Case 1: Empty list
+    if (headNode == null) {
+        return null;
+    }
+
+    E removedValue;
+
+    // Case 2: Only one element
+    if (headNode.getNextNode() == null) {
+        removedValue = headNode.getValue();
+        headNode = null;
+        return removedValue;
+    }
+
+    // Case 3: Multiple elements
+    Node<E> temp = headNode;
+    // Look two steps ahead to stop at the second-to-last node
+    while (temp.getNextNode().getNextNode() != null) {
+        temp = temp.getNextNode();
+    }
+
+    removedValue = temp.getNextNode().getValue(); // Capture the data
+    temp.setNextNode(null); // Sever the link to the tail
+    
+    return removedValue;
+}
+
+```
+
 </details>
