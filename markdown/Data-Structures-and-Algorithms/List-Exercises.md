@@ -210,3 +210,98 @@ If `ArrayList` objects begin with 10 slots in memory and double themselves every
 The `ArrayList` will take up 1280 contiguous spaces in memory and the `LinkedList` will take up 1000 scattered spaces. 
 
 </details>
+
+
+## Exercise 8
+
+A circular linked list is defined as a linked list whose last node will point back to the head node. Write the `add(int index, E element)` method for `CircularLinkedList`: 
+
+```java
+public class CircularLinkedList<E>{ 
+    private Node<E> head; 
+    private Node<E> tail; 
+
+    public void add(int index, E element){ 
+        // Your implementation here
+    } 
+
+    public class Node<E>{ 
+        private E value; 
+        private Node<E> next; 
+
+        public Node(E val, Node<E> n){ /* implem. not shown */ } 
+        public E getValue(){ /* implementation not shown */ } 
+        public Node<E> getNext(){ /* implem. not shown */ } 
+        public void setValue(E val){ /* implem. not shown */ } 
+        public void setNode(Node<E> n){ /* implem. not shown */ } 
+    } 
+}
+```
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```java
+public void add(int index, E element) {
+    if (index < 0) {
+        throw new IndexOutOfBoundsException("Index cannot be negative.");
+    }
+
+    // Case 1: The list is currently empty
+    if (head == null) {
+        if (index != 0) {
+            throw new IndexOutOfBoundsException("List is empty, index must be 0.");
+        }
+        // Create the new node pointing to null initially
+        Node<E> newNode = new Node<>(element, null);
+        head = newNode;
+        tail = newNode;
+        
+        // Complete the circle
+        tail.setNode(head); 
+        return;
+    }
+
+    // Case 2: Inserting at the head (Index 0)
+    if (index == 0) {
+        // New node points to the current head
+        Node<E> newNode = new Node<>(element, head);
+        head = newNode; // Reassign the head pointer
+        
+        // The tail must be updated to point to the *new* head to maintain the circle
+        tail.setNode(head); 
+        return;
+    }
+
+    // Case 3: Inserting in the middle or at the tail
+    Node<E> current = head;
+    int count = 0;
+
+    // Traverse the list to find the node right BEFORE our insertion point (index - 1)
+    while (count < index - 1) {
+        current = current.getNext();
+        count++;
+        
+        // If we loop all the way back to the head before reaching our index, 
+        // the index provided is larger than the size of the list.
+        if (current == head) {
+            throw new IndexOutOfBoundsException("Index out of bounds: " + index);
+        }
+    }
+
+    // Create the new node, pointing it to current's next node
+    Node<E> newNode = new Node<>(element, current.getNext());
+    
+    // Point current to our new node, linking it into the chain
+    current.setNode(newNode);
+
+    // If we just inserted a node after the tail, our new node is the new tail!
+    if (current == tail) {
+        tail = newNode;
+        // (No need to explicitly set tail.setNode(head) here because 
+        // newNode was already set to point to current.getNext(), which was the head).
+    }
+}
+```
+
+</details>
