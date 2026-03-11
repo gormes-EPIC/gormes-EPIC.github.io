@@ -307,7 +307,7 @@ public void add(int index, E element) {
 </details>
 
 
-## Exercise 10
+## Exercise 9
 
 Trace the following code. What exception is thrown, and why? How can you modify the code to safely remove the element without throwing an exception?
 
@@ -335,7 +335,7 @@ for (int i = list.size() - 1; i >= 0; i--) {
 </details>
 
 
-## Exercise 11
+## Exercise 10
 
 Assume you have a custom doubly linked list. Write a method `public void insertAfter(Node<E> target, E data)` that inserts a new node containing data immediately after the target node. Assume target is not null and is already a valid node in the list.
 
@@ -367,7 +367,7 @@ public void insertAfter(Node<E> target, E data) {
 </details>
 
 
-## Exercise 12
+## Exercise 11
 
 You are designing a system that reads a continuous stream of sensor data. You frequently need to add new readings to both the beginning and the end of the sequence, but you rarely need to look up a reading by a specific index.
 
