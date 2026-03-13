@@ -172,3 +172,14 @@ An **interface** is a blueprint of a class that defines a contract for that clas
 
 There are many different methods in the list interface, by we will focus on these:
 
+| Method | Description |
+| --- | ----------- |
+| `void add(E element)` | Add a new element to the end of the list |
+| `void add(int index, E element)` | Add an element to the list at a specified index |
+| `E remove()` | Remove and return the last element |
+| `E remove(int index)` | Remove the element at the specified index |
+| `E get(int index)` | Get the element at the specified index |
+| `void set(int index, E element)` | Replace the element at the specified index with a new element |
+| `int size()` | Returns the number of elements in the list |
+| `boolean isEmpty()` | Returns true if the list is empty |
+
