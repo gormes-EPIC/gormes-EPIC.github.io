@@ -131,7 +131,7 @@ The console program should allow the following options:
 ## Testing
 You may assume the file to be read will contain only integers. (You may ask the user which it is before you build the tree.) The file will have all the data listed one at a time, each on a new line. If the user enters an invalid entry for the menu, the program will prompt the user for a valid menu entry.
 
-Please create JUnit tests with 85% coverage for your program.
+Please create JUnit tests with 85% coverage for your program. You do not need JUnit of for the traversals. Please check those manually. 
 
 ## Javadoc
 Add Javadoc comments and generate a Javadoc HTML reference for your program.

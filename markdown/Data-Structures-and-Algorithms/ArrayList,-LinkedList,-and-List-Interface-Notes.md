@@ -162,8 +162,13 @@ Our list now looks like:
 
 ## <a id="list-interface"></a>The List Interface
 
-
+Both `ArrayList` and `LinkedList` both implement the `List` **interface**.
 
 ### Interfaces
 
+An **interface** is a blueprint of a class that defines a contract for that class' behaviors, but not the implementation of those behaviors. It is a completely abstract class that is used to group related methods with empty bodies. Interfaces **define method headers for classes**. Any class that **implements the interface** must also implement all of the methods that are defined in the interface.
+
 ### Methods in the List Interface
+
+There are many different methods in the list interface, by we will focus on these:
+

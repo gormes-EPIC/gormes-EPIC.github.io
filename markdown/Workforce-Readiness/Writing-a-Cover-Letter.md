@@ -29,7 +29,7 @@ What We Are Looking For
 
 2. Of the skills and values you highlighted, choose the top three you excel at. For each, come up with an example of you demonstrating that skill or value in your life. Write your answer in a STAR format.
 
-3. Create a short introduction to introduce yourself and preface the three skills you will highlight in your letter.
+3. Create a short introduction to introduce yourself and preface the three skills you will highlight in your letter. Your introduction should also talk about WHY you want to join the organization.
 4. Create a short conclusion to reiterate your three skills and reinforce that you are the right candidate for this position. 
-5. Put it all together. See [this example](https://careercenter.umich.edu/content/reggie-corgi-cover-letter-example) and [this example](https://careercenter.umich.edu/content/chloe-flanigan-cover-letter-example) for sample formatting. Submit your letter as a new document. 
+5. Put it all together with this [template](https://docs.google.com/document/d/1p5O-pFSLJgIpAN5-AkaYvZps543Q0Yp2-iMeizbRCl8/edit?usp=sharing). See [this example](https://careercenter.umich.edu/content/reggie-corgi-cover-letter-example), [this example](https://careercenter.umich.edu/content/chloe-flanigan-cover-letter-example), and [this example]() for sample formatting. Submit your letter as a new document. 
 
