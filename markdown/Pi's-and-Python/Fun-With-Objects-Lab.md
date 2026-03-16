@@ -58,7 +58,7 @@ if __name__ == '__main__':
 
 Create a new program `library.py`.
 
-Create a new class `Book`. `Book` has three instance variables: `title`(a string), `author`(a string), and `checked_out`(a boolean representing whether a book has been checked out). `Book` has one method `check_out()` which returns `True` if the book is available and changes the `checked_out` variable to `False`. The method returns `False` otherwise.
+Create a new class `Book`. `Book` has three instance variables: `title`(a string), `author`(a string), and `checked_out`(a boolean representing whether a book has been checked out). `Book` has one method `check_out()` which returns `True` if the book is available and changes the `checked_out` variable to `True`. The method returns `False` otherwise.
 
 
 Your program should work with the following main. 

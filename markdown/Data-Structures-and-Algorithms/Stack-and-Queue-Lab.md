@@ -2,7 +2,7 @@
 
 ## Objective
 
-1. Implement a stack and queue class using an array of integer values. 
+1. Implement a stack and queue class using an **array** of integer values. 
 2. Program in teams of two, where one person completes `Stack` and the other completes `Queue`.
 
 ## Vocabulary
