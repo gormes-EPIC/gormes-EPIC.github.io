@@ -41,7 +41,9 @@ const curriculum = {
                 { file: "Heap-Exercises", type: "exercise" },
                 { file: "Priority-Queue-Lab", type: "assignment" },
                 { file: "Graphs-Lab", type: "assignment" },
-                { file: "Radix-Sort-Lab", type: "assignment" }
+                { file: "Radix-Sort-Lab", type: "assignment" },
+                { file: "Music-With-JFugue", type: "notes" },
+                
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
