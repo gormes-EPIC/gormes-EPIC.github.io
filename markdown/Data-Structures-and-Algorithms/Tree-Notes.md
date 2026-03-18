@@ -128,3 +128,11 @@ The **right-right** and **right-left** cases are symetrical to **left-left** and
 
 ### Removing from an AVL Tree
 
+When removing from an AVL tree, we will need to find a replacement node for the target we are deleting. 
+
+The replacement can be either:
+
+- The inorder successor — the smallest value in the right subtree, which is the next greater value than the target node.
+- The inorder predecessor — the largest value in the left subtree, which is the next smaller value than the target node.
+
+Once the replacement node is chosen, we replace the target node’s value with that node’s value, and then delete the replacement node, which will now fall under the "no childen" case or the "one child" case. 
