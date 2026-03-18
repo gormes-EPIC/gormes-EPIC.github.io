@@ -115,7 +115,7 @@ def main():
        MenuItem("gum", 0.50)
    ]
      
-   order1 = Order()
+   order1 = Order([])
    order1.add_item(menu[1])
    order1.add_item(menu[1])
    order1.add_item(menu[3])
