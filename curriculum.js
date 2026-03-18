@@ -36,6 +36,9 @@ const curriculum = {
                 { file: "BST-and-AVL-Tree-Exercises", type: "exercise" },
                 { file: "Binary-Search-Tree-Lab", type: "assignment" },
                 //{ file: "Autocomplete-Trie-Lab", type: "assignment" },
+
+                { file: "Heap-Notes", type: "notes" },
+                { file: "Heap-Exercises", type: "exercise" },
                 { file: "Priority-Queue-Lab", type: "assignment" },
                 { file: "Graphs-Lab", type: "assignment" },
                 { file: "Radix-Sort-Lab", type: "assignment" }
