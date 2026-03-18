@@ -192,3 +192,9 @@ deposit(100.00)
 ```
 
 This line would error since it is an **instance method** and must be called on an instance of a class. This is same for **instance variables**. I couldn't reference `owner` without calling it on an instance of `BankAccount`. 
+
+#### `__str__()`
+
+There is are a couple of special instance methods that Python will call automatically in different situations. One example is a **constructor** which we talked about above. Another is  `__str__()`.
+
+`__str__()` is reserved for converting your class into a string. It always returns a string and is typically in the form `ClassName(var={self.var})`. It is automatically called when you print out an instance of an class.
