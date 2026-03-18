@@ -55,7 +55,7 @@ There are 128 total instruments to choose from but here are some highlights.
 | **Strings & Orchestra** | `Violin`, `Cello`, `Pizzicato_Strings`, `Orchestral_Harp`, `Timpani` | Epic orchestral tracks or sneaky, plucked background music. |
 | **Brass & Wind** | `Trumpet`, `Trombone`, `Alto_Sax`, `Flute`, `Oboe`, `Ocarina` | Jazz bands, classical winds, or recreating Zelda themes. |
 | **Synths & Electronic** | `Lead_Square`, `Lead_Sawtooth`, `Pad_Warm`, `Sci_Fi` | 8-bit retro video game music and ambient electronic beats. |
-| **Quirky Sound Effects** | `Bird_Tweet`, `Telephone_Ring`, `Helicopter`, `Applause`, `Gunshot` | Making incredibly weird and experimental noise! (Yes, these play at different pitches). |
+| **Quirky Sound Effects** | `Bird_Tweet`, `Telephone_Ring`, `Helicopter`, `Applause` | Making incredibly weird and experimental noise! (Yes, these play at different pitches). |
 
 #### A Note on Drums
 Drums are handled a little differently. Instead of changing the instrument, General MIDI always reserves **Voice 9** (`V9`) specifically for the drum kit. 
