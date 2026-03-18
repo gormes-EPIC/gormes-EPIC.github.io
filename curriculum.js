@@ -27,6 +27,7 @@ const curriculum = {
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
+                // TODO: Add second add method to notes
                 { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes" },
                 { file: "List-Exercises", type: "exercise" },
                 { file: "ArrayList-Lab", type: "assignment" },
@@ -59,5 +60,9 @@ const curriculum = {
                 { file: "Effective-READMEs", type: "assignment" },
                 
                 { file: "Writing-a-Cover-Letter", type: "assignment" }
+            ],
+            "Other": [
+                { file: "Diagnostic-Pretest", type: "assignment" }
             ]
+            
         };

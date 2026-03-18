@@ -42,6 +42,7 @@ cars.add("Mazda");
 
 <img src="/assets/list-notes-figure-2.png">
 
+Alternatively, we could add numbers with `add(int index, E element)`. With this add method, you can add elements at any index. 
 
 ### Removing from an ArrayList
 
@@ -124,6 +125,8 @@ numbers.add(50);
 ```
 
 <img src="/assets/list-notes-figure-8.png">
+
+Alternatively, we could add numbers with `add(int index, E element)`. With this add method, you can add elements at any index. 
 
 ### Removing from an LinkedList
 
