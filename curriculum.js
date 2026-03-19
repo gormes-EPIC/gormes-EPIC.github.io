@@ -22,7 +22,7 @@ const curriculum = {
             "Data-Structures-and-Algorithms": [
                 // TODO: Attach starter files 
                 // { file: "Welcome-to-Java-Notes", type: "notes"},
-                // { file: "Objects-in-Java-Notes", type: "notes"},
+                { file: "Objects-in-Java-Notes", type: "notes"},
                 { file: "Object-Review-Lab", type: "assignment"},
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },

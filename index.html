@@ -565,10 +565,18 @@
                         ${htmlContent}
                     </div>
                 `;
-
-                appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
-                    hljs.highlightElement(block);
-                });
+                // Highting code blocks with Highlight.js
+                // appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
+                //     // marked.js adds a "language-X" class if you specify a language.
+                //     // We only want to highlight if that class exists.
+                //     if (block.className.includes('language-')) {
+                //         hljs.highlightElement(block);
+                //     } else {
+                //         // For plain text blocks, just add the base class so it 
+                //         // gets the correct background, but skips the auto-coloring
+                //         block.classList.add('hljs'); 
+                //     }
+                // });
                 
                 const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
                 
