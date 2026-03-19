@@ -98,6 +98,26 @@ How many levels does a balanced tree have when $n$ elements have been added? How
 
 In the **worst-case**, we would need to search all $n$ elements in an unbalanced tree. In the **best-case**, we would need to search only $log(n)$ elements in a balanced tree.
 
+## Breadth-first and Depth-first Traversals
+
+If we want to traverse our tree **depth-first** we follow each branch to its conclusion then move on to the next branch. If we want to traverse our tree **breadth-first** we go level by level, moving down the tree as we go. You can see the difference in the diagram below. 
+
+<img src="/assets/tree-notes-figure-17.png">
+
+To help us traverse **depth-first** we can either use a stack or recursion.
+
+Let's first discuss the strategy for using a stack. The idea is we first push our starting node onto the stack. Then we keep popping items as long as the stack has items. Once we pop an item, we add it to the result and push all the adjacent elements. Step-by-step this looks like: 
+
+1. Initialize an empty stack, and push node 0 into it.
+2. Pop a vertex, mark it as visited only if not already visited.
+3. Add the visited vertex to the result collection.
+4. Push all unvisited adjacent vertices to the stack.
+
+Now let's discuss the strategy for using recursion. We start at the root node and add it to the output. Then we call depth-first search on each of its two children. The first child is then printed and its two children are added to the call stack, etc. Notice this is the same as what traversal we discussed earlier?
+
+To help us traverse **breadth-first** we can use a queue. The idea is to use a queue to traverse the tree level by level. Start by adding the root to the queue. Then, repeatedly remove a node from the queue, store its value in the result, and add its left and right children to the queue. Continue this process until the queue is empty.
+
+
 ## AVL Trees
 
 An **AVL tree**(named after inventors Adelson-Velsky and Landis) is a self-balancing binary search tree where the height difference (**balance factor**) of left and right subtrees for any node is between -1 and 1.
