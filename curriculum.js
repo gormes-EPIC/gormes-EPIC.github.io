@@ -40,6 +40,7 @@ const curriculum = {
                 { file: "Heap-Notes", type: "notes" },
                 { file: "Heap-Exercises", type: "exercise" },
                 { file: "Priority-Queue-Lab", type: "assignment" },
+                { file: "Graph-Notes", type: "notes" },
                 { file: "Graphs-Lab", type: "assignment" },
                 { file: "Radix-Sort-Lab", type: "assignment" },
                 { file: "Music-With-JFugue", type: "notes" },
