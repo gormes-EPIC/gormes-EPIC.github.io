@@ -580,3 +580,18 @@ public E removeTail() {
 ```
 
 </details>
+
+
+### Exercise 20
+
+For the following tree, trace a breadth-first traversal and a depth-first traversal starting at the root node.
+
+<img src="/assets/tree-ex-figure-1.png">
+
+<details>
+<summary>Click here to view the answer</summary>
+
+- Breadth-first: 47, 35, 24, 27, 56, 50, 82
+- Depth-first: 47, 35, 56, 24, 50, 82, 27
+
+</details>
