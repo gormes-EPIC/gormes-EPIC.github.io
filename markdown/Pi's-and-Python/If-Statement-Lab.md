@@ -1,8 +1,7 @@
 # If Statement Lab
 ## Objective
 
-1. Leverage objects to solve complex problems in Python
-2. Read and use information from external files in Python
+1. Leverage if statements to solve complex problems in Python
 
 ## Vocabulary
 | Vocabulary| Description |
@@ -17,7 +16,7 @@
 
 ## Your Task
 
-Review the [If Statement Notes](#Pi's-and-Python/If-Statement-Notes)
+Review the [If Statement Notes](#Pi's-and-Python/If-Statement-Notes).
 
 Then, solve these 5 programming challenges:
 - [The Answer to Life, the Universe and Everything](#42)
