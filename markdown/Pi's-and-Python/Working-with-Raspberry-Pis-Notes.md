@@ -12,3 +12,8 @@ The anode of the battery connects to the anode of the light and the cathode of t
 
 
 ### Key Point: Connect anode to anode and cathode to cathode
+
+We can create circuits using the GPIO pins on our Pi’s. Certain pins provide power and other pins can read data from the pin. They can be controlled with Python!
+
+
+<img src="/assets/working-with-pis-figure-23png">

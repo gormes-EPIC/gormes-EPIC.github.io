@@ -99,7 +99,7 @@ class MenuItem:
         self.price = price
 ```
 
-Create a new class `Order`. `Order` has one instance variable  `receipt`. `Order` has three methods:
+Create a new class `Order`. `Order` has one instance variable  `receipt` which is a list of `MenuItem`'s. `Order` has three methods:
 - `add_item(item)`: Appends a `MenuItem` to the order.
 - `calculate_total()`: Iterates through the list of items, sums their prices, and returns the total cost including a 7% sales tax.
 - `print_receipt()`: Prints a formatted list of all item names, their individual prices, and the final total at the bottom.
@@ -132,7 +132,7 @@ if __name__ == '__main__':
 
 Output:
 ```
-The total due is 10.5
+The total due is 11.235
 CROSSROAD'S CAFE
 ----------------
 burrito: 5.0

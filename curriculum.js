@@ -5,7 +5,7 @@ const curriculum = {
                 { file: "Over-the-Wire-Lab", type: "assignment" },
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
-                // {  file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
+                // { file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
                 { file: "Light-the-LED-Lab", type: "assignment" },
                 { file: "Dim-the-LED-Lab", type:"assignment"},
                 { file: "Temperature-in-Color-Lab", type:"assignment"},
@@ -27,7 +27,6 @@ const curriculum = {
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
-                // TODO: Add second add method to notes
                 { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes" },
                 { file: "List-Exercises", type: "exercise" },
                 { file: "ArrayList-Lab", type: "assignment" },
@@ -36,7 +35,6 @@ const curriculum = {
                 { file: "BST-and-AVL-Tree-Exercises", type: "exercise" },
                 { file: "Binary-Search-Tree-Lab", type: "assignment" },
                 //{ file: "Autocomplete-Trie-Lab", type: "assignment" },
-
                 { file: "Heap-Notes", type: "notes" },
                 { file: "Heap-Exercises", type: "exercise" },
                 { file: "Priority-Queue-Lab", type: "assignment" },
@@ -45,14 +43,14 @@ const curriculum = {
                 { file: "Graphs-Lab", type: "assignment" },
                 { file: "Radix-Sort-Lab", type: "assignment" },
                 { file: "Music-With-JFugue", type: "notes" },
-                
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
                 { file: "project", type: "assignment" }
             ],
             "Foundations-of-AI": [
-                { file: "notes", type: "notes" }
+                { file: "notes", type: "notes" },
+                { file: "Image-Classification", type: "assignment" }
             ],
             "Workforce-Readiness": [
                 { file: "Intentions-and-Goal-setting", type: "assignment" },
