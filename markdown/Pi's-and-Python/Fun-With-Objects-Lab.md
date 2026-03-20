@@ -101,6 +101,7 @@ class MenuItem:
 
 Create a new class `Order`. `Order` has one instance variable  `receipt` which is a list of `MenuItem`'s. `Order` has three methods:
 - `add_item(item)`: Appends a `MenuItem` to the order.
+- `calculate_taxes()`: Iterates through the list of items, and calculates the 7% sales tax on the purchase
 - `calculate_total()`: Iterates through the list of items, sums their prices, and returns the total cost including a 7% sales tax.
 - `print_receipt()`: Prints a formatted list of all item names, their individual prices, and the final total at the bottom.
 

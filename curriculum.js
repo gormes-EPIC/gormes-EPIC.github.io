@@ -6,6 +6,7 @@ const curriculum = {
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
                 // { file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
+                { file: "If-Statement-Lab", type: "assignment" },
                 { file: "Light-the-LED-Lab", type: "assignment" },
                 { file: "Dim-the-LED-Lab", type:"assignment"},
                 { file: "Temperature-in-Color-Lab", type:"assignment"},
