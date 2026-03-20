@@ -53,7 +53,7 @@ To test your program, use the following inputs and expected outputs.
 
 | Input | Expected Output |
 | ----------- | ----------- |
-| `Agent James arrived in London to secure the classified package.` | `Agent [REDACTED] arrived in [REDACTED] to secure the [REDACTED] package.` | |
+| `Agent James arrived in London to secure the classified package.` | `Agent [REDACTED] arrived in [REDACTED] to secure the [REDACTED] package.` |
 | `The asset will arrive in Paris soon.` | `The [REDACTED] will arrive in [REDACTED] soon.` |
 | `We found the classified nuclear files.` | `We found the [REDACTED] [REDACTED] files.` |
 | `MI6 is looking for JAMES.` | `[REDACTED] is looking for [REDACTED].` |
@@ -158,6 +158,7 @@ Votes
 
 You are responsible for validating vanity license plates applications to make sure they are valid. Valid license plates must follow the following rules:
 - Be between 2 and 6 characters(inclusive)
+- No non-alphanumeric(not letters and numbers) characters are allowed
 - The first two characters must be letters
 - The first number cannot be a 0
 - Letters cannot be placed after numbers 
@@ -219,7 +220,31 @@ To test your program, use the following inputs and expected outputs.
 | `A` | `"Valid"` |
 | `AAA` | `"Valid"` |
 | `AAA123` | `"Valid"` |
+| `A!` | `"Invalid"` |
 | `AA12BB` | `"Invalid"` |
 | `AAA012` | `"Invalid"` |
 | `12345` | `"Invalid"` |
 
+## Tips, Tricks, and Resources
+- [CS50 Week 2 Lecture](https://cs50.harvard.edu/python/weeks/2/)
+
+## Extensions
+1. Instead of printing "Invalid", modify your program to reprompt the user for a correct license plate instead.
+2. Instead of waiting for the word "done", have your program quit asking for musicians when the user hits CTRL-D on their keyboard instead. You will need a try-except statement with an `EOFError` for this.
+
+## Reflection Questions
+1. What is the difference between a list and a dictionary?
+2. What is the difference between a for and a while loop?
+3. How did you detect letters appearing after numbers?
+
+
+## Deliverables Checklist
+- [ ] Demonstrate 5 working programs to your instructor in class 
+- [ ] A repository with all 5 of your programs uploaded, attached to Google Classroom
+- [ ] Answers to the reflection questions, either written or in person. 
+
+## Rubric
+- **6 points** - All required items are present.
+- **5 points** - Task was completed, but supplementary materials are weak or missing.
+- **4 points** - Task was attempted, but is missing major components.
+- **3 points** - Did not attempt or student should reattempt.

@@ -226,7 +226,7 @@ To test your program, use the following inputs and expected outputs.
 ## Tips, Tricks, and Resources
 - [Python If Statements](https://www.w3schools.com/python/python_conditions.asp)
 - [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp)
-
+- [CS50 Week 1 Lecture](https://cs50.harvard.edu/python/weeks/1/)
 
 ## Extensions
 1. Add more complex operators to your math interpreter. For example, powers, modulus, etc. 
