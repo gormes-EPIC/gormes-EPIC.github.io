@@ -16,34 +16,6 @@ Clean and simple language is important for communicating complex information. On
 
 Always use correct grammar and puncuation. Be sure to proofread your work! Your writing represents you to your readers so you want to make a good impression. 
 
-## Accessability 
-
-Consider the accessability of your documentation as you write it.
-
-## Consistency
-
-Writing consistently 
-
-## Completeness
-
-
-Use the 
-
-## Accessability 
-Quality content
-Audience and purpose
-Accessibility
-Grammar and Puncuation
-Writing style
-Visual aids
-
-Clarity  
-Conciseness  
-Correctness  
-Completeness  
-Consistency  
-Courtesy  
-Concreteness
 
 ## Additional Resources
 - [Technical Writing Principles](https://www.matcgroup.com/technical-writing/technical-writing-principles-and-characteristics/)
