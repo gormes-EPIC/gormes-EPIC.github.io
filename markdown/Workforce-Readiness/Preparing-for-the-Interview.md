@@ -13,3 +13,8 @@
     2. Describe a time when you worked on a team project. What role did you play, and how did you contribute to the team’s success?
     3. Tell me about a difficult problem you faced and how you approached solving it.
     4. Tell me about a time you had to meet a tight deadline or balance multiple responsibilities.
+
+## Rubric
+- **8 points** - Delivered well-written, clear, and informative answers using the STAR format. 
+- **6 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
+- **4 points** - Missing or incomplete 
