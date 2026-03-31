@@ -65,7 +65,8 @@ const curriculum = {
                 { file: "Preparing-for-the-Interview", type: "assignment"},    
                 { file: "Creating-a-Resume", type: "assignment" },
                 { file: "Update-Your-Portfolio", type: "assignment" },
-                // { file: "Technical-Writing-Notes", type: "notes"},
+                { file: "Writing-in-Markdown-Notes", type: "notes"},
+                { file: "Technical-Writing-Notes", type: "notes"},
                 { file: "Effective-READMEs", type: "assignment" },
                 
                 { file: "Writing-a-Cover-Letter", type: "assignment" }
