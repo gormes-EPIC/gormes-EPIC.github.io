@@ -66,11 +66,14 @@ const curriculum = {
                 { file: "Effective-Collaboration-Activity", type: "assignment"},    
                 { file: "Creating-a-Resume", type: "assignment" },
                 { file: "Update-Your-Portfolio", type: "assignment" },
+                
                 { file: "Writing-in-Markdown-Notes", type: "notes"},
                 { file: "Technical-Writing-Notes", type: "notes"},
                 { file: "Effective-READMEs", type: "assignment" },
+                { file: "Computer-Science-News-Presentation", type:"assignment"},
+                { file: "Writing-a-Cover-Letter", type: "assignment" },
+                { file: "My-Strengths-and-Weaknesses", type: "assignment" }
                 
-                { file: "Writing-a-Cover-Letter", type: "assignment" }
             ],
             "Other": [
                 { file: "Diagnostic-Pretest", type: "assignment" }
