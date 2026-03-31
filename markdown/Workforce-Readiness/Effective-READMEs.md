@@ -44,19 +44,18 @@ git push
 
 ## Getting Feedback
 
-The last part of this assignment is to get some feedback about your documentation. Swap your documentation with a peer and have them answer the following questions. 
-
-1. 
-
+The last part of this assignment is to get some feedback about your documentation. Swap your documentation with a peer and have them [complete this rubric with comments](https://docs.google.com/document/d/1LrhdraPLX-lXz2Ku8lUqZUesXqpxN3zsBNx_LR8l9sg/edit?usp=sharing). Attach the rubric to your assignment.  
 
 Then, answer the following questions yourself.
 
-1. What are some actionable 
-
+1. What was my highest-scoring category, and what specific choices did I make that led to that success?
+2. What was my lowest-scoring category? Does this align with what I felt was the weakest part of my draft?
+3. Based on my reflections above, what are the top two specific goals I have for my next technical writing assignment? (e.g., "I will use bullet points for all instructions," or "I will remove all passive voice.")
+4. What is my plan for proofreading next time? (e.g., "I will finish the draft 24 hours early so I can review it with fresh eyes," or "I will have a peer review it.")
 
 
 ## Rubric
 
-- **8 points** - Created a well-written, professional, and informative README with appropriate visuals and formatting. Completed reflection questions thoroughly and professionally. Complete feedback form with action steps. 
-- **6 points** - Create a README but is informal, poorly formatted, or otherwise incomplete. Reflection answers are shallow or incomplete. 
+- **8 points** - Created a well-written, professional, and informative README with appropriate visuals and formatting. Completed reflection questions thoroughly and professionally. Complete peer rubric with action steps. 
+- **6 points** - Create a README but is informal, poorly formatted, or otherwise incomplete. Reflection answers are shallow or incomplete. Peer rubric has been completed, but does not have strong actionable steps identified. 
 - **4 points** - Missing or incomplete 
