@@ -3,6 +3,7 @@
 ## Objective
 
 1. Leverage principles of effective technical writing to create professional README documentation
+2. Give effective feedback to peers about their work
 
 ## Getting Started
 
@@ -41,8 +42,21 @@ git push
     - Resources and Citations
 6. Use these [examples of quality READMEs](https://github.com/matiassingers/awesome-readme?tab=readme-ov-file) to help your develop your own.
 
+## Getting Feedback
+
+The last part of this assignment is to get some feedback about your documentation. Swap your documentation with a peer and have them answer the following questions. 
+
+1. 
+
+
+Then, answer the following questions yourself.
+
+1. What are some actionable 
+
+
+
 ## Rubric
 
-- **8 points** - Created a well-written, professional, and informative README with appropriate visuals and formatting. Completed reflection questions thoroughly and professionally.  
+- **8 points** - Created a well-written, professional, and informative README with appropriate visuals and formatting. Completed reflection questions thoroughly and professionally. Complete feedback form with action steps. 
 - **6 points** - Create a README but is informal, poorly formatted, or otherwise incomplete. Reflection answers are shallow or incomplete. 
 - **4 points** - Missing or incomplete 
