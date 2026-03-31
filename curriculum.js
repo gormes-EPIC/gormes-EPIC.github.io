@@ -63,6 +63,7 @@ const curriculum = {
                 { file: "Workforce-Readiness-Reflection", type: "assignment"},
                 { file: "STAR-Format-Notes", type: "notes"},
                 { file: "Preparing-for-the-Interview", type: "assignment"},    
+                { file: "Effective-Collaboration-Activity", type: "assignment"},    
                 { file: "Creating-a-Resume", type: "assignment" },
                 { file: "Update-Your-Portfolio", type: "assignment" },
                 { file: "Writing-in-Markdown-Notes", type: "notes"},
