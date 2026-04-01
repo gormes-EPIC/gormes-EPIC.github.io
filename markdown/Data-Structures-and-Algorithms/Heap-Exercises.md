@@ -108,7 +108,7 @@ Tell whether each is a valid heap or not.
 
 - (a) This is not a complete tree and therefore not a heap. 
 - (b) This is a heap. It is a complete tree and it fulfills the max heap property.
-- (c) This is a heap. It is a complete tree and it fulfills the min heap property.
+- (c) This is not a heap. 25 and 19 violate the min heap property.
 
 </details>
 
