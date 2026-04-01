@@ -36,8 +36,6 @@ Then, use the steps below to develop a response for your weaknesses:
 **Weaknesses:** I sometimes struggle with public speaking. While I am confident in one-on-one interactions, presenting to a larger group can be intimidating. To improve, I have been seeking opporuntunities to present at team meetings and other low-stakes environments. These efforts are helping me become more confident and effective in my presentations
 
 
-## Rubri
-
 ## Rubric
 - **8 points** - Delivered well-written, clear, and informative answers.
 - **6 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
