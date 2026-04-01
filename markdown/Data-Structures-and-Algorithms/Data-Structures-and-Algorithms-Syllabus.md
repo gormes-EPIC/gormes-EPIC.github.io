@@ -1,4 +1,4 @@
-# Raspberry Pi's and Python Syllabus
+# Data Structures and Algorithms Syllabus
 
 | Instructor Information      | Course Information        |
 | --------------------------- | ------------------------- |
@@ -7,58 +7,36 @@
 
 ## Course Description
 
-This course covers foundational programming concepts like variables, loops, conditionals, and functions using Python and the structure and fundamentals of the Linux operating system and terminal. Basic computer hardware and GPIO components will be covered via System on a Chip (SOC) systems such as Raspberry Pi’s. Students will code using Python to create Internet of Things (IoT) inventions for their final project. This is a beginner level course.
+This course will delve into a variety of programming data structures such as arrays, lists, stacks, trees, queues, and hash tables. Students will program in object-oriented languages and study principles of object-oriented programming. This course will also cover the analysis of algorithms and challenge students to program efficiently using their understanding of data structures and algorithmic efficiency. Raspberry Pi’s and Python(EPIC) or another introductory Python course(Araphahoe, Heritage) is the recommended prerequisite.
 
-**Semester Course/Credits:** 0.5 Computer Science Elective and 0.5 Mathematics per semester
+**Semester Course / Credits:** .5 Math, .5 Computer Science Elective per semester
 
-**Concurrent Enrollment:** Arapahoe Community College - CSC 1019 Introduction to Programming: (Python) (3.0 Credits), Arapahoe Community College - CSC 1060 	Computer Science I: (Python) (4.0 Credits)
+**Concurrent Enrollment:** Arapahoe Community College - CSC 1061 Computer Science II: (Java) (4.0 Credits)
 
 ## Course Outline
 
 *Note: The schedule of topics is subject to change, based on students’ needs and interests.*
 
-- **Unit 0:** Linux Fundamentals
-- **Unit 1:** Variables and Functions
-- **Unit 2:** If Statements
-- **Unit 3:** Loops and Data Collections
-- **Unit 4:** Object-oriented Programming and Files
-- **Unit 5:** Recursion
-- **Unit 6:** Final Project
+- **Unit 0:** Programming in Java
+- **Unit 1:** Searching and Sorting
+- **Unit 2:** Stacks and Queues
+- **Unit 3:** Lists
+- **Unit 4:** Trees and Heaps
+- **Unit 5:** Graphs
+- **Unit 6:** Hashmaps and RadixSort
 
 ## Learning Objectives
 
 By the end of this course, students will be able to:
 
-- **Program with Python**
-
-	-  Use variables, conditionals, loops, functions, and external libraries to fulfill functionality requirements and break down complex problems. 
-	- Design and write Python programs that interact with sensors using a Raspberry Pi.
-
-- **Develop Professional Programming Habits**
-
-	- Write efficient and modular code that is easy to read and understand
-	- Use iterative design approaches to identify and fix bugs in code
-	- Debug programs using state tables and memory diagrams
-
-- **Utilize the Linux Operating System**
-
-	- Understand the basics of Linux and its differences from other operating systems like Windows
-	- Install and configure the Raspberry Pi OS on a Raspberry Pi
-	- Use BASH commands to navigate, write, and modify files systems
-	- Create and use virtual machines
-
-- **Create Applications with Physical Computing Components**
-	
-	- Program with Python to interact with circuits connected to a Raspberry Pi
-	- Use I2C, SPI, PCM, GPIO, etc. to interact with different components and types of data
-	- Design solutions that integrate software and hardware components to solve real-world problems
-
-- **Grow in Workforce Readiness Skills**
-
-	- Collaborate with others to design and program 
-	- Communicate effectively with team members about code, debugging issues, and project goals
-	- Compare different solutions to the same problem and learn from others' approaches
-	- Conduct yourself in a professional manner as a student and a job candidate
+1. **Derive and Analyze Runtime Efficiency:** Write and compare runtime functions, to express the efficiency of algorithms using upper/lower bounds and asymptotic notations ($O,\Omega , \Theta$).
+2. **Understand Memory Efficiency:** Calculate the memory efficiency of different data structures and leverage it to design efficient systems.
+3. **Implement Known Algorithms:** Implement searching and sorting algorithms (e.g., bubble sort, selection sort, insertion sort, mergesort, quicksort) to solve problems efficiently.
+4. **Model Data Structures:** Implement data structures like arrays, ArrayList, LinkedList, stacks, queues, hash tables, trees, heaps, etc.
+5. **Communicate Algorithmic Concepts:** Model searching and sorting algorithms physically and through diagrams, implementing them with code, and presenting findings in a clear and concise manner.
+6.  **Write Adaptable and Testable Code:** Create test cases and debug programs using inline and Javadoc comments, recognizing the importance of maintainable code.
+7. **Develop Problem-Solving Strategies:** Iteratively design efficient solutions to prompts, minimizing runtime and memory cost.
+8. **Prepare for a Computer Science Career:** Understand the field, leverage industry tools, and practice real-world skills to prepare for the workforce.
 
 ## Technologies
 
@@ -74,7 +52,8 @@ These are the primary platforms I will use to communicate with you throughout th
 In accordance with HB 16-1423 we will not be using tools which sell, rent, share, or lease Personally Identifiable Information (PII) to third parties. The tools I know we will use in this course are listed below. I will update this list if anything changes.
 
 - [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
-- [GitHub Codespaces Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-codespaces-privacy-statement)
+- [IntelliJ Community Edition Jet Brains Privacy Policy](https://www.jetbrains.com/legal/docs/privacy/privacy/)
+
 
 ### Opt-Out
 
