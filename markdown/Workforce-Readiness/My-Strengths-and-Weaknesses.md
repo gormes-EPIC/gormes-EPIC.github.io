@@ -9,7 +9,7 @@
 
 You will develop a response to the interview question: "what are your strengths and weaknesses". 
 
-First, find a sample job description for an entry-level position in your field. You will develop your answer keeping this job in mind. Its ok if the job requires a college degree or other certification you don't currently hold. 
+First, find a sample job description for an entry-level position in your field. You will develop your answer keeping this job in mind. It's ok if the job requires a college degree or other certification you don't currently hold. 
 
 Take a minute to research the company and the position. What are there core values? What can you be expected to do in this role? 
 
@@ -19,13 +19,13 @@ Then, use the steps below to develop a response for your strengths:
 
 1. **Identify genuine strengths:** choose up to three strengths that align with the job description
 2. **Provide evidence:** use specific examples to demonstrate how you've utlized these strengths in the past. This is a great time to use a STAR response!
-3. **Relate it to the job:** explain how these strengths with benefit the company. These 
+3. **Relate it to the job:** explain how these strengths will benefit the company. 
 
 Then, use the steps below to develop a response for your weaknesses:
 
 <img src="/assets/weaknesses.png">
 
-1. **Choose a genuine weaknesses:** select a real, but managable weakness
+1. **Choose a genuine weaknesses:** select a real, but manageable weakness
 2. **Show self-awareness:** demonstrate your understanding of how this weakness will affect your work
 3. **Discuss improvement:** highlight the steps you are taking to improve on this weakness
 
