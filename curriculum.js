@@ -1,6 +1,6 @@
 const curriculum = {
             "Pi's-and-Python": [
-
+                { file: "Pi's-and-Python-Syllabus", type:"notes"},
                 { file: "Terminal-Commands-Exercises", type: "exercise" },
                 { file: "Over-the-Wire-Lab", type: "assignment" },
                 { file: "Text-Editors-Lab", type: "assignment" },

@@ -16,4 +16,5 @@ You do not need to watch this entire video, but watch at least the first 10 minu
 
 ## Your Task
 
-Find a news story from within the last year that is related to computer science.
+Find a news story from within the last year that is related to computer science. Develop a short 5-10 minute presentation on your news story. 
+
