@@ -105,3 +105,30 @@ public static void main(String[] args) {
     }
 
 ```
+
+## Tips, Tricks, and Resources
+- [Abstract Classes in Java]
+- [Subclasses in Java]
+
+## Extensions
+1. Build a `Cleric` or `Healer` subclass that extends Hero. Instead of dealing damage, the Cleric's `performAction()` should target another Hero and increase their health (without exceeding their max health limit).
+2. Create a generic `Item` class. Then, create an interface called `Consumable` with a method consume(Hero target). Then create a `HealthPotion` class that implements `Consumable` and restores health, and a `ManaPotion` that restores mana.
+3. Add a `speed` integer to the Hero base class. Before `executeTurn()` runs in the Party class, write an algorithm to sort the members list from highest speed to lowest speed. 
+
+## Reflection Questions
+1. Give an example of how encapsulation appears in your code.
+2. Give an example of how abstraction appears in your code.
+3. Give an example of how inheritance appears in your code.
+4. Give an example of how polymorphism appears in your code.
+
+
+## Deliverables Checklist
+- [ ] Demonstrate a working program to your instructor in class
+- [ ] A repository with your program and tester attached to Google Classroom
+- [ ] Answers to the reflection questions, either written or in person
+
+## Rubric
+- **6 points** - All required items are present.
+- **5 points** - Task was completed, but supplementary materials are weak or missing.
+- **4 points** - Task was attempted, but is missing major components.
+- **3 points** - Did not attempt or student should reattempt.
