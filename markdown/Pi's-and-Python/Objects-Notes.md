@@ -198,3 +198,49 @@ This line would error since it is an **instance method** and must be called on a
 There is are a couple of special instance methods that Python will call automatically in different situations. One example is a **constructor** which we talked about above. Another is  `__str__()`.
 
 `__str__()` is reserved for converting your class into a string. It always returns a string and is typically in the form `ClassName(var={self.var})`. It is automatically called when you print out an instance of an class.
+
+### Shallow vs Deep Copies
+
+Let's take a look at the following code. 
+
+```python
+class Book:
+    def __init__(self, title):
+        self.title = title
+
+book1 = Book("1984")
+book2 = book1
+```
+
+You would think the memory diagram would look something like this.
+
+<img src="/assets/obj-notes-figure-3.png">
+
+But in reality, it looks something like this.
+This is an example of a **shallow copy**. 
+
+<img src="/assets/obj-notes-figure-4.png">
+
+
+Knowing about shallow copies, what will the following code print out?
+
+```python
+book2.title = "Brave New World"
+print(book1.title)
+```
+
+The program will print out `Brave New World` and the memory diagram would look like:
+
+<img src="/assets/obj-notes-figure-5.png">
+
+Now that we know about shallow copies, how would we go about making a true or **deep copy**(from our first diagram)?
+
+This program would make a deep copy instead:
+```
+import copy # Import the copy module from the default Python modules
+book2 = copy.deepcopy(book1)
+```
+
+Now our memory diagram would look like: 
+
+<img src="/assets/obj-notes-figure-3.png">
