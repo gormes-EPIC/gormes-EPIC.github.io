@@ -107,8 +107,8 @@ public static void main(String[] args) {
 ```
 
 ## Tips, Tricks, and Resources
-- [Abstract Classes in Java]
-- [Subclasses in Java]
+- [Abstract Classes in Java](https://www.geeksforgeeks.org/java/abstract-classes-in-java/)
+- [Subclasses in Java](https://www.w3schools.com/java/java_inheritance.asp)
 
 ## Extensions
 1. Build a `Cleric` or `Healer` subclass that extends Hero. Instead of dealing damage, the Cleric's `performAction()` should target another Hero and increase their health (without exceeding their max health limit).
@@ -124,7 +124,7 @@ public static void main(String[] args) {
 
 ## Deliverables Checklist
 - [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program and tester attached to Google Classroom
+- [ ] A repository with your program attached to Google Classroom
 - [ ] Answers to the reflection questions, either written or in person
 
 ## Rubric
