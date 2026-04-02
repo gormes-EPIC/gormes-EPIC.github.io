@@ -35,7 +35,7 @@ Create a digital slot machine with a button and a display. When you click the bu
 
 3. Get a 7-segment display from the class supplies. *The back of these displays can get hot. If it is too hot to handle, then recycle it and get a new display. It may have faulty internal wiring. Be careful when handling.*
 
-4. Install the necessary library with `pip3 install raspberrypi-tm1637`. See [this](https://pypi.org/project/raspberrypi-tm1637/) for library reference. If pip isn't installed, use `sudo apt install pip`.
+4. Install the necessary library with `pip3 install raspberrypi-tm1637`. *Make sure your virtual environment is active!* See [this](https://pypi.org/project/raspberrypi-tm1637/) for library reference. If pip isn't installed, use `sudo apt install pip`.
 
 <img src="/assets/digital-slot-machine-wiring.png">
 
