@@ -32,8 +32,7 @@ Create JUnit tests with **85% code coverage.** Though there is not a specific re
 - [Radix Sort on the Playground](https://www.youtube.com/watch?v=ibtN8rY7V5k)
 
 ## Extensions
-1. Modify your program to include negative numbers.
-2. Modify your program to include decimal numbers.
+1. 
 
 ## Reflection Questions
 1. What is the runtime of radix sort?
