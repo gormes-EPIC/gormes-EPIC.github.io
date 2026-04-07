@@ -26,7 +26,7 @@ def power(a, b):
     if b == 1:
         return a
     else:
-        return a + power(a, b-1)
+        return a * power(a, b-1)
 ```
 
 You can see our **base case** is `a` when `b == 1`. Our **recursive case** is `a + power(a, b-1)` in all other cases.

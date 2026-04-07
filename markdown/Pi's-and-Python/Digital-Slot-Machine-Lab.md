@@ -30,7 +30,8 @@ Create a digital slot machine with a button and a display. When you click the bu
 ## Getting Started
 
 1. Create a small program to light an LED.
-2. Modify your program to light the light when the button is pressed. See [this sample code](https://gpiozero.readthedocs.io/en/stable/recipes.html#button) to program your button. See the diagram below for wiring.
+2. Modify your program to light the light when the button is pressed. See [this sample code](https://gpiozero.readthedocs.io/en/stable/recipes.html#button) to program your button. See the diagram below for wiring. Notice that the `Button` you are instantiating is a class!
+
 <img src="/assets/button-wiring.png">
 
 3. Get a 7-segment display from the class supplies. *The back of these displays can get hot. If it is too hot to handle, then recycle it and get a new display. It may have faulty internal wiring. Be careful when handling.*

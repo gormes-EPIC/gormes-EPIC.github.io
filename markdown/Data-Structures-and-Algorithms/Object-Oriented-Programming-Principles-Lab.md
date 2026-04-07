@@ -33,7 +33,7 @@ This class defines the foundational properties and actions for all characters. B
 | :--- | :--- | :--- | :--- |
 | `public` | *Constructor* | `Hero(String name, int maxHealth)` | Initializes the `name` and `healthPoints` variables. |
 | `public` | `String` | `getName()` | Returns the hero's `name`. |
-| `public` | `int` | `getHealth()` | Returns the hero's `healthPoints`. |
+| `public` | `int` | `getHealthPoints()` | Returns the hero's `healthPoints`. |
 | `public abstract`| `void` | `performAction()` | **Abstract method** (no body). Forces subclasses to define their own action. |
 | `public` | `void` | `takeDamage(int damageAmount)`| Subtracts damage from `healthPoints`. Includes logic to prevent health from dropping below `0`. Prints a status message. |
 | `public` | `boolean` | `isAlive()` | Returns `true` if `healthPoints` is greater than 0, otherwise `false`. |
@@ -50,7 +50,7 @@ This class extends `Hero`, inheriting its variables and standard methods, while 
 **Methods**
 | Access Modifier | Return Type | Method Signature | Description |
 | :--- | :--- | :--- | :--- |
-| `public` | *Constructor* | `Warrior(String name)` | Calls `super(name, 150)` to set name and base health to 150. Sets `rage` to 0. |
+| `public` | *Constructor* | `Warrior(String name)` | Set name and base health to 150. Sets `rage` to 0. |
 | `public` | `void` | `performAction()` | **Overrides** the abstract method. Prints a sword attack message and increases `rage` by 10. |
 
 ### 3. `Mage` Class (Subclass of `Hero`)
@@ -64,8 +64,8 @@ This class extends `Hero`, inheriting its base properties but implementing a mag
 **Methods**
 | Access Modifier | Return Type | Method Signature | Description |
 | :--- | :--- | :--- | :--- |
-| `public` | *Constructor* | `Mage(String name)` | Calls `super(name, 80)` to set name and base health to 80. Sets `mana` to 100. |
-| `public` | `void` | `performAction()` | **Overrides** the abstract method. Checks if `mana` is $\ge$ 20. If true, prints a fireball message and subtracts 20 mana. If false, prints an out-of-mana message. |
+| `public` | *Constructor* | `Mage(String name)` | Set name and base health to 80. Sets `mana` to 100. |
+| `public` | `void` | `performAction()` | **Overrides** the abstract method. Checks if `mana` is over 20. If true, prints a fireball message and subtracts 20 mana. If false, prints an out-of-mana message. |
 
 
 ### 4. `Party` Class (The Game Engine / Controller)

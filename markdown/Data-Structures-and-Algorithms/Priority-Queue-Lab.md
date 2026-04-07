@@ -10,6 +10,7 @@
 | heap | a complete binary tree data structure that satisfies the heap property |
 | heap property | for every node, the value of its children is greater than or equal to its own value |
 | priority queue | a queue in which the element with highest priority is always at the front of the queue |
+| `Comparable` | this interface contains the `compareTo` method | 
 
 ## Your Task
 

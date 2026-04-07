@@ -60,6 +60,7 @@ const curriculum = {
                 { file: "Image-Classification", type: "assignment" }
             ],
             "Workforce-Readiness": [
+                // Pi's and Python
                 { file: "Intentions-and-Goal-setting", type: "assignment" },
                 { file: "Elevator-Pitch", type: "assignment" },
                 { file: "Job-Research-Presentation", type: "assignment"},
@@ -69,14 +70,16 @@ const curriculum = {
                 { file: "Effective-Collaboration-Activity", type: "assignment"},    
                 { file: "Creating-a-Resume", type: "assignment" },
                 { file: "Update-Your-Portfolio", type: "assignment" },
-                
+                // Data Structures
                 { file: "Writing-in-Markdown-Notes", type: "notes"},
                 { file: "Technical-Writing-Notes", type: "notes"},
                 { file: "Effective-READMEs", type: "assignment" },
                 { file: "Computer-Science-News-Presentation", type:"assignment"},
                 { file: "Writing-a-Cover-Letter", type: "assignment" },
                 { file: "My-Strengths-and-Weaknesses", type: "assignment" }
-                
+                // Software Engineering
+
+                // Foundations of AI
             ],
             "Other": [
                 { file: "Diagnostic-Pretest", type: "assignment" }
