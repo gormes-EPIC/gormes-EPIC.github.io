@@ -32,7 +32,8 @@ Create JUnit tests with **85% code coverage.** Though there is not a specific re
 - [Radix Sort on the Playground](https://www.youtube.com/watch?v=ibtN8rY7V5k)
 
 ## Extensions
-1. 
+1. Expand your program to include punctuation and special characters. You will need to create a custom mapping function to convert these characters to numbers rather than relying on ASCII. 
+2. For a serious challenge, implement case-insensitive sorting for UTF-8 strings. This requires handling multibyte characters and understanding complex case-folding rules (for example, mapping the German 'ß' to 'ss', or handling accented characters like 'é' and 'E'). 
 
 ## Reflection Questions
 1. What is the runtime of radix sort?
