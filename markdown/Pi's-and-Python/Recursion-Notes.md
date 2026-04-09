@@ -6,6 +6,7 @@
 | recursive function | a function that solves problems by calling itself |
 | base case | the end case for a recusive function. Instead of calling the function again, we return a standard value we know |
 | recursive case | a case for a recusive function where you call the function again |
+| call stack | the data structure that keeps track of the recursive calls as they are being made |
 
 ## What are Recursive Functions?
 
@@ -117,3 +118,8 @@ def wings(n):
 ```
 
 Our **base case** is returning 0 when `n==0`. Our **recursive case** is `2 + wings(n-1)`.
+
+
+## The Call Stack
+
+Your computer keeps track of the commands that were being 
