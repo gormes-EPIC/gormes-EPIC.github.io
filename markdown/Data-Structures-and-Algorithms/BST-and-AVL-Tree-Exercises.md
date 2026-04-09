@@ -110,7 +110,7 @@ What is the minimum possible number of nodes in an AVL tree of height 3? What is
 <details>
 <summary>Click here to view the answer</summary>
 
-Minimum: 8, Maximum: 15
+Minimum: 7, Maximum: 15
 
 </details>
 
