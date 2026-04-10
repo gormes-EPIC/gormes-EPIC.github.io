@@ -59,7 +59,7 @@ you might try next time?
 - [ ] A PDF document with your walkthrough **and** answers to the reflection questions  
 
 ## Rubric
-- **6 points** - All required items are present.
-- **5 points** - Task was completed, but supplementary materials are weak or missing.
-- **4 points** - Task was attempted, but is missing major components.
-- **3 points** - Did not attempt or student should reattempt.
+- **20 points** - All required items are present.
+- **15 points** - Task was completed, but supplementary materials are weak or missing.
+- **10 points** - Task was attempted, but is missing major components.
+- **0 points** - Task was not attempted to 50% completion or student should reattempt.
