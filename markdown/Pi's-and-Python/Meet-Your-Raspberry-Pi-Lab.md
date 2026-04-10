@@ -72,7 +72,7 @@ hint: See PEP 668 for the detailed specification.
 2. Create a new folder for your Python scripts for this class. This can be anywhere on the Pi.
 3. Open your terminal and change directory into your new directory.
 4. Install the `venv` program with `sudo apt install python3-venv`
-5. Then, create a new virtual environment with `python3 -m venv venv`. Now there should be a folder called `venv` inside your directory.
+5. Then, create a new virtual environment with `python3 -m venv --system-site-packages venv`. Now there should be a folder called `venv` inside your directory.
 6. To activate your virtual environment, use: `source venv/bin/activate`. **You will need to do this every time you open the terminal so you may want to write this down. Remember to cd into the correct directory before trying to activate your environment.** 
 	1. Optional: If you installed VS Code you can change your Python version in the application to your virtual environment. If you are having trouble with this please ask for help or see this [documentation](https://code.visualstudio.com/docs/python/environments).
 7. Try installing a package with `pip` for example `pip install cowsay` to test your set up. If set up correctly, this package should install without issue.
