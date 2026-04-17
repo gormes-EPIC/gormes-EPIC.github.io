@@ -51,6 +51,27 @@ Yes
 What is the answer to life, the universe, and everything? fifty
 No
 ```
+
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. How do you get input from the user? What data type is returned from that function?
+2. What kind of construction can we use to check if a value is equal to another value?
+3. How can you change the capitalization of a string?
+4. How do you convert between strings and integers?
+
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to print “Yes” if the input is “42” or “forty two” and “No” in all other cases
+3. Modify your program to modify the input so that the variable is either “42” or “forty two” before the if statement using string methods
+
+</details>
+
+
 ### Testing 
 
 To test your program, use the following inputs and expected outputs. 
@@ -63,6 +84,7 @@ To test your program, use the following inputs and expected outputs.
 | fOurTy TwO | Yes |
 | 50 | No |
 | fifty-two | No |
+
 
 
 ## <a id="leap-year"></a>Leap Year
@@ -79,7 +101,25 @@ Not a Leap Year
 Year: 2032
 Leap Year
 ```
+<details>
+<summary>Click here for a hint</summary>
 
+Before you get started, answer the following questions: 
+
+1. How do you get input from the user? What data type is returned from that function?
+2. What mathematical function in Python allows you to find if a number is divisable by another number? Think about how we can tell if a number is even or odd.
+3. How do you convert between strings and integers?
+
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to print "Leap Year" if the input is divisable by 4 and "Not Leap Year" in all other cases.
+3. Modify your program to print "Not Leap Year" if the year is divisable by 100(which is divisable by 4).
+4. Modify your program to print "Leap Year" if the year is divisable by 400. Remember to exclude all other instances of 100.
+
+
+</details>
 
 ### Testing 
 
@@ -92,6 +132,7 @@ To test your program, use the following inputs and expected outputs.
 | 1700 | Not a Leap Year |
 | 2400 | Leap Year |
 | year | Not a Leap Year |
+
 
 
 ## <a id="sweater-weather"></a>Sweater Weather
@@ -115,6 +156,25 @@ What is the high temperature: 150
 invalid input
 ```
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. How do you convert between strings and integers?
+2. What keyword allows you to have multiple conditions in the same if statement?
+3. How can we check if a string is a number?
+
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to print "you need to bring a sweater" if the temperature is lower than 60 or "you do not need to bring a sweater" otherwise
+3. Modify your program to print invalid input for temperatures over 140 and when the input is non-numeric
+
+</details>
+
+
 ### Testing 
 
 To test your program, use the following inputs and expected outputs. 
@@ -127,6 +187,7 @@ To test your program, use the following inputs and expected outputs.
 | 80 | you do not need to bring a sweater | 
 | 155 | invalid input |
 | temp | invalid input |
+
 
 
 ## <a id="interpreter"></a>Math Interpreter
@@ -150,9 +211,6 @@ Input: 3 / 2
 1.5
 ```
 
-<details>
-<summary>Hint</summary>
-
 You will want to use the Python function `split()` for this problem. The `split` function allows you to separate strings by a given delimeter character. See the example below.
 
 ```python
@@ -161,6 +219,20 @@ x, y = st.split(" ")
 print(x) # hello
 print(y) # there
 ```
+
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What does the function `split()` do?
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to convert each input to integers
+3. Modify your program to print out the correct output for each operation
+
 </details>
 
 ### Testing 
@@ -209,6 +281,23 @@ breakfast time
 ```
 What time is it: 22:20
 ```
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What is a parameter? 
+2. What is the `return` keyword and how does it differ from `print()`?
+3. What function can we use to separate a string into multiple values?
+
+
+Decomposing the problem:
+
+1. Complete the function `convert()`. Remember that the parameter `time` will be equal to a string representing time like "12:30" and your function will return a number representing hours and minutes like 12.5. Test your function by printing out what `convert()` returns for different times. For example, "7:15" should return 7.25.
+2. Use the function `main()` to take input from the user, send it to the `convert()` function and print the result.
+3. Modify `main()` to instead print "breakfast time", "lunch time", or "dinner time" accordingly.
+
+</details>
 
 ### Testing 
 
@@ -221,6 +310,7 @@ To test your program, use the following inputs and expected outputs.
 | 18:20 | dinner time |
 | 23:00 |  | 
 | 11:15 |  |
+
 
 
 ## Tips, Tricks, and Resources

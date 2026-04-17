@@ -43,6 +43,25 @@ For the number 42, we can apply our process and we will end up with 1
 
 1. Write a recursive function `collatz(n)` that calculates how many steps it takes to reach 1. So for our example 42, the function would return 8. 
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What two cases do you need to identify to complete this problem?
+2. Draw a recursion tree for `collatz(5)`. Think critically about what numbers need to be added to the recursive call to get the correct result.
+
+
+Decomposing the problem:
+
+1. Define your function with the header `def collatz(n)`
+2. Add your base case. For what value of `n` should your recursion stop?
+3. Using your recursion tree, add your recursive case. Then test your program by printing what your function returns for each of the test cases below.
+
+</details>
+
+
+### Test Cases
 | Function Call | Result |
 | ----------- | ----------- |
 | collatz(42) | 8 |
@@ -55,6 +74,29 @@ For the number 42, we can apply our process and we will end up with 1
 
 1. Create a new program `palindrome.py`. Write a recursive function `is_palindrome(text)` that returns `True` or `False`. It must ignore spaces, capitalization, and punctuation. The recursive step should compare the first and last letters, then pass the middle of the string to itself.
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What two cases do you need to identify to complete this problem?
+2. How can I use string slicing to get the first character in a string? How can I get the last character?
+3. What characters do we need to compare to figure out if `text` is a palindrome? How could we slowly reduce the length of `text` to reach our base case, comparing as we go?
+4. Draw a recursion tree for `is_palindrome("tacocat")`.
+5. Draw a recursion tree for `is_palindrome("abc")`. Remember we don't have to call a recursive case if we already know the solution. 
+6. How does question 4 differ from question 5? 
+
+
+Decomposing the problem:
+
+1. Define your function with the header `is_palindrome(text)`
+2. Identify **two base cases** for this problem. Then add them to your function.
+3. Add your recursive case. 
+
+</details>
+
+
+### Test Cases
 | Function Call | Result |
 | ----------- | ----------- |
 | is_palindrome("aaa") | True |
@@ -70,6 +112,27 @@ You've been gifted a set of traditional Russian nesting dolls. Some dolls have s
 
 1. Create a new program `matryoshka.py`. Given a deeply nested dictionary representing the dolls (e.g., `{"size": 10, "inner_doll": {"size": 8, "inner_doll": None}}`), write a recursive function `open_doll(doll)` that finds and returns the size of the smallest, innermost doll.
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What is a dictionary? How do we access elements in a dictionary?
+2. How can we combine for loops with dictionaries to get all of the keys?
+3. How can we check what variable type something is? How can you check if a value is of type `None`?
+4. Draw a recursion tree for `open_doll(doll_two)` in the example test cases. 
+
+
+Decomposing the problem:
+
+1. Define your function header
+2. Add your base case. Think carefully about what value we want to return here.
+3. Add your recursive case
+
+</details>
+
+
+### Test Cases
 ```
 doll_one = {
     "size": 5, 
@@ -108,17 +171,37 @@ doll_three = {
 
  ##  <a id="fractal"></a>Fractal Art
 
-1. Create a program `fractal.py` Write a recursive function `draw_pattern(n)` that prints a mirrored arrow of asterisks. 
+1. Create a program `fractal.py` Write a recursive function `draw_pattern(n)` that prints an inverted triangle of asterisks(see below). 
+
+<details>
+<summary>Click here for a hint</summary>
+
+This problem will require you to use `print()` statements around your recursive calls **instead** of just returning a value. 
+
+Before you get started, answer the following questions: 
+
+1. Start by drawing a recursion tree. 
+
+
+Decomposing the problem:
+
+1. Define your function header
+2. Add your base case and your recursive case
+3. Place your print statements strategically to create the shape below.
+
+</details>
+
+
+### Test Cases
 
 For example, `draw_pattern(3)` should print:
 
 ```
-
-*
-**
 ***
 **
 *
+**
+***
 ```
 
 ## Tips, Tricks, and Resources

@@ -79,6 +79,22 @@ Hello...There
 Input: Let's implement a function called hello
 Let's...implement...a...function...called...hello
 ```
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What function do you use to take input from the user? What variable type does it return?
+2. What function do you use to display information to the terminal? What variable type does it take as a parameter?
+3. What function can we use to replace characters with other characters?
+
+Decomposing the problem:
+
+1. Create a program to print something to the terminal
+2. Modify a program to take input from the user, save it as a variable and print it out
+3. Modify your program in between taking input and printing the result to add the appropriate "...".
+
+</details>
 
 ### Testing 
 
@@ -125,6 +141,25 @@ Mars Weight: 75.6
 Earth Weight: 0
 Mars Weight: 0
 ```
+
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What is a parameter?
+2. What is a `return` statement and how does it differ from printing?
+3. What does it mean to "call a function"? Where can you see an example of calling `calculate_mars_weight()` in our program starter?
+4. Read through the starter program and summarize what it is doing already? Identify what is a variable and what is a function.
+5. What variable type is being passed to `calculate_mars_weight()` as a parameter? 
+
+
+Decomposing the problem:
+
+1. Start by modifying the function to return the user's weight instead of 0.
+2. Then modify the program to return their Mars weight instead. 
+
+</details>
 
 ### Testing 
 
@@ -182,6 +217,24 @@ How much was the meal? $100.00
 What percentage would you like to tip? 25%
 Leave $25.00
 ```
+
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. Read through the starter program and summarize what it is doing already? Identify what is a variable and what is a function.
+2. What variable type is being passed to `dollars_to_float()` as a parameter? What type is it supposed to return?
+3. What variable type is being passed to `percent_to_float()` as a parameter? What type is it supposed to return?
+
+
+Decomposing the problem:
+
+1. Start by modifying the function `dollars_to_float()` to return the dollar amount as a float. For example, `"$15.00"` should turn into `15.0`.
+2. Then modify the function `percent_to_float()` to return the percentage amount as a float. For example `20%` should turn into `0.20`.
+
+</details>
+
 
 ### Testing 
 

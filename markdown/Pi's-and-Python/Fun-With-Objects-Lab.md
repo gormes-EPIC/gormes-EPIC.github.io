@@ -88,6 +88,26 @@ def main():
 if __name__ == '__main__':
 	main()
 ```
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What is the starter main trying to do? What is a variable and what is a function?
+2. Based on the main, what variables and functions must exist within the `Book` class? Does this match up with the description provided?
+3. How do you define a class of name `Book`?
+4. What is the name of the special method that is called when you create a new object? What is its special header?
+5. What special keyword must be the first parameter in each instance method? Why?
+
+Decomposing the problem:
+
+1. Add the starter code.
+2. Define the class `Book`
+3. Write the header for the constructor and define the three instance variables.
+4. Define the method `check_out()`. Don't forget the special keyword!
+5. Test your class with the main.
+
+</details>
 
 ## <a id="coffee-shop"></a>Coffee Shop
 
@@ -144,7 +164,26 @@ taxes: 0.735
 ----------------
 Total: 11.235
 ```
+<details>
+<summary>Click here for a hint</summary>
 
+Before you get started, answer the following questions: 
+
+1. Read the `MenuItem` class. Identify its three instance variables. How do you access them from outside the class?
+2. For each instance method, write down its parameters(and type) and return type. 
+3. Read through the sample main and summarize it. 
+
+Decomposing the problem:
+
+1. Copy in the `MenuItem` class. Create a sample `MenuItem` and print its properties
+2. Create a new class `Order` with its instance variable. Create a sample `Order` and print its properties. 
+3. Write the method `add_item()`. This should add a `MenuItem` to the `reciept`. 
+4. Write the method `calculate_taxes()`. This should return a 7% sales tax based on the total cost of the items in `receipt`. 
+5. Write the method `calculate_total()`. This should sum the value of the items in `receipt` and add the tax calculated by `calculate_taxes()`.
+6. Write the method `print_receipt()`. You will need to use the `calculate_taxes()` and `calculate_total()` methods.
+7. Use the existing main to test your class. 
+
+</details>
 
 ## <a id="playlist"></a>Playlist
 
@@ -186,6 +225,7 @@ Git Commit,The Debuggers,160
 ```
 
 You are responsible for testing your program, but as an example your program should work with the following main:
+
 ```python
 def main():
     playlist = Playlist("My Playlist")
@@ -230,7 +270,27 @@ Segmentation Fault,Null Pointer
 Memory Leak,Null Pointer
 Kernel Panic,Null Pointer
 ```
+<details>
+<summary>Click here for a hint</summary>
 
+Before you get started, answer the following questions: 
+
+1. Read through the sample main and summarize it. 
+2. How do you get the contents of a file as a list, one line per list?
+3. What does CSV stand for?
+
+Decomposing the problem:
+
+1. Create the `Song` class. Test it by creating a song and printing its properties
+2. Create a `Playlist` class. Test it by creating a playlist and printing its properties. 
+3. Add the `add_song(song)` method. This should be extremely similar to the `add_item()` method from the previous problem.
+4. Add the `get_total_duration()` method. Remember this prints the total time
+5. Add the `find_by_artist(artist_name)` method. This should use a loop to find all the songs by a given artist.
+6. Add the `print_playlist()` method.
+7. Add the `load_songs(filename)` method. Remember to use what you researched. 
+8. Use the provided main to test your program.
+
+</details>
 
 ## Tips, Tricks, and Resources
 - [Objects in Python Notes](#Pi's-and-Python/Objects-In-Python-Notes)

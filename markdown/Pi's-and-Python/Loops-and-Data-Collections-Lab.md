@@ -47,6 +47,27 @@ Classifier: Agent James arrived in London to secure the classified package.
 Agent [REDACTED] arrived in [REDACTED] to secure the [REDACTED] package.
 ```
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. How do you get input from the user? What data type is returned from that function?
+2. What kind of construction can we use to check if a value is equal to another value?
+3. How can you loop through each word in a string? What string function can we combine with a loop to make this possible?
+4. How can you check if an element is present in a list?
+
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to print each word on its own line. 
+3. Instead of printing each word, first check if it is in the classified word list and print `[CLASSIFIED]` instead.
+4. Modify your program to print everything on the same line.
+
+</details>
+
+
 ### Testing 
 
 To test your program, use the following inputs and expected outputs. 
@@ -94,6 +115,21 @@ Here is an example run of the program:
 Enter a fruit: pineapple
 50 
 ```
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. If you have the key, how do you get its associated value in a dictionary?
+2. How can you check if a key exists in a dictionary?
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to print `"true"` if the user input is a key in the dictionary and `"fruit not found"` otherwise.  
+3. Replace `"true"` with the value associated with the given key.
+
+</details>
 
 ### Testing 
 
@@ -154,6 +190,28 @@ Votes
 - The Rolling Stones: 3
 ```
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. How can we repeatedly prompt the user for input until `done` is entered?
+2. What data structure allows us to store pairs of values(artist and count)?
+3. What can we use to get all of the keys in a dictionary?
+4. How can we easily alphabetize a list
+
+Decomposing the problem:
+
+1. Write a program to take input from the user and print it out
+2. Modify your program to repeatedly prompt the user for input until `done` is entered.
+3. Modify your program to add new artists that have not been recorded yet into a dictionary with a value of one.
+4. Modify your program to add to an artists count in the dictionary if their name is recorded again.
+5. After `done` is entered, add code to your program to print out a list of keys in the dictionary.
+6. Modify your program to alphabetize the list
+7. Add code to loop through the list and print out their associated values as well.
+
+</details>
+
 ## <a id="vanity-plates"></a> Vanity Plates
 
 You are responsible for validating vanity license plates applications to make sure they are valid. Valid license plates must follow the following rules:
@@ -204,11 +262,38 @@ def main():
 
 
 def is_valid(s):
-    return ""
+    return true
 
 
 main()
 ```
+
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What is the main doing in this program? What is a variable and what is a function?
+2. How can we check if a character is a letter or a number or neither?
+3. How can we use a loop to print a string a single character at a time?
+
+Decomposing the problem:
+
+1. Add the starter code to your program. 
+2. Create a statement to return false if the plate is not between 2 and 6 characters
+3. Create a statement to return false if it contains non-alphanumeric characters
+4. Create a statement to return false if the first two characters are numbers
+5. Create a statement to find the first number and return false if it is zero
+6. Use a loop to identify if there are numbers and set a variable to true if so. Then check if there are letters after that point if the variable is true. If so, return false. 
+7. In all other cases return true.
+
+ Be between 2 and 6 characters(inclusive)
+- No non-alphanumeric(not letters and numbers) characters are allowed
+- The first two characters must be letters
+- The first number cannot be a 0
+- Letters cannot be placed after numbers 
+
+</details>
 
 ### Testing
 
