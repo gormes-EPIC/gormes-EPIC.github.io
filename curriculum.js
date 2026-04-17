@@ -1,12 +1,12 @@
 const curriculum = {
-            "EPIC-Explore-Camp": [
-                { file: "Light-the-LED-Walkthrough", type:"lab"},
-                { file: "Light-the-LED-Extentsions-Walkthrough", type: "lab" },
-                { file: "Button-Controlled-LED-Walkthrough", type: "lab" },
-                { file: "Reaction-Game-Walkthrough", type: "lab" },
-                { file: "Countdown-Camera-Walkthrough", type: "lab" },
+            // "EPIC-Explore-Camp": [
+            //     { file: "Light-the-LED-Walkthrough", type:"lab"},
+            //     { file: "Light-the-LED-Extentsions-Walkthrough", type: "lab" },
+            //     { file: "Button-Controlled-LED-Walkthrough", type: "lab" },
+            //     { file: "Reaction-Game-Walkthrough", type: "lab" },
+            //     { file: "Countdown-Camera-Walkthrough", type: "lab" },
                 
-            ],
+            // ],
             "Pi's-and-Python": [
                 { file: "Pi's-and-Python-Syllabus", type:"notes"},
                 { file: "Terminal-Commands-Notes", type: "notes" },
