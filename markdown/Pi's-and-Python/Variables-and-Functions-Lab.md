@@ -46,6 +46,23 @@ Input: i lUv Cs
 i luv cs
 ```
 
+<details>
+<summary>Click here for a hint</summary>
+
+Before you get started, answer the following questions: 
+
+1. What function do you use to take input from the user? What variable type does it return?
+2. What function do you use to display information to the terminal? What variable type does it take as a parameter?
+3. What function can we use to make text lowercase?
+
+Decomposing the problem:
+
+1. Create a program to print something to the terminal
+2. Modify a program to take input from the user, save it as a variable and print it out
+3. Modify your program to lowercase the text and before printing it out. 
+
+</details>
+
 ### Testing 
 
 To test your program, use the following inputs and expected outputs. 
