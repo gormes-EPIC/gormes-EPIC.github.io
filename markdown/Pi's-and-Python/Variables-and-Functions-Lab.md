@@ -7,7 +7,16 @@
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-
+| variable | a named value that exists within our program and can be refereced by name |
+| variable type | the type of value a variable is (ex. int or string)|
+| integer(int) | a whole number |
+| float | a decimal number |
+| string | a collection of characters, surrounded by quotation marks |
+| function | a block of code that can be executed when called by name |
+| `input()` | a built-in function that takes input from the terminal |
+| `print()` | a built-in function that prints information to the terminal |
+| parameter | a value passed to a function when it is called |
+| return | what a function evaluates to |
 
 
 ## Your Task
@@ -53,13 +62,13 @@ Before you get started, answer the following questions:
 
 1. What function do you use to take input from the user? What variable type does it return?
 2. What function do you use to display information to the terminal? What variable type does it take as a parameter?
-3. What function can we use to make text lowercase?
+3. What function can we use to make text lowercase? [See this list of Python string methods if you are stuck](https://www.w3schools.com/python/python_ref_string.asp)
 
 Decomposing the problem:
 
 1. Create a program to print something to the terminal
 2. Modify a program to take input from the user, save it as a variable and print it out
-3. Modify your program to lowercase the text and before printing it out. 
+3. Modify your program to lowercase the text and before printing it out.
 
 </details>
 
