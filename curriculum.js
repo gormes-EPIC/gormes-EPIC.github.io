@@ -88,7 +88,7 @@ const curriculum = {
                 // Software Engineering
 
                 // Foundations of AI
-            // ],
+            ]
             // "Other": [
             //     { file: "Diagnostic-Pretest", type: "assignment" }
             // ]
