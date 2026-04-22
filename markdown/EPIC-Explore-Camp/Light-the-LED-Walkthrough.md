@@ -1,5 +1,11 @@
 # Light the LED Walkthrough
 
+<video controls width="100%">
+  <source src="assets/light-the-led.mov" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Objective
 
 1. Wire a circuit using a Raspberry Pi and a breadboard
@@ -20,7 +26,7 @@ light-the-led-walkthrough-figure-1.png">
 <img src="/assets/
 light-the-led-walkthrough-figure-2.png">
 
-n order to turn on our light using Python, we will need to take advantage of our Raspberry Pi's **GPIO pins** or general purpose input-output pins. Some of the pins can be turned on and off using Python, which is how we will power our light.
+In order to turn on our light using Python, we will need to take advantage of our Raspberry Pi's **GPIO pins** or general purpose input-output pins. Some of the pins can be turned on and off using Python, which is how we will power our light.
 
 Right now, your Pi already is connected to a **breadboard** using a **T-cobbler**. A breadboard allows us to quickly create circuits with M-M wires instead of soldering. The T-cobbler connects each of the Pi's pins to your breadboard . You can tell which pin you are using by reading the white text on the blue T-cobbler. 
 

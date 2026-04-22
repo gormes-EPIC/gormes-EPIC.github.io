@@ -1,10 +1,10 @@
 const curriculum = {
             "EPIC-Explore-Camp": [
-                { file: "Light-the-LED-Walkthrough", type:"lab"},
-                { file: "Light-the-LED-Extentsions-Walkthrough", type: "lab" },
-                { file: "Button-Controlled-LED-Walkthrough", type: "lab" },
-                { file: "Reaction-Game-Walkthrough", type: "lab" },
-                { file: "Countdown-Camera-Walkthrough", type: "lab" },
+                { file: "Light-the-LED-Walkthrough", type:"assignment"},
+                { file: "Light-the-LED-Extentsions-Walkthrough", type: "assignment" },
+                { file: "Button-Controlled-LED-Walkthrough", type: "assignment" },
+                { file: "Reaction-Game-Walkthrough", type: "assignment" },
+                { file: "Countdown-Camera-Walkthrough", type: "assignment" },
                 
             ],
             "Pi's-and-Python": [
@@ -39,6 +39,7 @@ const curriculum = {
                 { file: "Objects-in-Java-Notes", type: "notes"},
                 { file: "Object-Review-Lab", type: "assignment"},
                 { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment"},
+                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercises"},
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
