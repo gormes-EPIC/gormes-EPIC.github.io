@@ -39,7 +39,7 @@ const curriculum = {
                 { file: "Objects-in-Java-Notes", type: "notes"},
                 { file: "Object-Review-Lab", type: "assignment"},
                 { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment"},
-                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercises"},
+                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise"},
                 { file: "Quad-Sorts-Lab", type: "assignment" },
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
