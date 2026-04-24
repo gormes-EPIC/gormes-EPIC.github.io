@@ -60,6 +60,7 @@ const curriculum = {
                 { file: "Graph-Exercises", type: "exercise" },
                 { file: "Graphs-Lab", type: "assignment" },
                 { file: "Radix-Sort-Lab", type: "optional" },
+                { file: "Evil-Hangman-lab", type: "optional"}
                 // { file: "Music-With-JFugue", type: "notes" },
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
