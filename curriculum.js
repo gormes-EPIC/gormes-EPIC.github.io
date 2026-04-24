@@ -92,8 +92,8 @@ const curriculum = {
                 { file: "Technical-Interview-Practice", type: "assignment" },
 
                 // Software Engineering
-                { file: "Solving-an-Ethical-Dilemma", type: "assignment" }
-                
+                { file: "Solving-an-Ethical-Dilemma", type: "assignment" },
+                { file: "Workflow-Repository-Hygiene-Check", type:"assignment"}
 
                 // Foundations of AI
             ]
