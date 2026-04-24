@@ -32,7 +32,7 @@
 - [Stacks and Queues](https://www.andrew.cmu.edu/course/15-121/lectures/Stacks%20and%20Queues/Stacks%20and%20Queues.html)
 
 ## Extensions
-1. Change your implementation to use a linked list instead.
+1. Change your implementation to use a linked list instead. How would this affect the runtime of your solution.
 
 ## Reflection Questions
 1. What is the fundamental principle behind a stack?
