@@ -45,9 +45,7 @@ Your task is to reaserach the software stack of a major company and create a pre
     2. Are there any flaws or massive costs associated with this architecture?
 6. Citations
 
-
 ## Where to Research
-
 
 1. Company Engineering Blogs: Almost all major tech companies have dedicated engineering blogs (e.g., Netflix TechBlog, Uber Engineering Blog).
 2. Conference Talks: YouTube is full of presentations from conferences like AWS re:Invent, QCon, and Strange Loop where engineers explain their systems.
