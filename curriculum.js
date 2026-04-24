@@ -36,11 +36,13 @@ const curriculum = {
                 // TODO: Attach starter files 
                 { file: "Data-Structures-and-Algorithms-Syllabus", type:"notes"},
                 // { file: "Welcome-to-Java-Notes", type: "notes"},
+                { file: "Objects-and-OOP-Exercises", type: "exercise"},
                 { file: "Objects-in-Java-Notes", type: "notes"},
                 { file: "Object-Review-Lab", type: "assignment"},
                 { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment"},
                 { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise"},
                 { file: "Quad-Sorts-Lab", type: "assignment" },
+                { file: "Stack-and-Queue-Exercises", type: "exercise"},
                 { file: "Stack-and-Queue-Lab", type: "assignment" },
                 { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
                 { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes" },
@@ -93,7 +95,8 @@ const curriculum = {
 
                 // Software Engineering
                 { file: "Solving-an-Ethical-Dilemma", type: "assignment" },
-                { file: "Workflow-Repository-Hygiene-Check", type:"assignment"}
+                { file: "Workflow-Repository-Hygiene-Check", type:"assignment"},
+                { file: "Demo-Day-Presentation", type: "assignment"}
 
                 // Foundations of AI
             ]

@@ -383,3 +383,58 @@ Adding an element to the end of either list is generally $O(1)$, though it can b
 A `LinkedList` (specifically a doubly linked list, which is how Java's `LinkedList` is implemented) maintains pointers to both the head and the tail. Adding to the beginning or the end simply requires updating a few pointers, which operates in constant $O(1)$ time. Since you rarely need random access lookups (which is where `ArrayList` excels), `LinkedList` is much more efficient for frequent head/tail insertions.
 
 </details>
+
+
+## Exercise 12
+
+You are given a singly `LinkedList` representing the ordered vertices of a polygon. Write a Java method `calculatePerimeter(Node<Point> head)` that computes the total perimeter of the polygon. Assume the `Node` class has `getValue()` and `getNextNode()` methods. The `Point` class has `getX()` and `getY()` methods, returning doubles. Use the distance formula: $d = \sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}$. *Note: Remember to close the polygon by calculating the distance between the last vertex and the first vertex!*
+
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```java
+public class PolygonCalculator {
+
+    /**
+     * Calculates the perimeter of a polygon represented by a linked list of vertices.
+     * @param head The first node in the linked list of Points
+     * @return The total perimeter
+     */
+    public static double calculatePerimeter(Node<Point> head) {
+        // Base case: A polygon must have at least 3 points, but we'll safely return 0 
+        // if there are fewer than 2 points to avoid null reference errors.
+        if (head == null || head.getNextNode() == null) {
+            return 0.0;
+        }
+
+        double perimeter = 0.0;
+        Node<Point> current = head;
+
+        // Traverse the list to calculate the distance between adjacent nodes
+        while (current.getNextNode() != null) {
+            Point p1 = current.getValue();
+            Point p2 = current.getNextNode().getValue();
+            
+            perimeter += calculateDistance(p1, p2);
+            current = current.getNextNode();
+        }
+
+        // Close the polygon by connecting the tail (current) back to the head
+        perimeter += calculateDistance(current.getValue(), head.getValue());
+
+        return perimeter;
+    }
+
+    /**
+     * Helper method to calculate the distance between two points.
+     */
+    private static double calculateDistance(Point p1, Point p2) {
+        double xDiff = p2.getX() - p1.getX();
+        double yDiff = p2.getY() - p1.getY();
+        return Math.sqrt((xDiff * xDiff) + (yDiff * yDiff));
+    }
+}
+```
+
+</details>

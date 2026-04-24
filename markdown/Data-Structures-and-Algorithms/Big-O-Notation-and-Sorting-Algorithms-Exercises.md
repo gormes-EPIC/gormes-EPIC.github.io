@@ -275,10 +275,10 @@ Select the larger function as $n \to \infty $
 
 Order the following functions from largest to smallest.
 - $n$
-- $n log n$
-- $n^(1/x)$ when $x > 1$
+- $n \log (n)$
+- $n^\frac{1}{x}$ when $x > 1$
 - $1$ 
-- $log n$
+- $\log{n}$
 - $n!$
 - $x^n$ when $x > 1$
 - $n^2$

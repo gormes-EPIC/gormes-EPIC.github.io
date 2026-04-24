@@ -595,3 +595,15 @@ For the following tree, trace a breadth-first traversal and a depth-first traver
 - Depth-first: 47, 35, 56, 24, 50, 82, 27
 
 </details>
+
+### Exercise 21
+
+An arithmetic sequence is defined by the explicit formula $a_n = 5n - 3$. Calculate the first 6 terms of this sequence ($n = 1, 2, 3, 4, 5, 6$).If you insert these terms sequentially into a standard Binary Search Tree, what will the tree look like? In Big O notation, what is the worst-case runtime to search this specific tree, and why?
+
+<details>
+<summary>Click here to view the answer</summary>
+
+Because the numbers (2, 7, 12, 17, 22, 27) are inserted in strictly increasing order, every new node will be placed as the right child of the previous node. The tree will be completely unbalanced, looking like a single line leaning to the right.Worst-case Search Time: $O(n)$Because the tree has degenerated into a linked list, searching for the maximum value (or a value not in the tree) requires traversing every single node.
+
+</details>
+
