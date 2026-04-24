@@ -10,9 +10,9 @@ Instructions: Write at least one complete sentence per question.
 
 
 ## Rubric
-- **8 points** - All answers have been completed thoughtfully
-- **6 points** - All answers have been completed but lack depth
-- **4 points** - Missing or incomplete 
+- **30 points** - All answers have been completed thoughtfully
+- **15 points** - All answers have been completed but lack depth
+- **0 points** - Missing or incomplete 
 
 
 

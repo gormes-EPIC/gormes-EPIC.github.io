@@ -53,6 +53,6 @@ Keeping your strategies in mind, work in groups for the next **ten minutes**. Th
 
 ## Rubric
 
-- **8 points** - Answers were thorough and complete.
-- **6 points** - Answers were present, but lacked depth and critical thinking.
-- **4 points** - Missing or incomplete 
+- **30 points** - Answers were thorough and complete.
+- **15 points** - Answers were present, but lacked depth and critical thinking.
+- **0 points** - Missing or incomplete 

@@ -22,6 +22,6 @@
 3. Your task is to draft a memo to Sarah explain why the launch must be halted over ethical concerns. To support your argument cite at least three principles from the [ACM Code of Ethics and Professional Conduct](https://docs.google.com/document/d/1cEsWxGGVfZ1MBj0PRNOmG__My2x3mp1GBOifeuujeYc/edit?usp=sharing).
 
 ## Rubric
-- **8 points** - Delivered well-written, clear, and appropriately cited memo. 
-- **6 points** - Delivered response was unclear, lacked depth, did not cite the ACM or wasn't written professionally.
-- **4 points** - Missing or incomplete 
+- **30 points** - Delivered well-written, clear, and appropriately cited memo. 
+- **15 points** - Delivered response was unclear, lacked depth, did not cite the ACM or wasn't written professionally.
+- **0 points** - Missing or incomplete 

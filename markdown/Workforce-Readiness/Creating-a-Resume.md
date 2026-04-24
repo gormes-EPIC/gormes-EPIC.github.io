@@ -13,8 +13,8 @@
 2. Resubmit your resume
 
 ## Rubric
-- 8 points - Resume is complete and appropriately complements job description
-- 7 points - Resume is complete but lacks detail. Doesn't address aspects of the job description, bullet points are general, is poorly formatted etc.
-- 6 points - Resume is missing sections, has grammatical errors, doesn't address comments, etc.
-- 5 points - Completed part 1, but did not complete part 2
-- 4 points - Incomplete or missing
+- **30 points** - Resume is complete and appropriately complements job description
+- **25 points** - Resume is complete but lacks detail. Doesn't address aspects of the job description, bullet points are general, is poorly formatted etc.
+- **20 points** - Resume is missing sections, has grammatical errors, doesn't address comments, etc.
+- **15 points** - Completed part 1, but did not complete part 2
+- **0 points** - Incomplete or missing

@@ -37,6 +37,6 @@ Then, use the steps below to develop a response for your weaknesses:
 
 
 ## Rubric
-- **8 points** - Delivered well-written, clear, and informative answers.
-- **6 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
-- **4 points** - Missing or incomplete 
+- **30 points** - Delivered well-written, clear, and informative answers.
+- **15 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
+- **0 points** - Missing or incomplete 

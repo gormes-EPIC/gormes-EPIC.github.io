@@ -56,6 +56,6 @@ Then, answer the following questions yourself.
 
 ## Rubric
 
-- **8 points** - Created a well-written, professional, and informative README with appropriate visuals and formatting. Completed reflection questions thoroughly and professionally. Complete peer rubric with action steps. 
-- **6 points** - Create a README but is informal, poorly formatted, or otherwise incomplete. Reflection answers are shallow or incomplete. Peer rubric has been completed, but does not have strong actionable steps identified. 
-- **4 points** - Missing or incomplete 
+- **30 points** - Created a well-written, professional, and informative README with appropriate visuals and formatting. Completed reflection questions thoroughly and professionally. Complete peer rubric with action steps. 
+- **15 points** - Create a README but is informal, poorly formatted, or otherwise incomplete. Reflection answers are shallow or incomplete. Peer rubric has been completed, but does not have strong actionable steps identified. 
+- **0 points** - Missing or incomplete 

@@ -15,6 +15,6 @@
     4. Tell me about a time you had to meet a tight deadline or balance multiple responsibilities.
 
 ## Rubric
-- **8 points** - Delivered well-written, clear, and informative answers using the STAR format. 
-- **6 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
-- **4 points** - Missing or incomplete 
+- **30 points** - Delivered well-written, clear, and informative answers using the STAR format. 
+- **15 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
+- **0 points** - Missing or incomplete 

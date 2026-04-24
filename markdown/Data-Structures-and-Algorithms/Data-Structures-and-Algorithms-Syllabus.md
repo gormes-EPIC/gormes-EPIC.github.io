@@ -23,7 +23,6 @@ This course will delve into a variety of programming data structures such as arr
 - **Unit 3:** Lists
 - **Unit 4:** Trees and Heaps
 - **Unit 5:** Graphs
-- **Unit 6:** Hashmaps and RadixSort
 
 ## Learning Objectives
 

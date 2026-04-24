@@ -94,7 +94,6 @@ const curriculum = {
                 // Software Engineering
                 { file: "Solving-an-Ethical-Dilemma", type: "assignment" }
                 
-                // Software Engineering
 
                 // Foundations of AI
             ]

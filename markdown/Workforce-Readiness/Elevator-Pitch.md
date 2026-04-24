@@ -40,7 +40,7 @@ In this assignment you will develop a 30-60 response to the question "tell me ab
 *Example: My name is Gwyneth Ormes, and I am a high school senior graduating in 2018. Outside of my regular classes, I have a strong passion for computer science and leadership. I currently compete in CyberPatriot, an international cybersecurity competition, and I recently earned my Girl Scout Gold Award by creating a camp that introduces fifth-grade girls in my community to computer science. Beyond tech, I love staying active and creative. I work as a camp counselor for a high ropes course, and I serve as the costume crew head for my school’s theatre program.  I am a dedicated and driven student and I am excited to pursue computer science in college, and eventually as my career.*
 
 ## Rubric
-- **8 points** - Delivered a in-depth, well-rehersed, and professional pitch about themselves 
-- **6 points** - Delivered a pitch but did not cover a majority of the topics above or was unprofessionally presented
-- **4 points** - Missing or incomplete 
+- **30 points** - Delivered a in-depth, well-rehersed, and professional pitch about themselves 
+- **15 points** - Delivered a pitch but did not cover a majority of the topics above or was unprofessionally presented
+- **0 points** - Missing or incomplete 
 
