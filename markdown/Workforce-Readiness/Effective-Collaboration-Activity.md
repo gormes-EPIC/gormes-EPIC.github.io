@@ -49,7 +49,7 @@ Keeping your strategies in mind, work in groups for the next **ten minutes**. Th
 
 ## Deliverables
 
-- [] Submit your two sets of reflection questions as a group
+- [ ] Submit your two sets of reflection questions as a group
 
 ## Rubric
 

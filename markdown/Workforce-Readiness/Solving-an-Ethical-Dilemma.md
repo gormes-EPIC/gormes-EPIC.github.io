@@ -9,7 +9,8 @@
 
 ## Your Task
 
-1. Read the [ACM Code of Ethics and Professional Conduct](https://docs.google.com/document/d/1cEsWxGGVfZ1MBj0PRNOmG__My2x3mp1GBOifeuujeYc/edit?usp=sharing). Ask you read, make connections to current/historical events that relate to each principle. For example, next to clause 1.6 (Respect privacy), a student might annotate: "Like the Cambridge Analytica scandal, where user data was scraped and used without explicit consent."
+1. Read the [ACM Code of Ethics and Professional Conduct](https://docs.google.com/document/d/1cEsWxGGVfZ1MBj0PRNOmG__My2x3mp1GBOifeuujeYc/edit?usp=sharing). Ask you read, make connections to current/historical events that relate to a principle. For example, next to clause 1.6 (Respect privacy), a student might annotate: "Like the Cambridge Analytica scandal, where user data was scraped and used without explicit consent." Make at least 5 connections throughout the document. 
+
 2. Read the following scenario:
 
 > VitaCare Tech has spent the last year developing "Triage-AI," a predictive model designed to help understaffed hospitals prioritize emergency room patients based on their intake symptoms. The company is facing immense financial pressure, and a major competitor just announced a similar product.
@@ -21,6 +22,6 @@
 3. Your task is to draft a memo to Sarah explain why the launch must be halted over ethical concerns. To support your argument cite at least three principles from the [ACM Code of Ethics and Professional Conduct](https://docs.google.com/document/d/1cEsWxGGVfZ1MBj0PRNOmG__My2x3mp1GBOifeuujeYc/edit?usp=sharing).
 
 ## Rubric
-- **8 points** - Delivered well-written, clear, and informative answers using the STAR format. 
-- **6 points** - Delivered responses but they were unclear, lacked depth, or weren't written professionally.
+- **8 points** - Delivered well-written, clear, and appropriately cited memo. 
+- **6 points** - Delivered response was unclear, lacked depth, did not cite the ACM or wasn't written professionally.
 - **4 points** - Missing or incomplete 
