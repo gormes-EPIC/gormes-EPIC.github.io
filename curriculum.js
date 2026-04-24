@@ -57,8 +57,8 @@ const curriculum = {
                 { file: "Graph-Notes", type: "notes" },
                 { file: "Graph-Exercises", type: "exercise" },
                 { file: "Graphs-Lab", type: "assignment" },
-                { file: "Radix-Sort-Lab", type: "assignment" },
-                { file: "Music-With-JFugue", type: "notes" },
+                { file: "Radix-Sort-Lab", type: "optional" },
+                // { file: "Music-With-JFugue", type: "notes" },
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
@@ -89,6 +89,9 @@ const curriculum = {
                 { file: "Computer-Science-News-Presentation", type:"assignment"},
                 { file: "Writing-a-Cover-Letter", type: "assignment" },
                 { file: "My-Strengths-and-Weaknesses", type: "assignment" },
+                { file: "Technical-Interview-Practice", type: "assignment" },
+
+                // Software Engineering
                 { file: "Solving-an-Ethical-Dilemma", type: "assignment" }
                 
                 // Software Engineering

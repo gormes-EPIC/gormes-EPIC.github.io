@@ -26,6 +26,9 @@
             /* New Exercise Colors (Emerald Green) */
             --badge-exercise-bg: rgba(16, 185, 129, 0.2); 
             --badge-exercise-text: #34d399;
+            /* New Optional Colors (Dark Mode Grey) */
+            --badge-optional-bg: rgba(156, 163, 175, 0.2); 
+            --badge-optional-text: #9ca3af;
         }
 
         /* Automatically scale up the UI on screens wider than 1200px */
@@ -49,6 +52,9 @@
             --badge-assign-text: #b91c92;
             --badge-exercise-bg: #d1fae5;
             --badge-exercise-text: #059669;
+            /* New Optional Colors (Light Mode Grey) */
+            --badge-optional-bg: #f3f4f6;
+            --badge-optional-text: #4b5563;
         }
 
         body {
@@ -121,6 +127,17 @@
         .badge-exercise {
             background-color: var(--badge-exercise-bg);
             color: var(--badge-exercise-text);
+        }
+        /* New Exercise Badge Class */
+        .badge-exercise {
+            background-color: var(--badge-exercise-bg);
+            color: var(--badge-exercise-text);
+        }
+
+        /* New Optional Badge Class */
+        .badge-optional {
+            background-color: var(--badge-optional-bg);
+            color: var(--badge-optional-text);
         }
 
         /* 2-Column Grid */
@@ -415,6 +432,7 @@
             if (type === 'notes') return 'badge-notes';
             if (type === 'assignment') return 'badge-assignment';
             if (type === 'exercise') return 'badge-exercise';
+            if (type === 'optional') return 'badge-optional';
             return ''; // Default fallback
         }
 
