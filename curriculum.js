@@ -62,7 +62,8 @@ const curriculum = {
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
-                { file: "Blockbuster-Lab", type: "assignment" }
+                { file: "Blockbuster-Lab", type: "assignment" },
+                { file: "Design-Review-Dicussion", type: "assignment" }
             ],
             "Foundations-of-AI": [
                 { file: "notes", type: "notes" },
