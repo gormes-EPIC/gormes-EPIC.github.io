@@ -7,7 +7,7 @@
 
 ### Presentation Examples
 
-As you watch the following videos, write down qualities of strong and weak presentation skills in each of the categories on [this graphic organizer](https://docs.google.com/document/d/1vcl8G_qbv04BXPm1noMnL96bCEI7RcapvP-hRgH37_M/edit?usp=sharing)
+As you watch the following videos, write down qualities of strong and weak presentation skills in each of the categories on [this graphic organizer](https://docs.google.com/document/d/1vcl8G_qbv04BXPm1noMnL96bCEI7RcapvP-hRgH37_M/edit?usp=sharing).
 
 <iframe width="100%" height="400" src="https://www.youtube.com/embed/ATfY8dvbuFg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -16,5 +16,7 @@ You do not need to watch this entire video, but watch at least the first 10 minu
 
 ## Your Task
 
-Find a news story from within the last year that is related to computer science. Develop a short 5-10 minute presentation on your news story. 
+Find a news story from within the last year that is related to computer science. Then, find 2-3 articles related to that story. Synthesize the information into a short 5-10 minute presentation on your news story. 
+
+
 

@@ -62,7 +62,7 @@ const curriculum = {
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
-                { file: "project", type: "assignment" }
+                { file: "Blockbuster-Lab", type: "assignment" }
             ],
             "Foundations-of-AI": [
                 { file: "notes", type: "notes" },
@@ -85,7 +85,9 @@ const curriculum = {
                 { file: "Effective-READMEs", type: "assignment" },
                 { file: "Computer-Science-News-Presentation", type:"assignment"},
                 { file: "Writing-a-Cover-Letter", type: "assignment" },
-                { file: "My-Strengths-and-Weaknesses", type: "assignment" }
+                { file: "My-Strengths-and-Weaknesses", type: "assignment" },
+                { file: "Solving-an-Ethical-Dilemma", type: "assignment" }
+                
                 // Software Engineering
 
                 // Foundations of AI

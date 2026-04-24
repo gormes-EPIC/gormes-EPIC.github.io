@@ -298,3 +298,44 @@ Order the following functions from largest to smallest.
 9. $1$ (Constant)
 
 </details>
+
+# Exercise 14
+
+After ONE full pass of bubble sort, sorting smallest to largest, what does the array look like?  Array: [7, 2, 5, 3, 9, 1, 15, 14]
+
+<details>
+<summary>Click here to view the answer</summary>
+
+{2, 5, 3, 7, 1, 9, 14, 15}
+
+</details>
+
+# Exercise 14
+
+How many calls are made to line 4 in the worst case of this sort? Leave your answer in terms of $n$.
+
+```java
+public static void mysterySort(int[] arr) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            int minIndex = i;
+            for (int j = i + 1; j < arr.length; j++) {
+                if (arr[j] < arr[minIndex]) { //line 4
+                    minIndex = j;
+                }
+            }
+            if (minIndex != i) {
+                int temp = arr[minIndex];
+                arr[minIndex] = arr[i];
+                arr[i] = temp;
+            }
+        }
+}
+```
+
+<details>
+<summary>Click here to view the answer</summary>
+
+$O(n^2)$
+
+</details>
+
