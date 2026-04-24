@@ -50,11 +50,23 @@ while True:
 
 ```
 
+## Next Steps
+
+As you probably noticed, the linear increase in the signal does not look linear to the human eye. The LED will appear to reach maximum brightness very quickly, and the latter half of the rotary encoder's turns will seem to do almost nothing. This is because human perception of brightness is roughly logarithmic. 
+
+To make this increase appear smooth, modify your function to model brightness with this brightness function instead:
+
+$$b(x) = (\frac{x}{180})^2$$
+
+$x$ represents the input from the rotary encoder and $b(x)$ represents the brightness.
+
+Now your program should appear to become brighter more linearly.
+
 ## Tips, Tricks, and Resources
 - Remember that `rotor.steps` is the variable that is holding the rotary encoded value. You are trying to convert that value into a PWM signal. PWM signals must be between 0 and 1, so you will need to transform the values in some way.
 
 ## Extensions
-1. Swap out your single-color LED for a 4-pin RGB LED (using `RGBLED` in `gpiozero`). Map the 0-180 steps of the rotary encoder to smoothly transition the LED through different colors of the rainbow instead of just changing the brightness of a single color.
+1. Swap out your single-color LED for a 4-pin RGB LED (using `RGBLED` in `gpiozero`). Map the 0-180 steps of the rotary encoder to smoothly transition the LED through different colors of the rainbow instead of just changing the brightness of a single color. Before you get started, create a [piecewise function](https://en.wikipedia.org/wiki/Piecewise_function) to model your LED. For example, dividing the 180 steps into three 60-step zones where different colors rise and fall.
 
 ## Reflection Questions
 1. What debugging strategies did you use to identify and fix these problems?
