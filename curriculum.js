@@ -70,9 +70,11 @@ const curriculum = {
                 { file: "Blockbuster-Lab", type: "assignment" },
                 { file: "Post-mortem-Discussion", type: "assignment"},
                 { file: "Currency-Translator-Lab", type: "assignment"},
+                { file: "Cowsay-ENV-Lab", type:"assignment"},
                 { file: "Style-Guides-and-Great-READMEs", type: "assignment"},
                 { file: "Design-Review-Discussion", type: "assignment" },
                 { file: "Engineering-Case-Study-Presentation", type: "assignment" }
+                // { file: "Demo-Day-Presentation", type: "assignment"}
             ],
             "Foundations-of-AI": [
                 { file: "notes", type: "notes" },
