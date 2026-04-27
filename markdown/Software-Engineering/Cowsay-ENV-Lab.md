@@ -59,7 +59,24 @@ You should be familiar with `pip` or the [package installer for Python](https://
 
 An **environment variable** is a user-definable value that can affect the way running processes will behave on a computer. We can use environment variables to store information on our machine an access it from any subprocess, like a Python program. 
 
-1. To create a permanent environment variable edit the file `sudo nano /etc/environment` and add `MY_GLOBAL_VAR="system_value"` to the bottom. This will create a new environment variable called "MY_GLOBAL_VAR" (typically environment variables are in all caps) with the value "system_value"
+1. To create a permanent environment variable edit the file `sudo nano /etc/environment` and add `MY_GLOBAL_VAR="system_value"` to the bottom. This will create a new environment variable called "MY_GLOBAL_VAR" (typically environment variables are in all caps) with the value "system_value". **You'll need to log out or reboot for this to take effect.**
+2. Then, print the contents of your variable with `echo $MY_GLOBAL_VAR`. 
+
+### Accessing Environment Variables with Python
+
+To access an environment variable from Python we use the `os` library. 
+
+1. Create a new Python script for this lab.
+2. Import the `os` library and use `os.environ['KEY']` to get the value of your environment variable like this:
+```python
+import os
+
+value = os.environ['MY_GLOBAL_VAR']
+print(value)
+
+``` 
+3. Modify your cowsay program to print the contents of your environment variable instead of "hello world". 
+
 
 ## Unit Testing with `requirements.txt`
 
@@ -67,19 +84,13 @@ An **environment variable** is a user-definable value that can affect the way ru
 
 ## Tips, Tricks, and Resources
 
-- [GitHub Actions for Python](https://docs.github.com/en/actions/tutorials/build-and-test-code/python)
-- [pytest GitHub Actions Example](https://github.com/ericsalesdeandrade/pytest-github-actions-example)
-
+- 
 ## Extensions
 
-1. Raise errors due to illegal states and test them using `pytest.raises`.
-
+1. 
 ## Reflection Questions
-1. What are three qualities of effective unit tests? Do your tests fulfill these qualities?
-2. Explain the importance of the `assert` keyword in a unit test.
-3. If you wanted to run your automatic tests with a different version of Python, how would you change it?
-4. Do some research into how to use `requirements.txt` within GitHub Actions. What is its purpose and how do you use it?
-5. What are three qualities of effective documentation? Does your documentation fulfill these qualities?
+1. How could environment variables help us make our code more secure?
+
 
 ## Deliverables Checklist
 - [ ] Demonstrate a working program to your instructor in class
