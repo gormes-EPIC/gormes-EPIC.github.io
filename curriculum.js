@@ -62,19 +62,34 @@ const curriculum = {
                 { file: "Graph-Notes", type: "notes" },
                 { file: "Graph-Exercises", type: "exercise" },
                 { file: "Graphs-Lab", type: "assignment" },
+                { file: "Final-Project-Lab", type: "assignment"},
                 { file: "Radix-Sort-Lab", type: "optional" },
                 { file: "Evil-Hangman-lab", type: "optional"}
                 // { file: "Music-With-JFugue", type: "notes" },
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
+                // Unit 0: CI/CD and Version Control
                 { file: "Blockbuster-Lab", type: "assignment" },
+                // { file: "Advanced-Git-Lab", type: "assignment"},
                 { file: "Post-mortem-Discussion", type: "assignment"},
                 { file: "Currency-Translator-Lab", type: "assignment"},
-                { file: "Cowsay-ENV-Lab", type:"assignment"},
                 { file: "Style-Guides-and-Great-READMEs", type: "assignment"},
+                { file: "Cowsay-ENV-Lab", type:"assignment"},
+
+                // Unit 1: Databases with SQLite
+                { file: "Setting-Up-a-Database-Lab", type: "assignment"},
+                // { file: "Database-Design", type: "assignment"},
+                // { file: "Manipulating-a-Database-Lab", type: "assignment"},
+
+
+                // Unit 2: How Computers Talk and APIs
                 { file: "Design-Review-Discussion", type: "assignment" },
+
+                // Unit 3: Containerizing
                 { file: "Engineering-Case-Study-Presentation", type: "assignment" }
+
+                // Unit 4: Distribution
                 // { file: "Demo-Day-Presentation", type: "assignment"}
             ],
             "Foundations-of-AI": [
