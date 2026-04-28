@@ -1,6 +1,6 @@
 # Cowsay [ENV] Lab
-This assignment is under construction and is subject to change for the 26-27 school year.* 
 
+*This assignment is under construction and is subject to change for the 26-27 school year.*
 
 ## Objective
 

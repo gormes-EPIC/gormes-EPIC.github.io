@@ -29,6 +29,7 @@ const curriculum = {
                 { file: "Recursion-Notes", type:"notes"},
                 { file: "Recursion-Lab", type:"assignment"},
                 { file: "Binary-Display-Lab", type:"assignment"},
+                { file: "Final-Project", type: "assignment"}
                 
                 
             ],
