@@ -1,7 +1,5 @@
 # Cowsay [ENV] Lab
 
-*This assignment is under construction and is subject to change for the 26-27 school year.*
-
 ## Objective
 
 1. Install `conda` and set up a `conda` environment
@@ -77,19 +75,40 @@ print(value)
 ``` 
 3. Modify your cowsay program to print the contents of your environment variable instead of "hello world". 
 
+## Unit Testing
 
-## Unit Testing with `requirements.txt`
+Because we are printing out information and not using functions, we will skip the unit testing for this lab. 
 
 ## README
 
+efore uploading, create a new document called `README.md` in your project folder. Here, you will write a technical document to explain how to use your program. Review these [principles of effective documentation](#Workforce-Readiness/Technical-Writing-Notes) from last semester. Please include the following sections:
+
+1. Header and short description
+2. How to use environment variables
+3. How to install `cowsay` using pip
+
+Make sure you are effectively using structure, visuals, and professional language as you write.
+
 ## Tips, Tricks, and Resources
 
-- 
+- [pip entry for cowsay](https://pypi.org/project/cowsay/)
+
 ## Extensions
 
-1. 
+1. Add additional functionality to override the environment variable if a message is passed in via CLI (shown below). You will need to use the `sys.args` list and the `os.environ.get()` function. 
+
+```
+$ python cow.py
+# uses ENV var if available
+
+$ python cow.py "custom message"
+# overrides ENV var
+```
+
+
 ## Reflection Questions
 1. How could environment variables help us make our code more secure?
+2. What is the purpose of using a `conda` environment? Give some examples of when it would be appropriate to use one.
 
 
 ## Deliverables Checklist
