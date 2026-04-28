@@ -9,7 +9,7 @@ const curriculum = {
             ],
             "Pi's-and-Python": [
                 { file: "Pi's-and-Python-Syllabus", type:"notes"},
-                { file: "Terminal-Commands-Notes", type: "notes" },
+                // { file: "Terminal-Commands-Notes", type: "notes" },
                 { file: "Terminal-Commands-Exercises", type: "exercise" },
                 { file: "Over-the-Wire-Lab", type: "assignment" },
                 { file: "Text-Editors-Lab", type: "assignment" },
@@ -80,7 +80,7 @@ const curriculum = {
                 // Unit 1: Databases with SQLite
                 { file: "Setting-Up-a-Database-Lab", type: "assignment"},
                 // { file: "Database-Design", type: "assignment"},
-                // { file: "Manipulating-a-Database-Lab", type: "assignment"},
+                { file: "Manipulating-a-Database-Lab", type: "assignment"},
 
 
                 // Unit 2: How Computers Talk and APIs
@@ -107,6 +107,7 @@ const curriculum = {
                 { file: "Effective-Collaboration-Activity", type: "assignment"},    
                 { file: "Creating-a-Resume", type: "assignment" },
                 { file: "Update-Your-Portfolio", type: "assignment" },
+
                 // Data Structures
                 { file: "Writing-in-Markdown-Notes", type: "notes"},
                 { file: "Technical-Writing-Notes", type: "notes"},
@@ -117,6 +118,8 @@ const curriculum = {
                 { file: "Technical-Interview-Practice", type: "assignment" },
 
                 // Software Engineering
+                { file: "Norms-and-Community-Agreements", type: "assignment"}, 
+                { file: "Git-Rescue-Simulation", type: "assignment"},
                 { file: "Solving-an-Ethical-Dilemma", type: "assignment" },
                 { file: "Workflow-Repository-Hygiene-Check", type:"assignment"},
                 { file: "Demo-Day-Presentation", type: "assignment"}
