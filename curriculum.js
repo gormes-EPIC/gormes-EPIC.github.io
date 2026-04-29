@@ -79,9 +79,9 @@ const curriculum = {
 
                 // Unit 1: Databases with SQLite
                 { file: "Setting-Up-a-Database-Lab", type: "assignment"},
-                // { file: "Database-Design", type: "assignment"},
                 { file: "Manipulating-a-Database-Lab", type: "assignment"},
-
+                { file: "Database-Design", type: "assignment"},
+                
 
                 // Unit 2: How Computers Talk and APIs
                 { file: "Design-Review-Discussion", type: "assignment" },
