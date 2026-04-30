@@ -111,6 +111,7 @@ Verify your changes with `SELECT * FROM data;`.
 
 ## Deliverables Checklist
 - [ ] Demonstrate an existing database in class with the ability to perform SQL queries 
+- [ ] Answers to your reflection questions either written or verbally in class
 
 ## Rubric
 - **20 points** - All required items are present.
