@@ -64,7 +64,8 @@ const curriculum = {
                 { file: "Graphs-Lab", type: "assignment" },
                 { file: "Final-Project-Lab", type: "assignment"},
                 { file: "Radix-Sort-Lab", type: "optional" },
-                { file: "Evil-Hangman-Lab", type: "optional"}
+                { file: "Evil-Hangman-Lab", type: "optional"},
+                { file: "Data-Utility-Lab", type: "optional"}
                 // { file: "Music-With-JFugue", type: "notes" },
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],

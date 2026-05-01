@@ -1,17 +1,15 @@
 # Blockbuster Lab
 
-*This assignment is under construction and is subject to change for the 26-27 school year.* 
-
-
 ## Objective
-1. Use Python to model data using object-oriented program
+1. Use Python to model data using object-oriented programing 
 2. Use Git and GitHub to track version control and hosting your project
 
 
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-|||
+| class | a piece of code that defines an object. Think of it like a blueprint for a house. |
+| object | an instance of a class. Think of it like the actual house | 
 
 ## Your Task
 
