@@ -25,6 +25,7 @@ const curriculum = {
                 { file: "Objects-Notes", type: "notes" },
                 { file: "File-Reading-and-Writing-Notes", type: "notes" },
                 { file: "Fun-With-Objects-Lab", type: "assignment" },
+                { file: "Object-Exericses", type: "exercise" },
                 { file: "Digital-Slot-Machine-Lab", type:"assignment"},
                 { file: "Recursion-Notes", type:"notes"},
                 { file: "Recursion-Lab", type:"assignment"},
