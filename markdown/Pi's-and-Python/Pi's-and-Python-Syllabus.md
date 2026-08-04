@@ -2,8 +2,8 @@
 
 | Instructor Information      | Course Information        |
 | --------------------------- | ------------------------- |
-| Gwyneth Ormes               | Room Number: E214         |
-| Email: gormes@lps.k12.co.us | Meeting Times:  |
+| Gwyneth Ormes               | Room Number: E226         |
+| Email: gormes@lps.k12.co.us | |
 
 ## Course Description
 
@@ -60,71 +60,60 @@ By the end of this course, students will be able to:
 	- Compare different solutions to the same problem and learn from others' approaches
 	- Conduct yourself in a professional manner as a student and a job candidate
 
-## Technologies
+## Policies and Grading
 
-These are the primary platforms I will use to communicate with you throughout the course.
+### Assignment Calendar
 
-1. **Google Classroom:** announcements, assignments, resources, course calendar
-2. **Infinite Campus:** grades, attendance
-3. **GitHub:** assignment submissions
-4. **Personal Website:** assignment descriptions, notes, additional exercises
+An assignment calendar for the semester has been posted listing each assignment’s name, point value, category, start date, due date, and the end of the regrade period(see the Late Work section below).
 
-### Data Privacy
+### Homework
+This course will not assign specific homework assignments, but you may need to work on assignments at home to keep up with deadlines, depending on how effectively you use your class time. The only work that will need to be completed on your own time is any assignment that you were absent for. If you need help setting anything up on a personal computer to work on it at home, please feel free to bring it in so we can get it set up.
 
-In accordance with HB 16-1423 we will not be using tools which sell, rent, share, or lease Personally Identifiable Information (PII) to third parties. The tools I know we will use in this course are listed below. I will update this list if anything changes.
+### Grading Scale
 
-- [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
-- [GitHub Codespaces Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-codespaces-privacy-statement)
+We will use the traditional grading system listed below: 
 
-### Opt-Out
+| Letter Grade     | Percentage        |
+| --------------------------- | ------------------------- |
+| A  | 90–100% |
+| B  | 80–89% |
+| C  | 70–79% |
+| D  | 60–69% |
+| F  | 0–59% |
 
-GitHub and the associated products we will use will collect student names, email addresses, and usernames. If you are uncomfortable with using any of this software for any reason, you may opt-out of using these services. If you would like to opt-out of using a service, notify me and we will make alternate arrangements.
+### Grade Categories
+There are three grade categories in the gradebook for this course:
+- **Assignments(50%):** Lab assignments and written exercises that cover the majority of course content.
+- **Quizzes(10%):** At the end of each unit. Can be resubmitted with corrections.
+- **Workforce Readiness(40%):** Assignments assessing professionalism, critical thinking and problem solving, communication, and collaboration.
 
-## Grading Policies
+#### Workforce Readiness
 
-Your final grade will be calculated according to two categories:
-- **50% Course Content:** Activities, labs
-- **10% Quizzes:** The lowest quiz is dropped
-- **40% Workplace Readiness:** Collaboration, communication, critical thinking and professionalism
+Workforce readiness assignments target the 4 EPIC workforce readiness skills professionalism, critical thinking and problem solving, communication, and collaboration. There are two types of assignments in this category: professionalism points, which are accumulated every class, and written assignments which relate to the other three categories. The written assignments are described on the assignment calendar.
 
-Letter grades at the end of the semester  will be assigned according to the following scale:
+Students can earn up to three professionalism points per day. Professionalism points can be reduced by being tardy, not wearing the EPIC uniform, being off task during class, or by not emailing your instructor when you are going to be absent (see the Absences section below)
 
-| Grade | Percentage |
-| ----- | ---------- |
-| A     | 90% - 100% |
-| B     | 80% - 89%  |
-| C     | 70% - 79%  |
-| D     | 60% - 69%  |
-| F     | 0% - 59%   |
+### Recoverability for Missing Work
 
-### Assignments and Rubrics 
+When a missing assignment is graded, a 50% will be entered into the gradebook instead of a 0. This will help students stay on track while they are still working to finish up an assignment. After 2 weeks, a 0 will be entered into the gradebook instead. See the Late Work section for more information on regrades. 
 
-Assignments in this course will be a combination of in-class activities, documented labs, and workforce readiness assignments. Since I accept multiple submissions for every assignment, I will hold your work to a high standard. You may need to submit an assignment multiple times in order to receive full points and that's ok!   
+### Late Work
 
-### Missing Assignments and Late Work
+Regrades are accepted until the end of the next unit. For example, an assignment in Unit 0 will be open for regrades until the end of Unit 1. Regrades are eligible for full credit while the regrade period is open. After it closes, points for late assignments will need to be negotiated with your instructor.
 
-Missing or incomplete assignments will be indicated by a 50% score in Infinite Campus along with a comment. After two weeks and a communication home, a 0% will be entered for all missing/incomplete assignemnts. Missing, incomplete and/or assignment re-submissions will be accepted until the end of the semester for full credit.
+### Absenses
 
-### Absences
+When you are going to be absent from class, you are responsible for:
+- Checking the daily agenda to see what work you are responsible for completing outside of class
+- Emailing your instructor and your parents restating what we did in class that day and what work you are responsible for completing on your own. 
+- If you send your instructor an email when you are absent, you will still receive all three professionalism points for that day. If you are absent for a quiz, you will need to be prepared to take the quiz the next time you are in class.  
 
-If you are absent, it is your responsibility to stay up to date with what we did in class and complete any make-up work. The course calendar will list what we worked in class and list any assignments you were expected to work on/complete that day. You are responsible for completing these assignments and may need to put in time outside of class to catch up. **If you are absent, send me an email letting me know you will not be in class and listing what you are responsible for completing as make-up work from the course calendar.** Know that material in this class builds on previous concepts, so if you are missing a significant number of assignments you may find it difficult to learn new material before completing make-up work. 
+### Phones, Headphones, and Personal Computers
+Phones will need to be placed in the phone pockets and may not be used during classtime, but may be used during break. Headphones may be used only during independent work time and not during lectures or group work. If you have an 85% or higher in the class, you may bring a personal computer to class and use it during independent work time. Though, if you are spending time playing video games or are otherwise off task, you will be asked to leave it at home.
 
-### Resubmitting Assignments
+### Assignments and Academic Integrity
+In this course, you are expected to complete your own work. Please refer to the EPIC Campus Academic Integrity Policy in your student handbook.
 
-Learning is an iterative process. Any assignment may be resubmitted as many times as necessary for full credit.
-
-## Personal Electronic Devices
-
-All personal electronic devices need to be put away during class. When you get to class, put your cell phone in the pocket and take out any headphones. I will be clear about when it is appropriate to use your devices (i.e. break time, listening to music during independent work time). If you would prefer to use a personal computer rather than a lab machine, you are welcome to but know that you are responsible for bringing your personal machine to class every day. 
-
-## Academic Honesty
-
-Please refer to the EPIC Campus Academic Integrity Policy in your student handbook.
-
-### Generative AI Assistance
+#### AI Policy
 
 ChatGPT and other similar AI tools can be a useful resource in this field. However, you need to be responsible with how you use these tools. In this class, it is expected that you will document and explain your thinking behind each assignment. If these tools prevent you from being able to do that, you will be asked to do it again.
-
-## EPIC Campus Policies
-
-Please refer to the student handbook for more information about the **Uniform Policy** and **Attendance Policy**. You are responsible for wearing your uniform every day. 
