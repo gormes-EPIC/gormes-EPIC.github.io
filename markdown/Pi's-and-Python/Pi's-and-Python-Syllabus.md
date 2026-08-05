@@ -91,7 +91,7 @@ There are three grade categories in the gradebook for this course:
 
 Workforce readiness assignments target the 4 EPIC workforce readiness skills professionalism, critical thinking and problem solving, communication, and collaboration. There are two types of assignments in this category: professionalism points, which are accumulated every class, and written assignments which relate to the other three categories. The written assignments are described on the assignment calendar.
 
-Students can earn up to three professionalism points per day. Professionalism points can be reduced by being tardy, not wearing the EPIC uniform, being off task during class, or by not emailing your instructor when you are going to be absent (see the Absences section below)
+Students can earn up to three professionalism points per day. Professionalism points can be reduced by being tardy, not wearing the EPIC uniform, being off task during class, or by not emailing your instructor when you are going to be absent (see the Absences section below).
 
 ### Recoverability for Missing Work
 
@@ -109,7 +109,7 @@ When you are going to be absent from class, you are responsible for:
 - If you send your instructor an email when you are absent, you will still receive all three professionalism points for that day. If you are absent for a quiz, you will need to be prepared to take the quiz the next time you are in class.  
 
 ### Phones, Headphones, and Personal Computers
-Phones will need to be placed in the phone pockets and may not be used during classtime, but may be used during break. Headphones may be used only during independent work time and not during lectures or group work. If you have an 85% or higher in the class, you may bring a personal computer to class and use it during independent work time. Though, if you are spending time playing video games or are otherwise off task, you will be asked to leave it at home.
+Phones will need to be placed in the phone pockets and may not be used during classtime, but may be used during break. Headphones may be used only during independent work time and not during lectures or group work. After the first two weeks if you have an 85% or higher in the class, you may bring a personal computer to class and use it during independent work time with parent approval. Though, if you are spending time playing video games or are otherwise off task, you will be asked to leave it at home.
 
 ### Assignments and Academic Integrity
 In this course, you are expected to complete your own work. Please refer to the EPIC Campus Academic Integrity Policy in your student handbook.
