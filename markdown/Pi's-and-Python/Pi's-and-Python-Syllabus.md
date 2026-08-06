@@ -60,6 +60,13 @@ By the end of this course, students will be able to:
 	- Compare different solutions to the same problem and learn from others' approaches
 	- Conduct yourself in a professional manner as a student and a job candidate
 
+## CE Credit
+
+If you are taking this class for CE credit, it encompasses two ACC classes: CSC 1019 Introduction to Programming: (Python) (3.0 Credits) and CSC 1060 Computer Science I: (Python) (4.0 Credits).
+
+The CE course CSC 1019 will close on **10/8**. No assignments from units 0-3 submitted after that date will be graded. Units 4-6 will be part of CSC 1060 instead. Your student will recieve two grades for this class.
+
+
 ## Policies and Grading
 
 ### Assignment Calendar
