@@ -24,12 +24,12 @@ How do you list all files and directories in your current location, including th
 
 ## Exercise 3
 
-What command would you use to create a new directory named `project_files`?
+What command would you use to create a new directory named `project`?
 
 <details>
 <summary>Click here to view the answer</summary>
 
-`mkdir project_files`
+`mkdir project`
 
 </details>
 
@@ -107,18 +107,5 @@ Your terminal window is getting cluttered with previous commands and outputs. Wh
 <summary>Click here to view the answer</summary>
 
 `clear` (You can also use the keyboard shortcut `Ctrl + L`)
-
-</details>
-
-## Exercise 11
-
-You want to create a new directory named reports inside a directory named `2026`, but the `2026` directory doesn't exist yet. What command do you use to create both the parent (`2026`) and child (`reports`) directories at the exact same time without getting an error?
-
-<details>
-<summary>Click here to view the answer</summary>
-
-`mkdir -p 2026/reports` or `mkdir 2026 && cd 2026 && mkdir reports`
-
-(The `-p` or `--parents` flag tells the terminal to create any necessary parent directories that don't already exist.)
 
 </details>

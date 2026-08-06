@@ -65,6 +65,8 @@ If you are taking this class for CE credit, it encompasses two ACC classes: CSC 
 
 The CE course CSC 1019 will close on **10/8**. No assignments from units 0-3 submitted after that date will be graded. Units 4-6 will be part of CSC 1060 instead. Your student will recieve two grades for this class.
 
+The drop date for the course is **9/16**. If you drop the class before this date, it will not appear on your ACC transcript. The withdrawl date is **11/17**. If you drop the class before this date, it will appear as a W on your ACC transcript.   
+
 
 ## Policies and Grading
 
