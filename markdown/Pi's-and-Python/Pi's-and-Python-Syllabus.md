@@ -45,7 +45,6 @@ By the end of this course, students will be able to:
 	- Understand the basics of Linux and its differences from other operating systems like Windows
 	- Install and configure the Raspberry Pi OS on a Raspberry Pi
 	- Use BASH commands to navigate, write, and modify files systems
-	- Create and use virtual machines
 
 - **Create Applications with Physical Computing Components**
 	
