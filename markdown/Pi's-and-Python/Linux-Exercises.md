@@ -1,4 +1,4 @@
-# Terminal Commands Exercises
+# Linux Exercises
 
 ## Exercise 1
 

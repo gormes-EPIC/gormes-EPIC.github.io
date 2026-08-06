@@ -1,11 +1,14 @@
 const curriculum = {
             "Pi's-and-Python": [
                 { file: "Pi's-and-Python-Syllabus", type:"notes"},
+
                 // { file: "Terminal-Commands-Notes", type: "notes" },
-                { file: "Terminal-Commands-Exercises", type: "exercise" },
+                { file: "Linux-Exercises", type: "exercise" },
                 { file: "Over-the-Wire-Lab", type: "assignment" },
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
+
+                { file: "Variables-and-Functions-Exercises", type: "exercise" },
                 { file: "Variables-and-Functions-Lab", type: "assignment" },
                 // { file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
                 { file: "Light-the-LED-Lab", type: "assignment" },
