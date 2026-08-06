@@ -35,7 +35,7 @@ Your task is to **create a walkthrough** for level 0 to level 5 of bandit. This 
 ssh bandit0@bandit.labs.overthewire.org -p 2200
 
 ```
-6. You are trying find the password to the next level of bandit. [See the instructions](https://overthewire.org/wargames/bandit/bandit1.html) for the level for a hint. 
+6. You are trying find the password to the next level of bandit. [See the instructions](https://overthewire.org/wargames/bandit/bandit1.html) for the level for a hint. **As you go, document the commands you used either with screenshots or copying the commands and their output.**
 
 *Note: Walkthroughs for this entire assignment exist online. Please do not seek them out as they will impact your learning and take away the satisfaction of figuring the answers out yourself*
 
@@ -55,11 +55,10 @@ ssh bandit0@bandit.labs.overthewire.org -p 2200
 4. How did you handle any obstacles or difficulties you encountered? Can you think of alternative approaches
 you might try next time?
 
-## Deliverables Checklist
-- [ ] A PDF document with your walkthrough **and** answers to the reflection questions  
+## How to Submit
+
+Call over your instructor and walk them through your solutions. Either demonstrate the first 5 levels in the terminal or show the screenshots of your solutions. Then answer all of the reflection questions verbally.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.

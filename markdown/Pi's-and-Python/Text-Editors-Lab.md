@@ -26,7 +26,7 @@ Your task is to download a text file and edit it using an in-line text editor.
     4. Go to the beginning of a file
     5. Go to the end of a file
     6. Search for a target string
-3. Create a PDF to document how to do each of these things. Think about how you can organize this information most effectively - like with a table, screenshot, or code blocks.
+3. Create a PDF cheatsheet to document how to do each of these things. Think about how you can organize this information most effectively - like with a table, screenshot, or code blocks.
 
 ## Tips, Tricks, and Resources
 - [W3 Schools](https://www.geeksforgeeks.org/linux-unix/nano-text-editor-in-linux/)
@@ -39,12 +39,10 @@ Your task is to download a text file and edit it using an in-line text editor.
 2. Why is important to learn a text editor?
 3. Give an example where a mouse won't be available and terminal will be the only option you have.
 
-## Deliverables Checklist
-- [ ] A PDF cheatsheet documenting the 6 essential features of `nano` or `vim`
-- [ ] Answers to the reflection questions, either written or in-person
+## How to Submit
+
+Demonstrate the 6 functions to your instructor and answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
