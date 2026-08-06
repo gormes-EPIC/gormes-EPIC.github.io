@@ -12,7 +12,9 @@ const curriculum = {
                 { file: "Variables-and-Functions-Lab", type: "assignment" },
                 // { file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
                 { file: "Light-the-LED-Lab", type: "assignment" },
+
                 // { file: "If-Statement-Notes", type: "notes" },
+                { file: "If-Statement-Exercises", type: "exercise" },
                 { file: "If-Statement-Lab", type: "assignment" },
                 { file: "Dim-the-LED-Lab", type:"assignment"},
                 { file: "Loops-and-Data-Collections-Lab", type:"assignment"},
