@@ -70,6 +70,7 @@ const curriculum = {
                 //{ file: "URL-Shortener-Lab", type: "assignment" }
             ],
             "Software-Engineering": [
+                { file: "Software-Engineering-Syllabus", type: "notes" },
                 // Unit 0: CI/CD and Version Control
                 { file: "Blockbuster-Lab", type: "assignment" },
                 // { file: "Advanced-Git-Lab", type: "assignment"},
