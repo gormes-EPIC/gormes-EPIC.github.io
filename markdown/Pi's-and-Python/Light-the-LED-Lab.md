@@ -35,7 +35,7 @@ Your task is to create a circuit and a Python program to light up a 5MM LED ligh
 
 In this circuit, you will need a specfic resistor to lower the overall current applied to the LED to safe levels. We can calculate the resistor we need using **Ohm's Law**. 
 
-Ohm's law states **V = IR**. **V** represents voltage and is measured in volts(V). **I** represents current and is measured in amps(A). R represents resistance and is measured in Ohms(Ω).
+Ohm's law states **V = IR**. **V** represents voltage and is measured in volts(V). **I** represents current and is measured in amps(A). **R** represents resistance and is measured in Ohms(Ω).
 
 1. We trying to solve for required **resistance**(which we will apply with a resistor), so reorganize the function to solve for resistance. When you are finished, you should have a function where **R** equals some combination of **V** and **I**.
 
@@ -53,6 +53,8 @@ Ohm's law states **V = IR**. **V** represents voltage and is measured in volts(V
 
 8. You must select a resistor with **the resistance you solved for or greater** or your LED will explode.
    
+9. Check your math with your instructor before continuing
+
 ## Materials
 
 <img src="/assets/light-the-led-supplies.jpeg">
@@ -83,13 +85,13 @@ Ok now that you have all your supplies, we are ready to get started.
 
 ## Getting Started - Programming
 
-1. Install Visual Studio Code with the command
+1. IIf you haven't already, install Visual Studio Code with the command
 ```
 sudo apt install code
 ```
 2. Open VS Code from the Programming tab in the menu on the upper left corner or by typing `code` in your terminal
 3. Use the Explorer menu on the left hand side to open up the folder you created in a previous lab. It should have a folder called `venv` inside it. If you did not create this folder in a previous lab, refer to the [Meet Your Raspberry Pi](#Pi's-and-Python/Meet-Your-Raspberry-Pi) instructions to set up a **virtual environment**. 
-4. Use the Terminal menu in the upper left of VSCode to open a new terminal. Activate your virtual environment with the command:
+4. Use the Terminal menu in the upper left of VSCode to open a new terminal. Change directory into the directory you created for your Python scripts in the last lab. Activate your virtual environment with the command:
 ```
 source venv/bin/activate
 ```
@@ -114,13 +116,10 @@ source venv/bin/activate
 3. Why do you put a resistor in your circuit?
 4. How will a resistor with greater resistance affect the light?
 
-## Deliverables Checklist
-- [ ] Demonstrate your light turning on to your instructor
-- [ ] Upload your code to GitHub and attach your repository to Google Classroom
-- [ ] Submit written answers to the reflection questions or answer them in person with your instructor
- 
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your light turns on in class. Show your instrutor your math for calculating the appropriate resistor. You will also need to answer the reflection questions.
+
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.

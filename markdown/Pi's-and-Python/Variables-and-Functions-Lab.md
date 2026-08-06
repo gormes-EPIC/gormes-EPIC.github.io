@@ -287,14 +287,10 @@ To test your program, use the following inputs and expected outputs.
 2. What is the return type of the function `calculate_mars_weight()`?
 3. What are some string functions you used in the problems this lab? Are you able to use those same functions on variables that are not strings? 
 
+## How to Submit
 
-## Deliverables Checklist
-- [ ] Demonstrate 4 working programs to your instructor in class 
-- [ ] A repository with all 4 of your programs uploaded, attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person. 
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your 4 programs. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
