@@ -7,7 +7,6 @@
 3. Create a virtual Python environment for your Pi
 4. Upload documents to GitHub using the browser
 
-
 ## Your Task
 
 Set up your Raspberry Pi and create a diagram describing each of its components.
@@ -19,7 +18,7 @@ Set up your Raspberry Pi and create a diagram describing each of its components.
 - External Mouse - *please return at the end of class*
 - Micro HDMI to HDMI cable
 - USB to SD card reader
-- Raspberry Pi Imager - *this should be installed already on your computer*
+- Raspberry Pi Imager - *this should be installed already on your framework*
 - The bin that matches your computer number
 
 
@@ -28,8 +27,8 @@ Set up your Raspberry Pi and create a diagram describing each of its components.
 1. Follow [these steps](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) to get your Raspberry Pi set up 
 2. When complete, you should get to the Pi's desktop
 3. You should use the same username as your user account on your laptop for simplicity. If you need to write down your login information so you don't forget it, **please do that**.
-4. Optional: Install VS Code with `sudo apt install code`. 
-5. Once you are sure all of the hardware works, you are ready to move on to Part 2. Check in with me that your Pi is working before moving on.
+4. Install VS Code with `sudo apt install code`. 
+5. Once you are sure all of the hardware works, you are ready to move on to Part 2. Check in with your instructor that your Pi is working before moving on.
 
 _Every day that you use your Raspberry Pi, you are responsible for cleaning up all the components before you leave. This includes putting away the supplies you are using into your bin and returning all unused supplies to the shelves in the back._  
 
@@ -39,7 +38,7 @@ _Every day that you use your Raspberry Pi, you are responsible for cleaning up a
 2. Using Google Drawings or Google Slides or another similar program, label all of the components of your Pi. Make sure you label all of the parts in the image below.
 <img src="/assets/meet-your-raspberry-pi-demo.png">
 
-3. Create an Obsidian PDF to elaborate on each component and it's purpose
+3. Create an PDF to elaborate on each component and it's purpose
 4. You may want to consult the [official Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)
 
 ## Creating a Virtual Environment for Python
@@ -69,8 +68,8 @@ note: If you believe this is a mistake, please contact your Python installation 
 hint: See PEP 668 for the detailed specification.
 ```
 
-2. Create a new folder for your Python scripts for this class. This can be anywhere on the Pi.
-3. Open your terminal and change directory into your new directory.
+2. Open your terminal and create a new folder for your Python scripts for this class. This can be anywhere on the Pi.
+3. Change directory into your new directory.
 4. Install the `venv` program with `sudo apt install python3-venv`
 5. Then, create a new virtual environment with `python3 -m venv --system-site-packages venv`. Now there should be a folder called `venv` inside your directory.
 6. To activate your virtual environment, use: `source venv/bin/activate`. **You will need to do this every time you open the terminal so you may want to write this down. Remember to cd into the correct directory before trying to activate your environment.** 
@@ -80,8 +79,14 @@ hint: See PEP 668 for the detailed specification.
 
 ## Uploading to GitHub
 
-1. Once you are all done, we are going to practice submitting documents by uploading them to GitHub. 
-2. Navigate back to your repository. Click the `Add File` button next to the green `Code` button on the right side of the screen. Then, select your PDF to upload. Then click the `Commit` button to upload. Once you can see your PDF in the list of files at the top, you have uploaded it correctly. You can click on the PDF to view it in the browser. Then, return to Google Classroom and select "Mark as Done" for Lab 0.3. 
+1. Once you are all done, we are going to practice submitting documents by uploading them to GitHub. **You will need your phone for this to use two factor authentication.**
+
+2. **Option 1(GUI):** Login to GitHub and create a new repository(this is like a folder in Google Drive). Then, click the `Add File` button next to the green `Code` button on the right side of the screen. Then, select your PDF to upload. Then click the `Commit` *button to upload. Once you can see your PDF in the list of files at the top, you have uploaded it correctly. You can click on the PDF to view it in the browser. Then, return to Google Classroom and select "Mark as Done".
+3. **Option 2(Terminal):** Login to GitHub and create a new repository(this is like a folder in Google Drive). Then, open the terminal and navigate to where you saved your PDF. Clone your repo(make a local copy of it) with `git clone <url>`. The URL can be found under the green "Code" button. 
+    1. Then login to GitHub using the terminal with `gh auth login`. Use the arrow keys to select GitHub.com and press Enter. Select HTTPS as your preferred protocol. When asked how you want to authenticate, select Paste an authentication token. Open your GitHub site and navigate to the Settings and then the Developer Settings. Then click on Personal Access Token and Classic Token. Create a new token by naming it, select a expiration date, then checking the box for `repo` permissions. Copy your token and paste it back into your terminal and press Enter.
+    2. Now, cd into the directory you just cloned. Then move your PDF into this folder. 
+    3. Then to upload: use `git add .` to stage your changes, `git commit -m "message"` to commit them and `git push -u origin main` to push your changes to GitHub. In the future you will only need to use `git push` to push.
+
 
 ## Tips, Tricks, and Resources
 - [Setting Up Your Raspberry Pi](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi)
@@ -93,12 +98,10 @@ hint: See PEP 668 for the detailed specification.
 2. What does CPU stand for and what is its purpose?
 3. What does RAM stand for and what is its purpose?
 
-## Deliverables Checklist
-- [ ] A imaged Raspberry Pi with virtual environment set up 
-- [ ] A GitHub repository with your diagram 
+## How to Submit
+
+Show your instructor your GitHub repository with your PDF. You also need to be able to idenify important parts of your Pi and answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
