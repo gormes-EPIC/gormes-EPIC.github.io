@@ -101,7 +101,7 @@ Students can earn up to three professionalism points per day. Professionalism po
 
 ### Recoverability for Missing Work
 
-When a missing assignment is graded, a 50% will be entered into the gradebook instead of a 0. This will help students stay on track while they are still working to finish up an assignment. After 2 weeks, a 0 will be entered into the gradebook instead. See the Late Work section for more information on regrades. 
+When a missing assignment is graded, a 50% will be entered into the gradebook instead of a 0. This will help students stay on track while they are still working to finish up an assignment. After 1 week, a 0 will be entered into the gradebook instead. See the Late Work section for more information on regrades. 
 
 ### Late Work
 
