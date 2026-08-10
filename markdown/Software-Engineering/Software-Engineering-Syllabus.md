@@ -23,6 +23,10 @@ This course will focus on version control, project management, and teamwork. Stu
 
 ## Policies and Grading
 
+### Assignment Calendar
+
+An assignment calendar for the semester has been posted listing each assignment’s name, point value, category, start date, due date, and the end of the regrade period(see the Late Work section below).
+
 ### Homework
 This course will not assign specific homework assignments, but you may need to work on assignments at home to keep up with deadlines, depending on how effectively you use your class time. The only work that will need to be completed on your own time is any assignment that you were absent for. If you need help setting anything up on a personal computer to work on it at home, please feel free to bring it in so we can get it set up.
 
@@ -51,7 +55,7 @@ Students can earn up to three professionalism points per day. Professionalism po
 
 ### Recoverability for Missing Work
 
-When a missing assignment is graded, a 50% will be entered into the gradebook instead of a 0. This will help students stay on track while they are still working to finish up an assignment. After 2 weeks, a 0 will be entered into the gradebook instead. See the Late Work section for more information on regrades. 
+When a missing assignment is graded, a 50% will be entered into the gradebook instead of a 0. This will help students stay on track while they are still working to finish up an assignment. After 1 week, a 0 will be entered into the gradebook instead. See the Late Work section for more information on regrades. 
 
 ### Late Work
 

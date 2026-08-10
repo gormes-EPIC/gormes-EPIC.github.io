@@ -1,6 +1,7 @@
 # Terminal Commands Notes
 
 | Command | Description | 
+| --- | --- | 
 |`cd <directory>`| Changes the directory to the directory listed|
 |`cd ..`| Moves up one folder in the directory hierarchy|
 |`~`| Represents the home directory |
