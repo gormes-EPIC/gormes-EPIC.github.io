@@ -17,13 +17,23 @@ Now before we plug everything in, we need to make sure our units match. So 25mA 
 
 ## Exercise 2
 
+Identify the variables in this code snippet and their variable types.
+```
+name = input("What is your name?")
+age = input("What is your age?")
+secret = int(age) * 3
+```
+
 <details>
 <summary>Click here to view the answer</summary>
 
+`name` is a variable of type string. `age` is a variable of type string. Remember `input()` always returns a string! `secret` is an integer. 
 
 </details>
 
 ## Exercise 3
+
+What does the **return type** of a function refer to? How is it different than printing?
 
 <details>
 <summary>Click here to view the answer</summary>
