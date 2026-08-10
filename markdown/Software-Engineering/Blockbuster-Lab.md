@@ -15,6 +15,7 @@
 
 Your task is to create a program to represent a movie rental company. 
 
+0. In a browser, Login to GitHub and create a new repository. Open your terminal and navigate to where you want your project to live. Clone your repo(make a local copy of it) with `git clone <url>`. The URL can be found under the green "Code" button. Then, do all of your programming inside the folder that was just created.
 1. First create the class `Movie` that has three instance variables `title`, `tagline`, `director`, `rental_price`, and `rented`(a boolean variable). 
 2. Then create the class `Rental` that has a list of movies. Use the CSV below to populate your rental store.
 
@@ -2032,7 +2033,12 @@ index,original_title,tagline,director,rental_price
     1. `get_movie(name)` - Returns the movie object 
     2. `rent_movie(name)` - Sets the `rented` value of the movie to true. Returns the cost of the rental.
 
-4. `git init` and Pushing to GitHub
+4. Login to GitHub using the terminal with `gh auth login`. 
+    1. Use the arrow keys to select GitHub.com and press Enter. Select HTTPS as your preferred protocol.
+    2. When asked how you want to authenticate, select Paste an authentication token. 
+    3. Open your GitHub site and navigate to the Settings and then the Developer Settings. Then click on Personal Access Token and Classic Token. Create a new **classic token** by naming it, select a expiration date, then checking the box for `repo` permissions. Copy your token and paste it back into your terminal and press Enter.
+    4. Then to upload: use `git add .` to stage your changes, `git commit -m "message"` to commit them and `git push -u origin main` to push your changes to GitHub. In the future, you will only need to use `git push` to push for this repository.
+
 
 ## Tips, Tricks, and Resources
 - [Objects in Python Notes](#Pi's-and-Python/Objects-In-Python-Notes)
@@ -2043,19 +2049,18 @@ index,original_title,tagline,director,rental_price
 
 
 ## Extensions
-1.
+1. Update `Movie` to track available copies (`stock: int`) rather than a simple `rented` boolean. Update `rent_movie` to decrement stock and prevent rentals when stock hits 0.
+2. Add methods to Rental such as `search_by_director(director_name)`, `get_available_movies()`, or `filter_by_price(max_price)`.
 
-## Reflection Questions
-1. Create a memory diagram 
-2. Create 
+# Reflection Questions
+1. Why is it better to separate data and methods into `Movie` and `Rental` classes rather than storing everything in flat dictionaries or lists?
+2. What is the operational difference between git add, git commit, and git push? 
+3. How does writing meaningful commit messages help other developers when reviewing a repository's history?
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+## How to Submit
+
+Show your instructor your GitHub repository with your code. Then, run your code for your instructor to demonstrate your program and answer the reflection questions. to be graded. When you are all done, upload your GitHub link to Google Classroom and hit submit.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
