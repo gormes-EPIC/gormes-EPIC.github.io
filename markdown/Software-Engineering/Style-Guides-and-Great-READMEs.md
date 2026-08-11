@@ -54,11 +54,10 @@ You have written READMEs before, but let's dive in to what makes them successful
     - What proporties of these could you bring to your own writing?
 
 
-## Deliverables
-- [ ] Answers to all the questions, either written or in person
+## How to Submit
+
+Submit written responses answering the questions listed in this assignment to Google Classroom. 
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
