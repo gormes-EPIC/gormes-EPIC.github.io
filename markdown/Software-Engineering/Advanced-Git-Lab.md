@@ -85,8 +85,27 @@ cat menu.txt
 ```
 2. Then view the logs to see the merge `git log --oneline --graph`
 
+## .gitignore
+1. Both partners should make sure they are up to date. 
+```
+git checkout main
+git pull origin main
+```
+**Partner B**
+2. Create a new file `secrets.txt` with a fake API key in it like `"API_KEY=super-secret-local-key-12345"`. Then create another new file called `debug.log` with a fake log method (ex. `[DEBUG] Server started on port 3000`) in it.
+3. Check your Git status with `git status`. You should see two files as having **untracked changes**.
+4. Create a new file called `.gitignore`. Add the following to your `.gitignore` file.
+```
+# Secrets
+secrets.txt
+
+# All log files
+*.log
+```
+5. Check your status again. Your changes should not appear as untracked! Your `.gitignore` file has prevented them from being commited/pushed. 
 
 ## Tips, Tricks, and Resources
+- [Learn Git Branching Interactive](https://learngitbranching.js.org/?locale=en_US)
 - [Beginner's Guide to Branching and Merging](https://dev.to/niyhi/a-beginners-guide-to-git-branching-and-merging-without-the-panic-2f07)
 - [Resolving a merge conflict using the command line](https://docs.github.com/en/pull-requests/how-tos/merge-and-close-pull-requests/resolving-a-merge-conflict-using-the-command-line) 
 
@@ -95,6 +114,7 @@ cat menu.txt
 1. What role did communication play in resolving the conflict?
 2. What would happen if you'd used `git pull` instead of `git fetch` + `git merge`? Recreate the issue and try the other method.
 3. How would this scale to a larger team. Imagine 10 developers all branching off main and editing the same file over the course of a week, instead of just 2. What problems could arise, and what practices might reduce the chances of conflicts like this one?
+4. Why would `.gitignore` files be so important? What information should we list in our `.gitignore`?
 
 ## How to Submit
 
