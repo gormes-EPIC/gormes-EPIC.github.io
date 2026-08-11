@@ -118,7 +118,7 @@ secrets.txt
 
 ## How to Submit
 
-Show your instructor your GitHub repository with your code and your commit history. When you are all done, upload your GitHub link to Google Classroom and hit submit.
+Show your instructor your GitHub repository with your code and your commit history. Answer the reflection questions. When you are all done, upload your GitHub link to Google Classroom and hit submit.
 
 ## Rubric
 - **20 points** - All required items are present.

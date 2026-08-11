@@ -108,16 +108,14 @@ $ python cow.py "custom message"
 
 ## Reflection Questions
 1. How could environment variables help us make our code more secure?
-2. What is the purpose of using a `conda` environment? Give some examples of when it would be appropriate to use one.
+2. What is the difference between using an environment variable or a `.gitignore` file? Why would you use one over the other? 
+3. What is the purpose of using a `conda` environment? Give some examples of when it would be appropriate to use one.
 
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+## How to Submit
+
+Show your instructor your GitHub repository with your code and your commit history.  Demostrate your program working with the environment variables. Answer the reflection questions. When you are all done, upload your GitHub link to Google Classroom and hit submit.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
