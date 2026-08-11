@@ -75,7 +75,7 @@ const curriculum = {
                 { file: "Blockbuster-Lab", type: "assignment" },
                 { file: "Style-Guides-and-Great-READMEs", type: "assignment"},
                 { file: "Advanced-Git-Lab", type: "assignment"},
-                { file: "Git Post-mortem-Discussion", type: "assignment"},
+                { file: "Git-Post-mortem-Discussion", type: "assignment"},
                 { file: "Currency-Translator-Lab", type: "assignment"},
                 { file: "Cowsay-ENV-Lab", type:"assignment"},
 
