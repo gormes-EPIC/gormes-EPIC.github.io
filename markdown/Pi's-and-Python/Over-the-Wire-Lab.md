@@ -26,7 +26,6 @@ Your task is to **create a walkthrough** for level 0 to level 5 of bandit. This 
 
 ## Getting Started
 
-1. Open a new Obsidian document. This is where you will write your walkthough for this assignment. 
 2. Access the [bandit](https://overthewire.org/wargames/bandit/) website.
 3. Select Level 0 from the menu on the left. 
 4. Open your terminal. Try `CTRL-ALT-T` as a shortcut.

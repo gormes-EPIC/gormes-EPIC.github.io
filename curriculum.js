@@ -80,7 +80,7 @@ const curriculum = {
                 { file: "Cowsay-ENV-Lab", type:"assignment"},
 
                 // Unit 1: Databases with SQLite
-                // { file: "Setting-Up-a-Database-Lab", type: "assignment"},
+                { file: "Setting-Up-a-Database-Lab", type: "assignment"},
                 // { file: "Manipulating-a-Database-Lab", type: "assignment"},
                 // { file: "Database-Design", type: "assignment"},
                 // { file: "SQLite-with-Python-Lab", type: "assignment"},
