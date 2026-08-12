@@ -21,7 +21,7 @@
 
 ## Your Task
 
-Your task is to **create a walkthrough** for level 0 to level 5 of bandit. This means you find the password for level 6 and document how you got through all 6 levels.
+Your task is to complete level 0 to level 5 of bandit. This means you find the password for level 6 and document how you got through all 6 levels.
 
 
 ## Getting Started
