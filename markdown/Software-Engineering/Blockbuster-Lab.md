@@ -23,7 +23,6 @@ Your task is to create a program to represent a movie rental company.
 <summary>Click here to view `movies.csv`</summary>
 
 ```
-
 title,tagline,director,rental_price,rented
 The Last Horizon,Home is where the heart breaks,Elena Marquez,5.70,TRUE
 Silent Echoes,What we lose defines who we become,Sofia Bergman,5.67,TRUE
