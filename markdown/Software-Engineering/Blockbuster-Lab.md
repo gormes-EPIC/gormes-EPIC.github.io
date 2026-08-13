@@ -21,6 +21,7 @@ Your task is to create a program to represent a movie rental company.
 
 <details>
 <summary>Click here to view `movies.csv`</summary>
+
 ```
 
 title,tagline,director,rental_price,rented
@@ -126,6 +127,7 @@ The Last Frontier Town,The heart remembers what the mind forgets,Henry Okonkwo,5
 Aurora Borealis Rising,Every scar tells a different story,Nora Kristiansen,2.94,TRUE
 
 ```
+
 </details>
 
 3. The `Rental` class contains these instance methods:
