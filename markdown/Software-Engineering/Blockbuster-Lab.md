@@ -22,6 +22,7 @@ Your task is to create a program to represent a movie rental company.
 <details>
 <summary>Click here to view `movies.csv`</summary>
 ```
+
 title,tagline,director,rental_price,rented
 The Last Horizon,Home is where the heart breaks,Elena Marquez,5.70,TRUE
 Silent Echoes,What we lose defines who we become,Sofia Bergman,5.67,TRUE
@@ -123,6 +124,7 @@ The Quiet Storm Rises,In the end only memories remain,Nora Kristiansen,6.80,FALS
 Riverbend,Not every hero wears a cape,Marcus Delgado,4.97,FALSE
 The Last Frontier Town,The heart remembers what the mind forgets,Henry Okonkwo,5.02,TRUE
 Aurora Borealis Rising,Every scar tells a different story,Nora Kristiansen,2.94,TRUE
+
 ```
 </details>
 
