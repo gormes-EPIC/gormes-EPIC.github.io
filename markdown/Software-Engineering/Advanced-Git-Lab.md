@@ -91,10 +91,13 @@ cat menu.txt
 git checkout main
 git pull origin main
 ```
+
 **Partner B**
+
 2. Create a new file `secrets.txt` with a fake API key in it like `"API_KEY=super-secret-local-key-12345"`. Then create another new file called `debug.log` with a fake log method (ex. `[DEBUG] Server started on port 3000`) in it.
 3. Check your Git status with `git status`. You should see two files as having **untracked changes**.
 4. Create a new file called `.gitignore`. Add the following to your `.gitignore` file.
+
 ```
 # Secrets
 secrets.txt
@@ -102,6 +105,7 @@ secrets.txt
 # All log files
 *.log
 ```
+
 5. Check your status again. Your changes should not appear as untracked! Your `.gitignore` file has prevented them from being commited/pushed. 
 
 ## Tips, Tricks, and Resources
