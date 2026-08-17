@@ -65,6 +65,7 @@ git checkout main
 git merge update-dessert
 ```
 *This will cause a conflict*
+
 4. View the conflict in `menu.txt`. Resolve it by removing all the markers and decide on what the final content should be. 
 5. Stage and commit the resolution
 ```
