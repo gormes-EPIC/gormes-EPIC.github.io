@@ -7,6 +7,8 @@ const curriculum = {
                 { file: "Over-the-Wire-Lab", type: "assignment" },
                 { file: "Text-Editors-Lab", type: "assignment" },
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
+                { file: "cron-Optional-Lab", type: "assignment" },
+
 
                 { file: "Variables-and-Functions-Exercises", type: "exercise" },
                 { file: "Variables-and-Functions-Lab", type: "assignment" },
