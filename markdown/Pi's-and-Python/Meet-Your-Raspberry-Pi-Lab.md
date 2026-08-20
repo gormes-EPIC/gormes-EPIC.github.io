@@ -27,8 +27,9 @@ Set up your Raspberry Pi and create a diagram describing each of its components.
 1. Follow [these steps](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) to get your Raspberry Pi set up 
 2. When complete, you should get to the Pi's desktop
 3. You should use the same username as your user account on your laptop for simplicity. If you need to write down your login information so you don't forget it, **please do that**.
-4. Install VS Code with `sudo apt install code`. 
-5. Once you are sure all of the hardware works, you are ready to move on to Part 2. Check in with your instructor that your Pi is working before moving on.
+4. Once you get into your Pi, run `sudo apt update` and `sudo apt upgrade` to update your Pi.
+5. Install VS Code with `sudo apt install code`. 
+6. Once you are sure all of the hardware works, you are ready to move on to Part 2. Check in with your instructor that your Pi is working before moving on.
 
 _Every day that you use your Raspberry Pi, you are responsible for cleaning up all the components before you leave. This includes putting away the supplies you are using into your bin and returning all unused supplies to the shelves in the back._  
 
@@ -71,7 +72,7 @@ hint: See PEP 668 for the detailed specification.
 2. Open your terminal and create a new folder for your Python scripts for this class. This can be anywhere on the Pi.
 3. Change directory into your new directory.
 4. Install the `venv` program with `sudo apt install python3-venv`
-5. Then, create a new virtual environment with `python3 -m venv --system-site-packages venv`. Now there should be a folder called `venv` inside your directory.
+5. Then, create a new virtual environment with `python3 -m venv venv --system-site-packages`. Now there should be a folder called `venv` inside your directory.
 6. To activate your virtual environment, use: `source venv/bin/activate`. **You will need to do this every time you open the terminal so you may want to write this down. Remember to cd into the correct directory before trying to activate your environment.** 
 	1. Optional: If you installed VS Code you can change your Python version in the application to your virtual environment. If you are having trouble with this please ask for help or see this [documentation](https://code.visualstudio.com/docs/python/environments).
 7. Try installing a package with `pip` for example `pip install cowsay` to test your set up. If set up correctly, this package should install without issue.
