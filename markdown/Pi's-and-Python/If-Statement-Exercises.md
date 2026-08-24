@@ -183,7 +183,7 @@ In a `match` statement, Python compares `x` against each `case` in order and run
 
 ## Exercise 9
 
-Fill in the blanks so this function correctly prints "Too hot!", "Too cold!", or "Just right!" based on `temperature`.
+Fill in the blanks so this function correctly prints "Too hot!", "Too cold!", or "Just right!" based on `temperature`. It is "Too hot!" when it is over 80 degrees and "Too cold!" when it is under 60 degrees. Then, rewrite the if statement with different conditions that will have the same result. 
 
 ```python
 def check_temp(temperature):
@@ -206,6 +206,18 @@ def check_temp(temperature):
         print("Too cold!")
     else:
         print("Just right!")
+```
+
+There are multiple other solutions but here is one: 
+```python
+def check_temp(temperature):
+    if temperature < 80 and temperature > 60:
+        print("Just right!")
+    elif temperature < 60:
+        print("Too cold!")
+    else:
+        print("Too hot!")
+        
 ```
 
 </details>
