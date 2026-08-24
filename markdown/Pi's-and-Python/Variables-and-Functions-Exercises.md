@@ -83,35 +83,93 @@ You start the line with a hashtag(`#`).
 
 ## Exercise 7
 
+Identify the **argument** of the following function.
 
+```
+def is_even(number):
+    return number % 2 == 0
+```
 
 <details>
 <summary>Click here to view the answer</summary>
 
-
+`number` is the argument of the function. 
 
 </details>
 
 ## Exercise 8
 
+What does this program output? **Be precise!**
+
+```
+def process_data(x):
+    y = float(x) * 2
+    return y
+
+a = "5"
+b = process_data(a)
+
+print(b) 
+```
+
 <details>
 <summary>Click here to view the answer</summary>
 
+`10.0`
 
 </details>
 
 ## Exercise 9
 
+What does this program output?
+
+```
+def process_data(x, y):
+    z = (int(x) ** int(y)) + 5
+    return z
+
+a = "3"
+b = "2"
+c = process_data(a, b)
+
+print(c)
+```
+
 <details>
 <summary>Click here to view the answer</summary>
 
+`14`
 
 </details>
 
 ## Exercise 10
+Re-organize this program so that it calculates and prints `c` using the function `calculate` with arguments `a` and `b`. 
+
+```
+print(c)
+    z = (int(x) * int(y)) + 10
+c = calculate(a, b)
+def calculate(x, y):
+a = "4"
+b = "3"
+    return z
+```
 
 <details>
 <summary>Click here to view the answer</summary>
 
+There are multiple correct solutions, but here is an example: 
+
+```
+def calculate(x, y):
+    z = (int(x) * int(y)) + 10
+    return z
+
+a = "4"
+b = "3"
+
+c = calculate(a, b)
+print(c)
+```
 
 </details>
