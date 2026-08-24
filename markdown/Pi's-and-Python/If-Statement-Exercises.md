@@ -3,10 +3,10 @@
 ## Exercise 1
 Which of the following is a valid `boolean` value in Python? (Choose all that apply)
 
-a) `True`
-b) `"True"`
-c) `1 == 1`
-d) `yes`
+a. `True`
+b. `"True"`
+c. `1 == 1`
+d. `yes`
 
 <details>
 <summary>Click here to view the answer</summary>
@@ -36,7 +36,8 @@ else:
 </details>
 
 ## Exercise 2
-Spot the bug: This code is supposed to check if `x` is divisible by 3 and separately if it's divisible by 4, but it doesn't work as intended. What's wrong, and how would you fix it?
+
+This code is supposed to check if `x` is divisible by 3 and separately if it's divisible by 4, but it doesn't work as intended. What's wrong, and how would you fix it?
 ```python
 x = 12
 if x % 3 == 0 and x % 4 == 0:
@@ -100,20 +101,20 @@ print(result)
 ## Exercise 6
 Which code snippet(s) correctly print "Between 0 and 10" when `x` is more than 0 and less than 10? Explain why the incorrect ones fail.
 
-a)
+a.
 ```python
 if x > 0:
     if x < 10:
         print("Between 0 and 10")
 ```
 
-b)
+b.
 ```python
 if x > 0 and x < 10:
     print("Between 0 and 10")
 ```
 
-c)
+c.
 ```python
 if x > 0:
 elif x < 10:
@@ -123,9 +124,9 @@ elif x < 10:
 <details>
 <summary>Click here to view the answer</summary>
 
-a and b both work correctly — a) uses a nested `if`, and b) uses a combined `and` condition, and both correctly check that x is greater than 0 AND less than 10.
+a and b both work correctly — a uses a nested `if`, and b uses a combined `and` condition, and both correctly check that x is greater than 0 AND less than 10.
 
-c) is a syntax error: an `if` block cannot be empty (it needs at least one statement, like `pass` or a `print`), and `elif` requires a preceding `if` with a body.
+c is a syntax error: an `if` block cannot be empty (it needs at least one statement, like `pass` or a `print`), and `elif` requires a preceding `if` with a body.
 
 </details>
 
