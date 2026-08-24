@@ -51,29 +51,43 @@ She said, "Python is awesome!"
 <details>
 <summary>Click here to view the answer</summary>
 
+`print("It's a sunny day.\nShe said, \"Python is awesome!\")`
 
 </details>
 
 ## Exercise 5
 
+Write a Python program to take in a first name and last name and create a username. For example if my name was John Smith, my username is `john-smith`. If my name is Jane Doe, my username is `jane-doe`.
+
 <details>
 <summary>Click here to view the answer</summary>
 
+```
+fname = input("What is your first name?").strip().lower()
+lname = input("What is your last name?").strip().lower()
+print(fname + "-" + lname)
+```
 
 </details>
 
 ## Exercise 6
 
+How do I create a comment in Python?
+
 <details>
 <summary>Click here to view the answer</summary>
 
+You start the line with a hashtag(`#`).
 
 </details>
 
 ## Exercise 7
 
+
+
 <details>
 <summary>Click here to view the answer</summary>
+
 
 
 </details>
