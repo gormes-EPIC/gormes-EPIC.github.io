@@ -193,9 +193,9 @@ To test your program, use the following inputs and expected outputs.
 
 | Input | Expected Output |
 | ----------- | ----------- |
-| `150` | `i'm yelling` |
-| `200` | `hello there` |
-| `0` | `i luv cs` |
+| `150` | `56.7` |
+| `200` | `75.6` |
+| `0` | `0` |
 | `175` | ` 66.15` |
 
 ## <a id="tip-calculator"></a> Tip Calculator

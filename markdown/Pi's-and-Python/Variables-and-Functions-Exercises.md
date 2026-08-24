@@ -43,6 +43,11 @@ What does the **return type** of a function refer to? How is it different than p
 
 ## Exercise 4
 
+If I want to display the following message in the terminal **with one line of Python**, what line would I use? 
+```
+It's a sunny day.
+She said, "Python is awesome!"
+```
 <details>
 <summary>Click here to view the answer</summary>
 
