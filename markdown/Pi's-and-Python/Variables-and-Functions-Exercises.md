@@ -11,7 +11,7 @@ Ohm's law is **V = IR**. We can rearrange this is **R = V/I**.
 
 Voltage is **V_supply − V_forward** so our equation is **R = (V_supply − V_forward)/I**. 
 
-Now before we plug everything in, we need to make sure our units match. So 25mA is 0.025A. When we plug everything in we get **R = (5V-1.5V)/0.025A**. Solving for R, we get 140 ohms.
+Now before we plug everything in, we need to make sure our units match. So 25mA is 0.025A. When we plug everything in we get **R = (5V-1.5V)/0.025A**. Solving for R, we get **140 ohms**.
 
 </details>
 
@@ -171,5 +171,70 @@ b = "3"
 c = calculate(a, b)
 print(c)
 ```
+
+</details>
+
+## Exercise 11
+
+Write a Python function that takes a float as an argument representing temperature in Farienheit and returns the temperature converted to Celsius.
+
+
+<details>
+<summary>Click here to view the answer</summary>
+
+There are multiple correct solutions, but here is an example: 
+
+```
+def process_temperature(fahrenheit):
+    celsius = (fahrenheit - 32) * (5 / 9)
+    return round(celsius, 2)
+```
+
+</details>
+
+## Exercise 12
+
+Solve the following expressions for `result`.
+
+```
+result = 17 % 5
+result = 3 % 8
+result = 24 % 6
+result = 136 % 60
+result = 3847 % 10
+result = -7 % 3
+result = 0 % 5
+```
+
+
+<details>
+<summary>Click here to view the answer</summary>
+
+```
+2
+3
+0
+16
+7
+2
+0
+```
+
+</details>
+
+
+## Exercise 12
+
+Define **voltage**, **current**, and **resistance**.
+
+
+<details>
+<summary>Click here to view the answer</summary>
+
+- Voltage ($V$): The electrical pressure or potential difference that pushes charges through a conductor. Measured in Volts (V). (Water analogy: The water pressure provided by a pump).
+- Current ($I$): The rate at which electric charge actually flows past a point per second. Measured in Amperes (A) or "amps". (Water analogy: The volume of water flowing through the pipe).
+- Resistance ($R$): The opposition to the flow of electric current. Measured in Ohms ($\Omega$). (Water analogy: A narrow section or clog in the pipe slowing down the water).
+
+
 
 </details>
