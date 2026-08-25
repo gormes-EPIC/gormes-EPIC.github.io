@@ -65,11 +65,11 @@ An **environment variable** is a user-definable value that can affect the way ru
 To access an environment variable from Python we use the `os` library. 
 
 1. Create a new Python script for this lab.
-2. Import the `os` library and use `os.environ['KEY']` to get the value of your environment variable like this:
+2. Import the `os` library and use `value = os.environ.get("MY_GLOBAL_VAR")` to get the value of your environment variable like this:
 ```python
 import os
 
-value = os.environ['MY_GLOBAL_VAR']
+value = os.environ.get("MY_GLOBAL_VAR")
 print(value)
 
 ``` 
