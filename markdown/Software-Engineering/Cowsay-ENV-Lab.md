@@ -57,7 +57,7 @@ You should be familiar with `pip` or the [package installer for Python](https://
 
 An **environment variable** is a user-definable value that can affect the way running processes will behave on a computer. We can use environment variables to store information on our machine an access it from any subprocess, like a Python program. 
 
-1. To create a permanent environment variable edit the file `nano ~/.bashrc` and add `MY_GLOBAL_VAR="system_value"` to the bottom. Then run `source ~/.bashrc` to add them to your current session. This will create a new environment variable called "MY_GLOBAL_VAR" (typically environment variables are in all caps) with the value "system_value". **You'll need to log out or reboot for this to take effect.**
+1. To create a permanent environment variable edit the file `nano ~/.bashrc` and add `export MY_GLOBAL_VAR="system_value"` to the bottom. Then run `source ~/.bashrc` to add them to your current session. This will create a new environment variable called "MY_GLOBAL_VAR" (typically environment variables are in all caps) with the value "system_value". **You'll need to log out or reboot for this to take effect.**
 2. Then, print the contents of your variable with `echo $MY_GLOBAL_VAR`. 
 
 ### Accessing Environment Variables with Python
