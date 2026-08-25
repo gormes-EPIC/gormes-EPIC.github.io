@@ -75,19 +75,6 @@ print(value)
 ``` 
 3. Modify your cowsay program to print the contents of your environment variable instead of "hello world". 
 
-## Unit Testing
-
-Because we are printing out information and not using functions, we will skip the unit testing for this lab. 
-
-## README
-
-Before uploading, create a new document called `README.md` in your project folder. Here, you will write a technical document to explain how to use your program. Review these [principles of effective documentation](#Workforce-Readiness/Technical-Writing-Notes) from last semester. Please include the following sections:
-
-1. Header and short description
-2. How to use environment variables
-3. How to install `cowsay` using pip
-
-Make sure you are effectively using structure, visuals, and professional language as you write.
 
 ## Tips, Tricks, and Resources
 
