@@ -37,8 +37,7 @@ This creates a new table with an integer `id` column, an text column `name`, and
 
 5. Add a record to the table with
 ```
-INSERT INTO data (name, value)
-VALUES (New Item, 100);
+INSERT INTO data (name, value) VALUES ("New Item", 100);
 ```
 
 6. Now, check if it exists in the table with `SELECT * FROM data;`. You should see one entry listed.
