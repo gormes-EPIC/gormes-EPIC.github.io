@@ -78,13 +78,12 @@ const curriculum = {
                 { file: "Style-Guides-and-Great-READMEs", type: "assignment"},
                 { file: "Advanced-Git-Lab", type: "assignment"},
                 { file: "Cowsay-ENV-Lab", type:"assignment"},
-                { file: "Git-Post-mortem-Discussion", type: "assignment"},
+                // { file: "Git-Post-mortem-Discussion", type: "assignment"},
                 { file: "Currency-Translator-Lab", type: "assignment"},
-                
 
                 // Unit 1: Databases with SQLite
                 { file: "Setting-Up-a-Database-Lab", type: "assignment"},
-                // { file: "Manipulating-a-Database-Lab", type: "assignment"},
+                { file: "Manipulating-a-Database-Lab", type: "assignment"},
                 // { file: "Database-Design", type: "assignment"},
                 // { file: "SQLite-with-Python-Lab", type: "assignment"},
                 // { file: "Database-Implementation-Lab", type: "assignment"},

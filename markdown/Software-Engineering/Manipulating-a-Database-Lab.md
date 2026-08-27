@@ -97,6 +97,7 @@ Using `JOIN` find:
 
 
 ## Extensions
+
 1. Write additional queries to find out the winner of each season's age and the airdate of all episodes where Paul Hollywood gave a handshake
 
 ## Reflection Questions
