@@ -2,7 +2,7 @@
 
 ## Exercise 1
 
-Use Ohm's law to calcuate the necessary resistory for the following circuit. **V_supply** is  5V.  **V_forward** is 3V. The safe current is 50mA which means we can safely send 25mA across it. Solve for resistance.
+Use Ohm's law to calcuate the necessary resistory for the following circuit. **V_supply** is  5V.  **V_forward** is 1.5V. The safe current is 50mA which means we can safely send 25mA across it. Solve for resistance.
 
 <details>
 <summary>Click here to view the answer</summary>
@@ -33,11 +33,12 @@ secret = int(age) * 3
 
 ## Exercise 3
 
-What does the **return type** of a function refer to? How is it different than printing?
+What does it mean for a function to **return** something? How is it different than printing?
 
 <details>
 <summary>Click here to view the answer</summary>
 
+Printing shows data in the terminal for a human user to read, while returning gives a value back to the program so the code can use it in later calculations. We often use return statements to set variables when the function is called.
 
 </details>
 
@@ -51,7 +52,7 @@ She said, "Python is awesome!"
 <details>
 <summary>Click here to view the answer</summary>
 
-`print("It's a sunny day.\nShe said, \"Python is awesome!\")`
+`print("It's a sunny day.\nShe said, \"Python is awesome!\"")`
 
 </details>
 
@@ -61,6 +62,8 @@ Write a Python program to take in a first name and last name and create a userna
 
 <details>
 <summary>Click here to view the answer</summary>
+
+There are multiple correct solutions. Here is an example: 
 
 ```
 fname = input("What is your first name?").strip().lower()
@@ -223,7 +226,7 @@ result = 0 % 5
 </details>
 
 
-## Exercise 12
+## Exercise 13
 
 Define **voltage**, **current**, and **resistance**.
 
