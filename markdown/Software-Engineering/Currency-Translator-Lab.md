@@ -100,7 +100,7 @@ Now, you will automate your `pytest` tests with GitHub Actions. **Note: you will
     - In the root directory of your project (where your Python files are), create a folder named exactly `.github` (notice the period at the beginning).
     - Inside the `.github` folder, create another folder named `workflows`.
 3. Workflows are written in YAML (Yet Another Markup Language). Inside the `.github/workflows` folder, create a new file named `run-tests.yml`.
-4. Open `run-tests.yml` and paste the following code. This configuration tells GitHub exactly when and how to run your tests.
+4. Open `run-tests.yml` and paste the following code. This configuration tells GitHub exactly when and how to run your tests. **If you want to run the tests on a different branch then main, you must update the .yml file accordingly.**
 
 ```yaml
 # .github/workflows/run-tests.yml

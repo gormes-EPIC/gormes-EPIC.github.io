@@ -89,6 +89,8 @@ const curriculum = {
                 // { file: "Database-Implementation-Lab", type: "assignment"},
 
                 // Unit 2: How Computers Talk and APIs
+                // { file: Sockets Lab", type: "assignment"},
+                // { file: Deployment-and-Monitoring-Lab", type: "assignment"},
                 // { file: "Design-Review-Discussion", type: "assignment" },
 
                 // Unit 3: Containerizing
