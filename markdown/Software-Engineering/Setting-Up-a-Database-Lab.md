@@ -45,25 +45,25 @@ INSERT INTO data (name, value) VALUES ("New Item", 100);
 7. Let's add data from a CSV to our table so we have a little data to work with. Create the file `data.csv` in the same folder as your database. Copy these values into it and save:
 
 ```
-2,Apples,17
-3,Oranges,33
-4,Grapes,55
-5,Pineapple,12
-6,Mango,29
-7,Strawberries,64
-8,Blueberries,23
-9,Watermelon,8
-10,Peaches,38
-11,Pears,21
-12,Kiwi,14
-13,Lemons,47
-14,Limes,19
-15,Cherries,73
-16,Plums,26
-17,Avocados,31
-18,Tomatoes,58
-19,Carrots,44
-20,Potatoes,90
+2,"Apples",17
+3,"Oranges",33
+4,"Grapes",55
+5,"Pineapple",12
+6,"Mango",29
+7,"Strawberries",64
+8,"Blueberries",23
+9,"Watermelon",8
+10,"Peaches",38
+11,"Pears",21
+12,"Kiwi",14
+13,"Lemons",47
+14,"Limes",19
+15,"Cherries",73
+16,"Plums",26
+17,"Avocados",31
+18,"Tomatoes",58
+19,"Carrots",44
+20,"Potatoes",90
 ```
 
 8. Go back to your SQLite prompt. First we will enable CSV mode with `.mode csv` then import the file into `data` with `.import data.csv data`. *Note: this operation will fail if your CSV doesn't match your table exactly or if the primary key has already been used.* Now when we use `SELECT * FROM data;` we should see 20 entries.
@@ -73,7 +73,7 @@ INSERT INTO data (name, value) VALUES ("New Item", 100);
     - `SELECT * FROM data WHERE value > 50;`: selects all rows where the value column is greater than 50
     - `SELECT * FROM data ORDER BY value DESC;`; selects allrows ordered by the value; 
 
-10.  Add two new records for `21,Blackberries, 39` and `22,Cantaloupe, 45`.
+10.  Add two new records for `21,"Blackberries", 39` and `22,"Cantaloupe", 45`.
 
 11. Modify the `value` of the item with `id = 1` with:
 ```
