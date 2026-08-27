@@ -107,14 +107,10 @@ Using `JOIN` find:
 4. Can you create a table without a primary key? If so, why is this ill-advised?
 
 
-## Deliverables Checklist
-- [ ] A repository with your `.sql` queries script and database uploaded to GitHub
-- [ ] Demonstration of working script and database in class
-- [ ] Answers to the reflection questions either written or verbal in class
+## How to Submit
+
+Show your instructor your SQLite database, your SQL script, and your SQL queries.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
-
+- **0 points** - Task was not attempted to completion or student should reattempt.

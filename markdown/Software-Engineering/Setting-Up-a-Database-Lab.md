@@ -18,9 +18,10 @@
 
 ## Your Task
 
-In this lab, you will setup a SQLite database on your computer, add values, and practice using basic SQL commands.
-
-1. In your terminal, create a new folder for your database. Inside use `sqlite3 my_database.db` to open the `sqlite` terminal and create the database file `my_database.db`. Notice how it appears in the folder
+In this lab, you will setup a SQLite database on your Raspberry Pi, add values, and practice using basic SQL commands.
+  
+0. Connect to your Raspberry Pi over SSH with `ssh username@ip_address`.
+1. Once you are connected, create a new folder for your database. Inside use `sqlite3 my_database.db` to open the `sqlite` terminal and create the database file `my_database.db`. To exit the SQLite terminal `.quit`. 
 2. Your terminal prompt should now say `sqlite` on the left. If you exit and want to reactivate your terminal, use `sqlite3 my_database.db` again. 
 3. Now, we will create a table called `data` with our SQL command: 
 ```
@@ -74,7 +75,7 @@ id,name,value
     - `SELECT * FROM data WHERE value > 50;`: selects all rows where the value column is greater than 50
     - `SELECT * FROM data ORDER BY value DESC;`; selects allrows ordered by the value; 
 
-10.  Add two new records for `"Blackberries",39` and `"Cantaloupe", 45`.
+10.  Add two new records for `"Blackberries", 39` and `"Cantaloupe", 45`.
 
 11. Modify the `value` of the item with `id = 1` with:
 ```
@@ -109,13 +110,10 @@ Verify your changes with `SELECT * FROM data;`.
 2. What happens if you run `DELETE` without a `WHERE` clause?
 3. Write a query that returns the top 3 highest values.
 
-## Deliverables Checklist
-- [ ] Demonstrate an existing database in class with the ability to perform SQL queries 
-- [ ] Answers to your reflection questions either written or verbally in class
+## How to Submit
+
+Show your instructor your SQLite database, your SQL script, and your SQL queries.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
-
+- **0 points** - Task was not attempted to completion or student should reattempt.
