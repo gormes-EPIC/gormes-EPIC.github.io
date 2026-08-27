@@ -21,7 +21,7 @@
 In this lab, you will setup a SQLite database on your Raspberry Pi, add values, and practice using basic SQL commands.
   
 0. Connect to your Raspberry Pi over SSH with `ssh username@ip_address`.
-1. Once you are connected, create a new folder for your database. Inside use `sqlite3 my_database.db` to open the `sqlite` terminal and create the database file `my_database.db`. To exit the SQLite terminal `.quit`. 
+1. Once you are connected, create a new folder for your database. Install `sqlite` with `sudo apt install sqlite3 -y`. Make sure your DNS is set!!(You can check by pinging google.com). Inside use `sqlite3 my_database.db` to open the `sqlite` terminal and create the database file `my_database.db`. To exit the SQLite terminal `.quit`. 
 2. Your terminal prompt should now say `sqlite` on the left. If you exit and want to reactivate your terminal, use `sqlite3 my_database.db` again. 
 3. Now, we will create a table called `data` with our SQL command: 
 ```
