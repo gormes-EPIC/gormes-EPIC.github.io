@@ -73,7 +73,7 @@ INSERT INTO data (name, value) VALUES ("New Item", 100);
     - `SELECT * FROM data WHERE value > 50;`: selects all rows where the value column is greater than 50
     - `SELECT * FROM data ORDER BY value DESC;`; selects allrows ordered by the value; 
 
-10.  Add two new records for `"Blackberries", 39` and `"Cantaloupe", 45`.
+10.  Add two new records for `21,Blackberries, 39` and `22,Cantaloupe, 45`.
 
 11. Modify the `value` of the item with `id = 1` with:
 ```
