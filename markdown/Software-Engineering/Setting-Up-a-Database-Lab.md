@@ -45,7 +45,6 @@ INSERT INTO data (name, value) VALUES ("New Item", 100);
 7. Let's add data from a CSV to our table so we have a little data to work with. Create the file `data.csv` in the same folder as your database. Copy these values into it and save:
 
 ```
-id,name,value
 2,Apples,17
 3,Oranges,33
 4,Grapes,55
