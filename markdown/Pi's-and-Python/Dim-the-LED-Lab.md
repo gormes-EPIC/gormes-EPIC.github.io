@@ -73,13 +73,10 @@ Now your program should appear to become brighter more linearly.
 2. How could you systematically test whether the issue was in hardware or code?
 3. Write the equation that converts an encoder value x (from 0–180) into a brightness value b (from 0–1)
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your light turns on and is able to dim in class. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
