@@ -62,13 +62,10 @@ Create a digital slot machine with a button and a display. When you click the bu
 4. How did you guarantee the results would favor winning? How did you change your game logic to accomplish this? 
 
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your slot machine in class. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
