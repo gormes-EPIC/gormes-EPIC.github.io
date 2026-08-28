@@ -44,7 +44,16 @@ a: letter
 <details>
 <summary>Click here to view the answer</summary>
 
-
+```
+word = input("String:")
+for char in word:
+    if char.isalpha():
+        print(char + ": letter")
+    elif char.isdigit():
+        print(char + ": digit")
+    else:
+        print(char + ": symbol")
+```
 
 </details>
 
@@ -65,7 +74,20 @@ alex: 1
 <details>
 <summary>Click here to view the answer</summary>
 
+```
+votes = {}
+word = input("Name: ")
 
+while word != "done":
+    if word.lower() in votes:
+        votes[word.lower()] += 1
+    else:
+        votes[word.lower()] = 1
+    word = input("Name: ") 
+
+for key in votes:
+    print(key + ": " + str(votes[key]))
+```
 
 </details>
 
@@ -87,17 +109,9 @@ Lists have fixed, automatic, numerical indexing. Dictionaries have dynamic index
 
 ## Exercises 6
 
-Write a function `sort_names(name_list)` that takes in a list of names and returns them in sorted order, case-insensitive. 
 
-For example:
-
-```
-names = ["Zoe", "Bob", "amir"]
-names = sort_names(names) # names = ["amir", "Bob", "Zoe"]
-```
 <details>
 <summary>Click here to view the answer</summary>
-
 
 
 </details>
