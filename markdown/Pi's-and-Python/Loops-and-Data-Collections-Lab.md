@@ -323,13 +323,11 @@ To test your program, use the following inputs and expected outputs.
 3. How did you detect letters appearing after numbers?
 
 
-## Deliverables Checklist
-- [ ] Demonstrate 5 working programs to your instructor in class 
-- [ ] A repository with all 5 of your programs uploaded, attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person. 
+
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your programs in class. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
