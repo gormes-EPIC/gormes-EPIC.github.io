@@ -19,8 +19,11 @@ const curriculum = {
                 { file: "If-Statement-Exercises", type: "exercise" },
                 { file: "If-Statement-Lab", type: "assignment" },
                 { file: "Dim-the-LED-Lab", type:"assignment"},
+
+                { file: "Loops-and-Data-Collections-Exercises", type:"exercise"},
                 { file: "Loops-and-Data-Collections-Lab", type:"assignment"},
                 { file: "Temperature-in-Color-Lab", type:"assignment"},
+
                 { file: "Objects-Notes", type: "notes" },
                 { file: "File-Reading-and-Writing-Notes", type: "notes" },
                 { file: "Object-Exericses", type: "exercise" },
