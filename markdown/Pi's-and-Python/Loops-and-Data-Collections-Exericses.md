@@ -109,6 +109,7 @@ Lists have fixed, automatic, numerical indexing. Dictionaries have dynamic index
 
 ## Exercises 6
 
+Sketch a graph of 
 
 <details>
 <summary>Click here to view the answer</summary>

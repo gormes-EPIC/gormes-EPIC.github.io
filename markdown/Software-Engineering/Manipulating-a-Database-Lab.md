@@ -103,10 +103,9 @@ Using `JOIN` find:
 ## Reflection Questions
 
 1. What is the execution order of a `SELECT` statement?
-2. What is the difference between an inner join and an outer join
+2. What is the difference between an inner join and an outer join?
 3. What is the difference between a primary and foreign keys? Why are they important?
 4. Can you create a table without a primary key? If so, why is this ill-advised?
-
 
 ## How to Submit
 
