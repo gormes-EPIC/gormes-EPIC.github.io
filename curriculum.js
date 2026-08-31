@@ -85,6 +85,7 @@ const curriculum = {
                 { file: "Currency-Translator-Lab", type: "assignment"},
 
                 // Unit 1: Databases with SQLite
+                { file: "No-Silver-Bullets-Discussion", type: "assignment"},
                 { file: "Setting-Up-a-Database-Lab", type: "assignment"},
                 { file: "Manipulating-a-Database-Lab", type: "assignment"},
                 { file: "Database-Design", type: "assignment"},

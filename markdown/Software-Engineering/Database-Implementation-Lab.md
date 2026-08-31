@@ -30,6 +30,9 @@ Some ideas are:
 - a Spotify stats agregator
 - a local Raspberry Pi weather station
 
+0. Decide on a project idea with either existing data from a site like [Kaggle.com](https://www.kaggle.com/datasets) or create a plan for collecting data directly from your Pi. Whatever you choose must have multiple interconnected tables, not just one.
+    - When searching Kaggle, use the keywords "multi-table", "relational", or "multiple CSV" in the Datasets section to find datasets with multiple interconnected tables. 
+
 1. Once you decide what you want your project to be, create a set of **use cases** to define your project. These are typically in the form "As a [USER], I need to [ACTION]".
  
 2. Define your **business rules** for your database. Remember there are the followng types of rules: 
@@ -39,24 +42,23 @@ Some ideas are:
         - Relationship Constraints: Ensure links between tables are valid (e.g., an invoice cannot exist without a linked customer).
     - Derivation Rules: Define how new facts are calculated from existing data (e.g., "Total Order Amount = Sum of detailed items").
 
+
+*As you create your rules, think about [common falsehoods](https://github.com/kdeldycke/awesome-falsehood).*
+
 3. Create a **entity relationship diagram** to define your database **schema**. Start with your entities(nouns) and define their properties(attributes). Make sure each table has a **primary key**.
 
 4. Create a setup script, either a SQL or Python script, to set up the database. 
 
 5. Write and save SQL queries for each of your appropriate use cases. This will help you in the long run!
 
-6. 
 
 ## Documentation
 
+1. Create a new repository on GitHub
 Add the following to your site: 
     - use cases
     - business rules
     - data dictionary with your entity relationship diagram  
-
-1. Find a problem you want to solve 
-2. Search [Kaggle.com](https://www.kaggle.com/datasets) for a dataset to use. Use the keywords "multi-table", "relational", or "multiple CSV" in the Datasets section to find datasets with multiple interconnected tables. 
-2.  Create a setup script, either a SQL or Python script, to set up the database
 
 ## Tips, Tricks, and Resources
 
