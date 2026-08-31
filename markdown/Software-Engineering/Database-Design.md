@@ -142,12 +142,10 @@ Constraints can identify things like the column being a primary key, non-null, e
 
 10. Please proofread your work! Pretend like you are going to hand a client this data documentation for their business. You want others to be able to read and understand how your database functions easily. 
 
-## Deliverables Checklist
-- [ ] A file containing your buisness rules and use cases
-- [ ] A containing your data dictionary
+## How to Submit
+
+Show your instructor your business rules, use cases, and data dictionary. Then, attach them to Google Classroom. 
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted or student should reattempt.
