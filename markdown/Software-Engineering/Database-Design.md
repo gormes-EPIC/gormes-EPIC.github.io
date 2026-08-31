@@ -96,6 +96,7 @@ Sawyer,555-0124,Rosie,Cat,Persian,Adopted,2025-03-09
 3. Next, we need to define the **use cases**. These are typically in the form "As a [USER], I need to [ACTION]". You hear from the client that they need to do the following tasks. Turn these into user stories and add them to your document.
     - I need to be able to track current and adopted pets
     - I need to be able to access and modify owner information
+    - ...
 
 
 4. Now that we know what rules our database must follow and what it needs to do, we will design our database tables. Should we put everything in one table? Why or why not?
