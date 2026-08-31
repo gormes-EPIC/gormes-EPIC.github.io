@@ -11,6 +11,7 @@
 | business rules |  Brief, precise descriptions of policies or constraints that govern how an organization views and manages its data.  They bridge the gap between real-world operations and technical database design | 
 | use case | a structured, step-by-step description of how an actor interacts with a software application to achieve a specific goal |
 | entity relationship diagram | a type of flowchart that illustrates how “entities” such as people, objects or concepts relate to each other within a system | 
+
 ## Your Task
 
 Here is the prompt:

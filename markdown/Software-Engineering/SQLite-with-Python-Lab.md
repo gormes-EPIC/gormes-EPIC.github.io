@@ -89,15 +89,10 @@ for row in output:
 3. What is the benefit of using a database over Python alone?
 
 
-## Deliverables Checklist
-- [ ] Demonstrate your functioning Python program in class
-- [ ] A GitHub repo with your Python script and your database
-- [ ] Answers to your reflection questions either written or verbally in class
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program in class. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
-
-
+- **0 points** - Task was not attempted to completion or student should reattempt.
