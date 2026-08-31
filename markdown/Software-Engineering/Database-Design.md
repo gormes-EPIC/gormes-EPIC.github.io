@@ -16,7 +16,7 @@
 Here is the prompt:
 > I am the manager of the Happy Paws Animal Shelter. Right now, I track all our animals and the people who adopt them in a messy spreadsheet, and it's causing errors. I need you to design a database for me.
 
-> Right now I have two spreadsheets pet_data.csv and adoption_data.csv. The first has the following columns: pet_name, pet_species, pet_breed, arrival_date. The second has the following columns: adopter_name, adopter_phone, pet_name, pet_species, pet_breed, status, adoption_date. I add a new row to the first when I get a new pet and I add a new row to the second when they are adopted. 
+> Right now I have two spreadsheets `pet_data.csv` and `adoption_data.csv`. The first has the following columns: `pet_name`, `pet_species`, `pet_breed`, `arrival_date`. The second has the following columns: `adopter_name`, `adopter_phone`, `pet_name`, `pet_species`, `pet_breed`, `status`, `adoption_date`. I add a new row to the first when I get a new pet and I add a new row to the second when they are adopted. 
 
 <details>
 <summary>Click here to view `pet_data.csv` </summary>
@@ -87,11 +87,11 @@ Sawyer,555-0124,Rosie,Cat,Persian,Adopted,2025-03-09
 1. Create a new folder for this project. Inside, create a `README.md` for your planning. **You DO NOT need to create an actual database for this assignment, but you can use the data to create one if you want to!**
 
 2. First, we will define the **business rules** for the system. What is true about our data? Add the rules to your document. Here are some possible types of rules. 
-    - Structural Rules: Define how data elements interrelate (e.g., "One artist may create many songs")
-    - Integrity Constraints: Hard rules that prevent invalid data from entering.
-        - Field Constraints: Restrict values in a single column (e.g., a "shipping date" cannot be before the "order date").
-        - Relationship Constraints: Ensure links between tables are valid (e.g., an invoice cannot exist without a linked customer).
-    - Derivation Rules: Define how new facts are calculated from existing data (e.g., "Total Order Amount = Sum of detailed items").
+    - **Structural Rules:** Define how data elements interrelate (e.g., "One artist may create many songs")
+    - **Integrity Constraints:** Hard rules that prevent invalid data from entering.
+        - **Field Constraints:** Restrict values in a single column (e.g., a "shipping date" cannot be before the "order date").
+        - **Relationship Constraints:** Ensure links between tables are valid (e.g., an invoice cannot exist without a linked customer).
+    - **Derivation Rules:** Define how new facts are calculated from existing data (e.g., "Total Order Amount = Sum of detailed items").
 
 3. Next, we need to define the **use cases**. These are typically in the form "As a [USER], I need to [ACTION]". You hear from the client that they need to do the following tasks. Turn these into user stories and add them to your document.
     - I need to be able to track current and adopted pets
