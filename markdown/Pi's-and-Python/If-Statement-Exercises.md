@@ -174,7 +174,7 @@ match x:
 <details>
 <summary>Click here to view the answer</summary>
 
-1 → B ("one"), 2 → A ("other"). 
+1 → A ("one"), 2 → B ("other"). 
 
 In a `match` statement, Python compares `x` against each `case` in order and runs the first matching block; `case _:` acts as a catch-all/default, similar to `else`.
 
