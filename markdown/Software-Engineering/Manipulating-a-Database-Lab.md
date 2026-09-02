@@ -30,7 +30,7 @@ This database contains 5 tables:
 For more information, [click here](https://public.tableau.com/app/sample-data/GBBO_Data_Dictionary.pdf) to view the Data Dictionary for the database.
 
 1. Create a new folder for your new `sqlite` database. Then create a new database called `gbbo.db`. 
-2. [Click here](https://public.tableau.com/app/sample-data/GBBO_Dataset.zip) to download the CSVs for each table. 
+2. [Click here](https://github.com/gormes-EPIC/great_british_bakeoff/tree/main) to download the CSVs for each table. 
 3. For each table, identify what will be your **primary key**. If there is not an existing column that can be used as a primary key, create a new column in Libre Office. Then create the table with the `CREATE TABLE` command.  
 
 Here is an example for a table `Persons`:
