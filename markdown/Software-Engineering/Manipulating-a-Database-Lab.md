@@ -85,6 +85,7 @@ There are 4 kinds of joins in SQL:
 - `FULL (OUTER) JOIN`: Returns all rows when there is a match in either the left or right tab
 
 Using `JOIN` find:
+
 7. The name, age, and signature bake of all season 4 contestants 
 8. The networks of the top three episodes with the highest viewership
 9. The star bakers' showstopper and name for each episode
