@@ -81,7 +81,15 @@ name = "Steve"
 print(f"Hello {name}!")
 ```
 
+Let's create a second variable. Change `greeting.py` to contain the following:
 
+```
+name = "Steve"
+age = "15"
+print("My name is " + name + " and I am " + age + " years old.")
+```
+
+We can use almost anything as the name of a variable, as long as it is not an existing keyword in Python already. Anytime you want to create a variable, you use the variables's name, then a single equal sign (`=`), followed by what you want to be in the variable. The value on the right is assigned to the variable on the left. 
 
 
 ## Creating Functions
