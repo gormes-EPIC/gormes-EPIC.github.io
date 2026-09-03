@@ -131,7 +131,6 @@ To test your program, use the following inputs and expected outputs.
 | 2028 | Leap Year |
 | 1700 | Not a Leap Year |
 | 2400 | Leap Year |
-| year | Not a Leap Year |
 
 
 
