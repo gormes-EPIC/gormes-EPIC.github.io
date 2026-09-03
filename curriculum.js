@@ -9,7 +9,7 @@ const curriculum = {
                 { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
                 { file: "cron-Optional-Lab", type: "assignment" },
 
-                { file: "Functions-Notes.md", type: "notes"},
+                { file: "Variables-and-Functions-Notes.md", type: "notes"},
                 { file: "Variables-and-Functions-Exercises", type: "exercise" },
                 { file: "Variables-and-Functions-Lab", type: "assignment" },
                 // { file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
