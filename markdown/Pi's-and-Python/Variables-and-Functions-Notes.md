@@ -14,15 +14,15 @@
 
 ## Hello World
 
-<img src="/assets/var-and-fun-notes-1.gif">
-
 1. Create a new file on your computer called `hello.py`. You can use VSCode or just open the terminal and use `touch hello.py`.
 
 2. Inside the file, put `print("hello world")` and save. 
 
 3. Then flip back to your terminal and run the program with `python3 hello.py`. You should see `hello world` appear in your terminal!
 
-Congradulations, you just wrote your first Python program!
+<img src="/assets/var-and-fun-notes-1.gif">
+
+Congratulations, you just wrote your first Python program!
 
 ### What Just Happened?
 
@@ -33,7 +33,7 @@ In your program, you only had one line: `print("hello world")`.
 Let's breakdown what this statement means:
 <img src="/assets/var-and-fun-notes-2.png">
 
-`print()` is a function that prints out whatever is in the parentheses(argument) to the console. A **function** is a named block of code that is executed when the function is called. An **argument** is a value passed to a function, within the parentheses that modifies the function. *Note: when you are Googleing you may come across the term parameter which is extremely similar to argument. Technically there is a difference, but for the purposes of this class we will use the term argument.*
+`print()` is a function that prints out whatever is in the parentheses(argument) to the console. A **function** is a named block of code that is executed when the function is called. An **argument** is a value passed to a function, within the parentheses that modifies the function. *Note: when you are Googling you may come across the term parameter which is extremely similar to argument. Technically there is a difference, but for the purposes of this class we will use the term argument.*
 
 In our example, `"hello world"` is an example of a string. A **string** is a data type in Python that holds text and is always contained in quotation marks. This helps us distinguish between function names, variables, and regular text!
 
