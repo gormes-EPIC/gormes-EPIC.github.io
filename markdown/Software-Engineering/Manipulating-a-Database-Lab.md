@@ -16,21 +16,19 @@
 
 ## Your Task
 
-In this lab, you will create a database representing the Great British Bake-off. 
+In this lab, you will create a database representing the a sample store.
 
-<img src="/assets/manipulating-a-db-figure-1.png">
+<img src="/assets/store-schema.png">
 
-This database contains 5 tables:
-- Episodes
-- ChallengeBakes
-- Seasons
-- Bakers
-- Outcomes
+This database contains 3 tables:
+- customers
+- orders
+- products
 
-For more information, [click here](https://public.tableau.com/app/sample-data/GBBO_Data_Dictionary.pdf) to view the Data Dictionary for the database.
+For more information, [click here](https://github.com/gormes-EPIC/store_relational_database/blob/main/data_dictionary.pdf) to view the Data Dictionary for the database.
 
-1. Create a new folder for your new `sqlite` database. Then create a new database called `gbbo.db`. 
-2. [Click here](https://github.com/gormes-EPIC/great_british_bakeoff/tree/main) to download the CSVs for each table. 
+1. Create a new folder for your new `sqlite` database. Then create a new database called `sample_store.db`. 
+2. [Click here](https://github.com/gormes-EPIC/store_relational_database) to download the CSVs for each table. 
 3. For each table, identify what will be your **primary key**. If there is not an existing column that can be used as a primary key, create a new column in Libre Office. Then create the table with the `CREATE TABLE` command.  
 
 Here is an example for a table `Persons`:
@@ -64,9 +62,9 @@ See a full list [here](https://www.w3schools.com/sql/sql_datatypes.asp).
 4. Use the `SELECT` command to double check you imported everything correctly. 
 
 5. Write a `.sql` script of queries to get:
-    - The names of all bakers older than 50
-    - How many people total have been given a handshake by Paul Hollywood
-    - The top three most viewed episodes
+    - The names of all customers older than 50
+    - How many card transactions were made total
+    - The top three largest orders (orders with the most quanity of items)
 
 Remember the written order of a `SELECT` statement.
 - `SELECT`: Specifies the columns and aggregate functions (like SUM or COUNT) to return.
@@ -84,11 +82,12 @@ There are 4 kinds of joins in SQL:
 - `RIGHT (OUTER) JOIN`: Returns all rows from the right table, and only the matched rows from the left table
 - `FULL (OUTER) JOIN`: Returns all rows when there is a match in either the left or right tab
 
-Using `JOIN` find:
+7. Using `JOIN` find:
 
-7. The name, age, and signature bake of all season 4 contestants 
-8. The networks of the top three episodes with the highest viewership
-9. The star bakers' showstopper and name for each episode
+- The total number of items purchased by customer `C0014`
+- The gender breakdown of orders in the "Sports" category. (Count how many purchases were made by Male/Female customers)
+- The total price of all `P028` purchased. 
+- This one is tricky!!: The total price of everything customer `C0001` has purchased.
 
 
 ## Tips, Tricks, and Resources
@@ -99,7 +98,10 @@ Using `JOIN` find:
 
 ## Extensions
 
-1. Write additional queries to find out the winner of each season's age and the airdate of all episodes where Paul Hollywood gave a handshake
+Write additional queries to find out:
+1. The total revenue of the top three best selling items
+2. The total revenue of people in the loyalty program vs not in the loyalty program 
+3. The city where people spent the most money
 
 ## Reflection Questions
 
