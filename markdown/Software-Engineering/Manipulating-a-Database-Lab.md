@@ -21,25 +21,25 @@ In this lab, you will create a database representing the a sample store.
 <img src="/assets/store-schema.png">
 
 This database contains 3 tables:
-- customers
-- orders
-- products
+- `customers`
+- `orders`
+- `products`
 
 For more information, [click here](https://github.com/gormes-EPIC/store_relational_database/blob/main/data_dictionary.pdf) to view the Data Dictionary for the database.
 
 1. Create a new folder for your new `sqlite` database. Then create a new database called `sample_store.db`. 
 2. [Click here](https://github.com/gormes-EPIC/store_relational_database) to download the CSVs for each table. 
-3. For each table, identify what will be your **primary key**. If there is not an existing column that can be used as a primary key, create a new column in Libre Office. Then create the table with the `CREATE TABLE` command.  
+3. For each table, identify what will be your **primary key** and if there are any **foreign keys** in your database. Then create the table with the `CREATE TABLE` command.  
 
-Here is an example for a table `Persons`:
+Here is an example for a table `persons`:
 
 ```
-CREATE TABLE Persons (
-  PersonID int PRIMARY KEY,
-  LastName varchar(255) NOT NULL,
-  FirstName varchar(255),
-  Address varchar(255),
-  City varchar(255)
+CREATE TABLE persons (
+  person_ID int PRIMARY KEY,
+  last_name varchar(255) NOT NULL,
+  first_name varchar(255),
+  address varchar(255),
+  city varchar(255)
 );
 ```
 
@@ -49,7 +49,7 @@ Here are some examples of column types:
 | ----------- | ----------- |
 | `int` | Standard integer |
 | `decimal(p, s)` | Floating point number where p is total digits and s is digits after the decimal | 
-|  `varchar(n)` | Variable-length string up to length n |
+|  `varchar(n)` | Variable-length string up to length n (typically we use this instead of the text option)|
 | `date` | Stores only the calendar date (YYYY-MM-DD) |
 | `time` | Stores only the time of day. 
 | `datetime` | Stores both date and time |
