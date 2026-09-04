@@ -11,6 +11,8 @@
 | string | a data type that holds text and is always surrounded by quotation marks |  
 | variable | a named spot in memory that holds a value |
 | variable type or data type | classifications of data that your interpreter uses (ex. string, integer, or float) |  
+| integer(int) | a data type that holds whole numbers |
+| float | a data type that holds numbers with decimals |
 
 ## Hello World
 
@@ -91,6 +93,124 @@ print("My name is " + name + " and I am " + age + " years old.")
 
 We can use almost anything as the name of a variable, as long as it is not an existing keyword in Python already. Anytime you want to create a variable, you use the variables's name, then a single equal sign (`=`), followed by what you want to be in the variable. The value on the right is assigned to the variable on the left. 
 
+## Integers and Floats
+
+Create a new program `sum.py` with the following contents. Guess what you think will happen before running.
+```
+a = "2"
+b = "2"
+c = a + b
+print(c)
+```
+
+<img src="/assets/var-and-fun-notes-5.gif">
+
+Hmmm something weird happened. Our interpreter treated the number 2 as a string. This makes sense because 2 is inside parentheses. Let's try this instead: 
+```
+a = 2
+b = 2
+c = a + b
+print(c)
+```
+
+
+<img src="/assets/var-and-fun-notes-6.gif">
+
+Nice! We added the two numbers. Without the quotes, `a` and `b` are examples of **integers**. Integer or int is a data type that holds whole numbers, like 2. 
+
+Let's make a new file `cost.py`.
+
+```
+price = 19.99
+tax = 0.07
+total = price + price * tax
+
+print("$" + total)
+```
+
+`price`, `tax`, and `total` are all examples of **floats**. Float is a data type that holds numbers with decimal parts. They function very similarly to integers.
+
+## Mathematical Operators
+
+In Python, we can use all of the traditional operators on integers and floats. For example:
+
+```
+a = 3
+b = 5
+
+print(a + b) # 8
+print(a - b) # -2
+print(a * b) # 15
+print(a / b) # 0.6
+```
+
+There are also two more operators that are less common. 
+
+### Modulus
+
+The `%` operator represents **modulus**, or the remainder after division. For example:
+
+```
+a = 5
+b = 2
+
+print(a % b) # 1
+```
+
+This prints 1 since 5/2 is 2 with a remainder of 1.
+
+### Power
+
+The `**` operator represents exponents.
+
+```
+a = 5
+b = 2
+
+print(a ** b) # 25
+```
+
+This prints 25 since $5^2$ is 25.
+
+
+## User Input
+
+One way we can make our programs more interactive is to use the `input()` function. Create a new file `login.py` with the following contents:
+```
+username = input("Enter your username: ") 
+print(username + ", you're in!")
+```
+
+As you run the program, notice the prompt in the parantheses is printed to the terminal. Then whatever the user types in is saved to the variable `username`. 
+
+<img src="/assets/var-and-fun-notes-7.gif">
+
+Let's do another example in a new file `years.py`:
+
+```
+age = input("Enter your age: ")
+age = int(age)
+years_left = 100 - age
+
+print(f"You will turn 100 years old in {years_left} years.")
+```
+
+The first line takes in an age as a user input. The second converts the age(which is a string) to an integer. Then we can calculate how many years left the user has before they turn 100. Finally, we can print out the calculated value to the user. 
+
+
+## Using String Functions
+
+As we are programming, we can use different built-in string functions to modify our strings. Let's try one here:
+```
+text = input("What do you want to say? ")
+text = text.upper()
+print(text)
+```
+Notice that on our second line, we need to set `text` to the value of `text.upper()`. We cannot just say `text.upper()` on its own.
+
+
+Reference [this full list](https://www.w3schools.com/python/python_ref_string.asp) of all possible string functions as you work on the lab.
+
 
 ## Creating Functions
 Functions are defined with the `def` keyword, followed by a name, parentheses (with optional parameters), and a colon. The function body is indented.
@@ -169,3 +289,8 @@ result = square(4)  # result = 16
 - A function without return returns `None`.
 - Code after `return` inside a function never runs.
 
+
+
+## Additional Resources
+
+- [Watch this video for CS50 Week 0](https://cs50.harvard.edu/python/weeks/0/)
