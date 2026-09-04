@@ -93,6 +93,8 @@ print("My name is " + name + " and I am " + age + " years old.")
 
 We can use almost anything as the name of a variable, as long as it is not an existing keyword in Python already. Anytime you want to create a variable, you use the variables's name, then a single equal sign (`=`), followed by what you want to be in the variable. The value on the right is assigned to the variable on the left. 
 
+To visualize how variables appear in memory throughout execution, use [Python Tutor's Visualizer](https://pythontutor.com/visualize.html#mode=edit). You can step through programs line-by-line and see how the variables exist in memory.
+
 ## Integers and Floats
 
 Create a new program `sum.py` with the following contents. Guess what you think will happen before running.
@@ -294,3 +296,4 @@ result = square(4)  # result = 16
 ## Additional Resources
 
 - [Watch this video for CS50 Week 0](https://cs50.harvard.edu/python/weeks/0/)
+- [Python Visualizer](https://pythontutor.com/visualize.html#mode=edit)
