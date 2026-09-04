@@ -15,7 +15,7 @@
 | schema ||
 | primary key ||
 | data flow diagram | | 
-|
+
 ## Your Task
 
 Over multiple labs, you will create a simple full-stack software project that has a multitable SQLite database with a Python API in front of it that connects to a simple frontend HTML site. You will then containerize these components so others can set up this project on their own machines. You will also create a `github.io` site with your documentation for your project.
@@ -33,7 +33,7 @@ Some ideas are:
 0. Decide on a project idea with either existing data from a site like [Kaggle.com](https://www.kaggle.com/datasets) or create a plan for collecting data directly from your Pi. Whatever you choose must have multiple interconnected tables, not just one.
     - When searching Kaggle, use the keywords "multi-table", "relational", or "multiple CSV" in the Datasets section to find datasets with multiple interconnected tables. 
 
-1. Once you decide what you want your project to be, create a set of **use cases** to define your project. These are typically in the form "As a [USER], I need to [ACTION]".
+1. Once you decide what you want your project to be, create a set of **use cases** to define your project. These are typically in the form "As a [USER], I need to [ACTION]". See the [Database Design](#Software-Engineering/Database-Design) assignment for more information about use cases.
  
 2. Define your **business rules** for your database. Remember there are the followng types of rules: 
     - Structural Rules: Define how data elements interrelate (e.g., "One artist may create many songs")
@@ -42,10 +42,9 @@ Some ideas are:
         - Relationship Constraints: Ensure links between tables are valid (e.g., an invoice cannot exist without a linked customer).
     - Derivation Rules: Define how new facts are calculated from existing data (e.g., "Total Order Amount = Sum of detailed items").
 
-
 *As you create your rules, think about [common falsehoods](https://github.com/kdeldycke/awesome-falsehood).*
 
-3. Create a **entity relationship diagram** to define your database **schema**. Start with your entities(nouns) and define their properties(attributes). Make sure each table has a **primary key**.
+3. Create a **entity relationship diagram** to define your database **schema**. Start with your entities(nouns) and define their properties(attributes). Make sure each table has a **primary key** and **foreign keys** are properly labeled.
 
 4. Create a setup script, either a SQL or Python script, to set up the database. 
 

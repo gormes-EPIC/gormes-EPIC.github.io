@@ -119,13 +119,12 @@ Instead we will create an **entity relationship diagram** to help us plan our da
 
 6. We'll start by identifying our core entities or nouns for our system. What three nouns represent our data best and what are their attributes? Add these to your diagram.
 
-For example, if I wanted to create a ERD for a `Order` with the attributes `Order_Id`, `Customer_Id`, `OrderDate`, and `Price` and a `Customer` with the attributes `FirstName`, `LastName`, `Customer_Id`. 
+For example, we can take a look at the ERD from the previous assignment. 
+
+<img src="/assets/store-schema.png">
 
 
-<img src="/assets/database-design-figure-1.png">
-
-
-For your own clarity, this is an example of an ERD in **Crow's Foot** notation. See [this article](https://medium.com/@callista.m.azizah/crows-foot-erd-for-beginners-a-tutorial-1effc8a326c6) for more information.
+For your own clarity, this is an example of an ERD in **Crow's Foot** notation. See [this article](https://medium.com/@callista.m.azizah/crows-foot-erd-for-beginners-a-tutorial-1effc8a326c6) for more information. Don't worry too much about getting the ends of the arrows correct; just focus on the columns and identifying the correct keys.
 
 7. Make sure you highlight each table's primary key. A primary key needs to be a unique value! Typically the primary key is an id number or another unique value. Also identify the foreign keys as they appear in other tables. Lastly, make sure your lines have cardinality relationships labeled! 
 
@@ -135,7 +134,10 @@ For your own clarity, this is an example of an ERD in **Crow's Foot** notation. 
 
 Now that you designed the system, we can create the appropriate documentation. 
 
-9. Create a new document for your data dictionary. [Here](https://public.tableau.com/app/sample-data/GBBO_Data_Dictionary.pdf) is a sample from a preivous lab. Start by writing a small description of your project overall. Then add your diagram you created in the previous steps. Then for each table in your database, create the following table:
+9. Create a new document for your data dictionary. [Here](https://public.tableau.com/app/sample-data/GBBO_Data_Dictionary.pdf) and [here](https://github.com/gormes-EPIC/store_relational_database/blob/main/data_dictionary.pdf) are some simple examples. 
+    - Start by writing a small description of your project overall. 
+    - Then add your diagram you created in the previous steps. 
+    - Then for each table in your database, create the following table:
 
 | Column Name | Data Type | Constraints | Description|
 | ----------- | ----------- | --- | --- | 
