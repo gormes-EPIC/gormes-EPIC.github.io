@@ -43,6 +43,52 @@ if number > 0:
 print("The number is positive")
 ```
 
+## `and` and `or`
+
+We can combine multiple conditions into one statement using the keywords `and` and `or`. `and` returns `True` only if both conditions are true. `or` returns `True` if at least one condition is true. 
+
+For example:
+
+```
+x = 5
+y = 10
+
+if x > 0 and y > 5:
+    print("Both conditions are met!")
+
+```
+
+Since `x > 0` and `y > 5` this snippet will print `Both conditions are met!`. If either of the conditions were `False`, the statement would evaluate to `False`.
+
+
+Let's look at an example with `or`.
+
+```
+is_weekend = True
+has_vacation = False
+
+if is_weekend or has_vacation:
+    print("Time to relax!")
+```
+
+This program prints `Time to relax!` if either `is_weekend` or `has_vacation` is `True`. They can both be `True`, but they don't have to be. 
+
+Let's look at one more:
+
+```
+num = 7
+
+if num == 5 or 10:
+    print("Apple")
+else:
+    print("Blueberry")
+
+```
+
+Reading quickly, you might think the previous program would print `Blueberry`. If you run it, you will find it prints `Apple`. This is because we set up our condition incorrectly. If we wanted to check if `num` was 5 or 10 we would need to write the whole thing out as `if num == 5 or num == 10`. It is a little annoying to write out, but we can't cut any corners if we want our program to work as intended.
+
+You can include as many `and` and `or` keywords in your condition as you want; you aren't limited to two! 
+
 ## Booleans
 
 In addition to strings, ints, and floats there is another data type we haven't talked about yet: booleans. A **boolean** is a data type representing a true or false value. To initialize a boolean, set it equal to either `True` or `False`. We can also use the comparison operator (`==`) to assign a boolean based on a condition.
