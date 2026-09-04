@@ -44,39 +44,39 @@ Some ideas are:
 
 *As you create your rules, think about [common falsehoods](https://github.com/kdeldycke/awesome-falsehood).*
 
-3. Create a **entity relationship diagram** to define your database **schema**. Start with your entities(nouns) and define their properties(attributes). Make sure each table has a **primary key** and **foreign keys** are properly labeled.
+3. Create a **entity relationship diagram** to define your database **schema**. Start with your entities(nouns) and define their properties(attributes). Make sure each table has a **primary key** and **foreign keys** are properly labeled. See previous assignments for examples and additional details.
 
-4. Create a setup script, either a SQL or Python script, to set up the database. 
+4. Create a setup script, either a SQL or Python script, to set up the database. Do this as a **script**; you will need it later!!
 
-5. Write and save SQL queries for each of your appropriate use cases. This will help you in the long run!
-
+5. Write and save SQL queries **for each** of your appropriate use cases.
 
 ## Documentation
 
-1. Create a new repository on GitHub
-Add the following to your site: 
+1. Create a new repository on GitHub for your final project. Then add a `README.md` document. 
+
+2. Add the following to your `README` with appropriate headers/formatting:
+    - short statement of purpose of your project
     - use cases
     - business rules
     - data dictionary with your entity relationship diagram  
 
+3. Upload your setup scripts and your query scripts to a folder `sql` in your repository.
+
 ## Tips, Tricks, and Resources
 
-- 
+- See [this example](https://github.com/gormes-EPIC/expense_sample_database/tree/main) for reference. (This example has been majority AI generated so there may be mistakes).
 
-## Extensions
-
-1. 
 
 ## Reflection Questions
-1. 
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+1. Explain why you structured your data this way. What factors did you consider?
+2. Why did you choose the primary/foriegn keys you did? 
+3. What other ideas did you consider? Why does this structure best represent your question
+
+## How to Submit
+
+Show your instructor your repo with your SQL scripts and README.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.
