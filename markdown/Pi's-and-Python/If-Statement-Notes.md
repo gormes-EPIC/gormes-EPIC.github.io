@@ -45,4 +45,56 @@ print("The number is positive")
 
 ## Booleans
 
+In addition to strings, ints, and floats there is another data type we haven't talked about yet: booleans. A **boolean** is a data type representing a true or false value. To initialize a boolean, set it equal to either `True` or `False`. We can also use the comparison operator (`==`) to assign a boolean based on a condition.
+
+Let's look at an example:
+
+```
+check = True
+
+if check:
+  print("True!")
+else:
+  print("False!")
+```
+
+This program will print `True!` because `check` is a boolean with a value of `True`. 
+
+Let's look at an another example:
+
+```
+x = 10
+statement = x == 5
+
+if statement:
+  print("The statement is correct")
+else:
+  print("The statement is false")
+```
+
+This program will print `The statement is false` since `x == 5` evaluates to false.
+
 ## Match Cases
+
+A **match case** compares a stated variable to different values assigned by the match case. If the variable and the value matches, the code block is run. This is very similar to an if statement, but is slightly more efficient if you are only check if values are equal.
+
+
+Let's look at this program: 
+
+```
+status_code = 404
+
+match status_code:
+    case 200:
+        print("Success")
+    case 400:
+        print("Bad Request")
+    case 404:
+        print("Not Found")
+    case _:
+        print("Unknown Status")
+
+```
+
+We define a variable `status_code` then create our match statement using that variable(it appears in the header `match status_code`). For each case we compare `status_code` to the different values. In this case, `status_code` is `404`, so our program will print `Not Found`. The `case _` is a catch-all for every other value not in the cases(like an `else` statement).
+
