@@ -185,7 +185,6 @@ To test your program, use the following inputs and expected outputs.
 | 72 | you do not need to bring a sweater |
 | 80 | you do not need to bring a sweater | 
 | 155 | invalid input |
-| temp | invalid input |
 
 
 
