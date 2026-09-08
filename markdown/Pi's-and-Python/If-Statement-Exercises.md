@@ -35,7 +35,7 @@ else:
 
 </details>
 
-## Exercise 2
+## Exercise 3
 
 This code is supposed to check if `x` is divisible by 3 and separately if it's divisible by 4, but it doesn't work as intended. What's wrong, and how would you fix it?
 ```python
@@ -55,7 +55,7 @@ The third `if:` statement is missing a condition. `if` must always be followed b
 
 </details>
 
-## Exercise 3
+## Exercise 4
 
 Which symbol is used for **variable assignment** in Python, and which is used for **variable comparison**?
 
@@ -66,7 +66,7 @@ Which symbol is used for **variable assignment** in Python, and which is used fo
 
 </details>
 
-## Exercise 4
+## Exercise 5
 Calculate the result: What does `2 ** 3 / 4` evaluate to? Show your order of operations.
 
 <details>
@@ -76,7 +76,7 @@ Calculate the result: What does `2 ** 3 / 4` evaluate to? Show your order of ope
 
 </details>
 
-## Exercise 5
+## Exercise 6
 Debug this code and explain the error it produces:
 ```python
 num = "5"
@@ -98,7 +98,7 @@ print(result)
 
 </details>
 
-## Exercise 6
+## Exercise 7
 Which code snippet(s) correctly print "Between 0 and 10" when `x` is more than 0 and less than 10? Explain why the incorrect ones fail.
 
 a.
@@ -130,7 +130,7 @@ c is a syntax error: an `if` block cannot be empty (it needs at least one statem
 
 </details>
 
-## Exercise 7
+## Exercise 8
 
 In one or two sentences, explain the difference between an `if/elif/else` chain and a series of separate `if` statements. When would you use one over the other?
 
@@ -141,7 +141,7 @@ An `if/elif/else` chain only runs **one** branch — as soon as a condition is `
 
 </details>
 
-## Exercise 8
+## Exercise 9
 Match the code snippet to its correct output.
 
 **Input 1**
@@ -181,7 +181,7 @@ In a `match` statement, Python compares `x` against each `case` in order and run
 </details>
 
 
-## Exercise 9
+## Exercise 10
 
 Fill in the blanks so this function correctly prints "Too hot!", "Too cold!", or "Just right!" based on `temperature`. It is "Too hot!" when it is over 80 degrees and "Too cold!" when it is under 60 degrees. Then, rewrite the if statement with different conditions that will have the same result. 
 
@@ -222,7 +222,7 @@ def check_temp(temperature):
 
 </details>
 
-## Exercise 10
+## Exercise 11
 
 What does `check_temp(60)` print, using the function from Exercise 9? Explain why, based on the boundary conditions.
 
