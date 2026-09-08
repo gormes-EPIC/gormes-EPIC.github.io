@@ -434,10 +434,16 @@
             }
 
             /* 5. Make code blocks printer-friendly */
-            .markdown-body pre {
-                background: #f8f9fa !important; /* Very light gray */
-                border: 1px solid #ccc !important;
+            .markdown-body pre,
+            .markdown-body pre code.hljs {
+                background: #D3D3D3 !important; /* Light gray backlight */
                 color: black !important;
+                /* Force browsers to actually print the background color */
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .markdown-body pre {
+                border: 1px solid #ccc !important;
                 white-space: pre-wrap !important; /* Forces long code lines to wrap instead of running off the page */
             }
 
