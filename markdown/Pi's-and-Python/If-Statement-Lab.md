@@ -251,7 +251,7 @@ To test your program, use the following inputs and expected outputs.
 
 You will create a program `meal_time.py` to prompt the user to enter a time and have it print out either "breakfast time" if it is between 7:00 and 8:00, "lunch time" if it is between 12:00 and 1:00, "dinner time" if it is between 6:00 and 7:00, or nothing otherwise.
 
-Your program will have two methods
+Your program will have two functions:
 - `main()`: prompts the user for a time, uses `convert()` to convert the time to a decimal and prints out the appropriate message based on the result
 - `convert(time)`: accepts a time as a string in the form HH:MM and returns the time as a decimal number. For example, "7:30" would be returned as 7.5.
 
