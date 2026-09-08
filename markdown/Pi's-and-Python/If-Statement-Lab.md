@@ -67,7 +67,7 @@ Decomposing the problem:
 
 1. Write a program to take input from the user and print it out
 2. Modify your program to print “Yes” if the input is “42” or “forty two” and “No” in all other cases
-3. Modify your program to modify the input so that the variable is either “42” or “forty two” before the if statement using string methods
+3. Modify your program to modify the input so that the variable is either “42” or “forty two” before the if statement using string functions
 
 </details>
 
@@ -314,12 +314,12 @@ To test your program, use the following inputs and expected outputs.
 
 ## Tips, Tricks, and Resources
 - [Python If Statements](https://www.w3schools.com/python/python_conditions.asp)
-- [Python String Methods](https://www.w3schools.com/python/python_ref_string.asp)
+- [Python String Functions](https://www.w3schools.com/python/python_ref_string.asp)
 - [CS50 Week 1 Lecture](https://cs50.harvard.edu/python/weeks/1/)
 
 ## Extensions
 1. Add more complex operators to your math interpreter. For example, powers, modulus, etc. 
-2. Refactor all your code to use multiple methods instead, much like Meal Time.
+2. Refactor all your code to use multiple functions instead, much like Meal Time.
 
 ## Reflection Questions
 1. What is the difference between `=` and `==`?
