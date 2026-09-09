@@ -84,10 +84,10 @@ There are 4 kinds of joins in SQL:
 
 7. Using `JOIN` find:
 
-- Thetotal price of items purchased by customers over 50.
-- The gender breakdown of orders in the "Sports" category. (Count how many purchases were made by Male/Female customers)
-- The total price of all `P028` purchased. 
-- This one is tricky!!: The total price of everything customer `C0001` has purchased.
+  - Thetotal price of items purchased by customers over 50.
+  - The gender breakdown of orders in the "Sports" category. (Count how many purchases were made by Male/Female customers)
+  - The total price of all `P028` purchased. 
+  - This one is tricky!!: The total price of everything customer `C0001` has purchased.
 
 
 ## Tips, Tricks, and Resources
