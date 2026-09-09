@@ -21,6 +21,7 @@ Here is the prompt:
 
 <details>
 <summary>Click here to view `pet_data.csv` </summary>
+
 ```
 pet_name,pet_species,pet_breed,arrival_date
 Bella,Cat,Sphynx,2024-03-02
@@ -49,10 +50,12 @@ Ruby,Dog,Bulldog,2025-02-24
 Leo,Dog,Bulldog,2025-12-07
 Rosie,Cat,Persian,2025-06-10
 ```
+
 </details>
 
 <details>
 <summary>Click here to view `adoption_data.csv` </summary>
+
 ```
 adopter_name,adopter_phone,pet_name,pet_species,pet_breed,status,adoption_date
 Alex,555-0100,Bella,Cat,Sphynx,Pending,2025-11-12
@@ -81,6 +84,7 @@ Logan,555-0122,Ruby,Dog,Bulldog,Adopted,2025-08-30
 Micah,555-0123,Leo,Dog,Bulldog,Adopted,2024-06-06
 Sawyer,555-0124,Rosie,Cat,Persian,Adopted,2025-03-09
 ```
+
 </details>
 
 
