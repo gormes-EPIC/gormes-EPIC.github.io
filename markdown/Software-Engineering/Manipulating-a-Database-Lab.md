@@ -62,7 +62,7 @@ See a full list [here](https://www.w3schools.com/sql/sql_datatypes.asp).
 4. Use the `SELECT` command to double check you imported everything correctly. 
 
 5. Write a `.sql` script of queries to get:
-    - The names of all customers older than 50
+    - The id of all customers older than 50
     - How many card transactions were made total
     - The top three largest orders (orders with the most quanity of items)
 
