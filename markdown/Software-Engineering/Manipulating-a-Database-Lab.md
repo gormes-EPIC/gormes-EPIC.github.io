@@ -62,7 +62,7 @@ See a full list [here](https://www.w3schools.com/sql/sql_datatypes.asp).
 4. Use the `SELECT` command to double check you imported everything correctly. 
 
 5. Write a `.sql` script of queries to get:
-    - The id of all customers older than 50
+    - The `customer_id` of all customers older than 50
     - How many card transactions were made total
     - The top three largest orders (orders with the most quanity of items)
 
@@ -84,11 +84,11 @@ There are 4 kinds of joins in SQL:
 
 7. Using `JOIN` find:
 
-  - Thetotal price of items purchased by customers over 50.
-  - The gender breakdown of orders in the "Sports" category. (Count how many purchases were made by Male/Female customers)
-  - The total price of all `P028` purchased. 
-  - This one is tricky!!: The total price of everything customer `C0001` has purchased.
-
+  - Find all unique `product_id` purchased by customers under 50
+  - The `product_name` of all items purchased by `C0248`
+  - The city of each customer who purchased `P077` 
+  - This one is tricky!!: 
+    - The gender breakdown of orders in the "Sports" category. (Count how many purchases were made by Male/Female customers)
 
 ## Tips, Tricks, and Resources
 
