@@ -447,6 +447,14 @@
                 white-space: pre-wrap !important; /* Forces long code lines to wrap instead of running off the page */
             }
 
+            /* 5b. Give inline code the same light gray backlight */
+            .markdown-body :not(pre) > code {
+                background: #D3D3D3 !important; /* Light gray backlight */
+                color: black !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
             /* 6. Prevent awkward page breaks right in the middle of elements */
             .markdown-body pre, 
             .markdown-body blockquote, 
