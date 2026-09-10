@@ -136,6 +136,16 @@ o
 This will work exactly the same way for lists!
 
 ## For Loops
+
+Another type of loop that exists in Python is a **for loop**. (Note: if you have used other programming languages liek Java, the Python for loop is eqivalent to a for-each loop or an enhanced for loop, not a regular for loop!) Rather than waiting for a condition, a for loop will loop through every element in a data collection automatically. 
+
+To do the exact same thing as our last while loop example, we could use a for loop:
+
+```
+word = "Hello"
+for w in word:
+    print(w)
+```
 ## Dictionaries
 
 ## Other Data Collections
