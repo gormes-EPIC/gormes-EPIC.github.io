@@ -49,8 +49,34 @@ To remove something from a list, use the function `pop(index)`. For example, I c
 fruits.pop(1)
 ```
 
-
 ## Revisiting Strings
+
+Now that we understand lists, we can take a look at strings again. Strings are also indexed in the same way. I can access different characters in a string using their index. For example:
+
+```
+word = "Hello"
+print(word[0]) # H
+print(word[3]) # l
+```
+
+Strings also support something called **string splicing**. This allows us to create substrings from other strings. See the example below.
+
+```
+word = "Hello"
+print(word[1:3]) # el
+```
+
+The first value before the colon is the starting point for our substring. The value after the colon is the stopping point, however the last character is **not included**.
+
+One major difference between strings and lists is we **cannot** modify specific elements of a string. For example, the following program will cause an error:
+
+```
+word = "Hello"
+word[0] = "h" # Error
+```
+
+Strings are what we call **immutable** meaning they cannot be changed. Whenever we add to a string with `+`, we are actually creating a new string instead of modifying the previous. This will make more sense when we talk about objects.
+
 ## While Loops
 ## For Loops
 ## Dictionaries
