@@ -199,13 +199,25 @@ If I want to access the year they joined:
 print(user_profile["joined_year"]) # 2024
 ```
 
-To check if a key is inside a dictionary, I can use
+To check if a key is inside a dictionary, I can use:
 ```
 key = "is_active"
 if key in user_profile:
     print("The key exists")
 ```
 
+To add a key-value pair to a dictionary(key = `"is_admin"` and value = `"False"`), I can use:
+```
+user_profile["is_admin"] = False # will add is_admin to the dictionary
+```
 
+To remove a key-value pair from a dictionary:
+```
+user_profile.pop("joined_year") # will remove joined_year from the dictionary 
+```
 
 ## Other Data Collections
+
+There are other data collections called **sets** and **tuples**. We will not cover them in this class, but they can be useful depending on what you are trying to do. See these links for more information:
+- [Python Sets](https://www.w3schools.com/python/python_sets.asp)
+- [Python Tuples](https://www.w3schools.com/python/python_tuples.asp)
