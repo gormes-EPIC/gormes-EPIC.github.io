@@ -147,6 +147,8 @@ for w in word:
     print(w)
 ```
 
+This would work exactly the same way with a list!
+
 If I wanted to count up to 10 using a for loop, I could combine it with a `range()` function:
 
 ```
@@ -164,6 +166,19 @@ This would print:
 4
 ```
 
+If we want to combine working with lists and indexes, we could do this instead:
+
+```
+cars = ["subraru", "toyota", "ford", "honda"]
+
+for i in range(len(cars)):
+    print(cars[i])
+```
+
 ## Dictionaries
+
+
+```
+```
 
 ## Other Data Collections
