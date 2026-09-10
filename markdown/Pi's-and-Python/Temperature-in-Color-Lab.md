@@ -62,8 +62,6 @@ while True:
         print(error.args[0])
         time.sleep(2.0)
         continue
-    except KeyboardInterrupt:
-        GPIO.cleanup()
     except Exception as error:
         sensor.exit()
         raise error    

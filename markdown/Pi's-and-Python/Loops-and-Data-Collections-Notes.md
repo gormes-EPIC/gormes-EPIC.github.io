@@ -177,8 +177,35 @@ for i in range(len(cars)):
 
 ## Dictionaries
 
+Another type of data collection is a **dictionary**. A dictionary stores key-value pairs instead of single values. Each value is indexed by a key, instead of a numerical index. 
 
+Here is a sample dictionary: 
 ```
+user_profile = {
+    "username": "coder_99",
+    "email": "coder@example.com",
+    "joined_year": 2024,
+    "is_active": True
+}
 ```
+
+If I want to access the profile's username:
+```
+print(user_profile["username"]) # coder_99
+```
+
+If I want to access the year they joined:
+```
+print(user_profile["joined_year"]) # 2024
+```
+
+To check if a key is inside a dictionary, I can use
+```
+key = "is_active"
+if key in user_profile:
+    print("The key exists")
+```
+
+
 
 ## Other Data Collections
