@@ -20,6 +20,7 @@ const curriculum = {
                 { file: "If-Statement-Lab", type: "assignment" },
                 { file: "Dim-the-LED-Lab", type:"assignment"},
 
+                { file: "Loops-and-Data-Collections-Notes", type:"notes"},
                 { file: "Loops-and-Data-Collections-Exercises", type:"exercise"},
                 { file: "Loops-and-Data-Collections-Lab", type:"assignment"},
                 { file: "Temperature-in-Color-Lab", type:"assignment"},
