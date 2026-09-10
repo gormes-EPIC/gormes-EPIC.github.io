@@ -146,6 +146,24 @@ word = "Hello"
 for w in word:
     print(w)
 ```
+
+If I wanted to count up to 10 using a for loop, I could combine it with a `range()` function:
+
+```
+for x in range(5):
+    print(x)
+```
+
+This would print:
+
+```
+0
+1
+2
+3
+4
+```
+
 ## Dictionaries
 
 ## Other Data Collections
