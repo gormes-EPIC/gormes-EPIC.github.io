@@ -78,6 +78,63 @@ word[0] = "h" # Error
 Strings are what we call **immutable** meaning they cannot be changed. Whenever we add to a string with `+`, we are actually creating a new string instead of modifying the previous. This will make more sense when we talk about objects.
 
 ## While Loops
+
+A **while loop** is a special construction that allows us to repeat lines of code until a condition is met. 
+
+```
+while condition:
+    statement
+```
+
+Here is an example:
+```
+x = 5
+while x < 10:
+    print(x)
+    x += 1
+```
+
+This will print:
+```
+5
+6
+7
+8
+9
+```
+Notice that it does not print ten! This is because the condition was met and the loop stopped before the next `print(x)` statement.
+
+There is one thing we need to watch out for when using while loops. Here is an example:
+
+```
+x = 5
+while x < 10:
+    print(x)
+```
+
+Instead of counting up, this loop will print 5 forever until it eventually crashes! The Python interpreter is smart enough to not crash your whole machine and will instead stop it early. This is called an **infinite loop**. When creating loops, we have to be careful that we aren't creating infinite loops.
+
+Here is an example of using a while loop to print out each letter in a string:
+
+```
+word = "Hello"
+index = 0
+while index < len(word):
+    print(word[index])
+    index += 1
+```
+This will print:
+
+```
+H
+e
+l
+l
+o
+```
+
+This will work exactly the same way for lists!
+
 ## For Loops
 ## Dictionaries
 
