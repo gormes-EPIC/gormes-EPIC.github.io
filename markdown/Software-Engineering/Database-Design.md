@@ -123,7 +123,7 @@ Instead we will create an **entity relationship diagram** to help us plan our da
 
 5. Open a new Google Drawing or [Excalidraw](https://excalidraw.com/) or [Lucidchart](https://www.lucidchart.com/pages) for your ERD. 
 
-6. We'll start by identifying our core entities or nouns for our system. What three nouns represent our data best and what are their attributes? Add these to your diagram.
+6. We'll start by identifying our core entities or nouns for our system. What nouns represent our data best and what are their attributes? Add these to your diagram.
 
 For example, we can take a look at the ERD from the previous assignment. 
 
