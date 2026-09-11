@@ -307,13 +307,10 @@ Decomposing the problem:
 2. How do you decide if something should be a property (a variable holding state) or a method (a function calculating something)?
 3. Object-oriented programming is a fantastic tool, but it's not the _only_ way to write code. Can you think of a simple script or a small data-processing task where creating a class architecture would be overkill?
 
-## Deliverables Checklist
-- [ ] Demonstrate 4 working programs to your instructor in class 
-- [ ] A repository with all 4 of your programs uploaded, attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person. 
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your programs in class. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.
-- **15 points** - Task was completed, but supplementary materials are weak or missing.
-- **10 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **0 points** - Task was not attempted to completion or student should reattempt.

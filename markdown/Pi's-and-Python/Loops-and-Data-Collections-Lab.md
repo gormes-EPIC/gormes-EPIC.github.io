@@ -323,7 +323,6 @@ To test your program, use the following inputs and expected outputs.
 3. How did you detect letters appearing after numbers?
 
 
-
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your programs in class. You will also need to answer the reflection questions.
