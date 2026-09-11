@@ -74,7 +74,7 @@ Remember the written order of a `SELECT` statement.
 - `HAVING`: Filters the resulting groups after aggregation (e.g., "only show groups with a count > 5").
 - `ORDER BY`: Sorts the final result set in ascending or descending order.
 
-6. Now that we can filter data, what if I wanted to know the theme and baker for all season 8 episodes? I would need to use a `JOIN` statement. 
+6. Now that we can filter data, what if I wanted to know all of the  unique `product_id` purchased by customers under 50? I would need to use a `JOIN` statement. 
 
 There are 4 kinds of joins in SQL:
 - `(INNER) JOIN`: Returns only rows that have matching values in both tables
