@@ -60,7 +60,7 @@ for row in output:
 
 7.  Write `SELECT` statements to find:
     - All items with a price over $10
-    - List the when items were ordered in order from earliest in the night to latest
+    - List when the items were ordered in order from earliest in the night to latest
     - Count the number of times orange chicken was ordered
     - The total cost of items purchased after 9PM
 
