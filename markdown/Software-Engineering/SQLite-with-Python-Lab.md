@@ -12,13 +12,13 @@
 
 ## Your Task
 
-1. Create a new folder for your database. Download and unzip the [Resturant Orders](https://mcusercontent.com/4cab28e9b9ed67ca67e50a8c6/files/8fe625a4-c7ae-83e5-985a-565607f76128/Restaurant_Orders.zip) dataset. This should contain two CSVs, `menu_items.csv` and `order_details.csv`. The data information is in the file `restaurant_db_data_dictionary.csv`. 
+1. Create a new folder for your database. Download and unzip the [Resturant Orders](https://mcusercontent.com/4cab28e9b9ed67ca67e50a8c6/files/8fe625a4-c7ae-83e5-985a-565607f76128/Restaurant_Orders.zip) dataset. This should contain two CSVs, `menu_items.csv` and `order_details.csv`. The data information is in the file `restaurant_db_data_dictionary.csv`. *Note: there is a file `create_restaurant_db.sql` in the directory that will set up your tables for you. Please ignore that file and do it with Python instead!*
 
 2. Create a ERD diagram to represent the data. Make sure to identify keys and constraints. 
 
-3. Design 2 SQL `CREATE TABLE` commands for each CSV
+3. Design two SQL `CREATE TABLE` commands for each CSV
 
-4. Use the following starter code to create a new database `restaurant.db` with two tables.
+4. Modify the following starter code to create a new database `restaurant.db` with two tables. 
 
 ```
 import sqlite3
