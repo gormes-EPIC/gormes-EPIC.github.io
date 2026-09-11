@@ -101,8 +101,8 @@ Sawyer,555-0124,Rosie,Cat,Persian,Adopted,2025-03-09
     - **Derivation Rules:** Define how new facts are calculated from existing data (e.g., "Total Order Amount = Sum of detailed items").
 
 3. Next, we need to define the **use cases**. These are typically in the form "As a [USER], I need to [ACTION]". You hear from the client that they need to do the following tasks. Turn these into user stories and add them to your document.
-    - I need to be able to track current and adopted pets
-    - I need to be able to access and modify owner information
+    - As an employee, I need to be able to track current and adopted pets
+    - As an employee, I need to be able to access and modify owner information
     - ...
 
 

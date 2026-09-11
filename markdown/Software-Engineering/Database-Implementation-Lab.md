@@ -1,20 +1,19 @@
 # Database Implementation Lab
 
 ## Objective
-1. Design a SQL database to represent data
-2. Create a Python program to interact with your database
-3. 
+1. Start working on a full-stack software project 
+2. Design a SQL database to represent data
+3. Create a SQL queries to perfom common operations on your database
 
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
 | full-stack application | software application that includes both the user-facing frontend (client-side) and the logic-driven backend (server-side), connected to a database |
-| use cases ||
-| business rules ||
-| entity relationship diagram | |
-| schema ||
-| primary key ||
-| data flow diagram | | 
+| use cases | these statments define what actions each type of user needs to perform |
+| business rules | these are explict constraintsthat define how data must be created, structured, changed, and used to accurately mirror real-world organizational policies |
+| entity relationship diagram | a visual representation of your database that shows how different concepts connect |
+| schema | a blueprint for a database |
+| primary key | a specific column (or group of columns) in a database table that serves as a unique identifier for every single row |
 
 ## Your Task
 
@@ -30,8 +29,8 @@ Some ideas are:
 - a Spotify stats agregator
 - a local Raspberry Pi weather station
 
-0. Decide on a project idea with either existing data from a site like [Kaggle.com](https://www.kaggle.com/datasets) or create a plan for collecting data directly from your Pi. Whatever you choose must have multiple interconnected tables, not just one.
-    - When searching Kaggle, use the keywords "multi-table", "relational", or "multiple CSV" in the Datasets section to find datasets with multiple interconnected tables. 
+0. Decide on a project idea. 
+    - If you want to start with pre-existing data, look at [Kaggle](https://www.kaggle.com/datasets) for lots of datasets. 
 
 1. Once you decide what you want your project to be, create a set of **use cases** to define your project. These are typically in the form "As a [USER], I need to [ACTION]". See the [Database Design](#Software-Engineering/Database-Design) assignment for more information about use cases.
  
@@ -48,7 +47,7 @@ Some ideas are:
 
 4. Create a setup script, either a SQL or Python script, to set up the database. Do this as a **script**; you will need it later!!
 
-5. Write and save SQL queries **for each** of your appropriate use cases.
+5. Write and save SQL queries **for each** of your appropriate use cases. Don't forget about being able to add and remove from your database!
 
 ## Documentation
 
