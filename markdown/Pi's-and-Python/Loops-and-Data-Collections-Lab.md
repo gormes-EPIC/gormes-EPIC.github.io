@@ -302,7 +302,7 @@ To test your program, use the following inputs and expected outputs.
 
 | Input | Expected Output |
 | ----------- | ----------- |
-| `A` | `"Valid"` |
+| `A` | `"Invalid"` |
 | `AAA` | `"Valid"` |
 | `AAA123` | `"Valid"` |
 | `A!` | `"Invalid"` |
