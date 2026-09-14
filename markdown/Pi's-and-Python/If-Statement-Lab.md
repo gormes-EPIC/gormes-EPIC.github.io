@@ -136,7 +136,7 @@ To test your program, use the following inputs and expected outputs.
 
 ## <a id="sweater-weather"></a>Sweater Weather
 
-You will create the program `sweater.py` to prompt the user for the high temperature for the day in Fahrenheit and print "you need to bring a sweater" if it is less than 60 degrees. It prints "you do not need to bring a sweater" otherwise. If the user inputs text or a temperature over 140, the program should print "invalid input".
+You will create the program `sweater.py` to prompt the user for the high temperature for the day in Fahrenheit and print "you need to bring a sweater" if it is less than 60 degrees. It prints "you do not need to bring a sweater" otherwise. If the user inputs a temperature over 140, the program should print "invalid input".
 
 Here are some example runs of the program:
 
@@ -169,7 +169,6 @@ Decomposing the problem:
 
 1. Write a program to take input from the user and print it out
 2. Modify your program to print "you need to bring a sweater" if the temperature is lower than 60 or "you do not need to bring a sweater" otherwise
-3. Modify your program to print invalid input for temperatures over 140 and when the input is non-numeric
 
 </details>
 
@@ -184,7 +183,6 @@ To test your program, use the following inputs and expected outputs.
 | 57 | you need to bring a sweater |
 | 72 | you do not need to bring a sweater |
 | 80 | you do not need to bring a sweater | 
-| 155 | invalid input |
 
 
 
