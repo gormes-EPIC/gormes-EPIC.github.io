@@ -315,8 +315,9 @@ To test your program, use the following inputs and expected outputs.
 - [CS50 Week 1 Lecture](https://cs50.harvard.edu/python/weeks/1/)
 
 ## Extensions
-1. Add more complex operators to your math interpreter. For example, powers, modulus, etc. 
-2. Refactor all your code to use multiple functions instead, much like Meal Time.
+1. Use `try/except` statements to detect invalid inputs
+2. Add more complex operators to your math interpreter. For example, powers, modulus, etc. 
+3. Refactor all your code to use multiple functions instead, much like Meal Time.
 
 ## Reflection Questions
 1. What is the difference between `=` and `==`?
