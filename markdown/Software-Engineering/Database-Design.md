@@ -121,7 +121,7 @@ Instead we will create an **entity relationship diagram** to help us plan our da
 
 ### Entity-Relationship Diagrams 
 
-5. Open a new Google Drawing or [Excalidraw](https://excalidraw.com/) or [Lucidchart](https://www.lucidchart.com/pages) for your ERD. 
+5. Open a new Google Drawing or [Excalidraw](https://excalidraw.com/) or [Lucidchart](https://www.lucidchart.com/pages) for your ERD. **Optional: For those of you using Obsidian, you can use a language called `mermaid` to create ER diagrams for you. Design your database then work with AI to create the `mermaid` code and paste it into Obsidian inside a code block.**
 
 6. We'll start by identifying our core entities or nouns for our system. What nouns represent our data best and what are their attributes? Add these to your diagram.
 
