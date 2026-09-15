@@ -266,37 +266,46 @@
             padding-right: 1rem;
         }
 
-        /* Unit Grouping & Toggle Controls */
-        .unit-toggle-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem 1rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
-            background: var(--bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-        .unit-toggle-label {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-            user-select: none;
-        }
-        .unit-toggle-label input {
-            cursor: pointer;
-        }
+        /* Unit Grouping & Collapse Controls */
         .unit-section {
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
         }
         .unit-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
             font-size: 1.1rem;
             color: var(--primary);
             margin: 0 0 0.5rem;
-            padding-bottom: 0.4rem;
+            padding: 0.3rem 0.25rem 0.4rem;
             border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            user-select: none;
+            border-radius: 4px;
+        }
+        .unit-heading:hover {
+            background: var(--bg);
+        }
+        .unit-fold-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1em;
+            flex-shrink: 0;
+            transition: transform 0.15s ease;
+            transform: rotate(90deg);
+            color: var(--text);
+            opacity: 0.6;
+            font-size: 0.75em;
+        }
+        .unit-heading.collapsed .unit-fold-arrow {
+            transform: rotate(0deg);
+        }
+        .unit-files {
+            overflow: hidden;
+        }
+        .unit-files[hidden] {
+            display: none;
         }
 
         .nav-buttons { margin-bottom: 2rem; }
@@ -624,44 +633,28 @@
             return files.filter(item => isUnitVisible(className, item.unit ?? 0));
         }
 
-        // --- Helper Function to Render Files Grouped by Unit, Respecting Hidden Units ---
+        // --- Helper Function to Render Files Grouped by Unit, With Collapsible Headers ---
+        // Each unit's heading always shows (with a VS Code-style fold arrow); only its
+        // file list collapses when a visitor hides it, so units never fully disappear.
         function generateGroupedFileListHTML(className, files, hiddenUnits) {
             const publishedFiles = getPublishedFiles(className, files);
             if (publishedFiles.length === 0) return `<p>No matching files found.</p>`;
 
             const units = [...new Set(publishedFiles.map(item => item.unit ?? 0))].sort((a, b) => a - b);
-            const visibleUnits = units.filter(unit => !hiddenUnits.has(unit));
-
-            if (visibleUnits.length === 0) return `<p>All units are hidden. Enable a unit above to see files.</p>`;
 
             let html = '';
-            visibleUnits.forEach(unit => {
+            units.forEach(unit => {
                 const unitFiles = publishedFiles.filter(item => (item.unit ?? 0) === unit);
+                const collapsed = hiddenUnits.has(unit);
                 html += `<div class="unit-section">
-                    <h3 class="unit-heading">${getUnitLabel(className, unit)}</h3>
-                    ${generateFileListHTML(className, unitFiles)}
+                    <h3 class="unit-heading${collapsed ? ' collapsed' : ''}" data-unit="${unit}" role="button" tabindex="0" aria-expanded="${!collapsed}">
+                        <span class="unit-fold-arrow">▶</span>${getUnitLabel(className, unit)}
+                    </h3>
+                    <div class="unit-files"${collapsed ? ' hidden' : ''}>
+                        ${generateFileListHTML(className, unitFiles)}
+                    </div>
                 </div>`;
             });
-            return html;
-        }
-
-        // --- Helper Function to Render the Unit Show/Hide Checkboxes ---
-        function generateUnitToggleHTML(className, files, hiddenUnits) {
-            const publishedFiles = getPublishedFiles(className, files);
-            const units = [...new Set(publishedFiles.map(item => item.unit ?? 0))].sort((a, b) => a - b);
-            if (units.length <= 1) return '';
-
-            let html = `<div class="unit-toggle-container">`;
-            units.forEach(unit => {
-                const checked = hiddenUnits.has(unit) ? '' : 'checked';
-                html += `
-                    <label class="unit-toggle-label">
-                        <input type="checkbox" data-unit="${unit}" ${checked}>
-                        ${getUnitLabel(className, unit)}
-                    </label>
-                `;
-            });
-            html += `</div>`;
             return html;
         }
 
@@ -758,16 +751,14 @@
                     <input type="text" id="class-search-input" class="search-bar" placeholder="Search within ${displayName}...">
                 </div>
 
-                <div id="unit-toggle-list">
-                    ${generateUnitToggleHTML(className, curriculum[className], hiddenUnits)}
-                </div>
-
                 <div id="class-file-list">
                     ${generateGroupedFileListHTML(className, curriculum[className], hiddenUnits)}
                 </div>
             `;
 
             appDiv.innerHTML = html;
+
+            const fileListEl = document.getElementById('class-file-list');
 
             function refreshFileList() {
                 const query = document.getElementById('class-search-input').value.toLowerCase();
@@ -777,26 +768,38 @@
                     return cleanFileName.includes(query) || item.type.includes(query);
                 });
 
-                document.getElementById('class-file-list').innerHTML = generateGroupedFileListHTML(className, filteredFiles, getHiddenUnits(className));
+                fileListEl.innerHTML = generateGroupedFileListHTML(className, filteredFiles, getHiddenUnits(className));
             }
 
             document.getElementById('class-search-input').addEventListener('input', refreshFileList);
 
-            document.getElementById('unit-toggle-list').addEventListener('change', (event) => {
-                const checkbox = event.target;
-                if (!checkbox.matches('input[type="checkbox"][data-unit]')) return;
+            // Click (or keyboard-activate) a unit heading to fold/unfold it,
+            // VS Code-style — the heading stays put, only its file list collapses.
+            function toggleUnitSection(heading) {
+                const unit = Number(heading.dataset.unit);
+                const filesEl = heading.nextElementSibling;
+                const collapsed = !heading.classList.contains('collapsed');
 
-                const unit = Number(checkbox.dataset.unit);
+                heading.classList.toggle('collapsed', collapsed);
+                heading.setAttribute('aria-expanded', String(!collapsed));
+                filesEl.hidden = collapsed;
+
                 const hidden = getHiddenUnits(className);
-
-                if (checkbox.checked) {
-                    hidden.delete(unit);
-                } else {
-                    hidden.add(unit);
-                }
+                if (collapsed) hidden.add(unit); else hidden.delete(unit);
                 setHiddenUnits(className, hidden);
+            }
 
-                refreshFileList();
+            fileListEl.addEventListener('click', (event) => {
+                const heading = event.target.closest('.unit-heading');
+                if (heading) toggleUnitSection(heading);
+            });
+
+            fileListEl.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                const heading = event.target.closest('.unit-heading');
+                if (!heading) return;
+                event.preventDefault();
+                toggleUnitSection(heading);
             });
         }
 

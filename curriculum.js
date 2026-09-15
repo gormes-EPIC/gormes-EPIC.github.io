@@ -16,11 +16,27 @@ const unitInfo = {
         4: { name: "Objects" },
         5: { name: "Recursion" },
         6: { name: "Final Project" }
-    }
-    // "Data-Structures-and-Algorithms": {
-    //     0: { name: "Objects and Sorting" },
-    //     1: { name: "Lists and Trees", visible: false }
-    // }
+    },
+    "Data-Structures-and-Algorithms": {
+        0: { name: "Programming in Java" },
+        1: { name: "Seaching and Sorting"},
+        2: { name: "Stacks and Queues"},
+        3: { name: "Lists" },
+        4: { name: "Trees and Heaps"},
+        5: { name: "Graphs"},
+        6: { name: "Final Project", visible: false},
+        7: { name: "Optional"}
+    },
+    "Software-Engineering": {
+        0: { name: "CI/CD and Version Control" },
+        1: { name: "Databases with SQLite"},
+        2: { name: "How Computers Talk and APIs", visible: false},
+        3: { name: "Containerization" , visible: false},
+        4: { name: "Distrobution", visible: false}
+    },
+    "Foundations-of-AI": {
+        0: { name: "CI/CD and Version Control"},
+    },
 };
 
 const curriculum = {
@@ -66,38 +82,45 @@ const curriculum = {
                 
             ],
             "Data-Structures-and-Algorithms": [
-                // TODO: Attach starter files 
+                
                 { file: "Data-Structures-and-Algorithms-Syllabus", type: "document", unit: 0 },
                 // { file: "Welcome-to-Java-Notes", type: "notes", unit: 0 },
                 { file: "Objects-in-Java-Notes", type: "notes", unit: 0 },
                 { file: "Objects-and-OOP-Exercises", type: "exercise", unit: 0 },
                 { file: "Object-Review-Lab", type: "assignment", unit: 0 },
                 { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment", unit: 0 },
-                { file: "Big-O-Notation-and-Sorting-Algorithms-Notes", type: "notes", unit: 0 },
-                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise", unit: 0 },
-                { file: "Quad-Sorts-Lab", type: "assignment", unit: 0 },
-                { file: "Stack-and-Queue-Notes", type: "notes", unit: 0 },
-                { file: "Stack-and-Queue-Exercises", type: "exercise", unit: 0 },
-                { file: "Stack-and-Queue-Lab", type: "assignment", unit: 0 },
-                { file: "Reverse-Polish-Notation-Lab", type: "assignment", unit: 0 },
-                { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes", unit: 0 },
-                { file: "List-Exercises", type: "exercise", unit: 0 },
-                { file: "ArrayList-Lab", type: "assignment", unit: 0 },
-                { file: "Doubly-Linked-List-Lab", type: "assignment", unit: 0 },
-                { file: "Tree-Notes", type: "notes", unit: 0 },
-                { file: "BST-and-AVL-Tree-Exercises", type: "exercise", unit: 0 },
-                { file: "Binary-Search-Tree-Lab", type: "assignment", unit: 0 },
+                
+                { file: "Big-O-Notation-and-Sorting-Algorithms-Notes", type: "notes", unit: 1 },
+                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise", unit: 1 },
+                { file: "Quad-Sorts-Lab", type: "assignment", unit: 1 },
+                
+                { file: "Stack-and-Queue-Notes", type: "notes", unit: 2 },
+                { file: "Stack-and-Queue-Exercises", type: "exercise", unit: 2 },
+                { file: "Stack-and-Queue-Lab", type: "assignment", unit: 2 },
+                { file: "Reverse-Polish-Notation-Lab", type: "assignment", unit: 2 },
+
+                { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes", unit: 3 },
+                { file: "List-Exercises", type: "exercise", unit: 3 },
+                { file: "ArrayList-Lab", type: "assignment", unit: 3 },
+                { file: "Doubly-Linked-List-Lab", type: "assignment", unit: 3 },
+
+                { file: "Tree-Notes", type: "notes", unit: 4 },
+                { file: "BST-and-AVL-Tree-Exercises", type: "exercise", unit: 4 },
+                { file: "Binary-Search-Tree-Lab", type: "assignment", unit: 4 },
                 //{ file: "Autocomplete-Trie-Lab", type: "assignment", unit: 0 },
-                { file: "Heap-Notes", type: "notes", unit: 0 },
-                { file: "Heap-Exercises", type: "exercise", unit: 0 },
-                { file: "Priority-Queue-Lab", type: "assignment", unit: 0 },
-                { file: "Graph-Notes", type: "notes", unit: 0 },
-                { file: "Graph-Exercises", type: "exercise", unit: 0 },
-                { file: "Graphs-Lab", type: "assignment", unit: 0 },
-                { file: "Data-Utility-Lab", type: "assignment", unit: 0 },
-                { file: "Radix-Sort-Lab", type: "optional", unit: 0 },
-                { file: "Evil-Hangman-Lab", type: "optional", unit: 0 },
-                { file: "Maze-Solver-Lab", type: "optional", unit: 0 }
+                { file: "Heap-Notes", type: "notes", unit: 4 },
+                { file: "Heap-Exercises", type: "exercise", unit: 4 },
+                { file: "Priority-Queue-Lab", type: "assignment", unit: 4 },
+
+                { file: "Graph-Notes", type: "notes", unit: 5 },
+                { file: "Graph-Exercises", type: "exercise", unit: 5 },
+                { file: "Graphs-Lab", type: "assignment", unit: 5 },
+
+                { file: "Data-Utility-Lab", type: "assignment", unit: 6 },
+
+                { file: "Radix-Sort-Lab", type: "optional", unit: 7 },
+                { file: "Evil-Hangman-Lab", type: "optional", unit: 7 },
+                { file: "Maze-Solver-Lab", type: "optional", unit: 7 }
 
                 // { file: "Data-Utility-Lab", type: "assignment", unit: 0 }
                 // { file: "Music-With-JFugue", type: "notes", unit: 0 },
@@ -114,23 +137,23 @@ const curriculum = {
                 { file: "Currency-Translator-Lab", type: "assignment", unit: 0 },
 
                 // Unit 1: Databases with SQLite
-                { file: "No-Silver-Bullets-Discussion", type: "assignment", unit: 0 },
-                { file: "Setting-Up-a-Database-Lab", type: "assignment", unit: 0 },
-                { file: "Manipulating-a-Database-Lab", type: "assignment", unit: 0 },
-                { file: "Database-Design", type: "assignment", unit: 0 },
-                { file: "SQLite-with-Python-Lab", type: "assignment", unit: 0 },
-                { file: "Database-Implementation-Lab", type: "assignment", unit: 0 }
+                { file: "No-Silver-Bullets-Discussion", type: "assignment", unit: 1 },
+                { file: "Setting-Up-a-Database-Lab", type: "assignment", unit: 1 },
+                { file: "Manipulating-a-Database-Lab", type: "assignment", unit: 1 },
+                { file: "Database-Design", type: "assignment", unit: 1 },
+                { file: "SQLite-with-Python-Lab", type: "assignment", unit: 1 },
+                { file: "Database-Implementation-Lab", type: "assignment", unit: 1 },
 
                 // Unit 2: How Computers Talk and APIs
-                // { file: Sockets Lab", type: "assignment", unit: 0 },
-                // { file: Deployment-and-Monitoring-Lab", type: "assignment", unit: 0 },
-                // { file: "Design-Review-Discussion", type: "assignment", unit: 0 },
+                { file: "Sockets Lab", type: "assignment", unit: 2 },
+                { file: "Deployment-and-Monitoring-Lab", type: "assignment", unit: 2 },
+                { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
 
                 // Unit 3: Containerizing
-                // { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 0 }
+                { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 3 },
 
                 // Unit 4: Distribution
-                // { file: "Demo-Day-Presentation", type: "assignment", unit: 0 }
+                { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
             ],
             "Foundations-of-AI": [
                 { file: "notes", type: "notes", unit: 0 },
