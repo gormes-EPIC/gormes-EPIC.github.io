@@ -162,9 +162,13 @@
         
         /* Search Bar Styles */
         .search-container {
+            display: flex;
+            gap: 0.75rem;
             margin-bottom: 2rem;
         }
         .search-bar {
+            flex: 1;
+            min-width: 0;
             width: 100%;
             padding: 0.75rem 1rem;
             border-radius: 8px;
@@ -178,6 +182,35 @@
         .search-bar:focus {
             outline: none;
             border-color: var(--primary);
+        }
+
+        /* Type Filter Dropdown (sits next to the search bar) */
+        .type-filter-select {
+            flex-shrink: 0;
+            padding: 0.75rem 2.25rem 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            background-color: var(--bg);
+            color: var(--text);
+            font-size: 1rem;
+            box-sizing: border-box;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.9rem center;
+            transition: border-color 0.2s;
+        }
+        .type-filter-select:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        @media (max-width: 600px) {
+            .search-container {
+                flex-direction: column;
+            }
         }
 
         /* Badges for Classification */
@@ -586,6 +619,28 @@
             return ''; // Default fallback
         }
 
+        // --- Helper Function to get a Friendly Plural Label for a Type Filter Option ---
+        const TYPE_FILTER_ORDER = ['notes', 'document', 'assignment', 'exercise', 'optional'];
+        const TYPE_FILTER_LABELS = {
+            notes: 'Notes',
+            document: 'Documents',
+            assignment: 'Assignments',
+            exercise: 'Exercises',
+            optional: 'Optional'
+        };
+
+        function generateTypeFilterHTML(files) {
+            const typesPresent = new Set(files.map(item => item.type));
+            const orderedTypes = TYPE_FILTER_ORDER.filter(type => typesPresent.has(type));
+
+            let html = `<option value="all">All Types</option>`;
+            orderedTypes.forEach(type => {
+                const label = TYPE_FILTER_LABELS[type] || type;
+                html += `<option value="${type}">${label}</option>`;
+            });
+            return html;
+        }
+
         // --- Helper Function to Render List Items (flat, no unit grouping) ---
         function generateFileListHTML(className, files) {
             if (files.length === 0) return `<p>No matching files found.</p>`;
@@ -740,6 +795,7 @@
 
             const displayName = className.replace(/-/g, ' ');
             const hiddenUnits = getHiddenUnits(className);
+            const publishedFiles = getPublishedFiles(className, curriculum[className]);
 
             let html = `
                 <div class="nav-buttons">
@@ -749,6 +805,9 @@
 
                 <div class="search-container">
                     <input type="text" id="class-search-input" class="search-bar" placeholder="Search within ${displayName}...">
+                    <select id="class-type-filter" class="type-filter-select" aria-label="Filter by type">
+                        ${generateTypeFilterHTML(publishedFiles)}
+                    </select>
                 </div>
 
                 <div id="class-file-list">
@@ -762,16 +821,20 @@
 
             function refreshFileList() {
                 const query = document.getElementById('class-search-input').value.toLowerCase();
+                const selectedType = document.getElementById('class-type-filter').value;
 
                 const filteredFiles = curriculum[className].filter(item => {
                     const cleanFileName = item.file.replace(/-/g, ' ').toLowerCase();
-                    return cleanFileName.includes(query) || item.type.includes(query);
+                    const matchesQuery = cleanFileName.includes(query) || item.type.includes(query);
+                    const matchesType = selectedType === 'all' || item.type === selectedType;
+                    return matchesQuery && matchesType;
                 });
 
                 fileListEl.innerHTML = generateGroupedFileListHTML(className, filteredFiles, getHiddenUnits(className));
             }
 
             document.getElementById('class-search-input').addEventListener('input', refreshFileList);
+            document.getElementById('class-type-filter').addEventListener('change', refreshFileList);
 
             // Click (or keyboard-activate) a unit heading to fold/unfold it,
             // VS Code-style — the heading stays put, only its file list collapses.
