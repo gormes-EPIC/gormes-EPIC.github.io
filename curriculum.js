@@ -1,145 +1,173 @@
+// --- Unit Names & Visibility ---
+// Each file below is tagged with a single unit number (e.g. `unit: 0`).
+// Give a unit a friendly name here so it shows as "Unit 0: Linux and
+// Operating Systems" instead of just "Unit 0". A unit left out of this
+// list just displays as "Unit <number>".
+//
+// Set `visible: false` on a unit to hide it (and every file in it) from
+// the whole site until it's ready. This is separate from the show/hide
+// checkboxes visitors see on the site, which only affect their own browser.
+const unitInfo = {
+    "Pi's-and-Python": {
+        0: { name: "Linux and Operating Systems" },
+        1: { name: "Variables and Functions" },
+        2: { name: "If Statements" },
+        3: { name: "Loops and Data Collections" },
+        4: { name: "Objects" },
+        5: { name: "Recursion" },
+        6: { name: "Final Project" }
+    }
+    // "Data-Structures-and-Algorithms": {
+    //     0: { name: "Objects and Sorting" },
+    //     1: { name: "Lists and Trees", visible: false }
+    // }
+};
+
 const curriculum = {
             "Pi's-and-Python": [
-                { file: "Pi's-and-Python-Syllabus", type:"notes"},
+                { file: "Pi's-and-Python-Syllabus", type: "document", unit: 0 },
 
-                // { file: "Terminal-Commands-Notes", type: "notes" },
-                { file: "Linux-Exercises", type: "exercise" },
-                { file: "Over-the-Wire-Lab", type: "assignment" },
-                { file: "Text-Editors-Lab", type: "assignment" },
-                { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment" },
-                { file: "cron-Optional-Lab", type: "assignment" },
+                // { file: "Terminal-Commands-Notes", type: "notes", unit: 0 },
+                { file: "Linux-Exercises", type: "exercise", unit: 0 },
+                { file: "Over-the-Wire-Lab", type: "assignment", unit: 0 },
+                { file: "Text-Editors-Lab", type: "assignment", unit: 0 },
+                { file: "Meet-Your-Raspberry-Pi-Lab", type: "assignment", unit: 0 },
+                { file: "cron-Optional-Lab", type: "optional", unit: 0 },
 
-                { file: "Variables-and-Functions-Notes", type: "notes"},
-                { file: "Variables-and-Functions-Exercises", type: "exercise" },
-                { file: "Variables-and-Functions-Lab", type: "assignment" },
-                // { file: "Working-with-Raspberry-Pis-Notes", type: "notes" },
-                { file: "Light-the-LED-Lab", type: "assignment" },
+                { file: "Variables-and-Functions-Notes", type: "notes", unit: 1 },
+                { file: "Variables-and-Functions-Exercises", type: "exercise", unit: 1 },
+                { file: "Variables-and-Functions-Lab", type: "assignment", unit: 1 },
+                // { file: "Working-with-Raspberry-Pis-Notes", type: "notes", unit: 1 },
+                { file: "Light-the-LED-Lab", type: "assignment", unit: 1 },
 
-                { file: "If-Statement-Notes", type: "notes" },
-                { file: "If-Statement-Exercises", type: "exercise" },
-                { file: "If-Statement-Lab", type: "assignment" },
-                { file: "Dim-the-LED-Lab", type:"assignment"},
+                { file: "If-Statement-Notes", type: "notes", unit: 2},
+                { file: "If-Statement-Exercises", type: "exercise", unit: 2 },
+                { file: "If-Statement-Lab", type: "assignment", unit: 2 },
+                { file: "Dim-the-LED-Lab", type: "assignment", unit: 2 },
+                { file: "Try-Except-Optional-Lab", type: "optional", unit: 2},
 
-                { file: "Loops-and-Data-Collections-Notes", type:"notes"},
-                { file: "Loops-and-Data-Collections-Exercises", type:"exercise"},
-                { file: "Loops-and-Data-Collections-Lab", type:"assignment"},
-                { file: "Temperature-in-Color-Lab", type:"assignment"},
+                { file: "Loops-and-Data-Collections-Notes", type: "notes", unit: 3 },
+                { file: "Loops-and-Data-Collections-Exercises", type: "exercise", unit: 3 },
+                { file: "Loops-and-Data-Collections-Lab", type: "assignment", unit: 3 },
+                { file: "Temperature-in-Color-Lab", type: "assignment", unit: 3 },
 
-                { file: "Objects-Notes", type: "notes" },
-                { file: "File-Reading-and-Writing-Notes", type: "notes" },
-                { file: "Object-Exericses", type: "exercise" },
-                { file: "Fun-With-Objects-Lab", type: "assignment" },
-                { file: "Digital-Slot-Machine-Lab", type:"assignment"},
-                { file: "Recursion-Notes", type:"notes"},
-                { file: "Recursion-Lab", type:"assignment"},
-                { file: "Binary-Display-Lab", type:"assignment"},
-                { file: "Final-Project", type: "assignment"}
+                { file: "Objects-Notes", type: "notes", unit: 4 },
+                { file: "File-Reading-and-Writing-Notes", type: "notes", unit: 4 },
+                { file: "Object-Exericses", type: "exercise", unit: 4 },
+                { file: "Fun-With-Objects-Lab", type: "assignment", unit: 4 },
+                { file: "Digital-Slot-Machine-Lab", type: "assignment", unit: 4 },
+
+                { file: "Recursion-Notes", type: "notes", unit: 5 },
+                { file: "Recursion-Lab", type: "assignment", unit: 5 },
+                { file: "Binary-Display-Lab", type: "assignment", unit: 5 },
+
+                { file: "Final-Project", type: "assignment", unit: 6 }
                 
                 
             ],
             "Data-Structures-and-Algorithms": [
                 // TODO: Attach starter files 
-                { file: "Data-Structures-and-Algorithms-Syllabus", type:"notes"},
-                // { file: "Welcome-to-Java-Notes", type: "notes"},
-                { file: "Objects-in-Java-Notes", type: "notes"},
-                { file: "Objects-and-OOP-Exercises", type: "exercise"},
-                { file: "Object-Review-Lab", type: "assignment"},
-                { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment"},
-                { file: "Big-O-Notation-and-Sorting-Algorithms-Notes", type: "notes"},
-                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise"},
-                { file: "Quad-Sorts-Lab", type: "assignment" },
-                { file: "Stack-and-Queue-Notes", type: "notes"},
-                { file: "Stack-and-Queue-Exercises", type: "exercise"},
-                { file: "Stack-and-Queue-Lab", type: "assignment" },
-                { file: "Reverse-Polish-Notation-Lab", type: "assignment" },
-                { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes" },
-                { file: "List-Exercises", type: "exercise" },
-                { file: "ArrayList-Lab", type: "assignment" },
-                { file: "Doubly-Linked-List-Lab", type: "assignment" },
-                { file: "Tree-Notes", type: "notes" },
-                { file: "BST-and-AVL-Tree-Exercises", type: "exercise" },
-                { file: "Binary-Search-Tree-Lab", type: "assignment" },
-                //{ file: "Autocomplete-Trie-Lab", type: "assignment" },
-                { file: "Heap-Notes", type: "notes" },
-                { file: "Heap-Exercises", type: "exercise" },
-                { file: "Priority-Queue-Lab", type: "assignment" },
-                { file: "Graph-Notes", type: "notes" },
-                { file: "Graph-Exercises", type: "exercise" },
-                { file: "Graphs-Lab", type: "assignment" },
-                { file: "Data-Utility-Lab", type: "assignment"},
-                { file: "Radix-Sort-Lab", type: "optional" },
-                { file: "Evil-Hangman-Lab", type: "optional"},
-                { file: "Maze-Solver-Lab", type: "optional"}
+                { file: "Data-Structures-and-Algorithms-Syllabus", type: "document", unit: 0 },
+                // { file: "Welcome-to-Java-Notes", type: "notes", unit: 0 },
+                { file: "Objects-in-Java-Notes", type: "notes", unit: 0 },
+                { file: "Objects-and-OOP-Exercises", type: "exercise", unit: 0 },
+                { file: "Object-Review-Lab", type: "assignment", unit: 0 },
+                { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment", unit: 0 },
+                { file: "Big-O-Notation-and-Sorting-Algorithms-Notes", type: "notes", unit: 0 },
+                { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise", unit: 0 },
+                { file: "Quad-Sorts-Lab", type: "assignment", unit: 0 },
+                { file: "Stack-and-Queue-Notes", type: "notes", unit: 0 },
+                { file: "Stack-and-Queue-Exercises", type: "exercise", unit: 0 },
+                { file: "Stack-and-Queue-Lab", type: "assignment", unit: 0 },
+                { file: "Reverse-Polish-Notation-Lab", type: "assignment", unit: 0 },
+                { file: "ArrayList,-LinkedList,-and-List-Interface-Notes", type: "notes", unit: 0 },
+                { file: "List-Exercises", type: "exercise", unit: 0 },
+                { file: "ArrayList-Lab", type: "assignment", unit: 0 },
+                { file: "Doubly-Linked-List-Lab", type: "assignment", unit: 0 },
+                { file: "Tree-Notes", type: "notes", unit: 0 },
+                { file: "BST-and-AVL-Tree-Exercises", type: "exercise", unit: 0 },
+                { file: "Binary-Search-Tree-Lab", type: "assignment", unit: 0 },
+                //{ file: "Autocomplete-Trie-Lab", type: "assignment", unit: 0 },
+                { file: "Heap-Notes", type: "notes", unit: 0 },
+                { file: "Heap-Exercises", type: "exercise", unit: 0 },
+                { file: "Priority-Queue-Lab", type: "assignment", unit: 0 },
+                { file: "Graph-Notes", type: "notes", unit: 0 },
+                { file: "Graph-Exercises", type: "exercise", unit: 0 },
+                { file: "Graphs-Lab", type: "assignment", unit: 0 },
+                { file: "Data-Utility-Lab", type: "assignment", unit: 0 },
+                { file: "Radix-Sort-Lab", type: "optional", unit: 0 },
+                { file: "Evil-Hangman-Lab", type: "optional", unit: 0 },
+                { file: "Maze-Solver-Lab", type: "optional", unit: 0 }
 
-                // { file: "Data-Utility-Lab", type: "assignment"}
-                // { file: "Music-With-JFugue", type: "notes" },
-                //{ file: "URL-Shortener-Lab", type: "assignment" }
+                // { file: "Data-Utility-Lab", type: "assignment", unit: 0 }
+                // { file: "Music-With-JFugue", type: "notes", unit: 0 },
+                //{ file: "URL-Shortener-Lab", type: "assignment", unit: 0 }
             ],
             "Software-Engineering": [
-                { file: "Software-Engineering-Syllabus", type: "notes" },
+                { file: "Software-Engineering-Syllabus", type: "document", unit: 0 },
                 // Unit 0: CI/CD and Version Control
-                { file: "Blockbuster-Lab", type: "assignment" },
-                { file: "Style-Guides-and-Great-READMEs", type: "assignment"},
-                { file: "Advanced-Git-Lab", type: "assignment"},
-                { file: "Cowsay-ENV-Lab", type:"assignment"},
-                // { file: "Git-Post-mortem-Discussion", type: "assignment"},
-                { file: "Currency-Translator-Lab", type: "assignment"},
+                { file: "Blockbuster-Lab", type: "assignment", unit: 0 },
+                { file: "Style-Guides-and-Great-READMEs", type: "assignment", unit: 0 },
+                { file: "Advanced-Git-Lab", type: "assignment", unit: 0 },
+                { file: "Cowsay-ENV-Lab", type: "assignment", unit: 0 },
+                // { file: "Git-Post-mortem-Discussion", type: "assignment", unit: 0 },
+                { file: "Currency-Translator-Lab", type: "assignment", unit: 0 },
 
                 // Unit 1: Databases with SQLite
-                { file: "No-Silver-Bullets-Discussion", type: "assignment"},
-                { file: "Setting-Up-a-Database-Lab", type: "assignment"},
-                { file: "Manipulating-a-Database-Lab", type: "assignment"},
-                { file: "Database-Design", type: "assignment"},
-                { file: "SQLite-with-Python-Lab", type: "assignment"},
-                { file: "Database-Implementation-Lab", type: "assignment"}
+                { file: "No-Silver-Bullets-Discussion", type: "assignment", unit: 0 },
+                { file: "Setting-Up-a-Database-Lab", type: "assignment", unit: 0 },
+                { file: "Manipulating-a-Database-Lab", type: "assignment", unit: 0 },
+                { file: "Database-Design", type: "assignment", unit: 0 },
+                { file: "SQLite-with-Python-Lab", type: "assignment", unit: 0 },
+                { file: "Database-Implementation-Lab", type: "assignment", unit: 0 }
 
                 // Unit 2: How Computers Talk and APIs
-                // { file: Sockets Lab", type: "assignment"},
-                // { file: Deployment-and-Monitoring-Lab", type: "assignment"},
-                // { file: "Design-Review-Discussion", type: "assignment" },
+                // { file: Sockets Lab", type: "assignment", unit: 0 },
+                // { file: Deployment-and-Monitoring-Lab", type: "assignment", unit: 0 },
+                // { file: "Design-Review-Discussion", type: "assignment", unit: 0 },
 
                 // Unit 3: Containerizing
-                // { file: "Engineering-Case-Study-Presentation", type: "assignment" }
+                // { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 0 }
 
                 // Unit 4: Distribution
-                // { file: "Demo-Day-Presentation", type: "assignment"}
+                // { file: "Demo-Day-Presentation", type: "assignment", unit: 0 }
             ],
             "Foundations-of-AI": [
-                { file: "notes", type: "notes" },
-                { file: "Image-Classification", type: "assignment" }
+                { file: "notes", type: "notes", unit: 0 },
+                { file: "Image-Classification", type: "assignment", unit: 0 }
             ],
             "Workforce-Readiness": [
                 // Pi's and Python
-                { file: "Intentions-and-Goal-setting", type: "assignment" },
-                { file: "Elevator-Pitch", type: "assignment" },
-                { file: "Job-Research-Presentation", type: "assignment"},
-                { file: "Workforce-Readiness-Reflection", type: "assignment"},
-                { file: "STAR-Format-Notes", type: "notes"},
-                { file: "Preparing-for-the-Interview", type: "assignment"},    
-                { file: "Effective-Collaboration-Activity", type: "assignment"},    
-                { file: "Creating-a-Resume", type: "assignment" },
-                { file: "Update-Your-Portfolio", type: "assignment" },
+                { file: "Intentions-and-Goal-setting", type: "assignment", unit: 0 },
+                { file: "Elevator-Pitch", type: "assignment", unit: 0 },
+                { file: "Job-Research-Presentation", type: "assignment", unit: 0 },
+                { file: "Workforce-Readiness-Reflection", type: "assignment", unit: 0 },
+                { file: "STAR-Format-Notes", type: "notes", unit: 0 },
+                { file: "Preparing-for-the-Interview", type: "assignment", unit: 0 },    
+                { file: "Effective-Collaboration-Activity", type: "assignment", unit: 0 },    
+                { file: "Creating-a-Resume", type: "assignment", unit: 0 },
+                { file: "Update-Your-Portfolio", type: "assignment", unit: 0 },
 
                 // Data Structures
-                { file: "Writing-in-Markdown-Notes", type: "notes"},
-                { file: "Technical-Writing-Notes", type: "notes"},
-                { file: "Effective-READMEs", type: "assignment" },
-                { file: "Computer-Science-News-Presentation", type:"assignment"},
-                { file: "Writing-a-Cover-Letter", type: "assignment" },
-                { file: "My-Strengths-and-Weaknesses", type: "assignment" },
-                { file: "Technical-Interview-Practice", type: "assignment" },
+                { file: "Writing-in-Markdown-Notes", type: "notes", unit: 0 },
+                { file: "Technical-Writing-Notes", type: "notes", unit: 0 },
+                { file: "Effective-READMEs", type: "assignment", unit: 0 },
+                { file: "Computer-Science-News-Presentation", type: "assignment", unit: 0 },
+                { file: "Writing-a-Cover-Letter", type: "assignment", unit: 0 },
+                { file: "My-Strengths-and-Weaknesses", type: "assignment", unit: 0 },
+                { file: "Technical-Interview-Practice", type: "assignment", unit: 0 },
 
                 // Software Engineering
-                { file: "Norms-and-Community-Agreements", type: "assignment"}, 
-                { file: "Git-Rescue-Simulation", type: "assignment"},
-                { file: "Solving-an-Ethical-Dilemma", type: "assignment" },
-                { file: "Workflow-Repository-Hygiene-Check", type:"assignment"},
-                { file: "Demo-Day-Presentation", type: "assignment"}
+                { file: "Norms-and-Community-Agreements", type: "assignment", unit: 0 }, 
+                { file: "Git-Rescue-Simulation", type: "assignment", unit: 0 },
+                { file: "Solving-an-Ethical-Dilemma", type: "assignment", unit: 0 },
+                { file: "Workflow-Repository-Hygiene-Check", type: "assignment", unit: 0 },
+                { file: "Demo-Day-Presentation", type: "assignment", unit: 0 }
 
                 // Foundations of AI
             ]
             // "Other": [
-            //     { file: "Diagnostic-Pretest", type: "assignment" }
+            //     { file: "Diagnostic-Pretest", type: "assignment", unit: 0 }
             // ]
             
         };

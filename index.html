@@ -30,9 +30,12 @@
             /* New Exercise Colors (Emerald Green) */
             --badge-exercise-bg: rgba(16, 185, 129, 0.2); 
             --badge-exercise-text: #34d399;
-            /* New Optional Colors (Dark Mode Grey) */
-            --badge-optional-bg: rgba(156, 163, 175, 0.2); 
-            --badge-optional-text: #9ca3af;
+            /* New Optional Colors (Yellow) */
+            --badge-optional-bg: rgba(234, 179, 8, 0.2);
+            --badge-optional-text: #facc15;
+            /* New Document Colors (Orange) */
+            --badge-document-bg: rgba(249, 115, 22, 0.2);
+            --badge-document-text: #fb923c;
         }
 
         /* Automatically scale up the UI on screens wider than 1200px */
@@ -56,8 +59,10 @@
             --badge-assign-text: #b91c92;
             --badge-exercise-bg: #d1fae5;
             --badge-exercise-text: #059669;
-            --badge-optional-bg: #f3f4f6;
-            --badge-optional-text: #4b5563;
+            --badge-optional-bg: #fef9c3;
+            --badge-optional-text: #a16207;
+            --badge-document-bg: #ffedd5;
+            --badge-document-text: #c2410c;
         }
 
         /* Ocean Theme */
@@ -74,8 +79,10 @@
             --badge-assign-text: #a5b4fc;
             --badge-exercise-bg: rgba(16, 185, 129, 0.2);
             --badge-exercise-text: #34d399;
-            --badge-optional-bg: rgba(156, 163, 175, 0.15);
-            --badge-optional-text: #94a3b8;
+            --badge-optional-bg: rgba(234, 179, 8, 0.2);
+            --badge-optional-text: #fde047;
+            --badge-document-bg: rgba(249, 115, 22, 0.2);
+            --badge-document-text: #fdba74;
         }
 
         /* Forest Theme */
@@ -92,8 +99,10 @@
             --badge-assign-text: #fde047;
             --badge-exercise-bg: rgba(6, 182, 212, 0.15);
             --badge-exercise-text: #67e8f9;
-            --badge-optional-bg: rgba(156, 163, 175, 0.15);
-            --badge-optional-text: #94a3b8;
+            --badge-optional-bg: rgba(250, 204, 21, 0.2);
+            --badge-optional-text: #fef08a;
+            --badge-document-bg: rgba(249, 115, 22, 0.2);
+            --badge-document-text: #fdba74;
         }
 
         /* Sunset Theme */
@@ -110,8 +119,10 @@
             --badge-assign-text: #fca5a5;
             --badge-exercise-bg: rgba(234, 179, 8, 0.2);
             --badge-exercise-text: #fde047;
-            --badge-optional-bg: rgba(156, 163, 175, 0.15);
-            --badge-optional-text: #94a3b8;
+            --badge-optional-bg: rgba(202, 138, 4, 0.3);
+            --badge-optional-text: #fef9c3;
+            --badge-document-bg: rgba(194, 65, 12, 0.35);
+            --badge-document-text: #ffedd5;
         }
 
         body {
@@ -203,6 +214,12 @@
             color: var(--badge-optional-text);
         }
 
+        /* New Document Badge Class */
+        .badge-document {
+            background-color: var(--badge-document-bg);
+            color: var(--badge-document-text);
+        }
+
         /* 2-Column Grid */
         .grid {
             display: grid;
@@ -246,9 +263,42 @@
         }
         .list-item:hover { background: var(--surface); color: var(--primary); }
         .list-item-text {
-            padding-right: 1rem; 
+            padding-right: 1rem;
         }
-        
+
+        /* Unit Grouping & Toggle Controls */
+        .unit-toggle-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .unit-toggle-label {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+        }
+        .unit-toggle-label input {
+            cursor: pointer;
+        }
+        .unit-section {
+            margin-bottom: 1.5rem;
+        }
+        .unit-heading {
+            font-size: 1.1rem;
+            color: var(--primary);
+            margin: 0 0 0.5rem;
+            padding-bottom: 0.4rem;
+            border-bottom: 1px solid var(--border);
+        }
+
         .nav-buttons { margin-bottom: 2rem; }
         
         .btn {
@@ -523,18 +573,19 @@
             if (type === 'assignment') return 'badge-assignment';
             if (type === 'exercise') return 'badge-exercise';
             if (type === 'optional') return 'badge-optional';
+            if (type === 'document') return 'badge-document';
             return ''; // Default fallback
         }
 
-        // --- Helper Function to Render List Items ---
+        // --- Helper Function to Render List Items (flat, no unit grouping) ---
         function generateFileListHTML(className, files) {
             if (files.length === 0) return `<p>No matching files found.</p>`;
-            
+
             let html = '';
             files.forEach(item => {
                 const cleanFileName = item.file.replace(/-/g, ' ');
                 const badgeClass = getBadgeClass(item.type);
-                
+
                 html += `
                     <a href="#${className}/${item.file}" class="list-item">
                         <span class="list-item-text">${cleanFileName}</span>
@@ -542,6 +593,75 @@
                     </a>
                 `;
             });
+            return html;
+        }
+
+        // --- Unit Visibility Persistence (per-visitor, saved in their browser) ---
+        function getHiddenUnits(className) {
+            try {
+                return new Set(JSON.parse(localStorage.getItem(`hiddenUnits-${className}`)) || []);
+            } catch (e) {
+                return new Set();
+            }
+        }
+
+        function setHiddenUnits(className, hiddenUnits) {
+            localStorage.setItem(`hiddenUnits-${className}`, JSON.stringify([...hiddenUnits]));
+        }
+
+        // --- Unit Naming & Author-Level Visibility (from unitInfo in curriculum.js) ---
+        function getUnitLabel(className, unit) {
+            const name = unitInfo[className]?.[unit]?.name;
+            return name ? `Unit ${unit}: ${name}` : `Unit ${unit}`;
+        }
+
+        function isUnitVisible(className, unit) {
+            return unitInfo[className]?.[unit]?.visible !== false;
+        }
+
+        // Files in the class, minus any units the author has hidden entirely.
+        function getPublishedFiles(className, files) {
+            return files.filter(item => isUnitVisible(className, item.unit ?? 0));
+        }
+
+        // --- Helper Function to Render Files Grouped by Unit, Respecting Hidden Units ---
+        function generateGroupedFileListHTML(className, files, hiddenUnits) {
+            const publishedFiles = getPublishedFiles(className, files);
+            if (publishedFiles.length === 0) return `<p>No matching files found.</p>`;
+
+            const units = [...new Set(publishedFiles.map(item => item.unit ?? 0))].sort((a, b) => a - b);
+            const visibleUnits = units.filter(unit => !hiddenUnits.has(unit));
+
+            if (visibleUnits.length === 0) return `<p>All units are hidden. Enable a unit above to see files.</p>`;
+
+            let html = '';
+            visibleUnits.forEach(unit => {
+                const unitFiles = publishedFiles.filter(item => (item.unit ?? 0) === unit);
+                html += `<div class="unit-section">
+                    <h3 class="unit-heading">${getUnitLabel(className, unit)}</h3>
+                    ${generateFileListHTML(className, unitFiles)}
+                </div>`;
+            });
+            return html;
+        }
+
+        // --- Helper Function to Render the Unit Show/Hide Checkboxes ---
+        function generateUnitToggleHTML(className, files, hiddenUnits) {
+            const publishedFiles = getPublishedFiles(className, files);
+            const units = [...new Set(publishedFiles.map(item => item.unit ?? 0))].sort((a, b) => a - b);
+            if (units.length <= 1) return '';
+
+            let html = `<div class="unit-toggle-container">`;
+            units.forEach(unit => {
+                const checked = hiddenUnits.has(unit) ? '' : 'checked';
+                html += `
+                    <label class="unit-toggle-label">
+                        <input type="checkbox" data-unit="${unit}" ${checked}>
+                        ${getUnitLabel(className, unit)}
+                    </label>
+                `;
+            });
+            html += `</div>`;
             return html;
         }
 
@@ -591,7 +711,7 @@
             let matchCount = 0;
 
             for (const className in curriculum) {
-                curriculum[className].forEach(item => {
+                getPublishedFiles(className, curriculum[className]).forEach(item => {
                     const cleanFileName = item.file.replace(/-/g, ' ');
                     const cleanClassName = className.replace(/-/g, ' ');
                     
@@ -623,35 +743,60 @@
 
         // --- 5. CLASS PAGE WITH SEARCH ---
         function renderClassPage(className) {
-            if (!curriculum[className]) return renderHub(); 
-            
+            if (!curriculum[className]) return renderHub();
+
             const displayName = className.replace(/-/g, ' ');
+            const hiddenUnits = getHiddenUnits(className);
+
             let html = `
                 <div class="nav-buttons">
                     <a href="#" class="btn">← Back to Hub</a>
                 </div>
                 <h2>${displayName} Files</h2>
-                
+
                 <div class="search-container">
                     <input type="text" id="class-search-input" class="search-bar" placeholder="Search within ${displayName}...">
                 </div>
 
+                <div id="unit-toggle-list">
+                    ${generateUnitToggleHTML(className, curriculum[className], hiddenUnits)}
+                </div>
+
                 <div id="class-file-list">
-                    ${generateFileListHTML(className, curriculum[className])}
+                    ${generateGroupedFileListHTML(className, curriculum[className], hiddenUnits)}
                 </div>
             `;
-            
+
             appDiv.innerHTML = html;
 
-            document.getElementById('class-search-input').addEventListener('input', (event) => {
-                const query = event.target.value.toLowerCase();
-                
+            function refreshFileList() {
+                const query = document.getElementById('class-search-input').value.toLowerCase();
+
                 const filteredFiles = curriculum[className].filter(item => {
                     const cleanFileName = item.file.replace(/-/g, ' ').toLowerCase();
                     return cleanFileName.includes(query) || item.type.includes(query);
                 });
-                
-                document.getElementById('class-file-list').innerHTML = generateFileListHTML(className, filteredFiles);
+
+                document.getElementById('class-file-list').innerHTML = generateGroupedFileListHTML(className, filteredFiles, getHiddenUnits(className));
+            }
+
+            document.getElementById('class-search-input').addEventListener('input', refreshFileList);
+
+            document.getElementById('unit-toggle-list').addEventListener('change', (event) => {
+                const checkbox = event.target;
+                if (!checkbox.matches('input[type="checkbox"][data-unit]')) return;
+
+                const unit = Number(checkbox.dataset.unit);
+                const hidden = getHiddenUnits(className);
+
+                if (checkbox.checked) {
+                    hidden.delete(unit);
+                } else {
+                    hidden.add(unit);
+                }
+                setHiddenUnits(className, hidden);
+
+                refreshFileList();
             });
         }
 
