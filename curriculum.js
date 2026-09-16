@@ -65,7 +65,7 @@ const curriculum = {
                 { file: "Loops-and-Data-Collections-Exercises", type: "exercise", unit: 3 },
                 { file: "Loops-and-Data-Collections-Lab", type: "assignment", unit: 3 },
                 { file: "Temperature-in-Color-Lab", type: "assignment", unit: 3 },
-                { file: "Try-Except-Optional-Lab", type: "optional", unit: 3},
+                { file: "Try-Except-and-Regex-Optional-Lab", type: "optional", unit: 3},
 
                 { file: "Objects-Notes", type: "notes", unit: 4 },
                 { file: "File-Reading-and-Writing-Notes", type: "notes", unit: 4 },
