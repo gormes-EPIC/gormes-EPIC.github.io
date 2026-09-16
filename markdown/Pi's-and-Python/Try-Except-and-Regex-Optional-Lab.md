@@ -75,8 +75,8 @@ This is a valid address!
 In order to validate an address check the following:
 - Address Line 1 is in the form of a number followed by any number of words/letters (ex. 1234 S River Road)
 - Address Line 2 can be anything (ex. Unit 5)
-- City contains letters or dashes (ex. Winston-Salem)
-- Check the state is one of the 50 valid state two digit codes (ex.CO)
+- City contains letters or dashes (ex. Denver or Winston-Salem)
+- Check the state is one of the 50 valid state two digit codes (ex. CO)
 - Zip code contains only 5 digits (ex. 11111)
 
 
