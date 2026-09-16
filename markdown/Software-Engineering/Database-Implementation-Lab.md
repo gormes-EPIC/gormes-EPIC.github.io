@@ -29,6 +29,8 @@ Some ideas are:
 - a Spotify stats agregator
 - a local Raspberry Pi weather station
 
+See your instructor for a list of EPIC requested projects.
+
 0. Decide on a project idea. 
     - If you want to start with pre-existing data, look at [Kaggle](https://www.kaggle.com/datasets) for lots of datasets. 
 
@@ -45,7 +47,7 @@ Some ideas are:
 
 3. Create a **entity relationship diagram** to define your database **schema**. Start with your entities(nouns) and define their properties(attributes). Make sure each table has a **primary key** and **foreign keys** are properly labeled. See previous assignments for examples and additional details.
 
-4. Create a setup script, either a SQL or Python script, to set up the database. Do this as a **script**; you will need it later!!
+4. Create a setup script, either a SQL or Python script, to set up the database. Do this as a **script**; you will need it later!! 
 
 5. Write and save SQL queries **for each** of your appropriate use cases. Don't forget about being able to add and remove from your database!
 
@@ -59,7 +61,7 @@ Some ideas are:
     - business rules
     - data dictionary with your entity relationship diagram  
 
-3. Upload your setup scripts and your query scripts to a folder `sql` in your repository.
+3. Upload your setup scripts and your query scripts to a folder `sql` in your repository. **If your database files are too large (over 100MB) do not try to upload them to GitHub! Use your `.gitignore` to remove them.**
 
 ## Tips, Tricks, and Resources
 
