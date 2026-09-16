@@ -59,7 +59,7 @@ The current ticket prices of your movie tickets are:
 
 ## <a id="address-validator"></a> Address Validator
 
-For this program, you will create an input validator for an address. *Note: in practice, an address validator can be an extremely complex problem. For this program, just focus on the qualifications we have described below*
+For this program, you will create an input validator for an address. *Note: in practice, an address validator can be an extremely complex problem. For this program, just focus on the qualifications we have described below.*
 
 ```
 Address Line 1:
