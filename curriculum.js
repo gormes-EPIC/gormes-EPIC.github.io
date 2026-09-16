@@ -60,12 +60,12 @@ const curriculum = {
                 { file: "If-Statement-Exercises", type: "exercise", unit: 2 },
                 { file: "If-Statement-Lab", type: "assignment", unit: 2 },
                 { file: "Dim-the-LED-Lab", type: "assignment", unit: 2 },
-                { file: "Try-Except-Optional-Lab", type: "optional", unit: 2},
 
                 { file: "Loops-and-Data-Collections-Notes", type: "notes", unit: 3 },
                 { file: "Loops-and-Data-Collections-Exercises", type: "exercise", unit: 3 },
                 { file: "Loops-and-Data-Collections-Lab", type: "assignment", unit: 3 },
                 { file: "Temperature-in-Color-Lab", type: "assignment", unit: 3 },
+                { file: "Try-Except-Optional-Lab", type: "optional", unit: 3},
 
                 { file: "Objects-Notes", type: "notes", unit: 4 },
                 { file: "File-Reading-and-Writing-Notes", type: "notes", unit: 4 },
@@ -145,11 +145,14 @@ const curriculum = {
                 { file: "Database-Implementation-Lab", type: "assignment", unit: 1 },
 
                 // Unit 2: How Computers Talk and APIs
-                { file: "Sockets Lab", type: "assignment", unit: 2 },
-                { file: "Deployment-and-Monitoring-Lab", type: "assignment", unit: 2 },
+                { file: "Sockets-Lab", type: "assignment", unit: 2 },
+                { file: "Requests-and-Using-APIs-Lab", type: "assignment", unit: 2 },
+                { file: "Creating-an-API-Lab", type: "assignment", unit: 2},
+                { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
                 { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
 
                 // Unit 3: Containerizing
+                { file: "Deployment-and-Monitoring-Lab", type: "assignment", unit: 3 },
                 { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 3 },
 
                 // Unit 4: Distribution
