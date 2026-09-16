@@ -82,7 +82,7 @@ In order to validate an address check the following:
 
 ## <a id="email-extractor"></a> Email Extractor
 
-For this problem, you will create an email extractor using regular expressions. 
+For this problem, you will create an email extractor using **regular expressions** with the `re` library. Your program will recognize emails in the form: `<username>@<domain>.<com or org or net>`.
 
 
 Here is a sample run of the program:
