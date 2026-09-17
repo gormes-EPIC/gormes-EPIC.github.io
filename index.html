@@ -30,12 +30,15 @@
             /* New Exercise Colors (Emerald Green) */
             --badge-exercise-bg: rgba(16, 185, 129, 0.2); 
             --badge-exercise-text: #34d399;
-            /* New Optional Colors (Yellow) */
-            --badge-optional-bg: rgba(234, 179, 8, 0.2);
-            --badge-optional-text: #facc15;
+            /* Optional Colors (Grey) */
+            --badge-optional-bg: rgba(148, 163, 184, 0.2);
+            --badge-optional-text: #94a3b8;
             /* New Document Colors (Orange) */
             --badge-document-bg: rgba(249, 115, 22, 0.2);
             --badge-document-text: #fb923c;
+            /* WFR Colors (Yellow) */
+            --badge-wfr-bg: rgba(234, 179, 8, 0.2);
+            --badge-wfr-text: #facc15;
         }
 
         /* Automatically scale up the UI on screens wider than 1200px */
@@ -59,10 +62,12 @@
             --badge-assign-text: #b91c92;
             --badge-exercise-bg: #d1fae5;
             --badge-exercise-text: #059669;
-            --badge-optional-bg: #fef9c3;
-            --badge-optional-text: #a16207;
+            --badge-optional-bg: #e2e8f0;
+            --badge-optional-text: #475569;
             --badge-document-bg: #ffedd5;
             --badge-document-text: #c2410c;
+            --badge-wfr-bg: #fef9c3;
+            --badge-wfr-text: #a16207;
         }
 
         /* Ocean Theme */
@@ -79,10 +84,12 @@
             --badge-assign-text: #a5b4fc;
             --badge-exercise-bg: rgba(16, 185, 129, 0.2);
             --badge-exercise-text: #34d399;
-            --badge-optional-bg: rgba(234, 179, 8, 0.2);
-            --badge-optional-text: #fde047;
+            --badge-optional-bg: rgba(148, 163, 184, 0.2);
+            --badge-optional-text: #cbd5e1;
             --badge-document-bg: rgba(249, 115, 22, 0.2);
             --badge-document-text: #fdba74;
+            --badge-wfr-bg: rgba(234, 179, 8, 0.2);
+            --badge-wfr-text: #fde047;
         }
 
         /* Forest Theme */
@@ -99,10 +106,12 @@
             --badge-assign-text: #fde047;
             --badge-exercise-bg: rgba(6, 182, 212, 0.15);
             --badge-exercise-text: #67e8f9;
-            --badge-optional-bg: rgba(250, 204, 21, 0.2);
-            --badge-optional-text: #fef08a;
+            --badge-optional-bg: rgba(148, 163, 184, 0.2);
+            --badge-optional-text: #cbd5e1;
             --badge-document-bg: rgba(249, 115, 22, 0.2);
             --badge-document-text: #fdba74;
+            --badge-wfr-bg: rgba(250, 204, 21, 0.2);
+            --badge-wfr-text: #fef08a;
         }
 
         /* Sunset Theme */
@@ -119,10 +128,12 @@
             --badge-assign-text: #fca5a5;
             --badge-exercise-bg: rgba(234, 179, 8, 0.2);
             --badge-exercise-text: #fde047;
-            --badge-optional-bg: rgba(202, 138, 4, 0.3);
-            --badge-optional-text: #fef9c3;
+            --badge-optional-bg: rgba(120, 113, 108, 0.3);
+            --badge-optional-text: #e7e5e4;
             --badge-document-bg: rgba(194, 65, 12, 0.35);
             --badge-document-text: #ffedd5;
+            --badge-wfr-bg: rgba(202, 138, 4, 0.3);
+            --badge-wfr-text: #fef9c3;
         }
 
         body {
@@ -251,6 +262,12 @@
         .badge-document {
             background-color: var(--badge-document-bg);
             color: var(--badge-document-text);
+        }
+
+        /* New WFR Badge Class */
+        .badge-wfr {
+            background-color: var(--badge-wfr-bg);
+            color: var(--badge-wfr-text);
         }
 
         /* 2-Column Grid */
@@ -616,17 +633,19 @@
             if (type === 'exercise') return 'badge-exercise';
             if (type === 'optional') return 'badge-optional';
             if (type === 'document') return 'badge-document';
+            if (type === 'wfr') return 'badge-wfr';
             return ''; // Default fallback
         }
 
         // --- Helper Function to get a Friendly Plural Label for a Type Filter Option ---
-        const TYPE_FILTER_ORDER = ['notes', 'document', 'assignment', 'exercise', 'optional'];
+        const TYPE_FILTER_ORDER = ['notes', 'document', 'assignment', 'exercise', 'optional', 'wfr'];
         const TYPE_FILTER_LABELS = {
             notes: 'Notes',
             document: 'Documents',
             assignment: 'Assignments',
             exercise: 'Exercises',
-            optional: 'Optional'
+            optional: 'Optional',
+            wfr: 'WFR'
         };
 
         function generateTypeFilterHTML(files) {

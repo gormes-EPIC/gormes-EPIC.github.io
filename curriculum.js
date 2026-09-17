@@ -36,13 +36,13 @@ const unitInfo = {
     },
     "Foundations-of-AI": {
         0: { name: "CI/CD and Version Control"},
-    },
+    }
 };
 
 const curriculum = {
             "Pi's-and-Python": [
                 { file: "Pi's-and-Python-Syllabus", type: "document", unit: 0 },
-
+                { file: "Intentions-and-Goal-setting", type: "wfr", unit: 0 },
                 // { file: "Terminal-Commands-Notes", type: "notes", unit: 0 },
                 { file: "Linux-Exercises", type: "exercise", unit: 0 },
                 { file: "Over-the-Wire-Lab", type: "assignment", unit: 0 },
@@ -55,12 +55,14 @@ const curriculum = {
                 { file: "Variables-and-Functions-Lab", type: "assignment", unit: 1 },
                 // { file: "Working-with-Raspberry-Pis-Notes", type: "notes", unit: 1 },
                 { file: "Light-the-LED-Lab", type: "assignment", unit: 1 },
+                { file: "Elevator-Pitch", type: "wfr", unit: 1 },
 
                 { file: "If-Statement-Notes", type: "notes", unit: 2},
                 { file: "If-Statement-Exercises", type: "exercise", unit: 2 },
                 { file: "If-Statement-Lab", type: "assignment", unit: 2 },
                 { file: "Dim-the-LED-Lab", type: "assignment", unit: 2 },
-
+                { file: "Job-Research-Presentation", type: "wfr", unit: 2 },
+                
                 { file: "Loops-and-Data-Collections-Notes", type: "notes", unit: 3 },
                 { file: "Loops-and-Data-Collections-Exercises", type: "exercise", unit: 3 },
                 { file: "Loops-and-Data-Collections-Lab", type: "assignment", unit: 3 },
@@ -72,12 +74,19 @@ const curriculum = {
                 { file: "Object-Exericses", type: "exercise", unit: 4 },
                 { file: "Fun-With-Objects-Lab", type: "assignment", unit: 4 },
                 { file: "Digital-Slot-Machine-Lab", type: "assignment", unit: 4 },
-
+                { file: "Workforce-Readiness-Reflection", type: "wfr", unit: 4 },
+                { file: "STAR-Format-Notes", type: "notes", unit: 4 },
+                { file: "Preparing-for-the-Interview", type: "wfr", unit: 4 },    
+                
                 { file: "Recursion-Notes", type: "notes", unit: 5 },
                 { file: "Recursion-Lab", type: "assignment", unit: 5 },
                 { file: "Binary-Display-Lab", type: "assignment", unit: 5 },
+                { file: "Effective-Collaboration-Activity", type: "wfr", unit: 5 },    
+                
 
-                { file: "Final-Project", type: "assignment", unit: 6 }
+                { file: "Final-Project", type: "assignment", unit: 6 },
+                { file: "Creating-a-Resume", type: "wfr", unit: 6 },
+                { file: "Update-Your-Portfolio", type: "wfr", unit: 6}
                 
                 
             ],
@@ -152,9 +161,13 @@ const curriculum = {
                 { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
 
                 // Unit 3: Containerizing
+                { file: "Front-end-Development-Lab", type: "assignment", unit: 3 },
                 { file: "Deployment-and-Monitoring-Lab", type: "assignment", unit: 3 },
+                { file: "Hello-World-in-Docker-Lab", type: "assignment", unit: 3 },
+                { file: "Containerize-Your-Application-Lab", type: "assignment", unit: 3 },
                 { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 3 },
-
+                { file: "Proxmox-and-Hypervisors-Lab", type: "assignment", unit: 3 },
+                
                 // Unit 4: Distribution
                 { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
             ],
@@ -164,16 +177,7 @@ const curriculum = {
             ],
             "Workforce-Readiness": [
                 // Pi's and Python
-                { file: "Intentions-and-Goal-setting", type: "assignment", unit: 0 },
-                { file: "Elevator-Pitch", type: "assignment", unit: 0 },
-                { file: "Job-Research-Presentation", type: "assignment", unit: 0 },
-                { file: "Workforce-Readiness-Reflection", type: "assignment", unit: 0 },
-                { file: "STAR-Format-Notes", type: "notes", unit: 0 },
-                { file: "Preparing-for-the-Interview", type: "assignment", unit: 0 },    
-                { file: "Effective-Collaboration-Activity", type: "assignment", unit: 0 },    
-                { file: "Creating-a-Resume", type: "assignment", unit: 0 },
-                { file: "Update-Your-Portfolio", type: "assignment", unit: 0 },
-
+                
                 // Data Structures
                 { file: "Writing-in-Markdown-Notes", type: "notes", unit: 0 },
                 { file: "Technical-Writing-Notes", type: "notes", unit: 0 },
