@@ -137,11 +137,11 @@ const curriculum = {
                 //{ file: "URL-Shortener-Lab", type: "assignment", unit: 0 }
             ],
             "Software-Engineering": [
-                { file: "Norms-and-Community-Agreements", type: "assignment", unit: 0 }, 
-                { file: "Git-Rescue-Simulation", type: "assignment", unit: 0 },
-                { file: "Solving-an-Ethical-Dilemma", type: "assignment", unit: 0 },
-                { file: "Workflow-Repository-Hygiene-Check", type: "assignment", unit: 0 },
-                { file: "Demo-Day-Presentation", type: "assignment", unit: 0 },
+                // { file: "Norms-and-Community-Agreements", type: "assignment", unit: 0 }, 
+                // { file: "Git-Rescue-Simulation", type: "assignment", unit: 0 },
+                // { file: "Solving-an-Ethical-Dilemma", type: "assignment", unit: 0 },
+                // { file: "Workflow-Repository-Hygiene-Check", type: "assignment", unit: 0 },
+                // { file: "Demo-Day-Presentation", type: "assignment", unit: 0 },
 
                 { file: "Software-Engineering-Syllabus", type: "document", unit: 0 },
                 // Unit 0: CI/CD and Version Control
