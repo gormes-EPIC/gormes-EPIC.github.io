@@ -372,7 +372,25 @@
             transition: background-color 0.2s;
         }
         .btn:hover { background: var(--bg); border-color: var(--primary); }
-        
+
+        /* Email Button (embedded in markdown via <email-button>) */
+        .email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--primary);
+            border: none;
+            padding: 0.6rem 1.1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0.5rem 0;
+            transition: opacity 0.2s;
+        }
+        .email-btn:hover { opacity: 0.85; }
+
         /* Markdown Styles including Links */
         .markdown-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
         .markdown-body a:hover { text-decoration: underline; }
@@ -952,7 +970,27 @@
                     // Append the button to the pre block
                     pre.appendChild(copyBtn);
                 });
-                
+
+                // --- Email Button Embed ---
+                // In a markdown file, add: <email-button>Optional Label</email-button>
+                // to render a button that opens a Gmail compose draft addressed to the
+                // teacher, with the assignment title pre-filled as the subject.
+                const teacherEmail = 'gormes@lps.k12.co.us';
+                const emailSubject = assignmentName.replace(/-/g, ' ');
+
+                appDiv.querySelectorAll('.markdown-body email-button').forEach(placeholder => {
+                    const label = placeholder.textContent.trim() || 'Email Mr. Gormes';
+                    const btn = document.createElement('button');
+                    btn.className = 'email-btn';
+                    btn.type = 'button';
+                    btn.innerHTML = `✉️ ${label}`;
+                    btn.addEventListener('click', () => {
+                        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(teacherEmail)}&su=${encodeURIComponent(emailSubject)}`;
+                        window.open(gmailUrl, '_blank', 'noopener');
+                    });
+                    placeholder.replaceWith(btn);
+                });
+
                 // We wrap this in a setTimeout of 0 to ensure the DOM has updated
                 // and the KaTeX script has fully loaded before it tries to run.
                 setTimeout(() => {
