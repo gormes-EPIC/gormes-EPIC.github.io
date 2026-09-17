@@ -30,7 +30,7 @@ const unitInfo = {
     "Software-Engineering": {
         0: { name: "CI/CD and Version Control" },
         1: { name: "Databases with SQLite"},
-        2: { name: "How Computers Talk and APIs", visible: false},
+        2: { name: "How Computers Talk and APIs"},
         3: { name: "Containerization" , visible: false},
         4: { name: "Distrobution", visible: false}
     },
@@ -159,8 +159,8 @@ const curriculum = {
                 { file: "Database-Design", type: "assignment", unit: 1 },
                 { file: "SQLite-with-Python-Lab", type: "assignment", unit: 1 },
                 { file: "Database-Implementation-Lab", type: "assignment", unit: 1 },
-                { file: "Response-to-Guest-Speaker", type:"wfr", unit: 2},
-                { file: "Section-230", type:"wfr", unit: 2},
+                { file: "Response-to-Guest-Speaker", type:"wfr", unit: 1},
+                { file: "Section-230", type:"wfr", unit: 1},
 
                 // Unit 2: How Computers Talk and APIs
                 { file: "Sockets-Lab", type: "assignment", unit: 2 },
