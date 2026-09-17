@@ -44,6 +44,7 @@ const curriculum = {
                 { file: "Pi's-and-Python-Syllabus", type: "document", unit: 0 },
                 { file: "Intentions-and-Goal-setting", type: "wfr", unit: 0 },
                 // { file: "Terminal-Commands-Notes", type: "notes", unit: 0 },
+                // { file: "Diagnostic-Pretest", type: "assignment", unit: 0 },
                 { file: "Linux-Exercises", type: "exercise", unit: 0 },
                 { file: "Over-the-Wire-Lab", type: "assignment", unit: 0 },
                 { file: "Text-Editors-Lab", type: "assignment", unit: 0 },
@@ -136,13 +137,19 @@ const curriculum = {
                 //{ file: "URL-Shortener-Lab", type: "assignment", unit: 0 }
             ],
             "Software-Engineering": [
+                { file: "Norms-and-Community-Agreements", type: "assignment", unit: 0 }, 
+                { file: "Git-Rescue-Simulation", type: "assignment", unit: 0 },
+                { file: "Solving-an-Ethical-Dilemma", type: "assignment", unit: 0 },
+                { file: "Workflow-Repository-Hygiene-Check", type: "assignment", unit: 0 },
+                { file: "Demo-Day-Presentation", type: "assignment", unit: 0 },
+
                 { file: "Software-Engineering-Syllabus", type: "document", unit: 0 },
                 // Unit 0: CI/CD and Version Control
+                { file: "Intentions-and-Goal-setting", type: "wfr", unit: 0},
                 { file: "Blockbuster-Lab", type: "assignment", unit: 0 },
                 { file: "Style-Guides-and-Great-READMEs", type: "assignment", unit: 0 },
                 { file: "Advanced-Git-Lab", type: "assignment", unit: 0 },
                 { file: "Cowsay-ENV-Lab", type: "assignment", unit: 0 },
-                // { file: "Git-Post-mortem-Discussion", type: "assignment", unit: 0 },
                 { file: "Currency-Translator-Lab", type: "assignment", unit: 0 },
 
                 // Unit 1: Databases with SQLite
@@ -152,6 +159,8 @@ const curriculum = {
                 { file: "Database-Design", type: "assignment", unit: 1 },
                 { file: "SQLite-with-Python-Lab", type: "assignment", unit: 1 },
                 { file: "Database-Implementation-Lab", type: "assignment", unit: 1 },
+                { file: "Response-to-Guest-Speaker", type:"wfr", unit: 2},
+                { file: "Section-230", type:"wfr", unit: 2},
 
                 // Unit 2: How Computers Talk and APIs
                 { file: "Sockets-Lab", type: "assignment", unit: 2 },
@@ -159,6 +168,9 @@ const curriculum = {
                 { file: "Creating-an-API-Lab", type: "assignment", unit: 2},
                 { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
                 { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
+                { file: "Creating-a-Resume", type: "wfr", unit: 2},
+                { file: "Black-Box-API-Simulation", type: "wfr", unit: 2},
+                { file: "Required-Skills-Writeup", type: "wfr", unit: 2},
 
                 // Unit 3: Containerizing
                 { file: "Front-end-Development-Lab", type: "assignment", unit: 3 },
@@ -188,12 +200,7 @@ const curriculum = {
                 { file: "Technical-Interview-Practice", type: "assignment", unit: 0 },
 
                 // Software Engineering
-                { file: "Norms-and-Community-Agreements", type: "assignment", unit: 0 }, 
-                { file: "Git-Rescue-Simulation", type: "assignment", unit: 0 },
-                { file: "Solving-an-Ethical-Dilemma", type: "assignment", unit: 0 },
-                { file: "Workflow-Repository-Hygiene-Check", type: "assignment", unit: 0 },
-                { file: "Demo-Day-Presentation", type: "assignment", unit: 0 }
-
+               
                 // Foundations of AI
             ]
             // "Other": [
