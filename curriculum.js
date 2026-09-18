@@ -67,11 +67,11 @@ const curriculum = {
                 { file: "Loops-and-Data-Collections-Notes", type: "notes", unit: 3 },
                 { file: "Loops-and-Data-Collections-Exercises", type: "exercise", unit: 3 },
                 { file: "Loops-and-Data-Collections-Lab", type: "assignment", unit: 3 },
+                { file: "File-Reading-and-Writing-Notes", type: "notes", unit: 3 },
                 { file: "Temperature-in-Color-Lab", type: "assignment", unit: 3 },
                 { file: "Try-Except-and-Regex-Optional-Lab", type: "optional", unit: 3},
 
                 { file: "Objects-Notes", type: "notes", unit: 4 },
-                { file: "File-Reading-and-Writing-Notes", type: "notes", unit: 4 },
                 { file: "Object-Exericses", type: "exercise", unit: 4 },
                 { file: "Fun-With-Objects-Lab", type: "assignment", unit: 4 },
                 { file: "Digital-Slot-Machine-Lab", type: "assignment", unit: 4 },
