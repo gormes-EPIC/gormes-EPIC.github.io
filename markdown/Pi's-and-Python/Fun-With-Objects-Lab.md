@@ -189,6 +189,8 @@ Decomposing the problem:
 
 Write a program that models a digital music playlist in `playlist.py`
 
+*Please review the [File Reading and Writing Notes](#Pi's-and-Python/File-Reading-and-Writing-Notes) before continuing.*
+
 - Create a `Song` object. It should have the properties `title` (string), `artist` (string), and `duration` (integer, representing the length of the song in seconds).    
 - Create a `Playlist` object. It should have a `name` (string) and a property to store a list/array of `Song` objects.
 - The `Playlist` object needs five methods:
