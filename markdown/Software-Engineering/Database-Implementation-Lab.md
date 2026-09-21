@@ -161,6 +161,8 @@ psql -h localhost -U project_user -d project_db
 
 ### Step 4: Connect from Python
 
+**Please complete this section to make sure this works, but you do not need run all your SQL through Python. This is just for the future! You can set up your database as normal in section 5.**
+
 Raspberry Pi OS won't let you `pip install` into the system Python (you will see an `externally-managed-environment` error), so create a virtual environment for your project first, then install the driver:
 
 ```bash
