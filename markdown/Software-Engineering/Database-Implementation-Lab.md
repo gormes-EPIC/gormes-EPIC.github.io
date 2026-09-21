@@ -146,7 +146,7 @@ Useful `psql` commands (these start with a backslash and are **not** SQL):
 
 ### Step 3: Create your own database and role
 
-It is bad practice for your application to log in as the `postgres` superuser. Create a dedicated role and database for your project. Replace the names and password with your own.
+It is bad practice for your application to log in as the `postgres` superuser. Create a dedicated role and database for your project. **Replace the names and password with your own.**
 
 ```sql
 CREATE ROLE project_user WITH LOGIN PASSWORD 'choose_a_password';
