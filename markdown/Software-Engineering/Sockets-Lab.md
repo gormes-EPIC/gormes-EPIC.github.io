@@ -7,16 +7,16 @@
 
 ## Vocabulary
 
-| Vocabulary| Description |
+| Vocabulary | Description |
 | ----------- | ----------- |
-| packet| | 
-| IP address| | 
-| port | | 
-| server | |
-| client | |
-| `netcat` ||
-| TCP | | 
-| UDP | | 
+| packet | A small chunk of data sent across a network, made up of a header (source/destination, protocol, sequence number) and a payload (the actual data). Large transfers are split into many packets and reassembled by the receiver. |
+| IP address | A unique numeric address identifying a computer on a network, so other computers know where to send data. |
+| port | A numbered "door" on a computer that a specific program or service listens on, so multiple programs can use the network at once without colliding. |
+| server | A program that listens for and responds to incoming requests (e.g., a website's computer). |
+| client | A program that initiates a request to a server and waits for a response (e.g., a web browser). |
+| `netcat` | A command-line tool (`nc`) for reading and writing data directly over TCP or UDP connections, useful for testing and learning networking basics. |
+| TCP | Transmission Control Protocol — a connection-oriented transport protocol that sets up a connection with a 3-way handshake and guarantees reliable, ordered delivery of data. |
+| UDP | User Datagram Protocol — a connectionless transport protocol that sends data without setup or delivery guarantees, trading reliability for speed. |
 
 ## Your Task
 
