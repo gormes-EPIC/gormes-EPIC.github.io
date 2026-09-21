@@ -14,6 +14,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
         /* Default Dark Mode Variables */
         :root {
@@ -395,6 +396,20 @@
         .markdown-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
         .markdown-body a:hover { text-decoration: underline; }
         .markdown-body img { max-width: 100%; border-radius: 6px; }
+        /* Mermaid Diagram Styles */
+        .markdown-body .mermaid-diagram {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            text-align: center;
+        }
+        .markdown-body .mermaid-diagram svg {
+            max-width: 100%;
+            height: auto;
+        }
         /* Code Block & Copy Button Styles */
         /* 1. Wrapper: Match the VS Code/Atom Dark colors exactly */
         .markdown-body pre { 
@@ -626,7 +641,14 @@
             const theme = themeToggle.value;
             applyTheme(theme);
             localStorage.setItem('theme', theme);
+            // Re-render the current view so Mermaid diagrams pick up the new theme.
+            render();
         });
+
+        // --- Mermaid Diagram Setup ---
+        function getMermaidTheme() {
+            return body.classList.contains('light-mode') ? 'default' : 'dark';
+        }
 
         const appDiv = document.getElementById('app');
 
@@ -921,6 +943,26 @@
                         ${htmlContent}
                     </div>
                 `;
+                // --- Mermaid Diagram Rendering ---
+                // marked.js turns ```mermaid fences into <pre><code class="language-mermaid">.
+                // Swap those for plain divs and let Mermaid render them into SVG.
+                const mermaidBlocks = appDiv.querySelectorAll('.markdown-body pre code.language-mermaid');
+                if (mermaidBlocks.length && window.mermaid) {
+                    mermaidBlocks.forEach((codeEl) => {
+                        const graphDefinition = codeEl.textContent;
+                        const container = document.createElement('div');
+                        container.className = 'mermaid-diagram';
+                        container.textContent = graphDefinition;
+                        codeEl.closest('pre').replaceWith(container);
+                    });
+                    try {
+                        mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
+                        await mermaid.run({ querySelector: '.markdown-body .mermaid-diagram' });
+                    } catch (err) {
+                        console.error('Mermaid render error:', err);
+                    }
+                }
+
                 // Highting code blocks with Highlight.js
                 // appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
                 //     // marked.js adds a "language-X" class if you specify a language.

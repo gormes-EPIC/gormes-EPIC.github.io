@@ -163,7 +163,9 @@ const curriculum = {
                 { file: "Section-230", type:"wfr", unit: 1},
 
                 // Unit 2: How Computers Talk and APIs
+                { file: "Sockets-Notes", type: "notes", unit: 2 },
                 { file: "Sockets-Lab", type: "assignment", unit: 2 },
+                { file: "HTTP-and-HTTPS-Notes", type: "notes", unit: 2},
                 { file: "Requests-and-Using-APIs-Lab", type: "assignment", unit: 2 },
                 { file: "Creating-an-API-Lab", type: "assignment", unit: 2},
                 { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
