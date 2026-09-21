@@ -160,9 +160,9 @@ const curriculum = {
                 { file: "SQLite-with-Python-Lab", type: "assignment", unit: 1 },
                 { file: "Database-Implementation-Lab", type: "assignment", unit: 1 },
                 { file: "Response-to-Guest-Speaker", type:"wfr", unit: 1},
-                { file: "Section-230", type:"wfr", unit: 1},
-
+                
                 // Unit 2: How Computers Talk and APIs
+                { file: "Section-230", type:"wfr", unit: 2},
                 { file: "Sockets-Notes", type: "notes", unit: 2 },
                 { file: "Sockets-Lab", type: "assignment", unit: 2 },
                 { file: "HTTP-and-HTTPS-Notes", type: "notes", unit: 2},
