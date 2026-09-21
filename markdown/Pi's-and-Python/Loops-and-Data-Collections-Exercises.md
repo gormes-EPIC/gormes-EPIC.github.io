@@ -59,7 +59,7 @@ for char in word:
 
 ## Exercise 4
 
-Repeatedly ask for a name until the user types "done". Keep a running count of how many times each name was entered, then print the counts.
+Write a program to repeatedly ask for a name until the user types "done". Keep a running count of how many times each name was entered, then print the counts.
 
 For example:
 ```
