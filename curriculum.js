@@ -167,6 +167,7 @@ const curriculum = {
                 { file: "Sockets-Lab", type: "assignment", unit: 2 },
                 { file: "HTTP-and-HTTPS-Notes", type: "notes", unit: 2},
                 { file: "Requests-and-Using-APIs-Lab", type: "assignment", unit: 2 },
+                { file: "Flask-Notes", type:"notes", unit: 2},
                 { file: "Creating-an-API-Lab", type: "assignment", unit: 2},
                 { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
                 { file: "Design-Review-Discussion", type: "assignment", unit: 2 },

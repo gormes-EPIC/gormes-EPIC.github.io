@@ -97,9 +97,7 @@ cities = {
 Use the [REST Countries API](https://restcountries.com/). To create a World Facts quiz. Your program will choose a random country and give you the capital. You will then guess the name of the country.
 
 1. Create a free account and get your API key. 
-
 2. Create a new file called `.env`. In the file, add a line `REST_COUNTRIES_API_KEY=your_key_here`. Then add the `.env` file to your `.gitignore`!
-
 3. `pip install requests python-dotenv` to make sure you can use the following to load your API key into the program.
 
 ```
@@ -137,9 +135,7 @@ You answered 3/5 correctly.
 Use the [NASA API](https://api.nasa.gov) to view the NASA "Image of the Day". 
 
 1. Create an account for an API key. Then set up your `.env` files and `.gitignore` just like the last question.
-
 2. Create a Python program to load your API and download the image of the day.
-
 3. Display the image with this sample code. You will need to install `pygame` with `pip install pygame`. 
 
 ```
