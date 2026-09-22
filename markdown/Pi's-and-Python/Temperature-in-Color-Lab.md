@@ -73,8 +73,8 @@ while True:
 1. Review [File Reading and Writing Notes](#Pi's-and-Python/File-Reading-and-Writing-Notes). Then, modify your program above to send your  output to a new file, `temperature.csv`, instead of printing to the terminal. "CSV" stands for comma separated values. Each line of your file should contain "time, temperature". Make sure your file is writing to new lines! It will not automatically add the line breaks for you! Otherwise you will have one really long line and need to split it apart. 
 2. The next step is to record temperature decay of cold air. Place an ice pack on your sensor for a few minutes then remove the ice pack. The temperature should slowly rise until it returns to room temperature. 
 3. Open `temperature.csv` in Google Sheets or a similar program. Using our data, we will make two different graphs.
-4. First, plot Celsius vs Fahrenheit. Then, add a line of best fit. Make sure to add a title and axis labels!
-5. Second, plot Celsius or Fahrenheit over time. Make sure to add a title and axis labels!
+4. First, plot **Celsius vs Fahrenheit** using a **scatter plot**. Then, add a line of best fit. For your trendline, try the different types of equation(linear, quadratic, etc.) and choose the model with the highest $R^2$ value. Make sure to add a title and axis labels! 
+5. Second, plot **Celsius or Fahrenheit over time** using a **scatter plot**. Then, add a line of best fit. For your trendline, try the different types of equation(linear, quadratic, etc.) and choose the model with the highest $R^2$ value. Make sure to add a title and axis labels!
 
 ## Tips, Tricks, and Resources
 - [DHT11/DHT22 Tutorial](https://randomnerdtutorials.com/raspberry-pi-dht11-dht22-python/)
@@ -90,8 +90,8 @@ while True:
 	- Why does that make sense based on what we know about Celsius and Fahrenheit? 
 2. Answer the following questions about your second graph
     - What kind of model best represents our data(linear, quadratic, exponential)? 
-	- What is the equation of the line of best fit?
-	- Why does this make sense for representing temperature? 
+	- What is the equation of the line of best fit? 
+	- Why does this make sense for representing temperature? *Hint: do a little bit of research into the formula for temperature decay according to Newton's Law of Cooling.*
 
 
 ## How to Submit
