@@ -80,6 +80,7 @@ const curriculum = {
                 { file: "Preparing-for-the-Interview", type: "wfr", unit: 4 },    
                 
                 { file: "Recursion-Notes", type: "notes", unit: 5 },
+                { file: "Recursion-Exercises", type: "exercise", unit: 5},
                 { file: "Recursion-Lab", type: "assignment", unit: 5 },
                 { file: "Binary-Display-Lab", type: "assignment", unit: 5 },
                 { file: "Effective-Collaboration-Activity", type: "wfr", unit: 5 },    

@@ -144,7 +144,7 @@ for temp in readings:
 
 ## Exercise 8
 
-Using the same list of readings from Exercise 8, write a program that calculates and prints the average temperature for the day, formatted to two decimal places.
+Using the same list of readings from Exercise 7, write a program that calculates and prints the average temperature for the day, formatted to two decimal places.
 
 For example:
 ```
