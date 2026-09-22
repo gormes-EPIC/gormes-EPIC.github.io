@@ -36,11 +36,11 @@ Create a digital slot machine with a button and a display. When you click the bu
 
 3. Get a 7-segment display from the class supplies. *The back of these displays can get hot. If it is too hot to handle, then recycle it and get a new display. It may have faulty internal wiring. Be careful when handling.*
 
-4. Install the necessary library with `pip3 install raspberrypi-tm1637`. *Make sure your virtual environment is active!* See [this](https://pypi.org/project/raspberrypi-tm1637/) for library reference. If pip isn't installed, use `sudo apt install pip`.
+4. Install the necessary library with `pip3 install raspberrypi-tm1637`. *Make sure your virtual environment is active!* See [this](https://pypi.org/project/raspberrypi-tm1637/) for library reference.  If pip isn't installed, use `sudo apt install pip`.
 
 <img src="/assets/digital-slot-machine-wiring.png">
 
-5. Use this [site](https://thingsdaq.org/2022/10/02/7-segment-led-display-with-raspberry-pi/) as a reference to wire your display and for the code. **WARNING: Please wire your display CAREFULLY. If you switch your voltage and ground pins when setting up your display, it will get extremely hot very quickly and begin to burn.**
+5. Use [this site](https://thingsdaq.org/2022/10/02/7-segment-led-display-with-raspberry-pi/)  and [this site](https://pypi.org/project/python-tm1637/) as a reference to wire your display and for the code. **WARNING: Please wire your display CAREFULLY. If you switch your voltage and ground pins when setting up your display, it will get extremely hot very quickly and begin to burn.**
 6. Create a program with the following game loop: When the button is pressed, your program will select 4 random numbers and display them on the screen. If all 4 numbers match, the light will flash for 5 seconds.
 
 
