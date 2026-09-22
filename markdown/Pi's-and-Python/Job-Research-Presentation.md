@@ -43,7 +43,7 @@ Your task is to analyze your job and identify common requirements and skills.
 4. Extra credit: Reach out to 3 people who currently hold this role at a company you would be interested in. They may not respond, but if they do use this opportunity to get first-hand knowledge about the job. Ask them about their experience, their job history, required skills etc.
 
 ### Part 3: Create a Visual
-Create a visual representation of what you learned. Include the information you took notes on in the previous section. 
+Create a visual representation of what you learned. Include the information you took notes on in the previous section. This can be a presentation slide deck, a poster, a demo, etc. It's totally up to you!
 
 ### Part 4: Present your Project
 During class, you will present your visual. Use the strong presentation skills we identified in the in-class video.
