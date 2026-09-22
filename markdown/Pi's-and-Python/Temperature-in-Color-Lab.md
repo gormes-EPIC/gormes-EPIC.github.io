@@ -86,10 +86,10 @@ while True:
 
 ## Reflection Questions
 1. Answer the following questions about your first graph
-	- What is the equation is the line of best fit?
+	- What is the equation is the line of best fit? How do you know it is the best option?
 	- Why does that make sense based on what we know about Celsius and Fahrenheit? 
 2. Answer the following questions about your second graph
-    - What kind of model best represents our data(linear, quadratic, exponential)? 
+    - What kind of model best represents our data(linear, quadratic, exponential)? How do you know it is the best option?
 	- What is the equation of the line of best fit? 
 	- Why does this make sense for representing temperature? *Hint: do a little bit of research into the formula for temperature decay according to Newton's Law of Cooling.*
 
