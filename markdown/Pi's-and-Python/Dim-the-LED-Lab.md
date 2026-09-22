@@ -45,7 +45,7 @@ from gpiozero import RotaryEncoder
 
 rotor = RotaryEncoder(16, 20, wrap=True, max_steps=180) # DT goes to 16, CLK goes to 20
 
-while True:
+while True: # This while statement will repeat all of the statements inside it forever
 	print(rotor.steps) # the value of rotor.steps will change as you rotate the device
 
 ```
