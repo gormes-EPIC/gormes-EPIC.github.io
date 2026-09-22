@@ -17,7 +17,7 @@ Create a program that lights a red LED when the temperature sensor reads over 72
 
 ## Materials
 
-- 1 red and 1 blue 5mm LED
+- 1 red and 1 blue 5mm LED (or optional use a [RGB LED](https://www.sparkfun.com/led-rgb-diffused-common-cathode.html))
 - 2 130 Ω (Ohm) resistors
 - 7 male-to-male jumper wires
 
