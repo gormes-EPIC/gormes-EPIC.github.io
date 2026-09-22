@@ -74,7 +74,7 @@ while True:
 2. The next step is to record temperature decay of cold air. Place an ice pack on your sensor for a few minutes then remove the ice pack. The temperature should slowly rise until it returns to room temperature. 
 3. Open `temperature.csv` in Google Sheets or a similar program. Using our data, we will make two different graphs.
 4. First, plot **Celsius vs Fahrenheit** using a **scatter plot**. Then, add a line of best fit. For your trendline, try the different types of equation(linear, quadratic, etc.) and choose the model with the highest $R^2$ value. Make sure to add a title and axis labels! 
-5. Second, plot **Celsius or Fahrenheit over time** using a **scatter plot**. Then, add a line of best fit. For your trendline, try the different types of equation(linear, quadratic, etc.) and choose the model with the highest $R^2$ value. Make sure to add a title and axis labels!
+5. Second, plot **Celsius or Fahrenheit over time** using a **scatter plot**. **Select the heating portion only!** Then, add a line of best fit. For your trendline, try the different types of equation(linear, quadratic, etc.) and choose the model with the highest $R^2$ value. Make sure to add a title and axis labels!
 
 ## Tips, Tricks, and Resources
 - [DHT11/DHT22 Tutorial](https://randomnerdtutorials.com/raspberry-pi-dht11-dht22-python/)
