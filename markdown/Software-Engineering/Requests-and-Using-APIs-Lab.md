@@ -9,7 +9,17 @@
 
 | Vocabulary | Description |
 | ----------- | ----------- |
-|||
+| API | stands for Application Programming Interface. A set of rules that lets one program request data or services from another program |
+| endpoint | a specific URL on an API that you send requests to in order to access a particular resource, like `https://pokeapi.co/api/v2/pokemon/2` |
+| `requests` | a popular Python library that makes it simple to send HTTP requests and work with the responses |
+| GET request | an HTTP request that asks a server to send back data without changing anything |
+| POST request | an HTTP request that sends data to a server, often to create something new or submit information |
+| query parameters | key-value pairs added to the end of a URL after a `?` to customize a request, like `?latitude=39.74&longitude=-104.99` |
+| status code | a three-digit number the server sends back to show the result of a request. 200s mean success, 400s mean a client error, and 500s mean a server error |
+| JSON | stands for JavaScript Object Notation. A lightweight text format for storing and sending data as key-value pairs and lists, which maps directly to Python dictionaries and lists |
+| API key | a unique secret code that identifies you to an API so it can track and limit your usage |
+| environment variable | a value stored outside of your code, in the operating system or a `.env` file, often used to keep private information like API keys out of your code |
+| `.gitignore` | a file that tells Git which files and folders not to track, so private files like `.env` are never pushed to GitHub |
 
 ## Your Task
 

@@ -173,7 +173,7 @@ const curriculum = {
                 { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
                 { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
                 { file: "Creating-a-Resume", type: "wfr", unit: 2},
-                { file: "Black-Box-API-Simulation", type: "wfr", unit: 2},
+                { file: "Who-Owns-the-Internet?", type: "wfr", unit: 2},
                 { file: "Required-Skills-Writeup", type: "wfr", unit: 2},
 
                 // Unit 3: Containerizing
