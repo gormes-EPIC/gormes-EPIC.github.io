@@ -206,11 +206,11 @@ Let's upgrade our TCP program to solve these issues!
 2. We will need to use the `struct` library to convert our message with an unpredictable length to something with a fixed length both the sender and reciever agree on. Look up `struct.pack(...)` and `strucut.unpack(...)`
     - Specifically you want a format that means "unsigned integer, network byte order" and to figure out how many bytes the header takes up
 
-3. Now on the server side, write a functionwrite a small `send_message(sock, data)` function that packs `len(data)` into that header and sends `header + data` in one `sendall()` call.
+3. Now on the server side, write a function `send_message(sock, data)` function that packs `len(data)` into that header and sends `header + data` in one `sendall()` call.
 
 4. On the client side, we will now need some mechanism to call `recv()` over and over until we get the number of bytes we were expecting. Write `recv_exact(conn, num_bytes)` that returns once it's gathered exactly `num_bytes`, using repeated `recv()` calls of some fixed chunk size.
 
-5. Now that we have `recv_exact`, create a new function `recv_message(conn)` that uses `recv_exact` twice: first, one the header, and second on the rest of the message, now that we know how big it is.
+5. Now that we have `recv_exact`, create a new function `recv_message(conn)` that uses `recv_exact` twice. First, it is used on the header and second it is used on the rest of the message, now that we know how big it is.
 
 6. Test your program! You will need to generate some large files to validate they send correctly or make your chunks really small to test the chunking actually works.
 
