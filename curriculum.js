@@ -43,7 +43,7 @@ const curriculum = {
             "Pi's-and-Python": [
                 { file: "Pi's-and-Python-Syllabus", type: "document", unit: 0 },
                 { file: "Intentions-and-Goal-setting", type: "wfr", unit: 0 },
-                // { file: "Terminal-Commands-Notes", type: "notes", unit: 0 },
+                { file: "Terminal-Commands-Notes", type: "notes", unit: 0 },
                 // { file: "Diagnostic-Pretest", type: "assignment", unit: 0 },
                 { file: "Linux-Exercises", type: "exercise", unit: 0 },
                 { file: "Over-the-Wire-Lab", type: "assignment", unit: 0 },
@@ -85,7 +85,6 @@ const curriculum = {
                 { file: "Binary-Display-Lab", type: "assignment", unit: 5 },
                 { file: "Effective-Collaboration-Activity", type: "wfr", unit: 5 },    
                 
-
                 { file: "Final-Project", type: "assignment", unit: 6 },
                 { file: "Creating-a-Resume", type: "wfr", unit: 6 },
                 { file: "Update-Your-Portfolio", type: "wfr", unit: 6}

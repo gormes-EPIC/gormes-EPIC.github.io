@@ -1,5 +1,43 @@
 # Terminal Commands Notes
 
+<img src="/assets/terminal-notes-1.gif">
+
+## Welcome to the Terminal
+
+The **terminal** is a text-based interface that is used to communicate with your computer. You enter commands in the terminal and the associated program will run on your computer.
+
+1. Once you are logged in, use `CTRL-ALT-T` to open the terminal. If you are on your home computer or a chromebook you can use [the website](https://epic-terminal.chals.io/). Here is my terminal: 
+
+<img src="/assets/terminal-notes-2.png">
+
+
+2. Look at your terminal header. It contains some important information.
+
+<img src="/assets/terminal-notes-3.png">
+
+- **username** - the name of the user you are currently logged into the computer as
+- **hostname** - the name of the computer you are using
+- **current folder** - the folder you are currently "in". By default you are in your user's home folder(`~`).
+
+3. Type `ls` in your terminal and hit enter. You should see a *list* of all the files and folders in your current folder.
+
+<img src="/assets/terminal-notes-4.png">
+
+4. Type `pwd` into your terminal and hit enter. You should see the current **full path** to the folder you are in. This is a list of folders separated by slashes.
+
+<img src="/assets/terminal-notes-5.png">
+
+Currently, I am in the folder `epic_cs` which is in the folder `home` which is in the largest folder on the filesystem `/`. On computers, **filesystems** are made up of folders inside folders inside folders. `/` is the largest folder on the system and contains all of the data stored on your computer. All of your user's data is always in the folder `/home/<YOUR USERNAME>`; it is also called your **home folder**. Your home folder is also called `~` for short. Your home folder contains your `Documents`, `Desktop`, and `Downloads` folders. 
+
+5. Type `cd Desktop` into your terminal and hit enter. *Make sure you capitalize Desktop!*. 
+
+<img src="/assets/terminal-notes-6.png">
+
+You have now "changed directories" into your `Desktop` folder. You will see your current path has been updated in your terminal header. If you list the files in this folder with `ls` you will see everything on your Desktop.
+
+
+## Terminal Commands Cheat Sheet
+
 | Command | Description | 
 | --- | --- | 
 |`cd <directory>`| Changes the directory to the directory listed|
