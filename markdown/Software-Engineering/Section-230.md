@@ -17,6 +17,7 @@
     - What problem was Section 230 written to solve?
     - How did courts interpret Section 230 in its first major test cases, such as Zeran v. America Online (1997)?
     - How have courts applied Section 230 to algorithmic recommendations, see Gonzalez v. Google (2023), and did the Supreme Court ultimately decide whether recommending content counts as the platform's own speech?
+    - How does Section 230 benefit independent users, not just big companies?
 
 #### Recommended Links
 - [congress.gov](https://www.congress.gov/crs-product/R46751)
