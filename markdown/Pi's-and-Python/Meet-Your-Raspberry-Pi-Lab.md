@@ -27,7 +27,7 @@ Set up your Raspberry Pi and create a diagram describing each of its components.
 1. Follow [these steps](https://www.raspberrypi.com/documentation/computers/getting-started.html#setting-up-your-raspberry-pi) to get your Raspberry Pi set up 
 2. When complete, you should get to the Pi's desktop
 3. You should use the same username as your user account on your laptop for simplicity. If you need to write down your login information so you don't forget it, **please do that**.
-4. Once you get into your Pi, run `sudo apt update` and `sudo apt upgrade` to update your Pi.
+4. Once you get into your Pi, run `sudo apt update` and `sudo apt upgrade -y` to update your Pi.
 5. Install VS Code with `sudo apt install code`. 
 6. Once you are sure all of the hardware works, you are ready to move on to Part 2. Check in with your instructor that your Pi is working before moving on.
 
