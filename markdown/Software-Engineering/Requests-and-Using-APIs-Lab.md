@@ -57,7 +57,7 @@ See the following examples:
 
 ```
 Enter a city: Denver
-Enter a date: 09/22/2000 
+Enter a date: 09-22-2026 
 --------------------------------------------
 Conditions:    Slight rain
 High:          52.9°F
@@ -70,7 +70,7 @@ Max wind:      9.9 mph
 Enter a city: Boulder
 Invalid city
 Enter a city: New York
-Enter a date: 02-11-1960 
+Enter a date: 07-11-2026 
 --------------------------------------------
 Conditions:    Moderate rain
 High:          60.0°F

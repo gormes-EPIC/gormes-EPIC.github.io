@@ -203,6 +203,15 @@ So the receiver needs to know two things it currently doesn't:
 
 Let's upgrade our TCP program to solve these issues!
 
+#### Server Side
+
+On the server side we need to chunk our data in a fixed number of  bytes. Once we split up the data, we will send the number of chunks to expect to the client followed by those chunks.
+
+1. Here is the structure of our new program:
+
+
+
+
 2. We will need to use the `struct` library to convert our message with an unpredictable length to something with a fixed length both the sender and reciever agree on. Look up `struct.pack(...)` and `strucut.unpack(...)`
     - Specifically you want a format that means "unsigned integer, network byte order" and to figure out how many bytes the header takes up
 
