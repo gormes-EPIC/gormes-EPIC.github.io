@@ -23,6 +23,8 @@
 
 Over multiple labs, you will create a simple full-stack software project that has a multitable PostgreSQL database with a Python API in front of it that connects to a simple frontend HTML site. You will then containerize these components so others can set up this project on their own machines. You will also create a `github.io` site with your documentation for your project.
 
+<img src="/assets/full-stack-structure.png">
+
 Some ideas are:
 - a personal expense tracker
 - a digital recipe box
@@ -230,10 +232,6 @@ Notes for people coming from SQLite:
 - `CHECK`, `UNIQUE`, `NOT NULL`, and `DEFAULT` are how you turn your **business rules** into real constraints. Use them!
 - Make your script safe to re-run by starting with `DROP TABLE IF EXISTS ...` (drop tables that reference others first) or by using `CREATE TABLE IF NOT EXISTS`.
 
-### Optional: a GUI
-
-If you prefer clicking to typing, [pgAdmin](https://www.pgadmin.org/) or the PostgreSQL extension for VS Code let you browse tables and run queries. Use the same host, port, user, password, and database name you used above.
-
 ### Troubleshooting
 
 | Problem | Likely cause and fix |
@@ -255,8 +253,7 @@ If you prefer clicking to typing, [pgAdmin](https://www.pgadmin.org/) or the Pos
     - short statement of purpose of your project
     - use cases
     - business rules
-    - data dictionary with your entity relationship diagram  
-    - short instructions for how to set up the PostgreSQL database and run your setup script (assume the reader has never used your project)
+    - data dictionary with your entity relationship diagram
 
 3. Upload your setup scripts and your query scripts to a folder `sql` in your repository. **Do not upload passwords or `.env` files! Add them to your `.gitignore`.** If you have a large data file (over 100MB), do not try to upload it to GitHub either. Use your `.gitignore` to remove it.
 
