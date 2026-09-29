@@ -165,7 +165,7 @@ const curriculum = {
 
                 // Unit 2: How Computers Talk and APIs
                 { file: "Sockets-Notes", type: "notes", unit: 2 },
-                { file: "Sockets-Lab", type: "assignment", unit: 2 },
+                { file: "Sockets-Activity", type: "assignment", unit: 2 },
                 { file: "HTTP-and-HTTPS-Notes", type: "notes", unit: 2},
                 { file: "Requests-and-Using-APIs-Lab", type: "assignment", unit: 2 },
                 { file: "Flask-Notes", type:"notes", unit: 2},

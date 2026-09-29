@@ -38,7 +38,7 @@ A 3 MB photo might split into ~2,000 packets of ~1,500 bytes each, numbered so t
 
 <img src="/assets/sockets-notes-3.png">
 
-3. Type `icmp` into the filder bar and wait for the pings to start coming through.
+3. Type `icmp` into the filter bar and wait for the pings to start coming through.
 
 <img src="/assets/sockets-notes-4.png">
 

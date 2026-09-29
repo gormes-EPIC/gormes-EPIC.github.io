@@ -1,4 +1,4 @@
-# Sockets Lab
+# Sockets Activity
 
 ## Objectives
 1. Use Python to create a UDP server/client
@@ -183,60 +183,3 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
 
 </details>
 
-### Upgrading Your TCP Server/Client with Length-prefix Framing
-
-1. Run your TCP server/client and try sending something much much longer than "hello over TCP!". Try printing out the message on the server end. 
-
-<details>
-<summary>What happens?</summary>
-
-The way our server is set up, we can only receive 4096 bytes at a time. If you send a sufficiently long message, you should see only a chunk of it come through. You can also edit your `conn.recv(4096)` to a smaller value to see the issue with less character input.
-
-</details>
-
-TCP guarantees your bytes arrive in order and uncorrupted, but it does not guarantee they arrive grouped the way you sent them. It's a stream of bytes, not a stream of messages. A `sendall()` of 2 MB might be split into a hundred smaller pieces below the surface, and your one `recv(4096)` call on the other end just grabs whatever's arrived so far.
-
-So the receiver needs to know two things it currently doesn't:
-
-- How much total data is coming, so it knows when to stop reading.
-- How to keep reading until it has that much, since one call won't do it.
-
-Let's upgrade our TCP program to solve these issues!
-
-#### Server Side
-
-On the server side we need to chunk our data in a fixed number of  bytes. Once we split up the data, we will send the number of chunks to expect to the client followed by those chunks.
-
-1. Here is the structure of our new program:
-
-
-
-
-2. We will need to use the `struct` library to convert our message with an unpredictable length to something with a fixed length both the sender and reciever agree on. Look up `struct.pack(...)` and `strucut.unpack(...)`
-    - Specifically you want a format that means "unsigned integer, network byte order" and to figure out how many bytes the header takes up
-
-3. Now on the server side, write a function `send_message(sock, data)` function that packs `len(data)` into that header and sends `header + data` in one `sendall()` call.
-
-4. On the client side, we will now need some mechanism to call `recv()` over and over until we get the number of bytes we were expecting. Write `recv_exact(conn, num_bytes)` that returns once it's gathered exactly `num_bytes`, using repeated `recv()` calls of some fixed chunk size.
-
-5. Now that we have `recv_exact`, create a new function `recv_message(conn)` that uses `recv_exact` twice. First, it is used on the header and second it is used on the rest of the message, now that we know how big it is.
-
-6. Test your program! You will need to generate some large files to validate they send correctly or make your chunks really small to test the chunking actually works.
-
-
-## Extensions
-
-1. Instead of sending large chunks of text over TCP, try sending and reconstructing an image. 
-
-## Reflection Questions
-1. What is the difference between UDP and TCP?
-2. Why doesn't TCP itself guarantee that one `send()` on one end lines up with one `recv()` on the other?
-3. UDP doesn't need this kind of framing the same way. Why not?
-
-## How to Submit
-
-Show your instructor your GitHub repository. Answer the reflection questions. When you are all done, upload your GitHub link to Google Classroom and hit submit.
-
-## Rubric
-- **20 points** - All required items are present.
-- **0 points** - Task was not attempted to completion or student should reattempt.
