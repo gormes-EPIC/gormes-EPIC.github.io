@@ -20,8 +20,6 @@
 
 ## Your Task
 
-**You will need a partner or a second machine to complete this lab.**
-
 1. Review the [notes on sockets](#Software-Engineering/Sockets-Notes).
 
 ### UDP and TCP Server/Client
