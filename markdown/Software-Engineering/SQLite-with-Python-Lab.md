@@ -12,13 +12,12 @@
 
 ## Your Task
 
-1. Create a new folder for your database. Download and unzip the [Resturant Orders](https://mcusercontent.com/4cab28e9b9ed67ca67e50a8c6/files/8fe625a4-c7ae-83e5-985a-565607f76128/Restaurant_Orders.zip) dataset. This should contain two CSVs, `menu_items.csv` and `order_details.csv`. The data information is in the file `restaurant_db_data_dictionary.csv`. *Note: there is a file `create_restaurant_db.sql` in the directory that will set up your tables for you. Please ignore that file and do it with Python instead!*
+1. Create a new folder for your database. Clone the [Resturant Orders](https://github.com/gormes-EPIC/resturant_orders) dataset. This repo should contain two CSVs, `menu_items.csv` and `orders.csv`. 
 
-2. Create a ERD diagram to represent the data. Make sure to identify keys and constraints. 
 
-3. Design two SQL `CREATE TABLE` commands for each CSV
+2. Design two SQL `CREATE TABLE` commands for each CSV
 
-4. Modify the following starter code to create a new database `restaurant.db` with two tables. 
+3. Modify the following starter code to create a new database `restaurant.db` with two tables. 
 
 ```
 import sqlite3
@@ -46,9 +45,9 @@ cursor_obj.execute(table_creation_query)
 connection_obj.close()
 ```
 
-5. Write a Python program to insert the contents of both of our CSV files into our tables. Review [these notes](#Pi's-and-Python/File-Reading-and-Writing-Notes) on file reading and writing from Python. Use `cursor.execute("INSERT INTO table VALUES (var, var)")` and add `cursor.commit()` after your execute statement. 
+4. Write a Python program to insert the contents of both of our CSV files into our tables. Review [these notes](#Pi's-and-Python/File-Reading-and-Writing-Notes) on file reading and writing from Python. Use `cursor.execute("INSERT INTO table VALUES (var, var)")` and add `cursor.commit()` after your execute statement. 
 
-6. Now we are going to practice using `SELECT` statements:
+5. Now we are going to practice using `SELECT` statements:
 
 ```
 cursor_obj.execute('''SELECT * FROM table''')
@@ -58,15 +57,14 @@ for row in output:
 
 ```
 
-7.  Write `SELECT` statements to find:
+6.  Write `SELECT` statements to find:
     - All items with a price over $10
-    - List when the items were ordered in order from earliest in the night to latest
     - Count the number of times orange chicken was ordered
     - The total cost of items purchased after 9PM
 
-8. Create two classes, one for order and one for menu item. Then use a `SELECT` statement to get each table. Use the contents to create two lists, one of existing orders and one of menu items. Use the `__str__` method and some print statements to make sure everything is working correctly. 
+7. Create two classes, one for order and one for menu item. Then use a `SELECT` statement to get each table. Use the contents to create two lists, one of existing orders and one of menu items. Use the `__str__` method and some print statements to make sure everything is working correctly. 
 
-9. Complete the same four calculations from above using your Python **objects** instead of SQL queries.
+8. Complete the same four calculations from above using your Python **objects** instead of SQL queries.
     - List all items with a price over $10
     - List the when items were ordered in order from earliest in the night to latest
     - Count the number of times orange chicken was ordered
