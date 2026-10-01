@@ -254,6 +254,8 @@ Create `sql/setup.sql` containing your `CREATE TABLE` statements, and run it wit
 psql -h localhost -U project_user -d project_db -f sql/setup.sql
 ```
 
+If you are trying to run from your framework change `localhost` to your Pi's IP. 
+
 Example of PostgreSQL-flavored table definitions:
 
 ```sql
@@ -276,7 +278,7 @@ CREATE TABLE expense (
 
 Then to add data:
 
-```
+```sql
 COPY table_name(column1, column2, column3)
 FROM '/path/to/file.csv'
 DELIMITER ','
