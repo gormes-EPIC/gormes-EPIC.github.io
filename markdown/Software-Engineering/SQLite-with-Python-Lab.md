@@ -46,7 +46,7 @@ cursor_obj.execute(table_creation_query)
 connection_obj.close()
 ```
 
-5. Write a Python program to insert the contents of both of our CSV files into our tables. Review [these notes](#Pi's-and-Python/File-Reading-and-Writing-Notes) on file reading and writing from Python. Use `cursor.execute("INSERT INTO table VALUES (var, var)")`.
+5. Write a Python program to insert the contents of both of our CSV files into our tables. Review [these notes](#Pi's-and-Python/File-Reading-and-Writing-Notes) on file reading and writing from Python. Use `cursor.execute("INSERT INTO table VALUES (var, var)")` and add `cursor.commit()` after your execute statement. 
 
 6. Now we are going to practice using `SELECT` statements:
 

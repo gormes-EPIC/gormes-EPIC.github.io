@@ -161,6 +161,49 @@ Leave `psql` with `\q`, then reconnect as your new user to test it:
 psql -h localhost -U project_user -d project_db
 ```
 
+Then nmap your pi's IP from your framework. If 5432 does not appear as an open port, 
+
+```
+sudo nano /etc/postgresql/17/main/postgresql.conf
+```
+and change `listen_addresses`:
+
+```
+listen_addresses = '*'
+```
+
+Then,
+
+```
+sudo nano /etc/postgresql/15/main/pg_hba.conf
+```
+
+and add at the very end:
+
+```
+host    all             all             192.168.110.0/23          scram-sha-256
+```
+
+Then,
+
+```
+sudo apt install ufw
+```
+
+and run:
+
+```
+sudo ufw allow 5432/tcp
+```
+
+Then restart your server:
+```
+sudo systemctl restart postgresql
+
+```
+
+Lastly, nmap your Pi again and make sure 5432 is open.
+
 ### Step 4: Connect from Python
 
 **Please complete this section to make sure this works, but you do not need run all your SQL through Python. This is just for the future! You can set up your database as normal in section 5.**
@@ -194,9 +237,14 @@ Things to notice compared with `sqlite3`:
 - **Do not hard-code passwords in files you upload to GitHub.** Read them from an environment variable instead:
     ```python
     import os
+    from dotenv import load_dotenv
+
+    load_dotenv()
     conn_str = os.environ["DATABASE_URL"]
     ```
-    and put `DATABASE_URL=...` in a `.env` file that is listed in your `.gitignore`.
+    and put `DATABASE_URL=...` in a `.env` file that is listed in your `.gitignore`. You may need to `pip install python-dotenv`.
+
+
 
 ### Step 5: Write your setup script
 
@@ -224,6 +272,15 @@ CREATE TABLE expense (
     spent_on     DATE NOT NULL DEFAULT CURRENT_DATE,
     note         TEXT
 );
+```
+
+Then to add data:
+
+```
+COPY table_name(column1, column2, column3)
+FROM '/path/to/file.csv'
+DELIMITER ','
+CSV HEADER;
 ```
 
 Notes for people coming from SQLite:
