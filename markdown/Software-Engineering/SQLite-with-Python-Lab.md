@@ -66,7 +66,6 @@ for row in output:
 
 8. Complete the same four calculations from above using your Python **objects** instead of SQL queries.
     - List all items with a price over $10
-    - List the when items were ordered in order from earliest in the night to latest
     - Count the number of times orange chicken was ordered
     - The total cost of items purchased after 9PM
 
