@@ -175,7 +175,7 @@ listen_addresses = '*'
 Then,
 
 ```
-sudo nano /etc/postgresql/15/main/pg_hba.conf
+sudo nano /etc/postgresql/17/main/pg_hba.conf
 ```
 
 and add at the very end:
