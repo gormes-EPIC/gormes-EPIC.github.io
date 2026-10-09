@@ -318,7 +318,7 @@ Notes for people coming from SQLite:
 
 ## Tips, Tricks, and Resources
 
-- See [this example](https://github.com/gormes-EPIC/expense_sample_database/tree/main) for reference. (This example has been majority AI generated so there may be mistakes, and it may use SQLite instead of PostgreSQL.)
+- See [this example](https://github.com/gormes-EPIC/expense_sample_database/tree/main) for reference. (This example has been majority AI generated so there may be mistakes.)
 - The [PostgreSQL tutorial](https://www.postgresql.org/docs/current/tutorial.html) and [data types reference](https://www.postgresql.org/docs/current/datatype.html) are the official docs.
 - Stuck on a `psql` command? Type `\?` inside `psql` for help.
 
