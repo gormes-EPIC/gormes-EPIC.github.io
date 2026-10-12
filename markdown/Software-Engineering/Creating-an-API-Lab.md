@@ -303,11 +303,15 @@ Test every protected route three ways: not logged in, logged in as a user who **
 | Find out who sent the request | `current_user.id`, `current_user.role` |
 | Limit a route to one type of user | `if current_user.role != "admin": return {...}, 403` |
 
+> Use [example repo](https://github.com/gormes-EPIC/expense_sample/tree/main) to help you. Remember, you don't need a frontend at this stage!
 
 ## Documentation
 
-We will create a `github.io` site to host the documentation for your program. This site needs three sections. Use [this repo]() as a template for your site.
+We will create a `github.io` site to host the documentation for your program. This site needs three sections: database, API, and frontend. Here is [one example](https://github.com/gormes-EPIC/expense_sample.github.io) of what your site could look like. You are welcome to use AI to create the template for your website, but I recommend that you use `.md` 
 
-As part of a README for your project, you will also add documentation from your API.
+**Important Tips:** 
+1. Install the **Live Server** VSCode extension by Ritwick Dey to view your site while it is in development
+2. In order for your site to be visible, your website's repo must be called `<your username>.github.io`. (You are only allowed on github.io site for free. Eventually we will modify this to make your full portfolio, not just a site for this project.)
 
-Use the examples below as inspiration for your documentation
+## Tips, Tricks, and Resources
+- Here is an [example repo](https://github.com/gormes-EPIC/expense_sample/tree/main) and it's associated [explain github.io site](https://github.com/gormes-EPIC/expense_sample.github.io)

@@ -359,6 +359,91 @@
             display: none;
         }
 
+        /* Warm-Up of the Day (box at the top of each class page) */
+        .warmup-box {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .warmup-box[hidden] {
+            display: none;
+        }
+        .warmup-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            cursor: pointer;
+            user-select: none;
+        }
+        .warmup-header .unit-fold-arrow {
+            margin-right: 0.5rem;
+        }
+        .warmup-header.collapsed .unit-fold-arrow {
+            transform: rotate(0deg);
+        }
+        .warmup-today[hidden] {
+            display: none;
+        }
+        .warmup-label {
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+        .warmup-date {
+            font-size: 0.85rem;
+            opacity: 0.7;
+            white-space: nowrap;
+        }
+        .warmup-title {
+            margin: 0.5rem 0 0;
+            font-size: 1.3rem;
+        }
+        .warmup-empty {
+            margin: 0.75rem 0 0;
+            opacity: 0.7;
+        }
+        .warmup-meta {
+            margin-top: -0.5rem;
+            opacity: 0.85;
+        }
+        /* Warm-up tables shrink to fit their columns instead of stretching, and
+           scroll sideways if they are still too wide for the box. */
+        .markdown-body.warmup-content table {
+            display: block;
+            width: max-content;
+            max-width: 100%;
+            overflow-x: auto;
+        }
+        .markdown-body.warmup-content th,
+        .markdown-body.warmup-content td {
+            padding: 0.4rem 0.75rem;
+        }
+        .warmup-box .markdown-body.warmup-content th {
+            background-color: var(--surface);
+        }
+        .warmup-archive {
+            margin-top: 1rem;
+            padding-top: 0.75rem;
+            border-top: 1px solid var(--border);
+        }
+        .warmup-archive summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .warmup-archive-unit {
+            margin: 1rem 0 0.25rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
         .nav-buttons { margin-bottom: 2rem; }
         
         .btn {
@@ -620,6 +705,7 @@
     <div id="app"></div>
 
     <script src="curriculum.js"></script>
+    <script src="warmups.js"></script>
 
     <script>
 
@@ -659,8 +745,10 @@
             if (!hash) {
                 renderHub();
             } else if (hash.includes('/')) {
-                const [className, assignmentName] = hash.split('/');
-                renderAssignment(className, assignmentName);
+                // Everything after the class name is the file's path, so warm-ups
+                // (#Class/Warm-Ups/File) load from the class's Warm-Ups folder.
+                const [className, ...filePath] = hash.split('/');
+                renderAssignment(className, filePath.join('/'));
             } else {
                 renderClassPage(hash);
             }
@@ -772,6 +860,128 @@
             return html;
         }
 
+        // --- Warm-Ups (from warmups.js) ---
+        const WARMUP_FOLDER = 'Warm-Ups';
+
+        // Today's date in the visitor's own time zone, as "YYYY-MM-DD".
+        function getTodayString() {
+            const now = new Date();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            return `${now.getFullYear()}-${month}-${day}`;
+        }
+
+        function formatWarmupDate(dateString) {
+            const [year, month, day] = dateString.split('-').map(Number);
+            return new Date(year, month - 1, day).toLocaleDateString(undefined, {
+                weekday: 'long', month: 'long', day: 'numeric'
+            });
+        }
+
+        // Warm-ups whose date has arrived, newest first. Future warm-ups (and
+        // any in a unit the author has hidden) stay off the site until their day.
+        function getReleasedWarmups(className) {
+            const today = getTodayString();
+            return (warmups[className] || [])
+                .filter(item => item.date <= today && isUnitVisible(className, item.unit ?? 0))
+                .sort((a, b) => b.date.localeCompare(a.date));
+        }
+
+        async function fetchWarmupHTML(className, file) {
+            const response = await fetch(`markdown/${className}/${WARMUP_FOLDER}/${file}.md`);
+            if (!response.ok) throw new Error('Warm-up file not found.');
+            return marked.parse(await response.text());
+        }
+
+        // The "Previous warm-ups" list: grouped by unit, each one a link to its own page.
+        function generateWarmupArchiveHTML(className, pastWarmups) {
+            if (pastWarmups.length === 0) return '';
+
+            const units = [...new Set(pastWarmups.map(item => item.unit ?? 0))].sort((a, b) => b - a);
+
+            let html = `<details class="warmup-archive">
+                <summary>Previous warm-ups (${pastWarmups.length})</summary>`;
+            units.forEach(unit => {
+                html += `<h4 class="warmup-archive-unit">${getUnitLabel(className, unit)}</h4>`;
+                pastWarmups.filter(item => (item.unit ?? 0) === unit).forEach(item => {
+                    html += `
+                        <a href="#${className}/${WARMUP_FOLDER}/${item.file}" class="list-item">
+                            <span class="list-item-text">${item.file.replace(/-/g, ' ')}</span>
+                            <span class="warmup-date">${formatWarmupDate(item.date)}</span>
+                        </a>
+                    `;
+                });
+            });
+            html += `</details>`;
+            return html;
+        }
+
+        // Fills the box at the top of a class page: today's warm-up shown in
+        // full, every earlier one listed underneath as a link to click through.
+        async function renderWarmupBox(className, boxEl) {
+            const released = getReleasedWarmups(className);
+            if (released.length === 0) return; // No warm-ups yet: leave the box hidden.
+
+            const today = getTodayString();
+            const todays = released.filter(item => item.date === today);
+            const past = released.filter(item => item.date !== today);
+
+            let todayHtml = '';
+            for (const item of todays) {
+                let content;
+                try {
+                    content = await fetchWarmupHTML(className, item.file);
+                } catch (error) {
+                    content = `<div class="error"><strong>Error:</strong> Could not load <code>markdown/${className}/${WARMUP_FOLDER}/${item.file}.md</code>.</div>`;
+                }
+                todayHtml += `
+                    <h3 class="warmup-title">${item.file.replace(/-/g, ' ')}</h3>
+                    <div class="markdown-body warmup-content">${content}</div>
+                `;
+            }
+            if (todays.length === 0) todayHtml = `<p class="warmup-empty">No warm-up posted for today.</p>`;
+
+            // The visitor may have left this class page while the file was loading.
+            if (!boxEl.isConnected) return;
+
+            // A visitor can fold today's warm-up away. The choice is saved with
+            // today's date, so tomorrow's warm-up shows up open again.
+            const hiddenKey = `hiddenWarmup-${className}`;
+            const collapsed = localStorage.getItem(hiddenKey) === today;
+
+            boxEl.innerHTML = `
+                <div class="warmup-header${collapsed ? ' collapsed' : ''}" role="button" tabindex="0" aria-expanded="${!collapsed}" title="Click to hide or show the warm-ups">
+                    <span class="warmup-label"><span class="unit-fold-arrow">▶</span>Warm-Up of the Day</span>
+                    <span class="warmup-date">${formatWarmupDate(today)}</span>
+                </div>
+                <div class="warmup-today"${collapsed ? ' hidden' : ''}>
+                    ${todayHtml}
+                    ${generateWarmupArchiveHTML(className, past)}
+                </div>
+            `;
+            boxEl.hidden = false;
+
+            const headerEl = boxEl.querySelector('.warmup-header');
+            const todayEl = boxEl.querySelector('.warmup-today');
+
+            function toggleWarmup() {
+                const nowCollapsed = !headerEl.classList.contains('collapsed');
+                headerEl.classList.toggle('collapsed', nowCollapsed);
+                headerEl.setAttribute('aria-expanded', String(!nowCollapsed));
+                todayEl.hidden = nowCollapsed;
+                if (nowCollapsed) localStorage.setItem(hiddenKey, today);
+                else localStorage.removeItem(hiddenKey);
+            }
+
+            headerEl.addEventListener('click', toggleWarmup);
+            headerEl.addEventListener('keydown', (event) => {
+                if (event.key !== 'Enter' && event.key !== ' ') return;
+                event.preventDefault();
+                toggleWarmup();
+            });
+            await enhanceMarkdown(`${className.replace(/-/g, ' ')} Warm-Up`);
+        }
+
         // --- 3. RENDER FUNCTIONS ---
         function renderHub() {
             let html = `
@@ -860,6 +1070,8 @@
                 <div class="nav-buttons">
                     <a href="#" class="btn">← Back to Hub</a>
                 </div>
+                <section id="warmup-box" class="warmup-box" hidden></section>
+
                 <h2>${displayName} Files</h2>
 
                 <div class="search-container">
@@ -875,6 +1087,7 @@
             `;
 
             appDiv.innerHTML = html;
+            renderWarmupBox(className, document.getElementById('warmup-box'));
 
             const fileListEl = document.getElementById('class-file-list');
 
@@ -925,6 +1138,136 @@
             });
         }
 
+        // --- Markdown Post-Processing ---
+        // Run after putting rendered markdown on the page (inside a .markdown-body)
+        // to turn on diagrams, copy buttons, email buttons, math, and in-page links.
+        async function enhanceMarkdown(emailSubject) {
+            // --- Mermaid Diagram Rendering ---
+            // marked.js turns ```mermaid fences into <pre><code class="language-mermaid">.
+            // Swap those for plain divs and let Mermaid render them into SVG.
+            const mermaidBlocks = appDiv.querySelectorAll('.markdown-body pre code.language-mermaid');
+            if (mermaidBlocks.length && window.mermaid) {
+                mermaidBlocks.forEach((codeEl) => {
+                    const graphDefinition = codeEl.textContent;
+                    const container = document.createElement('div');
+                    container.className = 'mermaid-diagram';
+                    container.textContent = graphDefinition;
+                    codeEl.closest('pre').replaceWith(container);
+                });
+                try {
+                    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
+                    await mermaid.run({ querySelector: '.markdown-body .mermaid-diagram' });
+                } catch (err) {
+                    console.error('Mermaid render error:', err);
+                }
+            }
+
+            // Highting code blocks with Highlight.js
+            // appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
+            //     // marked.js adds a "language-X" class if you specify a language.
+            //     // We only want to highlight if that class exists.
+            //     if (block.className.includes('language-')) {
+            //         hljs.highlightElement(block);
+            //     } else {
+            //         // For plain text blocks, just add the base class so it 
+            //         // gets the correct background, but skips the auto-coloring
+            //         block.classList.add('hljs'); 
+            //     }
+            // });
+            
+            const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
+            
+            codeBlocks.forEach(pre => {
+                // Create the button element
+                const copyBtn = document.createElement('button');
+                copyBtn.className = 'copy-btn';
+                copyBtn.textContent = 'Copy';
+                
+                // Add the click event to copy text
+                copyBtn.addEventListener('click', () => {
+                    // Find the actual <code> element inside the <pre>
+                    const codeElement = pre.querySelector('code');
+                    if (!codeElement) return;
+
+                    // Use the modern clipboard API
+                    navigator.clipboard.writeText(codeElement.innerText).then(() => {
+                        // Give the user visual feedback
+                        copyBtn.textContent = 'Copied!';
+                        copyBtn.style.color = '#34d399'; // Turn green temporarily
+                        copyBtn.style.borderColor = '#34d399';
+                        
+                        // Reset the button after 2 seconds
+                        setTimeout(() => {
+                            copyBtn.textContent = 'Copy';
+                            copyBtn.style.color = '';
+                            copyBtn.style.borderColor = '';
+                        }, 2000);
+                    }).catch(err => {
+                        console.error('Failed to copy text: ', err);
+                        copyBtn.textContent = 'Error';
+                    });
+                });
+                
+                // Append the button to the pre block
+                pre.appendChild(copyBtn);
+            });
+
+            // --- Email Button Embed ---
+            // In a markdown file, add: <email-button>Optional Label</email-button>
+            // to render a button that opens a Gmail compose draft addressed to the
+            // teacher, with the assignment title pre-filled as the subject.
+            const teacherEmail = 'gormes@lps.k12.co.us';
+
+            appDiv.querySelectorAll('.markdown-body email-button').forEach(placeholder => {
+                const label = placeholder.textContent.trim() || 'Email Mr. Gormes';
+                const btn = document.createElement('button');
+                btn.className = 'email-btn';
+                btn.type = 'button';
+                btn.innerHTML = `✉️ ${label}`;
+                btn.addEventListener('click', () => {
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(teacherEmail)}&su=${encodeURIComponent(emailSubject)}`;
+                    window.open(gmailUrl, '_blank', 'noopener');
+                });
+                placeholder.replaceWith(btn);
+            });
+
+            // We wrap this in a setTimeout of 0 to ensure the DOM has updated
+            // and the KaTeX script has fully loaded before it tries to run.
+            setTimeout(() => {
+                if (window.renderMathInElement) {
+                    renderMathInElement(appDiv, {
+                        delimiters: [
+                            {left: '$$', right: '$$', display: true}, // Block math
+                            {left: '$', right: '$', display: false}   // Inline math
+                        ],
+                        throwOnError: false // Prevents the whole page from breaking if you make a typo in your math
+                    });
+                }
+            }, 0);
+
+            const markdownLinks = appDiv.querySelectorAll('.markdown-body a');
+            
+            markdownLinks.forEach(link => {
+                const href = link.getAttribute('href');
+                
+                // If the link starts with #, doesn't have a slash, and isn't a Class name
+                if (href && href.startsWith('#') && !href.includes('/') && !curriculum[href.substring(1)]) {
+                    
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault(); // Stop the router from changing the page
+                        
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        
+                        if (targetElement) {
+                            // Smoothly scroll to the header!
+                            targetElement.scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                }
+            });
+        }
+
         // --- 6. RENDER INDIVIDUAL FILE ---
         async function renderAssignment(className, assignmentName) {
             appDiv.innerHTML = `<p>Loading...</p>`;
@@ -933,141 +1276,32 @@
                 if (!response.ok) throw new Error('Markdown file not found.');
                 
                 const markdownText = await response.text();
-                const htmlContent = marked.parse(markdownText); 
+                let htmlContent = marked.parse(markdownText); 
+
+                // Warm-up files hold only the question, so add their title, date, and unit.
+                const isWarmup = assignmentName.startsWith(`${WARMUP_FOLDER}/`);
+                if (isWarmup) {
+                    const file = assignmentName.substring(WARMUP_FOLDER.length + 1);
+                    const warmup = (warmups[className] || []).find(item => item.file === file);
+                    const details = warmup
+                        ? ` · ${formatWarmupDate(warmup.date)} · ${getUnitLabel(className, warmup.unit ?? 0)}`
+                        : '';
+                    htmlContent = `
+                        <h1>${file.replace(/-/g, ' ')}</h1>
+                        <p class="warmup-meta"><span class="warmup-label">Warm-Up</span>${details}</p>
+                        ${htmlContent}
+                    `;
+                }
                 
                 appDiv.innerHTML = `
                     <div class="nav-buttons">
                         <a href="#${className}" class="btn">← Back to Class</a>
                     </div>
-                    <div class="markdown-body">
+                    <div class="markdown-body${isWarmup ? ' warmup-content' : ''}">
                         ${htmlContent}
                     </div>
                 `;
-                // --- Mermaid Diagram Rendering ---
-                // marked.js turns ```mermaid fences into <pre><code class="language-mermaid">.
-                // Swap those for plain divs and let Mermaid render them into SVG.
-                const mermaidBlocks = appDiv.querySelectorAll('.markdown-body pre code.language-mermaid');
-                if (mermaidBlocks.length && window.mermaid) {
-                    mermaidBlocks.forEach((codeEl) => {
-                        const graphDefinition = codeEl.textContent;
-                        const container = document.createElement('div');
-                        container.className = 'mermaid-diagram';
-                        container.textContent = graphDefinition;
-                        codeEl.closest('pre').replaceWith(container);
-                    });
-                    try {
-                        mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
-                        await mermaid.run({ querySelector: '.markdown-body .mermaid-diagram' });
-                    } catch (err) {
-                        console.error('Mermaid render error:', err);
-                    }
-                }
-
-                // Highting code blocks with Highlight.js
-                // appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
-                //     // marked.js adds a "language-X" class if you specify a language.
-                //     // We only want to highlight if that class exists.
-                //     if (block.className.includes('language-')) {
-                //         hljs.highlightElement(block);
-                //     } else {
-                //         // For plain text blocks, just add the base class so it 
-                //         // gets the correct background, but skips the auto-coloring
-                //         block.classList.add('hljs'); 
-                //     }
-                // });
-                
-                const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
-                
-                codeBlocks.forEach(pre => {
-                    // Create the button element
-                    const copyBtn = document.createElement('button');
-                    copyBtn.className = 'copy-btn';
-                    copyBtn.textContent = 'Copy';
-                    
-                    // Add the click event to copy text
-                    copyBtn.addEventListener('click', () => {
-                        // Find the actual <code> element inside the <pre>
-                        const codeElement = pre.querySelector('code');
-                        if (!codeElement) return;
-
-                        // Use the modern clipboard API
-                        navigator.clipboard.writeText(codeElement.innerText).then(() => {
-                            // Give the user visual feedback
-                            copyBtn.textContent = 'Copied!';
-                            copyBtn.style.color = '#34d399'; // Turn green temporarily
-                            copyBtn.style.borderColor = '#34d399';
-                            
-                            // Reset the button after 2 seconds
-                            setTimeout(() => {
-                                copyBtn.textContent = 'Copy';
-                                copyBtn.style.color = '';
-                                copyBtn.style.borderColor = '';
-                            }, 2000);
-                        }).catch(err => {
-                            console.error('Failed to copy text: ', err);
-                            copyBtn.textContent = 'Error';
-                        });
-                    });
-                    
-                    // Append the button to the pre block
-                    pre.appendChild(copyBtn);
-                });
-
-                // --- Email Button Embed ---
-                // In a markdown file, add: <email-button>Optional Label</email-button>
-                // to render a button that opens a Gmail compose draft addressed to the
-                // teacher, with the assignment title pre-filled as the subject.
-                const teacherEmail = 'gormes@lps.k12.co.us';
-                const emailSubject = assignmentName.replace(/-/g, ' ');
-
-                appDiv.querySelectorAll('.markdown-body email-button').forEach(placeholder => {
-                    const label = placeholder.textContent.trim() || 'Email Mr. Gormes';
-                    const btn = document.createElement('button');
-                    btn.className = 'email-btn';
-                    btn.type = 'button';
-                    btn.innerHTML = `✉️ ${label}`;
-                    btn.addEventListener('click', () => {
-                        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(teacherEmail)}&su=${encodeURIComponent(emailSubject)}`;
-                        window.open(gmailUrl, '_blank', 'noopener');
-                    });
-                    placeholder.replaceWith(btn);
-                });
-
-                // We wrap this in a setTimeout of 0 to ensure the DOM has updated
-                // and the KaTeX script has fully loaded before it tries to run.
-                setTimeout(() => {
-                    if (window.renderMathInElement) {
-                        renderMathInElement(appDiv, {
-                            delimiters: [
-                                {left: '$$', right: '$$', display: true}, // Block math
-                                {left: '$', right: '$', display: false}   // Inline math
-                            ],
-                            throwOnError: false // Prevents the whole page from breaking if you make a typo in your math
-                        });
-                    }
-                }, 0);
-
-                const markdownLinks = appDiv.querySelectorAll('.markdown-body a');
-                
-                markdownLinks.forEach(link => {
-                    const href = link.getAttribute('href');
-                    
-                    // If the link starts with #, doesn't have a slash, and isn't a Class name
-                    if (href && href.startsWith('#') && !href.includes('/') && !curriculum[href.substring(1)]) {
-                        
-                        link.addEventListener('click', (e) => {
-                            e.preventDefault(); // Stop the router from changing the page
-                            
-                            const targetId = href.substring(1);
-                            const targetElement = document.getElementById(targetId);
-                            
-                            if (targetElement) {
-                                // Smoothly scroll to the header!
-                                targetElement.scrollIntoView({ behavior: 'smooth' });
-                            }
-                        });
-                    }
-                });
+                await enhanceMarkdown(assignmentName.split('/').pop().replace(/-/g, ' '));
 
             } catch (error) {
                 appDiv.innerHTML = `

@@ -41,16 +41,16 @@ class Car:
         self.mpg = mpg
 
 def main():
-	car1 = Car("Toyota", "Prius", 35)
-	car2 = Car("Subaru","Outback", 32)
-	car3 = Car("Ford", "F150", 25)
-	
-	parking_lot = [car1, car2, car3]
-	
-	## Write a program to sum the mpg of each car.
+    car1 = Car("Toyota", "Prius", 35)
+    car2 = Car("Subaru","Outback", 32)
+    car3 = Car("Ford", "F150", 25)
+
+    parking_lot = [car1, car2, car3]
+
+    ## Write a program to sum the mpg of each car.
 
 if __name__ == '__main__':
-	main()
+    main()
 ```
 
 
