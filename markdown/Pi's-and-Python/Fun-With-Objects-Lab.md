@@ -86,7 +86,7 @@ def main():
 
 
 if __name__ == '__main__':
-	main()
+    main()
 ```
 <details>
 <summary>Click here for a hint</summary>
@@ -148,7 +148,7 @@ def main():
    
 
 if __name__ == '__main__':
-	main()
+    main()
 ```
 
 Output:
