@@ -35,7 +35,11 @@ const unitInfo = {
         4: { name: "Distrobution", visible: false}
     },
     "Foundations-of-AI": {
-        0: { name: "CI/CD and Version Control"},
+        0: { name: "The Foundations of Data"},
+        1: { name: "Supervised Learning and Predictive Modeling"},
+        2: { name: "Deep Learning and Computer Vision"},
+        3: { name: "Generative AI and Advanced Architectures"},
+        4: { name: "LLM Systems, RAG, and Agents"}
     }
 };
 
@@ -188,27 +192,21 @@ const curriculum = {
                 { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
             ],
             "Foundations-of-AI": [
-                { file: "notes", type: "notes", unit: 0 },
-                { file: "Image-Classification", type: "assignment", unit: 0 }
-            ],
-            "Workforce-Readiness": [
-                // Pi's and Python
+                { file: "Foundations-of-AI-Syllabus", type: "notes", unit: 0 },
                 
-                // Data Structures
-                { file: "Writing-in-Markdown-Notes", type: "notes", unit: 0 },
-                { file: "Technical-Writing-Notes", type: "notes", unit: 0 },
-                { file: "Effective-READMEs", type: "assignment", unit: 0 },
-                { file: "Computer-Science-News-Presentation", type: "assignment", unit: 0 },
-                { file: "Writing-a-Cover-Letter", type: "assignment", unit: 0 },
-                { file: "My-Strengths-and-Weaknesses", type: "assignment", unit: 0 },
-                { file: "Technical-Interview-Practice", type: "assignment", unit: 0 },
+                { file: "Visualizing-AI-Lab", type: "assignment", unit: 0 },
+                { file: "Introduction-to-Statistics-Notes", type: "notes", unit: 0 },
+                { file: "Statistics-Math-Practice", type: "assignment", unit: 0 },
+                { file: "pandas-Notes", type: "notes", unit: 0 },
+                { file: "Data-Scavenger-Hunt", type: "assignment", unit: 0 },
+                { file: "Answering-Research-Questions-with-Data", type: "assignment", unit: 0 },
+                { file: "Linear-Algebra-Concept-Notes", type: "notes", unit: 0 },
+                { file: "Linear-Algebra-Foundations-Math-Practice", type: "assignment", unit: 0 },
+                { file: "Image-Manipulation-Lab", type: "assignment", unit: 0 },
+                { file: "Visualizing-Data-Lab", type: "assignment", unit: 0 },
+                { file: "Identifying-Personas-Lab", type: "assignment", unit: 0 }
 
-                // Software Engineering
-               
-                // Foundations of AI
+                
             ]
-            // "Other": [
-            //     { file: "Diagnostic-Pretest", type: "assignment", unit: 0 }
-            // ]
             
         };
