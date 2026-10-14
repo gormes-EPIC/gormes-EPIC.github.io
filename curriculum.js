@@ -36,10 +36,11 @@ const unitInfo = {
     },
     "Foundations-of-AI": {
         0: { name: "The Foundations of Data"},
-        1: { name: "Supervised Learning and Predictive Modeling"},
-        2: { name: "Deep Learning and Computer Vision"},
-        3: { name: "Generative AI and Advanced Architectures"},
-        4: { name: "LLM Systems, RAG, and Agents"}
+        1: { name: "Unsupervised and Supervised Machine Learning"},
+        2: { name: "Deep Learning, Computer Vision, and Sequence Modeling"},
+        3: { name: "Generative AI and Large Language Models"},
+        4: { name: "Vector Semantics, RAG, and Autonomous Agents"},
+        5: { name: "Capstone Project"}
     }
 };
 
@@ -206,7 +207,7 @@ const curriculum = {
                 { file: "Visualizing-Data-Lab", type: "assignment", unit: 0 },
                 { file: "Identifying-Personas-Lab", type: "assignment", unit: 0 }
 
-                
+
             ]
             
         };

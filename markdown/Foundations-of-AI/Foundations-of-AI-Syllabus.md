@@ -1,7 +1,5 @@
 # Foundations of Artificial Intelligence Syllabus
 
-# Raspberry Pi's and Python Syllabus
-
 | Instructor Information      | Course Information        |
 | --------------------------- | ------------------------- |
 | Gwyneth Ormes               | Room Number: E214         |
@@ -18,10 +16,11 @@ This course gives students a complete foundation in artificial intelligence, fro
 *Note: The schedule of topics is subject to change, based on students’ needs and interests.*
 
 - **Unit 0:** The Foundations of Data
-- **Unit 1:** Supervised Learning and Predictive Modeling
-- **Unit 2:** Deep Learning and Computer Vision
-- **Unit 3:** Generative AI and Advanced Architectures
-- **Unit 4:** LLM Systems, RAG, and Agents
+- **Unit 1:** Unsupervised and Supervised Machine Learning
+- **Unit 2:** nDeep Learning, Computer Vision, and Sequence Modeling
+- **Unit 3:** Generative AI and Large Language Models
+- **Unit 4:** Vector Semantics, RAG, and Autonomous Agents
+- **Unit 5:** Capstone Project
 
 ## Learning Objectives
 
