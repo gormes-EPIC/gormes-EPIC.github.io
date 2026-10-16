@@ -195,26 +195,26 @@ const curriculum = {
             "Foundations-of-AI": [
                 { file: "Foundations-of-AI-Syllabus", type: "notes", unit: 0 },
                 
-                { file: "Unit-0-Math-Practice", type: "exercises", unit: 0 },
+                { file: "Unit-0-Math-Practice", type: "exercise", unit: 0 },
                 { file: "Data-Scavenger-Hunt-Activity", type: "assignment", unit: 0 },
                 { file: "Image-Editing-Lab", type: "assignment", unit: 0 },
                 // { file: "Answering-Research-Questions-with-Data", type: "assignment", unit: 0 },
                 
-                // { file: "Unit-1-Math-Practice", type: "exercises", unit: 1},
+                // { file: "Unit-1-Math-Practice", type: "exercise", unit: 1},
                 // { file: "K-Means-Customer-Personas-Activity", type: "assignment", unit: 1},
                 // { file: "Linear-Regression-Ticket-Price-Calculator-Lab", type: "assignment", unit: 1},
                 // { file: "Titanic-Survival-Classification-Lab", type: "assignment", unit: 1},
                 // { file: "Credit-Analysis-Acitivty", type: "assignment", unit: 1},
 
-                // { file: "Unit-2-Math-Practice", type: "exercises", unit: 2},
+                // { file: "Unit-2-Math-Practice", type: "exercise", unit: 2},
                 // { file: "Is-It-a-Cat?-Lab", type: "assignment", unit: 2},
                 // { file: "Sentiment-Classification-Lab", type: "assignment", unit: 2},
                 
-                // { file: "Unit-3-Math-Practice", type: "exercises", unit: 3},
+                // { file: "Unit-3-Math-Practice", type: "exercise", unit: 3},
                 // { file: "Generative-Image-Exploration-Activity", type:"assignment", unit: 3},
                 // { file: "Star-Trek-Lab", type:"assignment", unit: 3},
                 
-                // { file: "Unit-4-Math-Practice", type: "exercises", unit: 4},
+                // { file: "Unit-4-Math-Practice", type: "exercise", unit: 4},
                 // { file: "RAG-PDF-Searcher-Lab", type: "assignment", unit: 4},
                 // { file: "RPG-Dungeon-Master-Lab", type: "assignment", unit: 4},
 

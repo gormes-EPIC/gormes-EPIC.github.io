@@ -43,5 +43,5 @@
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your binary display. You will also need to answer the reflection questions.
 
 ## Rubric
-- **20 points** - All required items are present.
+- **10 points** - All required items are present.
 - **0 points** - Task was not attempted to completion or student should reattempt.
