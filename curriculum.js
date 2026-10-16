@@ -195,19 +195,30 @@ const curriculum = {
             "Foundations-of-AI": [
                 { file: "Foundations-of-AI-Syllabus", type: "notes", unit: 0 },
                 
-                { file: "Visualizing-AI-Lab", type: "assignment", unit: 0 },
-                { file: "Introduction-to-Statistics-Notes", type: "notes", unit: 0 },
-                { file: "Statistics-Math-Practice", type: "assignment", unit: 0 },
-                { file: "pandas-Notes", type: "notes", unit: 0 },
-                { file: "Data-Scavenger-Hunt", type: "assignment", unit: 0 },
-                { file: "Answering-Research-Questions-with-Data", type: "assignment", unit: 0 },
-                { file: "Linear-Algebra-Concept-Notes", type: "notes", unit: 0 },
-                { file: "Linear-Algebra-Foundations-Math-Practice", type: "assignment", unit: 0 },
-                { file: "Image-Manipulation-Lab", type: "assignment", unit: 0 },
-                { file: "Visualizing-Data-Lab", type: "assignment", unit: 0 },
-                { file: "Identifying-Personas-Lab", type: "assignment", unit: 0 }
+                { file: "Unit-0-Math-Practice", type: "exercises", unit: 0 },
+                { file: "Data-Scavenger-Hunt-Activity", type: "assignment", unit: 0 },
+                { file: "Image-Editing-Lab", type: "assignment", unit: 0 },
+                // { file: "Answering-Research-Questions-with-Data", type: "assignment", unit: 0 },
+                
+                // { file: "Unit-1-Math-Practice", type: "exercises", unit: 1},
+                // { file: "K-Means-Customer-Personas-Activity", type: "assignment", unit: 1},
+                // { file: "Linear-Regression-Ticket-Price-Calculator-Lab", type: "assignment", unit: 1},
+                // { file: "Titanic-Survival-Classification-Lab", type: "assignment", unit: 1},
+                // { file: "Credit-Analysis-Acitivty", type: "assignment", unit: 1},
 
+                // { file: "Unit-2-Math-Practice", type: "exercises", unit: 2},
+                // { file: "Is-It-a-Cat?-Lab", type: "assignment", unit: 2},
+                // { file: "Sentiment-Classification-Lab", type: "assignment", unit: 2},
+                
+                // { file: "Unit-3-Math-Practice", type: "exercises", unit: 3},
+                // { file: "Generative-Image-Exploration-Activity", type:"assignment", unit: 3},
+                // { file: "Star-Trek-Lab", type:"assignment", unit: 3},
+                
+                // { file: "Unit-4-Math-Practice", type: "exercises", unit: 4},
+                // { file: "RAG-PDF-Searcher-Lab", type: "assignment", unit: 4},
+                // { file: "RPG-Dungeon-Master-Lab", type: "assignment", unit: 4},
 
+                // { file: "Final-Project", type: "assignment", unit: 5}
             ]
             
         };

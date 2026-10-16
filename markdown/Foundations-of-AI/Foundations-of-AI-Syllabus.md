@@ -37,6 +37,10 @@ By the end of this course, students will be able to:
 9. **Autonomous Agents and Deployment:** Design autonomous systems using tool-use and multi-turn logic, and learn to export models or serve them via APIs.
 10. **Vector Semantics:** Utilize vector embeddings and cosine similarity to build recommendation engines and search tools.
 
+## Resources
+
+While not required reading, use the following resources as a reference for this course:
+- [Deep Learning With Python](https://deeplearningwithpython.io/)
 
 ## Policies and Grading
 
