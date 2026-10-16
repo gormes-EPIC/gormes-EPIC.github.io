@@ -52,7 +52,6 @@ for c, ax in zip(range(3), axs):
 
 - [matplotlib Image Tutorial](https://matplotlib.org/stable/tutorials/images.html)
 - [NumPy Indexing and Slicing](https://numpy.org/doc/stable/user/basics.indexing.html)
-- A `.jpg` loads as whole numbers from `0` to `255`, while a `.png` loads as decimals from `0.0` to `1.0` and may have a fourth (transparency) channel.
 - Remember that negative indexes count from the end of an array, and a step of `-1` reverses it.
 
 ## Reflection Questions
