@@ -19,7 +19,21 @@ Students build and launch a complete web application from start to finish. They 
 - **Unit 1:** Databases with SQLite
 - **Unit 2:** How Computers Talk and APIs
 - **Unit 3:** Containerization
-- **Unit 4:** Distrobution
+- **Unit 4:** Distribution
+
+## Learning Objectives
+
+- **Manage Professional Development Workflows:** Use advanced Git features, environment variables, and virtual environments to organize, share, and maintain code.
+- **Design Relational Databases:** Model real-world data, design database structures, and implement them in SQLite and PostgreSQL.
+- **Query and Manipulate Data:** Write SQL queries, including joins, and access databases from Python programs.
+- **Build and Consume APIs:** Send requests to existing APIs and create custom APIs that support each use case of a full-stack application.
+- **Write Secure and Reliable Code:** Implement error handling and logging while recognizing the security risks of exposing sensitive information.
+- **Develop User-Facing Interfaces:** Create a front end that communicates with an API to deliver a complete user experience.
+- **Containerize and Deploy Applications:** Package applications with Docker and deploy them on Raspberry Pi servers using hypervisors and load balancing.
+- **Monitor System Performance:** Maintain application uptime and reliability through deployment monitoring and troubleshooting.
+- **Evaluate Software Design and Ethics:** Analyze software design philosophies, real-world failures, and ethical dilemmas to inform responsible development decisions.
+- **Communicate Technical Work:** Write clear documentation, give and receive design feedback, and present a finished application to an audience.
+
 
 ## Policies and Grading
 
