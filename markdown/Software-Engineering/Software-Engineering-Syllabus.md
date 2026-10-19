@@ -7,7 +7,7 @@
 
 ## Course Description
 
-This course will focus on version control, project management, and teamwork. Students will work in teams to develop software from the initial planning phases to the final product. Students will be expected to document their processes and present their programs. This course should be taken after Data Structures & Algorithms(EPIC) or AP Computer Science A(EPIC, Arapahoe, Heritage).
+Students build and launch a complete web application from start to finish. They learn to organize and store data, create the behind-the-scenes code that powers an app, and design the screens users interact with. Students then put their applications online using their own small servers, learning how to keep them running smoothly and reliably. Along the way, they explore what makes software well designed and examine real-world cases where technology went wrong and the ethical questions those cases raise. This course should be taken after Data Structures & Algorithms(EPIC) or AP Computer Science A(EPIC, Arapahoe, Heritage).
 
 **Semester Course/Credits:** 0.5 Computer Science Elective and 0.5 Language Arts per semester
 

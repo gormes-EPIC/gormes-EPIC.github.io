@@ -7,7 +7,7 @@
 
 ## Course Description
 
-This course gives students a complete foundation in artificial intelligence, from the mathematics and data skills that underpin it to the modern systems shaping the field today. Through hands-on projects, students learn to build, evaluate, and deploy AI models while thinking critically about their ethical impact. By the end, they are prepared to create AI solutions that work well and are used responsibly.
+This course gives students a complete foundation in artificial intelligence, from the mathematics and data skills that underpin it to the modern systems shaping the field today. Through hands-on projects, students learn to build, evaluate, and deploy AI models while thinking critically about their ethical impact. By the end, they are prepared to create AI solutions that work well and are used responsibly. Software Engineering(EPIC) is the recommended prerequisite. 
 
 **Semester Course/Credits:** 0.5 Computer Science Elective and 0.5 Mathematics per semester
 

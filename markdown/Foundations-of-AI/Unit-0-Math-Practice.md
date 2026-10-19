@@ -1,5 +1,7 @@
 # Unit 0 Math Practice
 
+**This assignment is under construction for the 26-27 school year.**
+
 ## Objectives
 1. Calculate measures of center (mean, median, mode) and spread (range, standard deviation) for a dataset.
 2. Represent data as vectors and matrices, and identify their dimensions.

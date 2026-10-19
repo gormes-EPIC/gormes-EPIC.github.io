@@ -1,5 +1,8 @@
 # Unit 2 Math Practice
 
+**This assignment is under construction for the 26-27 school year.**
+
+
 ## Objectives
 1. Multiply matrices and explain how matrix multiplication passes data through a layer of a neural network.
 2. Describe how gradient descent uses the slope of the loss to update weights and reduce error.

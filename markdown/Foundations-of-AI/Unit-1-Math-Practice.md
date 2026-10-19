@@ -1,7 +1,10 @@
 # Unit 1 Math Practice
 
+**This assignment is under construction for the 26-27 school year.**
+
+
 ## Objectives
-1. Interpret the slope and intercept of a line, and use y = mx + b to make predictions.
+1. Interpret the slope and intercept of a line, and use $y = mx + b$ to make predictions.
 2. Calculate the probability of simple, combined, and conditional events.
 3. Compute a loss value, such as mean squared error, to measure how far predictions are from actual values.
 4. Explain how optimization adjusts model parameters step by step to reduce loss.

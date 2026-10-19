@@ -7,7 +7,7 @@
 
 ## Course Description
 
-This course covers foundational programming concepts like variables, loops, conditionals, and functions using Python and the structure and fundamentals of the Linux operating system and terminal. Basic computer hardware and GPIO components will be covered via System on a Chip (SOC) systems such as Raspberry Pi’s. Students will code using Python to create Internet of Things (IoT) inventions for their final project. This is a beginner level course.
+This course is designed for students with little or no programming experience. Students learn to write programs in Python, a widely used and approachable language, and apply those skills to control electronic components with a Raspberry Pi, a small, low-cost computer. Through hands-on projects, students build applications that read sensors and respond to their environment, while learning to plan their code, identify and correct errors, and work within the Linux operating system. Students will code using Python to create their own inventions for their final project. This is a beginner level course.
 
 **Semester Course/Credits:** 0.5 Computer Science Elective and 0.5 Mathematics per semester
 

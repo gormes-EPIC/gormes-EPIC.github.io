@@ -7,7 +7,7 @@
 
 ## Course Description
 
-This course will delve into a variety of programming data structures such as arrays, lists, stacks, trees, queues, and hash tables. Students will program in object-oriented languages and study principles of object-oriented programming. This course will also cover the analysis of algorithms and challenge students to program efficiently using their understanding of data structures and algorithmic efficiency. Raspberry Pi’s and Python(EPIC) or another introductory Python course(Araphahoe, Heritage) is the recommended prerequisite.
+This course builds on introductory programming to develop the skills needed to design efficient, well-structured software. Students apply object-oriented principles to build modular, reusable code, implement core data structures and classic searching and sorting algorithms, and use recursion to break complex problems into smaller parts. They analyze the runtime and memory efficiency of their solutions using asymptotic notation, write tests and documentation to keep code maintainable, and practice explaining algorithms clearly. Raspberry Pi’s and Python(EPIC) or another introductory Python course(Araphahoe, Heritage) is the recommended prerequisite.
 
 **Semester Course / Credits:** .5 Math, .5 Computer Science Elective per semester
 
@@ -28,14 +28,16 @@ This course will delve into a variety of programming data structures such as arr
 
 By the end of this course, students will be able to:
 
-1. **Derive and Analyze Runtime Efficiency:** Write and compare runtime functions, to express the efficiency of algorithms using upper/lower bounds and asymptotic notations ($O,\Omega , \Theta$).
-2. **Understand Memory Efficiency:** Calculate the memory efficiency of different data structures and leverage it to design efficient systems.
-3. **Implement Known Algorithms:** Implement searching and sorting algorithms (e.g., bubble sort, selection sort, insertion sort, mergesort, quicksort) to solve problems efficiently.
-4. **Model Data Structures:** Implement data structures like arrays, ArrayList, LinkedList, stacks, queues, hash tables, trees, heaps, etc.
-5. **Communicate Algorithmic Concepts:** Model searching and sorting algorithms physically and through diagrams, implementing them with code, and presenting findings in a clear and concise manner.
-6.  **Write Adaptable and Testable Code:** Create test cases and debug programs using inline and Javadoc comments, recognizing the importance of maintainable code.
-7. **Develop Problem-Solving Strategies:** Iteratively design efficient solutions to prompts, minimizing runtime and memory cost.
-8. **Prepare for a Computer Science Career:** Understand the field, leverage industry tools, and practice real-world skills to prepare for the workforce.
+1. **Design with Objects:** Apply object-oriented principles (classes, encapsulation, inheritance, polymorphism, and interfaces) to model real-world entities and build modular, reusable code.
+2. **Think Recursively:** Break problems into smaller self-similar subproblems, identify base and recursive cases, trace recursive calls through the call stack, and compare recursive and iterative solutions in terms of runtime and memory.
+3. **Derive and Analyze Runtime Efficiency:** Write and compare runtime functions, to express the efficiency of algorithms using upper/lower bounds and asymptotic notations ($O,\Omega , \Theta$).
+4. **Understand Memory Efficiency:** Calculate the memory efficiency of different data structures and leverage it to design efficient systems.
+5. **Implement Known Algorithms:** Implement searching and sorting algorithms (e.g., bubble sort, selection sort, insertion sort, mergesort, quicksort) to solve problems efficiently.
+6. **Model Data Structures:** Implement data structures like arrays, ArrayList, LinkedList, stacks, queues, hash tables, trees, heaps, etc.
+7. **Communicate Algorithmic Concepts:** Model searching and sorting algorithms physically and through diagrams, implementing them with code, and presenting findings in a clear and concise manner.
+8.  **Write Adaptable and Testable Code:** Create test cases and debug programs using inline and Javadoc comments, recognizing the importance of maintainable code.
+9. **Develop Problem-Solving Strategies:** Iteratively design efficient solutions to prompts, minimizing runtime and memory cost.
+10. **Prepare for a Computer Science Career:** Understand the field, leverage industry tools, and practice real-world skills to prepare for the workforce.
 
 ## Technologies
 
