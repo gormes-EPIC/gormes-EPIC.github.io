@@ -11,11 +11,11 @@
 
 ## Round 2
 7. Typing in a search box that shows suggestions as you type
-8. Clicking “Add to cart”
-9. Clicking “Next page” on search results
+8. Clicking "Add to cart"
+9. Clicking "Next page" on search results
 10. Signing up for a newsletter
 11. Filtering products by price on a shopping site
-12. Clicking “Forgot password” and submitting your email
+12. Clicking "Forgot password" and submitting your email
 
 <details>
 <summary>Click here to view the answer</summary>
