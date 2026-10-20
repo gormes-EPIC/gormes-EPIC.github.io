@@ -271,6 +271,12 @@
             color: var(--badge-wfr-text);
         }
 
+        /* About Me button, centered under the class cards */
+        .about-link {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
         /* 2-Column Grid */
         .grid {
             display: grid;
@@ -776,6 +782,8 @@
             
             if (!hash) {
                 renderHub();
+            } else if (hash === ABOUT_PAGE) {
+                renderAboutPage();
             } else if (hash.includes('/')) {
                 // Everything after the class name is the file's path, so warm-ups
                 // (#Class/Warm-Ups/File) load from the class's Warm-Ups folder.
@@ -1053,12 +1061,45 @@
             
             html += `
                     </div>
+                    ${SHOW_ABOUT_BUTTON ? `<div class="about-link">
+                        <a href="#${ABOUT_PAGE}" class="btn">About Me</a>
+                    </div>` : ''}
                 </div>
                 <div id="search-results"></div>
             `;
             
             appDiv.innerHTML = html;
             document.getElementById('search-input').addEventListener('input', handleGlobalSearch);
+        }
+
+        // --- About Me page (markdown/About-Me.md), linked from the hub ---
+        const ABOUT_PAGE = 'About-Me';
+        // Set to true to show the About Me button under the class cards.
+        const SHOW_ABOUT_BUTTON = false;
+
+        async function renderAboutPage() {
+            appDiv.innerHTML = `<p>Loading...</p>`;
+            try {
+                const response = await fetch(`markdown/${ABOUT_PAGE}.md`);
+                if (!response.ok) throw new Error('Markdown file not found.');
+
+                appDiv.innerHTML = `
+                    <div class="nav-buttons">
+                        <a href="#" class="btn">← Back to Hub</a>
+                    </div>
+                    <div class="markdown-body">
+                        ${marked.parse(await response.text())}
+                    </div>
+                `;
+                await enhanceMarkdown('About Me');
+            } catch (error) {
+                appDiv.innerHTML = `
+                    <div class="nav-buttons"><a href="#" class="btn">← Back to Hub</a></div>
+                    <div class="error">
+                        <strong>Error:</strong> Could not load <code>markdown/${ABOUT_PAGE}.md</code>.
+                    </div>
+                `;
+            }
         }
 
         // --- 4. GLOBAL SEARCH LOGIC ---
