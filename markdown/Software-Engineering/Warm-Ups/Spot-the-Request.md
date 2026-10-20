@@ -4,7 +4,7 @@
 
 1. Opening a YouTube video page
 2. Posting a comment on that video
-3. Checking the weather in an app4
+3. Checking the weather in an app
 4. Sending a text in a messaging app
 5. Viewing your Amazon order history
 6. Uploading a profile picture
