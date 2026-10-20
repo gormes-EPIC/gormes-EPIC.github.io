@@ -30,7 +30,9 @@ sequenceDiagram
 
 When a user logs in, Flask sends back a **session cookie**: a small signed piece of text holding that user's id. The client sends the cookie back with every later request, and Flask-Login uses it to look up the user.
 
-The examples below add logins to the expense database from the [Database Implementation Lab](#Software-Engineering/Database-Implementation-Lab). It has two types of users: a `viewer` who can read expenses, and an `admin` who can also add categories. Swap in your own tables and user types.
+The examples below add logins to the expense database from the [Database Implementation Lab](#Software-Engineering/Database-Implementation-Lab). It has two types of users: a `viewer` who can read expenses, and an `admin` who can also add categories. Swap in your own tables and user types.''
+
+If you get stuck, see [this example program](https://github.com/gormes-EPIC/Flask-Example/blob/main/app.py) which combines all the parts. 
 
 ### Step 1: Install Flask-Login
 
