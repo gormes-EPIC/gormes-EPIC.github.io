@@ -18,9 +18,9 @@
 
 const warmups = {
     "Pi's-and-Python": [
-        { file: "Reverse-Engineering-Activity", date:"2026-08-20", unit: 1},
-        { file: "Linux-Terminal-Command-Review", date:"2026-08-24", unit: 1},
-        { file: "PEMMDDAS-Problems", date:"2026-08-26", unit: 1},
+        { file: "Reverse-Engineering-Activity", date:"2026-08-20", unit: 0},
+        { file: "Linux-Terminal-Command-Review", date:"2026-08-24", unit: 0},
+        { file: "PEMMDDAS-Problems", date:"2026-08-26", unit: 0},
         { file: "If-Statement-Vocab", date:"2026-09-10", unit: 2},
         { file: "Hidden-Mystery-Puzzle", date:"2026-10-06", unit: 3},
         { file: "Decode-the-Secret-Message", date:"2026-10-08", unit: 3},
@@ -29,6 +29,7 @@ const warmups = {
     "Data-Structures-and-Algorithms": [
     ],
     "Software-Engineering": [
+        { file: "Spot-the-Request", date: "2026-10-20", unit: 2}
         // { file: "Query-Parameters", date: "2026-10-07", unit: 2 },
         // { file: "Reading-a-Route", date: "2026-10-08", unit: 2 },
         // { file: "Status-Codes", date: "2026-10-09", unit: 2 },
