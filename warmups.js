@@ -1,5 +1,5 @@
 // --- Warm-Ups ---
-// Each class page shows a "Warm-Up of the Day" box at the top.
+// Each unit on a class page has a "Warm-Ups" list, newest first.
 //
 // To add a warm-up:
 //   1. Save the question as a markdown file in the class's Warm-Ups folder:
@@ -11,13 +11,16 @@
 //          date: the day it is the warm-up, written "YYYY-MM-DD"
 //          unit: the unit number it belongs to (named in curriculum.js)
 //
-// On its date, a warm-up is shown in full in the box. After that it moves to
-// the "Previous warm-ups" list, where students click through to open it.
+// On its date, a warm-up appears in its unit's list, where students click
+// through to open it. Link to it from the day's agenda (see agendas.js).
 // A warm-up with a future date stays off the site until that day, so you can
 // write them ahead of time.
 
 const warmups = {
     "Pi's-and-Python": [
+        { file: "Reverse-Engineering-Activity", date:"2026-08-20", unit: 1},
+        { file: "Linux-Terminal-Command-Review", date:"2026-08-24", unit: 1},
+        { file: "PEMMDDAS-Problems", date:"2026-08-26", unit: 1},
         { file: "If-Statement-Vocab", date:"2026-09-10", unit: 2},
         { file: "Hidden-Mystery-Puzzle", date:"2026-10-06", unit: 3},
         { file: "Decode-the-Secret-Message", date:"2026-10-08", unit: 3},

@@ -359,8 +359,8 @@
             display: none;
         }
 
-        /* Warm-Up of the Day (box at the top of each class page) */
-        .warmup-box {
+        /* Today's Agenda (box at the top of each class page) */
+        .agenda-box {
             background: var(--bg);
             border: 1px solid var(--border);
             border-left: 4px solid var(--primary);
@@ -368,10 +368,10 @@
             padding: 1.25rem 1.5rem;
             margin-bottom: 2rem;
         }
-        .warmup-box[hidden] {
+        .agenda-box[hidden] {
             display: none;
         }
-        .warmup-header {
+        .agenda-header {
             display: flex;
             align-items: baseline;
             justify-content: space-between;
@@ -380,71 +380,81 @@
             cursor: pointer;
             user-select: none;
         }
-        .warmup-header .unit-fold-arrow {
+        .agenda-header .unit-fold-arrow {
             margin-right: 0.5rem;
         }
-        .warmup-header.collapsed .unit-fold-arrow {
+        .agenda-header.collapsed .unit-fold-arrow {
             transform: rotate(0deg);
         }
-        .warmup-today[hidden] {
+        .agenda-today[hidden] {
             display: none;
         }
-        .warmup-label {
+        .agenda-today > .markdown-body {
+            margin-top: 0.5rem;
+        }
+        .day-label {
             color: var(--primary);
             font-size: 0.8rem;
             font-weight: 700;
             letter-spacing: 1px;
             text-transform: uppercase;
         }
-        .warmup-date {
+        .day-date {
             font-size: 0.85rem;
             opacity: 0.7;
             white-space: nowrap;
         }
-        .warmup-title {
-            margin: 0.5rem 0 0;
-            font-size: 1.3rem;
-        }
-        .warmup-empty {
+        .agenda-empty {
             margin: 0.75rem 0 0;
             opacity: 0.7;
         }
-        .warmup-meta {
+        .day-meta {
             margin-top: -0.5rem;
             opacity: 0.85;
         }
-        /* Warm-up tables shrink to fit their columns instead of stretching, and
-           scroll sideways if they are still too wide for the box. */
-        .markdown-body.warmup-content table {
+        /* Warm-up and agenda tables shrink to fit their columns instead of
+           stretching, and scroll sideways if they are still too wide. */
+        .markdown-body.warmup-content table,
+        .agenda-box .markdown-body table {
             display: block;
             width: max-content;
             max-width: 100%;
             overflow-x: auto;
         }
         .markdown-body.warmup-content th,
-        .markdown-body.warmup-content td {
+        .markdown-body.warmup-content td,
+        .agenda-box .markdown-body th,
+        .agenda-box .markdown-body td {
             padding: 0.4rem 0.75rem;
         }
-        .warmup-box .markdown-body.warmup-content th {
+        .agenda-box .markdown-body th {
             background-color: var(--surface);
         }
-        .warmup-archive {
+        .agenda-archive {
             margin-top: 1rem;
             padding-top: 0.75rem;
             border-top: 1px solid var(--border);
         }
-        .warmup-archive summary {
+        .agenda-archive summary,
+        .unit-warmups summary {
             cursor: pointer;
             font-weight: 600;
             color: var(--primary);
         }
-        .warmup-archive-unit {
-            margin: 1rem 0 0.25rem;
-            font-size: 0.9rem;
-            opacity: 0.8;
+
+        /* Each unit's warm-ups, folded into one row above the unit's files */
+        .unit-warmups {
+            margin: 0 0 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .unit-warmups[open] summary {
+            margin-bottom: 0.5rem;
         }
 
-        .nav-buttons { margin-bottom: 2rem; }
+        .nav-buttons { display: flex; margin-bottom: 2rem; }
+        #export-pdf-btn { margin-left: auto; }
         
         .btn {
             background: var(--surface);
@@ -454,6 +464,7 @@
             cursor: pointer;
             text-decoration: none;
             color: var(--text);
+            font-family: inherit;
             font-size: 0.9rem;
             transition: background-color 0.2s;
         }
@@ -628,6 +639,12 @@
 
         /* PRINT MODE */
         @media print {
+            /* 0. Leave a margin above and below every printed page
+               (the side margins are padding on #app, so they appear even if the print dialog overrides @page) */
+            @page {
+                margin: 0.75in 0;
+            }
+
             /* 1. Hide everything that isn't the document itself */
             #theme-toggle,
             .nav-buttons,
@@ -652,6 +669,20 @@
             #app {
                 max-width: 100% !important;
                 border: none !important;
+                padding: 0 0.75in !important;
+            }
+
+            /* 3b. Print everything in black and white: no colored text, tinted boxes, or faded text */
+            .markdown-body * {
+                color: black !important;
+                background: transparent !important;
+                border-color: black !important;
+                opacity: 1 !important;
+                text-shadow: none !important;
+            }
+            .markdown-body img,
+            .markdown-body svg {
+                filter: grayscale(100%) !important;
             }
 
             /* 4. Format links for paper (black and underlined) */
@@ -706,6 +737,7 @@
 
     <script src="curriculum.js"></script>
     <script src="warmups.js"></script>
+    <script src="agendas.js"></script>
 
     <script>
 
@@ -838,22 +870,24 @@
         // --- Helper Function to Render Files Grouped by Unit, With Collapsible Headers ---
         // Each unit's heading always shows (with a VS Code-style fold arrow); only its
         // file list collapses when a visitor hides it, so units never fully disappear.
-        function generateGroupedFileListHTML(className, files, hiddenUnits) {
+        function generateGroupedFileListHTML(className, files, hiddenUnits, releasedWarmups = []) {
             const publishedFiles = getPublishedFiles(className, files);
-            if (publishedFiles.length === 0) return `<p>No matching files found.</p>`;
+            if (publishedFiles.length === 0 && releasedWarmups.length === 0) return `<p>No matching files found.</p>`;
 
-            const units = [...new Set(publishedFiles.map(item => item.unit ?? 0))].sort((a, b) => a - b);
+            const units = [...new Set([...publishedFiles, ...releasedWarmups].map(item => item.unit ?? 0))].sort((a, b) => a - b);
 
             let html = '';
             units.forEach(unit => {
                 const unitFiles = publishedFiles.filter(item => (item.unit ?? 0) === unit);
+                const unitWarmups = releasedWarmups.filter(item => (item.unit ?? 0) === unit);
                 const collapsed = hiddenUnits.has(unit);
                 html += `<div class="unit-section">
                     <h3 class="unit-heading${collapsed ? ' collapsed' : ''}" data-unit="${unit}" role="button" tabindex="0" aria-expanded="${!collapsed}">
                         <span class="unit-fold-arrow">▶</span>${getUnitLabel(className, unit)}
                     </h3>
                     <div class="unit-files"${collapsed ? ' hidden' : ''}>
-                        ${generateFileListHTML(className, unitFiles)}
+                        ${generateUnitWarmupsHTML(className, unitWarmups)}
+                        ${unitFiles.length ? generateFileListHTML(className, unitFiles) : ''}
                     </div>
                 </div>`;
             });
@@ -887,84 +921,100 @@
                 .sort((a, b) => b.date.localeCompare(a.date));
         }
 
-        async function fetchWarmupHTML(className, file) {
-            const response = await fetch(`markdown/${className}/${WARMUP_FOLDER}/${file}.md`);
-            if (!response.ok) throw new Error('Warm-up file not found.');
-            return marked.parse(await response.text());
-        }
+        // A unit's warm-ups as one collapsible row, newest first, each a link to its own page.
+        function generateUnitWarmupsHTML(className, unitWarmups) {
+            if (unitWarmups.length === 0) return '';
 
-        // The "Previous warm-ups" list: grouped by unit, each one a link to its own page.
-        function generateWarmupArchiveHTML(className, pastWarmups) {
-            if (pastWarmups.length === 0) return '';
-
-            const units = [...new Set(pastWarmups.map(item => item.unit ?? 0))].sort((a, b) => b - a);
-
-            let html = `<details class="warmup-archive">
-                <summary>Previous warm-ups (${pastWarmups.length})</summary>`;
-            units.forEach(unit => {
-                html += `<h4 class="warmup-archive-unit">${getUnitLabel(className, unit)}</h4>`;
-                pastWarmups.filter(item => (item.unit ?? 0) === unit).forEach(item => {
-                    html += `
-                        <a href="#${className}/${WARMUP_FOLDER}/${item.file}" class="list-item">
-                            <span class="list-item-text">${item.file.replace(/-/g, ' ')}</span>
-                            <span class="warmup-date">${formatWarmupDate(item.date)}</span>
-                        </a>
-                    `;
-                });
+            const today = getTodayString();
+            let html = `<details class="unit-warmups">
+                <summary>Warm-Ups (${unitWarmups.length})</summary>`;
+            unitWarmups.forEach(item => {
+                html += `
+                    <a href="#${className}/${WARMUP_FOLDER}/${item.file}" class="list-item">
+                        <span class="list-item-text">${item.file.replace(/-/g, ' ')}</span>
+                        <span class="day-date">${item.date === today ? 'Today' : formatWarmupDate(item.date)}</span>
+                    </a>
+                `;
             });
             html += `</details>`;
             return html;
         }
 
-        // Fills the box at the top of a class page: today's warm-up shown in
+        // --- Agendas (from agendas.js) ---
+        const AGENDA_FOLDER = 'Agendas';
+
+        // Agenda dates that have arrived, newest first. Future agendas stay
+        // off the site until their day, so they can be written ahead of time.
+        function getReleasedAgendas(className) {
+            const today = getTodayString();
+            return (agendas[className] || [])
+                .filter(date => date <= today)
+                .sort((a, b) => b.localeCompare(a));
+        }
+
+        // The "Past agendas" list: each one a link to its own page.
+        function generateAgendaArchiveHTML(className, pastAgendas) {
+            if (pastAgendas.length === 0) return '';
+
+            let html = `<details class="agenda-archive">
+                <summary>Past agendas (${pastAgendas.length})</summary>`;
+            pastAgendas.forEach(date => {
+                html += `
+                    <a href="#${className}/${AGENDA_FOLDER}/${date}" class="list-item">
+                        <span class="list-item-text">${formatWarmupDate(date)}</span>
+                    </a>
+                `;
+            });
+            html += `</details>`;
+            return html;
+        }
+
+        // Fills the box at the top of a class page: today's agenda shown in
         // full, every earlier one listed underneath as a link to click through.
-        async function renderWarmupBox(className, boxEl) {
-            const released = getReleasedWarmups(className);
-            if (released.length === 0) return; // No warm-ups yet: leave the box hidden.
+        async function renderAgendaBox(className, boxEl) {
+            const released = getReleasedAgendas(className);
+            if (released.length === 0) return; // No agendas yet: leave the box hidden.
 
             const today = getTodayString();
-            const todays = released.filter(item => item.date === today);
-            const past = released.filter(item => item.date !== today);
+            const past = released.filter(date => date !== today);
 
-            let todayHtml = '';
-            for (const item of todays) {
-                let content;
+            let todayHtml;
+            if (released[0] === today) {
                 try {
-                    content = await fetchWarmupHTML(className, item.file);
+                    const response = await fetch(`markdown/${className}/${AGENDA_FOLDER}/${today}.md`);
+                    if (!response.ok) throw new Error('Agenda file not found.');
+                    todayHtml = `<div class="markdown-body">${marked.parse(await response.text())}</div>`;
                 } catch (error) {
-                    content = `<div class="error"><strong>Error:</strong> Could not load <code>markdown/${className}/${WARMUP_FOLDER}/${item.file}.md</code>.</div>`;
+                    todayHtml = `<div class="error"><strong>Error:</strong> Could not load <code>markdown/${className}/${AGENDA_FOLDER}/${today}.md</code>.</div>`;
                 }
-                todayHtml += `
-                    <h3 class="warmup-title">${item.file.replace(/-/g, ' ')}</h3>
-                    <div class="markdown-body warmup-content">${content}</div>
-                `;
+            } else {
+                todayHtml = `<p class="agenda-empty">No agenda posted for today.</p>`;
             }
-            if (todays.length === 0) todayHtml = `<p class="warmup-empty">No warm-up posted for today.</p>`;
 
             // The visitor may have left this class page while the file was loading.
             if (!boxEl.isConnected) return;
 
-            // A visitor can fold today's warm-up away. The choice is saved with
-            // today's date, so tomorrow's warm-up shows up open again.
-            const hiddenKey = `hiddenWarmup-${className}`;
+            // A visitor can fold today's agenda away. The choice is saved with
+            // today's date, so tomorrow's agenda shows up open again.
+            const hiddenKey = `hiddenAgenda-${className}`;
             const collapsed = localStorage.getItem(hiddenKey) === today;
 
             boxEl.innerHTML = `
-                <div class="warmup-header${collapsed ? ' collapsed' : ''}" role="button" tabindex="0" aria-expanded="${!collapsed}" title="Click to hide or show the warm-ups">
-                    <span class="warmup-label"><span class="unit-fold-arrow">▶</span>Warm-Up of the Day</span>
-                    <span class="warmup-date">${formatWarmupDate(today)}</span>
+                <div class="agenda-header${collapsed ? ' collapsed' : ''}" role="button" tabindex="0" aria-expanded="${!collapsed}" title="Click to hide or show the agenda">
+                    <span class="day-label"><span class="unit-fold-arrow">▶</span>Today's Agenda</span>
+                    <span class="day-date">${formatWarmupDate(today)}</span>
                 </div>
-                <div class="warmup-today"${collapsed ? ' hidden' : ''}>
+                <div class="agenda-today"${collapsed ? ' hidden' : ''}>
                     ${todayHtml}
-                    ${generateWarmupArchiveHTML(className, past)}
+                    ${generateAgendaArchiveHTML(className, past)}
                 </div>
             `;
             boxEl.hidden = false;
 
-            const headerEl = boxEl.querySelector('.warmup-header');
-            const todayEl = boxEl.querySelector('.warmup-today');
+            const headerEl = boxEl.querySelector('.agenda-header');
+            const todayEl = boxEl.querySelector('.agenda-today');
 
-            function toggleWarmup() {
+            function toggleAgenda() {
                 const nowCollapsed = !headerEl.classList.contains('collapsed');
                 headerEl.classList.toggle('collapsed', nowCollapsed);
                 headerEl.setAttribute('aria-expanded', String(!nowCollapsed));
@@ -973,13 +1023,13 @@
                 else localStorage.removeItem(hiddenKey);
             }
 
-            headerEl.addEventListener('click', toggleWarmup);
+            headerEl.addEventListener('click', toggleAgenda);
             headerEl.addEventListener('keydown', (event) => {
                 if (event.key !== 'Enter' && event.key !== ' ') return;
                 event.preventDefault();
-                toggleWarmup();
+                toggleAgenda();
             });
-            await enhanceMarkdown(`${className.replace(/-/g, ' ')} Warm-Up`);
+            await enhanceMarkdown(`${className.replace(/-/g, ' ')} Agenda`);
         }
 
         // --- 3. RENDER FUNCTIONS ---
@@ -1070,7 +1120,7 @@
                 <div class="nav-buttons">
                     <a href="#" class="btn">← Back to Hub</a>
                 </div>
-                <section id="warmup-box" class="warmup-box" hidden></section>
+                <section id="agenda-box" class="agenda-box" hidden></section>
 
                 <h2>${displayName} Files</h2>
 
@@ -1082,12 +1132,12 @@
                 </div>
 
                 <div id="class-file-list">
-                    ${generateGroupedFileListHTML(className, curriculum[className], hiddenUnits)}
+                    ${generateGroupedFileListHTML(className, curriculum[className], hiddenUnits, getReleasedWarmups(className))}
                 </div>
             `;
 
             appDiv.innerHTML = html;
-            renderWarmupBox(className, document.getElementById('warmup-box'));
+            renderAgendaBox(className, document.getElementById('agenda-box'));
 
             const fileListEl = document.getElementById('class-file-list');
 
@@ -1102,7 +1152,12 @@
                     return matchesQuery && matchesType;
                 });
 
-                fileListEl.innerHTML = generateGroupedFileListHTML(className, filteredFiles, getHiddenUnits(className));
+                // Warm-ups match the search by name, and only show under "All Types".
+                const filteredWarmups = selectedType === 'all'
+                    ? getReleasedWarmups(className).filter(item => item.file.replace(/-/g, ' ').toLowerCase().includes(query))
+                    : [];
+
+                fileListEl.innerHTML = generateGroupedFileListHTML(className, filteredFiles, getHiddenUnits(className), filteredWarmups);
             }
 
             document.getElementById('class-search-input').addEventListener('input', refreshFileList);
@@ -1288,20 +1343,45 @@
                         : '';
                     htmlContent = `
                         <h1>${file.replace(/-/g, ' ')}</h1>
-                        <p class="warmup-meta"><span class="warmup-label">Warm-Up</span>${details}</p>
+                        <p class="day-meta"><span class="day-label">Warm-Up</span>${details}</p>
+                        ${htmlContent}
+                    `;
+                }
+
+                // Agenda files are named by date, so give them a readable title.
+                const isAgenda = assignmentName.startsWith(`${AGENDA_FOLDER}/`);
+                if (isAgenda) {
+                    const date = assignmentName.substring(AGENDA_FOLDER.length + 1);
+                    htmlContent = `
+                        <h1>${formatWarmupDate(date)}</h1>
+                        <p class="day-meta"><span class="day-label">Agenda</span></p>
                         ${htmlContent}
                     `;
                 }
                 
+                // Syllabi get a button that opens the print dialog, where students can "Save as PDF".
+                const isSyllabus = assignmentName.endsWith('-Syllabus');
+
                 appDiv.innerHTML = `
                     <div class="nav-buttons">
                         <a href="#${className}" class="btn">← Back to Class</a>
+                        ${isSyllabus ? '<button type="button" id="export-pdf-btn" class="btn">Export to PDF</button>' : ''}
                     </div>
                     <div class="markdown-body${isWarmup ? ' warmup-content' : ''}">
                         ${htmlContent}
                     </div>
                 `;
                 await enhanceMarkdown(assignmentName.split('/').pop().replace(/-/g, ' '));
+
+                if (isSyllabus) {
+                    document.getElementById('export-pdf-btn').addEventListener('click', () => {
+                        // The browser uses the page title as the default PDF file name.
+                        const originalTitle = document.title;
+                        document.title = assignmentName;
+                        window.addEventListener('afterprint', () => { document.title = originalTitle; }, { once: true });
+                        window.print();
+                    });
+                }
 
             } catch (error) {
                 appDiv.innerHTML = `
