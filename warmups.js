@@ -31,6 +31,7 @@ const warmups = {
     "Software-Engineering": [
         { file: "Password-Checker", date: "2026-08-17", unit: 0},
         { file: "Regex-URL-Challenge", date: "2026-08-19", unit: 0},
+        { file: "Vending-Machine-Activity", date: "2026-08-21", unit: 0},
         { file: "Tony's-Pizza", date: "2026-10-09", unit: 1},
         { file: "Spot-the-Request", date: "2026-10-20", unit: 2}
         // { file: "Query-Parameters", date: "2026-10-07", unit: 2 },
