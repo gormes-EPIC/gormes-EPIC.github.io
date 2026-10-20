@@ -1,0 +1,3 @@
+**Instructions**: Detect the 5 URLs present in this paragraph using regular expressions.
+
+> While researching for my project, I started at https://www.example.com/docs/getting-started and then jumped over to http://blog.sample-site.org/2026/10/regex-tips?ref=newsletter&page=2 for some practical advice. A colleague also recommended www.devresources.net, which doesn’t even bother with a protocol, and I found a useful tool hosted at https://api.testserver.io:8080/v2/users#section-3 that exposes a port and a fragment. Finally, for older archives, I checked ftp://files.archive-example.com/pub/data.zip before wrapping up for the day.
