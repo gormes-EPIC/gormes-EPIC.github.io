@@ -80,7 +80,7 @@ const curriculum = {
                 { file: "Object-Exericses", type: "exercise", unit: 4 },
                 { file: "Fun-With-Objects-Lab", type: "assignment", unit: 4 },
                 { file: "Digital-Slot-Machine-Lab", type: "assignment", unit: 4 },
-                { file: "Workforce-Readiness-Reflection", type: "wfr", unit: 4 },
+                { file: "Mid-term-WFR-Reflection", type: "wfr", unit: 4 },
                 { file: "STAR-Format-Notes", type: "notes", unit: 4 },
                 { file: "Preparing-for-the-Interview", type: "wfr", unit: 4 },    
                 
