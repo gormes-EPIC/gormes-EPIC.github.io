@@ -1,2 +1,2 @@
-# Workforce Readiness Reflection
+# Mid-term Workforce Readiness Reflection
 [Fill out this graphic organizer](https://docs.google.com/document/d/1OLqtt-3YCHdEAGNo1RjuH-Mpkmq25bvTHt0AOnEtLAM/edit?usp=sharing) with STAR responses demonstrating the 4 WFR categories.
