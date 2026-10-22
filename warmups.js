@@ -36,7 +36,8 @@ const warmups = {
         { file: "Vocabulary-Fill-in-the-Blank", date: "2026-08-27", unit: 0},
         { file: "Terminal-Reverse-Engineering", date: "2026-08-31", unit: 0},
         { file: "Tony's-Pizza", date: "2026-10-09", unit: 1},
-        { file: "Spot-the-Request", date: "2026-10-20", unit: 2}
+        { file: "Spot-the-Request", date: "2026-10-20", unit: 2},
+        { file: "Movie-Stats", date: "2026-10-22", unit: 2}
         // { file: "Query-Parameters", date: "2026-10-07", unit: 2 },
         // { file: "Reading-a-Route", date: "2026-10-08", unit: 2 },
         // { file: "Status-Codes", date: "2026-10-09", unit: 2 },
