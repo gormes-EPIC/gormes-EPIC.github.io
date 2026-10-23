@@ -44,7 +44,8 @@ const agendas = {
     ],
     "Data-Structures-and-Algorithms": [
     ],
-    "Software-Engineering": [  
+    "Software-Engineering": [ 
+        "2026-10-26", 
         "2026-10-22",
         "2026-10-20", 
         "2026-10-13", 
