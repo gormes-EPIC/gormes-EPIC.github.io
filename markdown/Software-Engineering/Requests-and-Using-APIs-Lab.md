@@ -146,20 +146,25 @@ Use the [NASA API](https://api.nasa.gov) to view the NASA "Image of the Day".
 
 1. Create an account for an API key. Then set up your `.env` files and `.gitignore` just like the last question.
 2. Create a Python program to load your API and download the image of the day.
-3. Display the image with this sample code. You will need to install `pygame` with `pip install pygame`. 
+3. Display the image with this sample code. You will need to install `pygame` with `pip install pygame-ce` and **replace image.jpeg with your image.** . 
 
 ```
 import sys
-
+import os
 import pygame
 
 
 def main():
-    # Load image.png from the same directory as this script
+    # Load images.jpeg from the same directory as this script
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    image_path = os.path.join(base_dir, "image.png")
+    image_path = os.path.join(base_dir, "image.jpeg")
 
     pygame.init()
+
+    # Read the screen size BEFORE creating any window; afterwards Info()
+    # reports the window's size instead of the monitor's
+    info = pygame.display.Info()
+    win_w, win_h = info.current_w // 2, info.current_h // 2
 
     try:
         # Create a temporary display so convert_alpha() works
@@ -170,20 +175,17 @@ def main():
         pygame.quit()
         sys.exit(1)
 
-    # Size the window to the image, but cap it to the screen size
-    info = pygame.display.Info()
-    max_w, max_h = int(info.current_w * 0.9), int(info.current_h * 0.9)
+    # Window is half the screen size; scale the image to fit it, keeping aspect ratio
     img_w, img_h = image.get_size()
+    scale = min(win_w / img_w, win_h / img_h)
+    image = pygame.transform.smoothscale(
+        image, (int(img_w * scale), int(img_h * scale))
+    )
+    img_w, img_h = image.get_size()
+    pos = ((win_w - img_w) // 2, (win_h - img_h) // 2)
 
-    if img_w > max_w or img_h > max_h:
-        scale = min(max_w / img_w, max_h / img_h)
-        image = pygame.transform.smoothscale(
-            image, (int(img_w * scale), int(img_h * scale))
-        )
-        img_w, img_h = image.get_size()
-
-    screen = pygame.display.set_mode((img_w, img_h))
-    pygame.display.set_caption("image.png")
+    screen = pygame.display.set_mode((win_w, win_h))
+    pygame.display.set_caption("images.jpeg")
 
     clock = pygame.time.Clock()
     running = True
@@ -196,7 +198,7 @@ def main():
                 running = False
 
         screen.fill((30, 30, 30))
-        screen.blit(image, (0, 0))
+        screen.blit(image, pos)
         pygame.display.flip()
         clock.tick(60)
 
