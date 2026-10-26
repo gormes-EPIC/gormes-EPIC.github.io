@@ -1,6 +1,5 @@
 # Design Review Discussion
 
-*This assignment is under construction and is subject to change for the 26-27 school year.* 
 
 ## Objective
 1. Present and defend your design decisions
@@ -15,3 +14,8 @@ Please be prepared to answer the following questions about your project:
 3. Why did you choose these specific API endpoints? How do they expose only the necessary information to the outside world?
 4. How does your design prevent expliotation via security flaws?
 5. How have you documented your project so far?
+
+
+## Resources
+1. <a href="assets/relational-database-design.pdf" download>Seven Principles of Good Relation Database Design</a>
+2. 

@@ -26,7 +26,7 @@ In the [Creating an API Lab](#Software-Engineering/Creating-an-API-Lab) you buil
 
 Right now, when someone hits one of your endpoints, nothing is written down. If a request fails at 2am, or your server restarts on its own, you have no way to know it happened. A **log** fixes that by writing a line to a file every time something notable occurs.
 
-Python has a built-in `logging` module that writes to a file for you. Add this near the top of your `API, below your imports:
+Python has a built-in `logging` module that writes to a file for you. Add this near the top of your API, below your imports:
 
 ```python
 import logging
