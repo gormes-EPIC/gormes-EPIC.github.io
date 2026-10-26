@@ -14,3 +14,20 @@ load_dotenv()
 api_key = os.getenv("API_KEY")
 
 ```
+
+
+## Example Implementation
+```
+NEWS QUIZ
+Enter the missing word in these current headlines.
+-------------------------------------------------
+
+1. North Korea's Kim __________ Un touts ties, opens bridge with China on first trip in a year
+Enter the missing word: not sure
+The correct answer was Jong.
+
+...
+
+
+You got 2/5 correct.
+``
