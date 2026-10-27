@@ -16,6 +16,7 @@
 
 const agendas = {
     "Pi's-and-Python": [ 
+        "2026-10-27",
         "2026-10-23", 
         "2026-10-21", 
         "2026-10-14",
@@ -45,6 +46,7 @@ const agendas = {
     "Data-Structures-and-Algorithms": [
     ],
     "Software-Engineering": [ 
+        "2026-10-28",
         "2026-10-26", 
         "2026-10-22",
         "2026-10-20", 
