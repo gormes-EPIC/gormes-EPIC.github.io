@@ -119,6 +119,8 @@ def wings(n):
 
 Our **base case** is returning 0 when `n==0`. Our **recursive case** is `2 + wings(n-1)`.
 
+</details>
+
 
 ## The Call Stack
 
