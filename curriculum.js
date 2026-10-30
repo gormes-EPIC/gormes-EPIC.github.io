@@ -31,8 +31,8 @@ const unitInfo = {
         0: { name: "CI/CD and Version Control" },
         1: { name: "Databases with SQLite"},
         2: { name: "How Computers Talk and APIs"},
-        3: { name: "Front-end Development"},
-        4: { name: "Distrobution", visible: false}
+        3: { name: "Adversarial Simon", visible: false},
+        4: { name: "Front-end Development", visible: false}
     },
     "Foundations-of-AI": {
         0: { name: "The Foundations of Data"},
@@ -181,10 +181,19 @@ const curriculum = {
                 // { file: "Who-Owns-the-Internet?", type: "wfr", unit: 2},
                 // { file: "Required-Skills-Writeup", type: "wfr", unit: 2},
 
-                // Unit 3: Front-end Development 
-                { file: "Front-End-Wireframe-Lab", type: "assignment", unit: 3 },
-                { file: "Stylesheets-Lab", type: "assignment", unit: 3 },
-                { file: "Demo-Day-Presentation", type: "assignment", unit: 3 }
+
+                // Unit 3: Adversarial Simon
+                { file: "Job-Application", type: "WFR", unit: 3 },
+                // { file: "Community-Agreements", type: "WFR", unit: 3 },
+                // { file: "API-Design", type: "assignment", unit: 3 },
+                // { file: "Diagram", type: "assignment", unit: 3 },
+                // { file: "Implementing-Adversarial-Simon", type: "assignment", unit: 3 },
+                // { file: "Post-mortem-Presentation", type: "assignment", unit: 3 },
+
+                // Unit 4: Front-end Development 
+                { file: "Front-End-Wireframe-Lab", type: "assignment", unit: 4 },
+                { file: "Stylesheets-Lab", type: "assignment", unit: 4 },
+                { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
                 
                 // // Unit 3: Containerizing
                 // { file: "Front-End-Development-Lab", type: "assignment", unit: 3 },
