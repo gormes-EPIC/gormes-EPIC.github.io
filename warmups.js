@@ -38,7 +38,8 @@ const warmups = {
         { file: "Tony's-Pizza", date: "2026-10-09", unit: 1},
         { file: "Spot-the-Request", date: "2026-10-20", unit: 2},
         { file: "News-API", date: "2026-10-26", unit: 2},
-        { file: "Reading-the-Docs", date: "2026-10-28", unit: 2}
+        { file: "Reading-the-Docs", date: "2026-10-28", unit: 2},
+        { file: "Candy-Trading-Simulator", date: "2026-10-30", unit: 2}
         // { file: "Query-Parameters", date: "2026-10-07", unit: 2 },
         // { file: "Reading-a-Route", date: "2026-10-08", unit: 2 },
         // { file: "Status-Codes", date: "2026-10-09", unit: 2 },

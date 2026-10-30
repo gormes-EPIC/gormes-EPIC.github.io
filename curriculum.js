@@ -31,7 +31,7 @@ const unitInfo = {
         0: { name: "CI/CD and Version Control" },
         1: { name: "Databases with SQLite"},
         2: { name: "How Computers Talk and APIs"},
-        3: { name: "Containerization" , visible: false},
+        3: { name: "Front-end Development"},
         4: { name: "Distrobution", visible: false}
     },
     "Foundations-of-AI": {
@@ -169,28 +169,33 @@ const curriculum = {
                 
 
                 // Unit 2: How Computers Talk and APIs
-                { file: "Sockets-Notes", type: "notes", unit: 2 },
-                { file: "Sockets-Activity", type: "assignment", unit: 2 },
+                // { file: "Sockets-Notes", type: "notes", unit: 2 },
+                // { file: "Sockets-Activity", type: "assignment", unit: 2 },
                 { file: "HTTP-and-HTTPS-Notes", type: "notes", unit: 2},
                 { file: "Requests-and-Using-APIs-Lab", type: "assignment", unit: 2 },
                 { file: "Flask-Notes", type:"notes", unit: 2},
                 { file: "Creating-an-API-Lab", type: "assignment", unit: 2},
                 { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
-                { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
+                // { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
                 { file: "Creating-a-Resume", type: "wfr", unit: 2},
-                { file: "Who-Owns-the-Internet?", type: "wfr", unit: 2},
-                { file: "Required-Skills-Writeup", type: "wfr", unit: 2},
+                // { file: "Who-Owns-the-Internet?", type: "wfr", unit: 2},
+                // { file: "Required-Skills-Writeup", type: "wfr", unit: 2},
 
-                // Unit 3: Containerizing
-                { file: "Front-end-Development-Lab", type: "assignment", unit: 3 },
-                { file: "Deployment-and-Monitoring-Lab", type: "assignment", unit: 3 },
-                { file: "Hello-World-in-Docker-Lab", type: "assignment", unit: 3 },
-                { file: "Containerize-Your-Application-Lab", type: "assignment", unit: 3 },
-                { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 3 },
-                { file: "Proxmox-and-Hypervisors-Lab", type: "assignment", unit: 3 },
+                // Unit 3: Front-end Development 
+                { file: "Front-End-Wireframe-Lab", type: "assignment", unit: 3 },
+                { file: "Stylesheets-Lab", type: "assignment", unit: 3 },
+                { file: "Demo-Day-Presentation", type: "assignment", unit: 3 }
                 
-                // Unit 4: Distribution
-                { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
+                // // Unit 3: Containerizing
+                // { file: "Front-End-Development-Lab", type: "assignment", unit: 3 },
+                // { file: "Deployment-and-Monitoring-Lab", type: "assignment", unit: 3 },
+                // { file: "Hello-World-in-Docker-Lab", type: "assignment", unit: 3 },
+                // { file: "Containerize-Your-Application-Lab", type: "assignment", unit: 3 },
+                // { file: "Engineering-Case-Study-Presentation", type: "assignment", unit: 3 },
+                // { file: "Proxmox-and-Hypervisors-Lab", type: "assignment", unit: 3 },
+                
+                // // Unit 4: Distribution
+                // { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
             ],
             "Foundations-of-AI": [
                 { file: "Foundations-of-AI-Syllabus", type: "notes", unit: 0 },
