@@ -3,8 +3,8 @@
 1. Rank your interest in the 5 positions listed below.
 2. Then answer these three questions:
     - Why are you the right person for your top choice of role?
-    - Give an example of a time when your demonstrated leadership.
-    - 
+    - How do you demonstrate leadership?
+    - Give an example of how you consistently demonstrate workforce readiness skills at EPIC. 
 
 <details>
 <summary>Project Manager</summary>
@@ -21,7 +21,7 @@
 
 **Roles and Responsibilities**
 - Designs and implements the game. This could be physical with a Raspberry Pi or virtual with JavaScript.
-- Responsible for the implementation of game logic
+- Responsible for the correct implementation of game logic. 
 
 </details>
 
