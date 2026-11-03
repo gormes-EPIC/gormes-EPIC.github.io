@@ -106,7 +106,8 @@ from flask_cors import CORS
 
 CORS(app,
      supports_credentials=True,
-     origins=["http://127.0.0.1:5000"]) 
+     origins=["http://127.0.0.1:5000"]) # add other endpoints you want to be able to communicate with here as well.
+     
 load_dotenv()
 conn_str = os.environ["DATABASE_URL"]
 
