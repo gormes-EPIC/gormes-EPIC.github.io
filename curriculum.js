@@ -32,7 +32,7 @@ const unitInfo = {
         1: { name: "Databases with SQLite"},
         2: { name: "How Computers Talk and APIs"},
         3: { name: "Adversarial Simon", visible: false},
-        4: { name: "Front-end Development", visible: false}
+        4: { name: "Front-end Development"}
     },
     "Foundations-of-AI": {
         0: { name: "The Foundations of Data"},
@@ -192,8 +192,8 @@ const curriculum = {
 
                 // Unit 4: Front-end Development 
                 { file: "Front-End-Wireframe-Lab", type: "assignment", unit: 4 },
-                { file: "Stylesheets-Lab", type: "assignment", unit: 4 },
-                { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
+                // { file: "Stylesheets-Lab", type: "assignment", unit: 4 },
+                // { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
                 
                 // // Unit 3: Containerizing
                 // { file: "Front-End-Development-Lab", type: "assignment", unit: 3 },
