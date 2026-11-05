@@ -82,6 +82,8 @@ def home():
 
 4. Use the following reference guide to make the basics of your site. Use placeholders like `[BUTTON HERE]` or `[TEXT BOX HERE]` for elements that are not listed. We will worry about making it look good later, just get everything on the screen for now.
 
+> If you want to pass values to your HTML, see this example: [Geeks for Geeks Rendering Templates](https://www.geeksforgeeks.org/python/flask-rendering-templates/)
+
 #### HTML Quick Reference
 | Element | HTML | Result / Purpose |
 |---|---|---|
