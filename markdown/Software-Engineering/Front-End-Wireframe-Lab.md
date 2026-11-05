@@ -1,18 +1,48 @@
-# Front End Wireframe  Lab
+# Front-end Wireframe Lab
 
 ## Objective
-1. Create a wireframe for your front end website
+1. Create a wireframe for your front-end website
 
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-| Flask | |
-| HTML | | 
-| JavaScript ||
-|HTML|
+| wireframe | A simple, low-detail sketch or skeleton of a website that shows the layout and the elements on each screen without worrying about colors, fonts, or styling. |
+| use case | A specific task a user needs to accomplish with the system (for example, "a user adds a new item to the inventory"). |
+| view | A single screen or page of a website that the user sees. Each view is usually its own HTML file. |
+| front-end | The part of an application that the user sees and interacts with in their browser, built with HTML, CSS, and JavaScript. |
+| back-end | The part of an application that runs on the server, handling logic and data storage. In this lab, the back-end is your Python Flask API. |
+| Flask | A lightweight Python web framework used to build APIs and serve web pages. |
+| API | Application Programming Interface; a set of rules that lets programs communicate with each other. A web API receives requests and sends back responses, often as JSON. |
+| endpoint | A specific URL on an API (such as `/` or `/view2`) that performs an action or returns data when a request is sent to it. |
+| route | In Flask, the connection between a URL and the Python function that runs when that URL is visited, created with `@app.route(...)`. |
+| GET request | An HTTP request used to retrieve (read) data from a server. |
+| POST request | An HTTP request used to send new data to a server, such as the data entered in a form. |
+| JSON | JavaScript Object Notation; a text format for storing and sending data as key-value pairs (e.g., `{"name": "Ana"}`). |
+| HTML | HyperText Markup Language; the language used to define the structure and content of a web page using elements such as headings, paragraphs, and buttons. |
+| element | A single piece of an HTML page, written with an opening and closing tag, such as `<p>Some text.</p>`. |
+| tag | The keyword in angle brackets that marks the start or end of an HTML element, such as `<h1>` and `</h1>`. |
+| attribute | Extra information added to an HTML tag, such as `id`, `href`, or `type` in `<button id="loadBtn">`. |
+| form | An HTML element (`<form>`) that groups input fields, such as text boxes and drop-downs, so the user can enter and submit data. |
+| CSS | Cascading Style Sheets; the language used to control how a web page looks, including colors, fonts, spacing, and layout. |
+| stylesheet | A `.css` file containing CSS rules that is linked to an HTML page to style it. |
+| JavaScript | A programming language that runs in the browser and makes web pages interactive, such as responding to button clicks or fetching data from an API. |
+| event listener | JavaScript code that waits for an event (like a click or form submission) and runs a function when it happens. |
+| fetch | A JavaScript function used to send a request to an API endpoint and receive its response. |
+| DOM | Document Object Model; the browser's representation of the HTML page that JavaScript can read and change (e.g., with `document.getElementById`). |
+| template | An HTML file stored in Flask's `templates` folder that Flask renders and sends to the browser using `render_template()`. |
+| static files | Files that do not change when served, such as CSS, JavaScript, and images, stored in Flask's `static` folder. |
+
 
 
 ## Your Task
+
+### Plan Your Views
+
+0. Using pen and paper pr Google Drawing or [Excalidraw](https://excalidraw.com/) or [Lucidchart](https://lucid.co/lucidchart), plan out each view(screen) of your website. Your plan should incorporate all of your **use cases**. 
+  - In your design, plan to use different elements like headers, buttons, forms with text boxes or drop downs, etc. 
+  - *Don't spend too long on this portion, but it is good to think through how many different screens you need and what will connect to where.*
+
+> If you really want to get into this step, use a design tool like Figma to help you design your views. If you are going to use Figma, get a free plan [Figma for Education](https://help.figma.com/hc/en-us/articles/360041061214-Figma-for-Education). 
 
 ### Displaying a website with Flask
 
@@ -258,6 +288,10 @@ Use the previous examples to create a skeleton of your site. It doesn't have to 
 
 Use the <a href="assets/Flask_Quick_Reference.pdf" download>Quick Reference</a> to help you as you work.
 
+### Looking Ahead
+
+**Before we come back to this assignment, have a peer test out your website and give them feedback.** Give them a quick overview of the project, but do not explain the intricacies of your design. Then ask them to complete different use cases and see if they can do it without guidance. 
+
 ## Tips, Tricks, and Resources
 
 **HTML forms and buttons**
@@ -275,11 +309,17 @@ Use the <a href="assets/Flask_Quick_Reference.pdf" download>Quick Reference</a> 
 - [Learn More About Flask Templates](https://flask.palletsprojects.com/en/stable/tutorial/templates/)
 
 ## Extensions
-1. Add an icon to your tab
+
+1. Incorporate popup boxes with `dialog` elements embedded in your HTML
+2. Add an icon to your tab by adding `<link rel="icon" type="image/png" href="/static/favicon.png">` to each HTML view in the header and adding your image to the `static` folder with the name `favicon.png`. 
+3. Use CSS to make your site look nicer. Start by adding `<link rel="stylesheet" href="/static/samplestyle.css">` to each HTML view header then adding <a href="assets/samplestyle.css" download>this samplestyle.css</a> to your `static` folder. Edit your stylesheet as needed to fit your vision for your site.
 
 ## Reflection Questions
-1. 
 
+1. How many views did you plan for your website, and how does each view support one or more of your use cases? Did you discover any use cases that were missing or harder to show than you expected?
+2. For one of your use cases that implements a POST request, describe in your own words what happens, step by step, between the user interacting with the site and your data being displayed.
+3. Why does Flask separate files into a `templates` folder and a `static` folder? What kinds of files belong in each, and why?
+4. Compare your finished wireframe to your original paper or digital plan. What changed, and what would you prioritize next to make your site more usable or visually appealing?
 
 ## How to Submit
 

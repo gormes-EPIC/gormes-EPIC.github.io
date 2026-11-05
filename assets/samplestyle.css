@@ -1,0 +1,206 @@
+/* ===== Colors and sizes in one place: change these to restyle the whole site ===== */
+:root {
+  --primary: #2563eb;        /* blue: main buttons, links, focus */
+  --primary-dark: #1d4ed8;
+  --secondary: #64748b;      /* gray: secondary buttons */
+  --danger: #dc2626;         /* red: cancel / delete */
+  --text: #1e293b;           /* dark slate for body text */
+  --muted: #64748b;
+  --bg: #f8fafc;             /* page background */
+  --card: #ffffff;           /* sections, tables */
+  --border: #e2e8f0;
+  --radius: 8px;
+}
+
+/* ===== Page basics ===== */
+* {
+  box-sizing: border-box;    /* padding doesn't make boxes wider than you set */
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  max-width: 900px;          /* keeps text readable on wide screens */
+  margin: 0 auto;            /* centers the page */
+  padding: 2rem 1.5rem;
+}
+
+/* ===== Headers ===== */
+h1, h2, h3 {
+  line-height: 1.25;
+  margin: 1.5rem 0 0.75rem;
+}
+
+h1 {
+  font-size: 2.25rem;
+  color: var(--primary-dark);
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 3px solid var(--primary);
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+h3 {
+  font-size: 1.2rem;
+  color: var(--muted);
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ===== Sections look like cards ===== */
+section {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* ===== Forms: labels and text boxes ===== */
+label {
+  display: block;            /* puts each label on its own line above its box */
+  font-weight: 600;
+  margin: 1rem 0 0.35rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="password"],
+select,
+textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  font: inherit;             /* use the page font instead of the browser default */
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);   /* soft blue glow when typing */
+}
+
+textarea {
+  resize: vertical;
+}
+
+::placeholder {
+  color: #94a3b8;
+}
+
+/* ===== Buttons ===== */
+button {
+  font: inherit;
+  font-weight: 600;
+  padding: 0.6rem 1.25rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  background: var(--primary);   /* plain <button> tags get the blue style */
+  cursor: pointer;
+  transition: background 0.15s, transform 0.05s;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}
+
+button:active {
+  transform: translateY(1px);   /* tiny "press" effect */
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: var(--secondary);
+}
+.btn-secondary:hover {
+  background: #475569;
+}
+
+.btn-danger {
+  background: var(--danger);
+}
+.btn-danger:hover {
+  background: #b91c1c;
+}
+
+.button-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.button-row button {
+  margin: 0;
+}
+
+/* Status message under the form */
+#message {
+  margin-top: 1rem;
+  font-weight: 600;
+}
+
+/* ===== Tables ===== */
+table {
+  width: 100%;
+  border-collapse: collapse;   /* removes the double borders */
+  margin: 1rem 0;
+  background: var(--card);
+  border: 1px solid var(--border) !important;   /* overrides border='1' from app.js */
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+th, td {
+  padding: 0.65rem 0.9rem;
+  text-align: left;
+  border: none;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background: var(--primary);
+  color: #fff;
+  font-weight: 600;
+  text-transform: capitalize;   /* "first_name" column keys look nicer */
+}
+
+tr:nth-child(even) td {
+  background: #f1f5f9;          /* striped rows */
+}
+
+tr:hover td {
+  background: #e0e7ff;          /* highlight the row under the mouse */
+}
