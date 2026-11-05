@@ -123,7 +123,7 @@ def home():
 
 ```
 <button id="loadBtn">Load Table</button>
-<ul id="myList"></ul>
+<table id="myTable"></table>
 <script src="/static/app.js"></script>
 ```
 
@@ -132,27 +132,31 @@ def home():
 Assuming the JSON response is:
 ```
 {
-  "info": [0, 1, 2, 3]
+  "info": ["a", "b", "c", "d"],
+  "info2": ["e", "f", "g", "h"],
+  "info3": ["h", "j", "k", "l"]
 }
 ```
 
 Your `app.js` should be:
 ```
 document.getElementById("loadBtn").addEventListener("click", async () => {
-  const output = document.getElementById("output");
+  const table = document.getElementById("myTable");
 
   try {
     const response = await fetch("YOUR API ENDPOINT HERE");
-    const rows = await response.json();
-    const listElement = document.getElementById('myList');
+    const data = await response.json();
+    const keys = Object.keys(data);
 
-    rows.info.forEach((item) => {
-      const li = document.createElement('li');
-      li.textContent = item;
-      listElement.appendChild(li);
-    });
+    let html = "<tr>" + keys.map((k) => `<th>${k}</th>`).join("") + "</tr>";
+
+    for (let i = 0; i < data[keys[0]].length; i++) {
+      html += "<tr>" + keys.map((k) => `<td>${data[k][i]}</td>`).join("") + "</tr>";
+    }
+
+    table.innerHTML = html;
   } catch (err) {
-    output.textContent = "Error: " + err.message;
+    document.getElementById("output").textContent = "Error: " + err.message;
   }
 });
 
