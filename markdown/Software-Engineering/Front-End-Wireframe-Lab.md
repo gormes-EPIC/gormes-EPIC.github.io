@@ -66,7 +66,8 @@
 </body>
 </html>
 ```
-2. Add the following endpoint to your Flask API:
+2. Add the following endpoint to your Flask API and update your import command to add `render_template`: `from flask import Flask, render_template`
+
 ```
 @app.route('/')
 def home():
