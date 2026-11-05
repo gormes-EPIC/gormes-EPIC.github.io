@@ -103,16 +103,17 @@ from flask_login import (LoginManager, UserMixin, current_user,
                          login_required, login_user, logout_user)
 from werkzeug.security import check_password_hash
 from flask_cors import CORS
-
-CORS(app,
-     supports_credentials=True,
-     origins=["http://127.0.0.1:5000"]) # add other endpoints you want to be able to communicate with here as well.
      
 load_dotenv()
 conn_str = os.environ["DATABASE_URL"]
 
 app = Flask(__name__)
 app.secret_key = os.environ["SECRET_KEY"]
+
+CORS(app,
+     supports_credentials=True,
+     origins=["http://127.0.0.1:5000"]) # add other endpoints you want to be able to communicate with here as well.
+
 
 login_manager = LoginManager()
 login_manager.init_app(app)

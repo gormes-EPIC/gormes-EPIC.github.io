@@ -123,12 +123,20 @@ def home():
 
 ```
 <button id="loadBtn">Load Table</button>
-<div id="output"></div>
+<ul id="myList"></ul>
 <script src="/static/app.js"></script>
 ```
 
 2. Create a new JavaScript file `app.js` in the `static` folder.
 
+Assuming the JSON response is:
+```
+{
+  "info": [0, 1, 2, 3]
+}
+```
+
+Your `app.js` should be:
 ```
 document.getElementById("loadBtn").addEventListener("click", async () => {
   const output = document.getElementById("output");
@@ -136,19 +144,13 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
   try {
     const response = await fetch("YOUR API ENDPOINT HERE");
     const rows = await response.json();
+    const listElement = document.getElementById('myList');
 
-    const columns = Object.keys(rows[0]);
-    let html = "<table border='1'><tr>";
-    columns.forEach(col => html += `<th>${col}</th>`);
-    html += "</tr>";
-
-    rows.forEach(row => {
-      html += "<tr>";
-      columns.forEach(col => html += `<td>${row[col]}</td>`);
-      html += "</tr>";
+    rows.info.forEach((item) => {
+      const li = document.createElement('li');
+      li.textContent = item;
+      listElement.appendChild(li);
     });
-
-    output.innerHTML = html + "</table>";
   } catch (err) {
     output.textContent = "Error: " + err.message;
   }
