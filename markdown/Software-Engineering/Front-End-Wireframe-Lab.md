@@ -147,11 +147,12 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
     const response = await fetch("YOUR API ENDPOINT HERE");
     const data = await response.json();
     const keys = Object.keys(data);
+    const rowCount = Math.max(...keys.map((k) => data[k].length));
 
     let html = "<tr>" + keys.map((k) => `<th>${k}</th>`).join("") + "</tr>";
 
-    for (let i = 0; i < data[keys[0]].length; i++) {
-      html += "<tr>" + keys.map((k) => `<td>${data[k][i]}</td>`).join("") + "</tr>";
+    for (let i = 0; i < rowCount; i++) {
+      html += "<tr>" + keys.map((k) => `<td>${data[k][i] ?? ""}</td>`).join("") + "</tr>";
     }
 
     table.innerHTML = html;
