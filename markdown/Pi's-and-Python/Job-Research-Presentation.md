@@ -45,6 +45,8 @@ Your task is to analyze your job and identify common requirements and skills.
 ### Part 3: Create a Visual
 Create a visual representation of what you learned. Include the information you took notes on in the previous section. This can be a presentation slide deck, a poster, a demo, etc. It's totally up to you!
 
+**Your presentation may not have words on the slides except for titles! Also, consider including a demo or other interactive element.**
+
 ### Part 4: Present your Project
 During class, you will present your visual. Use the strong presentation skills we identified in the in-class video.
 
