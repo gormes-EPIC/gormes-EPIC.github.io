@@ -31,7 +31,7 @@ const unitInfo = {
         0: { name: "CI/CD and Version Control" },
         1: { name: "Databases with SQLite"},
         2: { name: "How Computers Talk and APIs"},
-        3: { name: "Adversarial Simon", visible: false},
+        3: { name: "Adversarial Simon"},
         4: { name: "Front-end Development"}
     },
     "Foundations-of-AI": {
