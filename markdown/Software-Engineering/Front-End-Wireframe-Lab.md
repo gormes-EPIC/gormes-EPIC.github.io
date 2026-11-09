@@ -132,9 +132,9 @@ def home():
 Assuming the JSON response is:
 ```
 {
-  "info": ["a", "b", "c", "d"],
-  "info2": ["e", "f", "g", "h"],
-  "info3": ["h", "j", "k", "l"]
+  "info": { data : "something" },
+  "info2": { data : "something" },
+  "info3": { data : "something" }
 }
 ```
 
@@ -146,16 +146,21 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
   try {
     const response = await fetch("YOUR API ENDPOINT HERE");
     const data = await response.json();
-    const keys = Object.keys(data);
-    const rowCount = Math.max(...keys.map((k) => data[k].length));
+    
+    data.forEach(datapoint => {
+      // Create a new row (<tr>)
+      const row = document.createElement("tr");
 
-    let html = "<tr>" + keys.map((k) => `<th>${k}</th>`).join("") + "</tr>";
+      // Loop through object values to create cells (<td>)
+      Object.values(datapoint).forEach(text => {
+          const cell = document.createElement("td");
+          cell.textContent = text; // Safely assign text content
+          row.appendChild(cell);   // Add cell to the row
+      });
 
-    for (let i = 0; i < rowCount; i++) {
-      html += "<tr>" + keys.map((k) => `<td>${data[k][i] ?? ""}</td>`).join("") + "</tr>";
-    }
-
-    table.innerHTML = html;
+      // Append the completed row to the table body
+      tableBody.appendChild(row);
+    });
   } catch (err) {
     document.getElementById("output").textContent = "Error: " + err.message;
   }
