@@ -275,7 +275,7 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
 <body>
   <h1>View 2</h1>
   <p>You pressed the button!</p>
-  <a href="{{ url_for('index') }}">Back to home</a>
+  <a href="{{ url_for('home') }}">Back to home</a>
 </body>
 </html>
 ```
