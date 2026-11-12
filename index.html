@@ -159,6 +159,15 @@
             --badge-wfr-text: #0a0a0a;
         }
         body.hacker-mode .markdown-body a { color: var(--primary); }
+        /* Terminal-style monospace font across the whole page, including form controls */
+        body.hacker-mode {
+            font-family: "JetBrains Mono", "Fira Code", "Cascadia Code", "Source Code Pro", Menlo, Consolas, "DejaVu Sans Mono", "Liberation Mono", monospace;
+        }
+        body.hacker-mode input,
+        body.hacker-mode select,
+        body.hacker-mode button {
+            font-family: inherit;
+        }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
