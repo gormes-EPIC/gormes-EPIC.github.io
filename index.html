@@ -179,6 +179,200 @@
             letter-spacing: 0.02em;
         }
 
+        /* Old School Theme: looks like a 1990s web page with no CSS at all.
+           White page, black Times New Roman text, blue underlined links, plain gray buttons. */
+        body.oldschool-mode {
+            --primary: #0000ee;
+            --bg: #ffffff;
+            --surface: #ffffff;
+            --text: #000000;
+            --border: #808080;
+
+            --badge-note-bg: transparent;
+            --badge-note-text: #000000;
+            --badge-assign-bg: transparent;
+            --badge-assign-text: #000000;
+            --badge-exercise-bg: transparent;
+            --badge-exercise-text: #000000;
+            --badge-optional-bg: transparent;
+            --badge-optional-text: #000000;
+            --badge-document-bg: transparent;
+            --badge-document-text: #000000;
+            --badge-wfr-bg: transparent;
+            --badge-wfr-text: #000000;
+
+            font-family: "Times New Roman", Times, serif;
+        }
+        /* No rounded corners, shadows, or animations anywhere */
+        body.oldschool-mode * {
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            transition: none !important;
+        }
+        body.oldschool-mode input,
+        body.oldschool-mode select,
+        body.oldschool-mode textarea { font-family: inherit; }
+        body.oldschool-mode pre,
+        body.oldschool-mode code,
+        body.oldschool-mode kbd { font-family: "Courier New", Courier, monospace; }
+
+        /* The page is just the page: no box behind it, full width */
+        body.oldschool-mode #app {
+            max-width: none;
+            margin: 0;
+            padding: 8px 8px 3rem;
+            background: transparent;
+        }
+        body.oldschool-mode h1,
+        body.oldschool-mode h2,
+        body.oldschool-mode h3,
+        body.oldschool-mode .unit-heading { color: #000000; }
+
+        /* Classic blue, underlined links that turn purple once visited */
+        body.oldschool-mode a,
+        body.oldschool-mode .markdown-body a {
+            color: #0000ee;
+            text-decoration: underline;
+            font-weight: normal;
+        }
+        body.oldschool-mode a:visited,
+        body.oldschool-mode .markdown-body a:visited { color: #551a8b; }
+        body.oldschool-mode a:active { color: #ff0000; }
+
+        /* Plain gray buttons, like a browser's built-in ones */
+        body.oldschool-mode .btn,
+        body.oldschool-mode .email-btn,
+        body.oldschool-mode .copy-btn,
+        body.oldschool-mode .sidebar-icon-btn,
+        body.oldschool-mode a.btn,
+        body.oldschool-mode a.btn:visited {
+            background: #dddddd;
+            color: #000000;
+            border: 2px outset #f0f0f0;
+            padding: 2px 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8rem;
+            font-weight: normal;
+            text-decoration: none;
+            opacity: 1;
+        }
+        body.oldschool-mode .btn:hover,
+        body.oldschool-mode .email-btn:hover,
+        body.oldschool-mode .copy-btn:hover,
+        body.oldschool-mode .sidebar-icon-btn:hover {
+            background: #dddddd;
+            color: #000000;
+            border-color: #f0f0f0;
+        }
+        body.oldschool-mode .btn:active,
+        body.oldschool-mode .email-btn:active,
+        body.oldschool-mode .copy-btn:active,
+        body.oldschool-mode .sidebar-icon-btn:active { border-style: inset; }
+
+        /* Plain text boxes and drop-downs */
+        body.oldschool-mode .search-bar,
+        body.oldschool-mode .type-filter-select {
+            background: #ffffff;
+            color: #000000;
+            border: 2px inset #c0c0c0;
+            padding: 2px 4px;
+        }
+
+        /* Style menu looks like an old pop-up menu */
+        body.oldschool-mode #style-menu-panel {
+            background: #ffffff;
+            border: 1px solid #000000;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body.oldschool-mode .style-option:hover { background: #000080; color: #ffffff; }
+
+        /* Class cards become a plain bulleted list of links */
+        body.oldschool-mode .grid { display: block; margin-top: 0.5rem; }
+        body.oldschool-mode .card,
+        body.oldschool-mode .card-with-image {
+            display: list-item;
+            list-style: disc;
+            margin: 0.4rem 0 0.4rem 2.5rem;
+            padding: 0;
+            background: none;
+            border: none;
+            text-align: left;
+            overflow: visible;
+        }
+        body.oldschool-mode .card:hover { color: #0000ee; transform: none; }
+        body.oldschool-mode .card-image {
+            display: block;
+            width: 160px;
+            aspect-ratio: auto;
+            border: 2px solid #0000ee; /* Old browsers drew a blue border around linked images */
+        }
+        body.oldschool-mode .card-title { padding: 0; }
+
+        /* Type tags turn into plain bracketed text, like [NOTES] */
+        body.oldschool-mode .badge {
+            padding: 0;
+            font-weight: normal;
+            letter-spacing: 0;
+            font-size: 0.8em;
+        }
+        body.oldschool-mode .badge::before { content: "["; }
+        body.oldschool-mode .badge::after { content: "]"; }
+        body.oldschool-mode .sidebar-dot { background: #000000; }
+
+        /* Markdown elements go back to browser defaults */
+        body.oldschool-mode .markdown-body pre {
+            background: none;
+            color: #000000;
+            border: none;
+            padding: 0;
+        }
+        body.oldschool-mode .markdown-body :not(pre) > code { background: none; padding: 0; }
+        body.oldschool-mode .markdown-body blockquote {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 1em 40px;
+            opacity: 1;
+        }
+        body.oldschool-mode .markdown-body details {
+            background: none;
+            border: none;
+            padding: 0;
+            margin: 1em 0;
+        }
+        body.oldschool-mode .markdown-body summary { color: #000000; font-weight: normal; }
+        body.oldschool-mode .markdown-body details[open] summary { border-bottom: none; padding-bottom: 0; margin-bottom: 0.5em; }
+        body.oldschool-mode .markdown-body table,
+        body.oldschool-mode .markdown-body td,
+        body.oldschool-mode .markdown-body th { border: 1px solid #808080; }
+        body.oldschool-mode .markdown-body th { background: none; font-weight: bold; }
+        body.oldschool-mode .agenda-box {
+            background: none;
+            border: 1px solid #000000;
+        }
+
+        /* Course outline: plain white column of links */
+        body.oldschool-mode #course-sidebar {
+            background: #ffffff;
+            border-right: 1px solid #000000;
+            font-family: inherit;
+        }
+        body.oldschool-mode .sidebar-link { border-left: none; }
+        body.oldschool-mode .sidebar-link:hover { background: none; }
+        body.oldschool-mode .sidebar-link.active { background: none; color: #000000; font-weight: bold; text-decoration: none; }
+        body.oldschool-mode .sidebar-unit > summary,
+        body.oldschool-mode .sidebar-sub > summary,
+        body.oldschool-mode .sidebar-class-link { color: #000000; }
+        body.oldschool-mode .sidebar-unit > summary:hover,
+        body.oldschool-mode .sidebar-sub > summary:hover { background: none; }
+
+        /* Checklists: a chunky old-fashioned progress bar */
+        body.oldschool-mode .checklist-progress { background: #ffffff; border-bottom: 1px solid #000000; }
+        body.oldschool-mode .checklist-bar { background: #ffffff; border: 2px inset #c0c0c0; }
+        body.oldschool-mode .checklist-bar span { background: #000080; }
+        body.oldschool-mode .checklist-body li.task-item:hover { background: none; }
+        body.oldschool-mode .checklist-body li.task-item input[type="checkbox"] { accent-color: auto; }
+
         /* Hacker Theme: black, grey, and white with terminal-green accents */
         body.hacker-mode {
             --primary: #22e55f;
@@ -1157,6 +1351,7 @@
             <button type="button" class="style-option" role="menuitemradio" data-theme="sunset"><span class="style-swatch" style="background: linear-gradient(135deg, #140800 50%, #f97316 50%)"></span>Sunset</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="hacker"><span class="style-swatch" style="background: linear-gradient(135deg, #0a0a0a 50%, #22e55f 50%)"></span>Hacker</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="pink"><span class="style-swatch" style="background: linear-gradient(135deg, #ffe4f1 50%, #e0218a 50%)"></span>Pink</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="oldschool"><span class="style-swatch" style="background: linear-gradient(135deg, #ffffff 50%, #0000ee 50%)"></span>Old School</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Layout</div>
             <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
@@ -1193,7 +1388,7 @@
 
         // --- 0. STYLE MENU (THEMES + SEAMLESS MODE) ---
         const body = document.body;
-        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode'];
+        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode', 'oldschool-mode'];
         const styleMenuBtn = document.getElementById('style-menu-btn');
         const styleMenuPanel = document.getElementById('style-menu-panel');
         const themeOptions = [...styleMenuPanel.querySelectorAll('[data-theme]')];
@@ -1507,7 +1702,7 @@
 
         // --- Mermaid Diagram Setup ---
         function getMermaidTheme() {
-            return (body.classList.contains('light-mode') || body.classList.contains('pink-mode')) ? 'default' : 'dark';
+            return ['light-mode', 'pink-mode', 'oldschool-mode'].some(name => body.classList.contains(name)) ? 'default' : 'dark';
         }
 
         const appDiv = document.getElementById('app');
