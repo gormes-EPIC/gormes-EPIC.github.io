@@ -91,7 +91,7 @@ while True:
 2. Answer the following questions about your second graph
     - What kind of model best represents our data(linear, quadratic, exponential)? How do you know it is the best option?
 	- What is the equation of the line of best fit? 
-	- Why does this make sense for representing temperature? *Hint: do a little bit of research into the formula for temperature decay according to Newton's Law of Cooling.*
+	- Why does this make sense for representing temperature? *Hint: do a little bit of research into the formula for temperature decay according to Newton's Law of Cooling. Watch the first few minutes of [this video](https://www.youtube.com/watch?v=v1ikej73-CY&t=9s) to start.*
 
 ## How to Submit
 

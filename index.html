@@ -137,6 +137,48 @@
             --badge-wfr-text: #fef9c3;
         }
 
+        /* Pink Theme: a light, Barbie-pink theme */
+        body.pink-mode {
+            --primary: #e0218a;
+            --bg: #ffe4f1;
+            --surface: #fff5fa;
+            --text: #4a0d2e;
+            --border: #f9b8d9;
+
+            --badge-note-bg: #fbcfe8;
+            --badge-note-text: #be185d;
+            --badge-assign-bg: #f3e8ff;
+            --badge-assign-text: #9333ea;
+            --badge-exercise-bg: #d1fae5;
+            --badge-exercise-text: #047857;
+            --badge-optional-bg: #f5e1ec;
+            --badge-optional-text: #8a4a6b;
+            --badge-document-bg: #ffe4e6;
+            --badge-document-text: #be123c;
+            --badge-wfr-bg: #fef9c3;
+            --badge-wfr-text: #a16207;
+        }
+        body.pink-mode .markdown-body a { color: #c2187a; }
+        body.pink-mode .markdown-body pre {
+            background: #5c1238; /* Dark pink code blocks */
+            border-color: #8a1f55;
+            color: #fde7f2;
+        }
+        /* Barbie-style display font for titles and headings in Pink mode */
+        @font-face {
+            font-family: "Youth Shandey";
+            src: url("assets/font/Youth%20Shandey.ttf") format("truetype");
+            font-display: swap;
+        }
+        body.pink-mode h1,
+        body.pink-mode h2,
+        body.pink-mode h3,
+        body.pink-mode .card-title {
+            font-family: "Youth Shandey", cursive;
+            font-weight: normal;
+            letter-spacing: 0.02em;
+        }
+
         /* Hacker Theme: black, grey, and white with terminal-green accents */
         body.hacker-mode {
             --primary: #22e55f;
@@ -230,6 +272,14 @@
             height: 0.9rem;
             border-radius: 50%;
             border: 1px solid var(--border);
+        }
+        .style-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            font-size: 0.8rem;
+            line-height: 1;
         }
         .style-divider {
             height: 1px;
@@ -679,7 +729,8 @@
         /* 1. Wrapper: Match the VS Code/Atom Dark colors exactly */
         .markdown-body pre { 
             background: #1e1921; /* The official Atom One Dark background */
-            padding: 1rem; 
+            color: #e5e7eb; /* Light text on every theme, since this background is always dark (light mode's dark text was unreadable here) */
+            padding: 1rem;
             border-radius: 6px; 
             overflow-x: auto; 
             position: relative; 
@@ -1105,9 +1156,14 @@
             <button type="button" class="style-option" role="menuitemradio" data-theme="forest"><span class="style-swatch" style="background: linear-gradient(135deg, #071007 50%, #22c55e 50%)"></span>Forest</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="sunset"><span class="style-swatch" style="background: linear-gradient(135deg, #140800 50%, #f97316 50%)"></span>Sunset</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="hacker"><span class="style-swatch" style="background: linear-gradient(135deg, #0a0a0a 50%, #22e55f 50%)"></span>Hacker</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="pink"><span class="style-swatch" style="background: linear-gradient(135deg, #ffe4f1 50%, #e0218a 50%)"></span>Pink</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Layout</div>
             <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
+            <div class="style-divider"></div>
+            <div class="style-menu-label">Open Labs In</div>
+            <button type="button" class="style-option" role="menuitemradio" data-lab-view="full"><span class="style-swatch style-icon">📄</span>Full lab view</button>
+            <button type="button" class="style-option" role="menuitemradio" data-lab-view="checklist"><span class="style-swatch style-icon">☑</span>Checklist mode</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Pet</div>
             <button type="button" class="style-option" role="menuitemradio" data-pet="none"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>No pet</button>
@@ -1137,7 +1193,7 @@
 
         // --- 0. STYLE MENU (THEMES + SEAMLESS MODE) ---
         const body = document.body;
-        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode'];
+        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode'];
         const styleMenuBtn = document.getElementById('style-menu-btn');
         const styleMenuPanel = document.getElementById('style-menu-panel');
         const themeOptions = [...styleMenuPanel.querySelectorAll('[data-theme]')];
@@ -1180,6 +1236,28 @@
             applySeamless(on);
             localStorage.setItem('seamless', String(on));
         });
+
+        // Default lab view: whether file pages open in the full lab or in checklist mode.
+        // Pages without a checklist always open in the full lab.
+        const labViewOptions = [...styleMenuPanel.querySelectorAll('[data-lab-view]')];
+
+        function getDefaultLabView() {
+            return localStorage.getItem('defaultLabView') === 'checklist' ? 'checklist' : 'full';
+        }
+
+        function applyDefaultLabView(view) {
+            labViewOptions.forEach(option => option.setAttribute('aria-checked', String(option.dataset.labView === view)));
+        }
+        applyDefaultLabView(getDefaultLabView());
+        Object.keys(localStorage).filter(key => key.startsWith('checklistMode-')).forEach(key => localStorage.removeItem(key));
+
+        labViewOptions.forEach(option => option.addEventListener('click', () => {
+            const view = option.dataset.labView;
+            applyDefaultLabView(view);
+            localStorage.setItem('defaultLabView', view);
+            // Switch the page that's open right now too, if it has a checklist.
+            document.getElementById('checklist-toggle-btn')?.dispatchEvent(new CustomEvent('set-view', { detail: view }));
+        }));
 
         // Close the menu when clicking anywhere else or pressing Escape.
         document.addEventListener('click', (event) => {
@@ -1429,7 +1507,7 @@
 
         // --- Mermaid Diagram Setup ---
         function getMermaidTheme() {
-            return body.classList.contains('light-mode') ? 'default' : 'dark';
+            return (body.classList.contains('light-mode') || body.classList.contains('pink-mode')) ? 'default' : 'dark';
         }
 
         const appDiv = document.getElementById('app');
@@ -2278,8 +2356,8 @@
                 const isSyllabus = assignmentName.endsWith('-Syllabus');
 
                 const hasChecklist = typeof checklistText === 'string';
-                const checklistModeKey = `checklistMode-${className}/${assignmentName}`;
-                const startInChecklist = hasChecklist && localStorage.getItem(checklistModeKey) === 'on';
+                // Open in the visitor's default view (Style menu). No checklist? Always the full lab.
+                const startInChecklist = hasChecklist && getDefaultLabView() === 'checklist';
 
                 appDiv.innerHTML = `
                     <div class="nav-buttons">
@@ -2318,14 +2396,14 @@
                         checklistView.hidden = !on;
                         toggleBtn.textContent = on ? '📄 Full Lab View' : '☑ Checklist Mode';
                         toggleBtn.setAttribute('aria-pressed', String(on));
-                        if (on) localStorage.setItem(checklistModeKey, 'on');
-                        else localStorage.removeItem(checklistModeKey);
                     }
                     showChecklist(startInChecklist);
+                    // The button switches views for this visit only; the Style menu sets the default.
                     toggleBtn.addEventListener('click', () => {
                         showChecklist(checklistView.hidden);
                         window.scrollTo(0, 0);
                     });
+                    toggleBtn.addEventListener('set-view', (event) => showChecklist(event.detail === 'checklist'));
                 }
 
                 if (isSyllabus) {
