@@ -942,6 +942,63 @@
             body.has-sidebar.sidebar-open #sidebar-backdrop { display: block; }
         }
 
+        /* --- 8-Bit Pet (picked in the Style menu) --- */
+        #pet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 48px;
+            height: 36px;
+            z-index: 350;
+            cursor: pointer;
+        }
+        #pet[hidden] { display: none; }
+        #pet { touch-action: none; } /* Lets a finger swipe back and forth to pet it on phones */
+
+        /* Heart in a speech bubble, shown when you pet the pet */
+        .pet-heart {
+            position: absolute;
+            bottom: calc(100% + 2px);
+            left: 50%;
+            width: 39px;
+            height: 36px;
+            margin-left: -6px;
+            background-size: 100% 100%;
+            image-rendering: pixelated;
+            pointer-events: none;
+            opacity: 0;
+            transform: scale(0.4) translateY(10px);
+            transform-origin: bottom left;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        #pet.loved .pet-heart {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+        }
+        .pet-hop, .pet-sprite { width: 100%; height: 100%; }
+        .pet-sprite {
+            background-size: 100% 100%;
+            image-rendering: pixelated;
+            transform-origin: bottom center;
+        }
+        #pet.facing-right .pet-sprite { transform: scaleX(-1); }
+        /* Single-frame pets (the slime) squish as they move */
+        #pet.squish .pet-sprite { transform: scale(1.08, 0.88); }
+        #pet.facing-right.squish .pet-sprite { transform: scale(-1.08, 0.88); }
+        #pet.hopping .pet-hop { animation: pet-hop 0.45s ease-out; }
+        @keyframes pet-hop {
+            0%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-22px); }
+        }
+        .pet-swatch {
+            border: none;
+            border-radius: 0;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            image-rendering: pixelated;
+        }
+
         /* PRINT MODE */
         @media print {
             #course-sidebar,
@@ -959,6 +1016,7 @@
 
             /* 1. Hide everything that isn't the document itself */
             #style-menu,
+            #pet,
             .nav-buttons,
             .search-container,
             .copy-btn,
@@ -1050,8 +1108,17 @@
             <div class="style-divider"></div>
             <div class="style-menu-label">Layout</div>
             <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
+            <div class="style-divider"></div>
+            <div class="style-menu-label">Pet</div>
+            <button type="button" class="style-option" role="menuitemradio" data-pet="none"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>No pet</button>
+            <button type="button" class="style-option" role="menuitemradio" data-pet="cat"><span class="style-swatch pet-swatch"></span>Cat</button>
+            <button type="button" class="style-option" role="menuitemradio" data-pet="dog"><span class="style-swatch pet-swatch"></span>Dog</button>
+            <button type="button" class="style-option" role="menuitemradio" data-pet="duck"><span class="style-swatch pet-swatch"></span>Duck</button>
+            <button type="button" class="style-option" role="menuitemradio" data-pet="slime"><span class="style-swatch pet-swatch"></span>Slime</button>
         </div>
     </div>
+
+    <div id="pet" hidden title="Click me, or pet me by moving your mouse back and forth!"><div class="pet-heart"></div><div class="pet-hop"><div class="pet-sprite"></div></div></div>
 
     <aside id="course-sidebar" aria-label="Course outline"></aside>
     <div id="sidebar-backdrop"></div>
@@ -1124,6 +1191,241 @@
                 styleMenuBtn.focus();
             }
         });
+
+        // --- 8-BIT PET ---
+        // Each pet is pixel art drawn from the grids below (facing left), one
+        // character per pixel. "." is see-through; other letters are colors
+        // from the pet's palette. Two frames make a walk cycle; one frame squishes.
+        const PET_BODY = [
+            ".koooookkkkkkkok",
+            ".koooooooooooook",
+            ".kooooooooooook.",
+            "..kooooooooook..",
+        ];
+        const PET_LEGS = [
+            ["..ko.ko...ko.ko.", "..kk.kk...kk.kk."],
+            ["...ko.ko.ko.ko..", "...kk.kk.kk.kk.."],
+        ];
+        const CAT_HEAD = [
+            ".k...k..........",
+            "kok.kok.........",
+            "kooooook.......k",
+            "koeooeok......ko",
+            "kooppook......ko",
+            ".kooook.......ko",
+        ];
+        // German Shepherd: big upright ears, black saddle, tan legs, dark muzzle, bushy tail.
+        const DOG_TOP = [
+            "..k..k..........",
+            ".kbkkbk.........",
+            ".kbttbk.........",
+            ".kttettk........",
+            "nmmttttkkkkkkk..",
+            ".kkkttbbbbbbbbk.",
+            "...kttbbbbbbbbkk",
+            "...kttttbbbbtkbk",
+            "...kttttttttkbbk",
+        ];
+        const DOG_LEGS = [
+            ["...kt.kt..kt.kbk", "...kt.kt..kt.kt.", "...kk.kk..kk.kk."],
+            ["...kt.kt..kt.kbk", "....kt.kt.kt.kt.", "....kk.kk.kk.kk."],
+        ];
+        const PETS = {
+            cat: {
+                palette: { k: '#1a1a1a', o: '#f59e0b', e: '#111111', p: '#f9a8d4' },
+                frames: PET_LEGS.map(legs => [...CAT_HEAD, ...PET_BODY, ...legs]),
+                speed: 45,
+            },
+            dog: {
+                palette: { k: '#1a1a1a', b: '#2f2a26', t: '#c98a3d', m: '#3b2f25', e: '#111111', n: '#111111' },
+                frames: DOG_LEGS.map(legs => [...DOG_TOP, ...legs]),
+                speed: 55,
+            },
+            duck: {
+                palette: { k: '#1a1a1a', w: '#f8fafc', e: '#111111', o: '#f97316', g: '#cbd5e1' },
+                frames: ["....oo...oo.....", ".....oo.oo......"].map(feet => [
+                    "....kkkk........",
+                    "...kwwwwk.......",
+                    "...kwewwk.......",
+                    ".oooowwwk.......",
+                    "..ookwwwk.......",
+                    "....kwwwk.......",
+                    "...kwwwwkkkkk..k",
+                    "..kwwwwwwwwwwkwk",
+                    "..kwwwgggwwwwwk.",
+                    "..kwwwwgggwwwk..",
+                    "...kkkkkkkkkk...",
+                    feet,
+                ]),
+                speed: 35,
+            },
+            slime: {
+                palette: { k: '#14532d', o: '#4ade80', w: '#f0fdf4', e: '#14532d' },
+                frames: [[
+                    "................",
+                    "................",
+                    "................",
+                    "....kkkkkkkk....",
+                    "...koooooowwk...",
+                    "..koooooooowwk..",
+                    ".kooeooooeooook.",
+                    ".kooooooooooook.",
+                    "kooooooooooooook",
+                    "kooooooooooooook",
+                    ".kkkkkkkkkkkkkk.",
+                    "................",
+                ]],
+                speed: 25,
+            },
+        };
+
+        // Turn a pixel grid into an image the browser can use as a background.
+        function drawPetFrame(grid, palette) {
+            const canvas = document.createElement('canvas');
+            canvas.width = grid[0].length;
+            canvas.height = grid.length;
+            const ctx = canvas.getContext('2d');
+            grid.forEach((row, y) => [...row].forEach((pixel, x) => {
+                if (pixel === '.' || !palette[pixel]) return;
+                ctx.fillStyle = palette[pixel];
+                ctx.fillRect(x, y, 1, 1);
+            }));
+            return `url(${canvas.toDataURL()})`;
+        }
+        Object.values(PETS).forEach(pet => { pet.images = pet.frames.map(grid => drawPetFrame(grid, pet.palette)); });
+
+        const petEl = document.getElementById('pet');
+        const petSprite = petEl.querySelector('.pet-sprite');
+        const petOptions = [...styleMenuPanel.querySelectorAll('[data-pet]')];
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        petOptions.forEach(option => {
+            const pet = PETS[option.dataset.pet];
+            if (pet) option.querySelector('.pet-swatch').style.backgroundImage = pet.images[0];
+        });
+
+        const petState = { type: null, x: 0, target: 0, restUntil: 0, lastTime: 0, stepTime: 0, frame: 0, rafId: null };
+
+        function petMaxX() { return Math.max(0, window.innerWidth - petEl.offsetWidth); }
+
+        function petTick(time) {
+            const pet = PETS[petState.type];
+            if (!pet) return;
+            const dt = Math.min((time - petState.lastTime) / 1000, 0.1);
+            petState.lastTime = time;
+
+            const walking = time >= petState.restUntil && !reduceMotion.matches;
+            if (walking) {
+                const distance = petState.target - petState.x;
+                if (Math.abs(distance) < 2) {
+                    // Arrived: rest for a moment, then pick somewhere new to wander.
+                    petState.restUntil = time + 1000 + Math.random() * 3000;
+                    petState.target = Math.random() * petMaxX();
+                } else {
+                    const direction = Math.sign(distance);
+                    petState.x += direction * Math.min(Math.abs(distance), pet.speed * dt);
+                    petEl.classList.toggle('facing-right', direction > 0);
+                    if (time - petState.stepTime > 180) {
+                        petState.stepTime = time;
+                        petState.frame = (petState.frame + 1) % 2;
+                    }
+                }
+            } else {
+                petState.frame = 0;
+            }
+
+            const images = pet.images;
+            petSprite.style.backgroundImage = images[petState.frame % images.length];
+            petEl.classList.toggle('squish', images.length === 1 && petState.frame === 1);
+            petEl.style.left = `${Math.min(petState.x, petMaxX())}px`;
+            petState.rafId = requestAnimationFrame(petTick);
+        }
+
+        function applyPet(type) {
+            if (!PETS[type]) type = 'none';
+            petOptions.forEach(option => option.setAttribute('aria-checked', String(option.dataset.pet === type)));
+            cancelAnimationFrame(petState.rafId);
+            petState.type = type;
+            petEl.hidden = type === 'none';
+            if (type === 'none') return;
+
+            petState.x = Math.random() * petMaxX();
+            petState.target = Math.random() * petMaxX();
+            petState.restUntil = 0;
+            petState.lastTime = performance.now();
+            petState.rafId = requestAnimationFrame(petTick);
+        }
+
+        petOptions.forEach(option => option.addEventListener('click', () => {
+            applyPet(option.dataset.pet);
+            localStorage.setItem('pet', option.dataset.pet);
+        }));
+
+        // Click the pet to make it hop.
+        petEl.addEventListener('click', () => {
+            petEl.classList.remove('hopping');
+            void petEl.offsetWidth; // Restart the animation if it's already hopping.
+            petEl.classList.add('hopping');
+        });
+        petEl.addEventListener('animationend', () => petEl.classList.remove('hopping'));
+
+        // Pet the pet: rub the mouse (or a finger) back and forth over it and
+        // it stops walking and shows a little heart in a speech bubble.
+        petEl.querySelector('.pet-heart').style.backgroundImage = drawPetFrame([
+            ".kkkkkkkkkkk.",
+            "kwwwwwwwwwwwk",
+            "kwwwwwwwwwwwk",
+            "kwwwrrwrrwwwk",
+            "kwwrrrrrrrwwk",
+            "kwwrrrrrrrwwk",
+            "kwwwrrrrrwwwk",
+            "kwwwwrrrwwwwk",
+            "kwwwwwrwwwwwk",
+            "kwwwwwwwwwwwk",
+            ".kkkkwkkkkkk.",
+            "....kk.......",
+        ], { k: '#1a1a1a', w: '#ffffff', r: '#ef4444' });
+
+        const petting = { lastX: null, direction: 0, travel: 0, rubs: [], heartTimer: null };
+
+        petEl.addEventListener('pointermove', (event) => {
+            const now = performance.now();
+            // Hold still while someone's hand is on it.
+            petState.restUntil = Math.max(petState.restUntil, now + 600);
+
+            if (petting.lastX !== null) {
+                const dx = event.clientX - petting.lastX;
+                const direction = Math.sign(dx);
+                if (direction !== 0) {
+                    if (direction === petting.direction) {
+                        petting.travel += Math.abs(dx);
+                    } else {
+                        // Changing direction after a real stroke counts as one rub.
+                        if (petting.direction !== 0 && petting.travel >= 6) petting.rubs.push(now);
+                        petting.direction = direction;
+                        petting.travel = Math.abs(dx);
+                    }
+                }
+            }
+            petting.lastX = event.clientX;
+
+            // Three rubs within a second and a half means it's being petted.
+            petting.rubs = petting.rubs.filter(time => now - time < 1500);
+            if (petting.rubs.length >= 3) {
+                petting.rubs = [];
+                petEl.classList.add('loved');
+                petState.restUntil = Math.max(petState.restUntil, now + 1800);
+                clearTimeout(petting.heartTimer);
+                petting.heartTimer = setTimeout(() => petEl.classList.remove('loved'), 1800);
+            }
+        });
+
+        petEl.addEventListener('pointerleave', () => {
+            petting.lastX = null;
+            petting.direction = 0;
+            petting.travel = 0;
+        });
+
+        applyPet(localStorage.getItem('pet') || 'none');
 
         // --- Mermaid Diagram Setup ---
         function getMermaidTheme() {
