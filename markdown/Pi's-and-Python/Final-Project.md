@@ -3,15 +3,15 @@
 
 ## Objective
 
-1. Create a invention that combines both software and hardware components to perform a useful function.
+1. Create an invention that combines both software and hardware components to perform a useful function.
 2. Demonstrate the Python and circuit building skills we learned this semester in a transformative manner
 3. Research new components and libraries to add to your project
-4. Create technical documentation your project using and industry tools
+4. Create technical documentation for your project using industry tools
 5. Communicate about your project to a non-technical audience
 
 ## Your Task
 
-Working alone or in a team of 2, brainstorm some ideas for your invention. You project must contain **at least one
+Working alone or in a team of 2, brainstorm some ideas for your invention. Your project must contain **at least one
 source of input** and **at least one source of output**. Also, your project must contain **at least one new component**
 you have not used before.
 
@@ -50,37 +50,34 @@ conditions and the expected result.
 
 ## Documentation with a README
 
-In addition to creating your device, you will need to document it. Create a file in your repository called `README.md`. This will automatically display on GitHub when someone looks at your project. 
+In addition to building your device, you will need to document it. Create a file in your repository called `README.md`. GitHub automatically displays this file when someone looks at your project.
 
-The audience of this documentation is other students like
-you. You can assume they have some background with Python, but you still want to be clear and concise.
+The audience for this documentation is other students like you. You can assume they have some background with Python, but you still want to be clear and concise.
 
-Your document should include the following sections:
+Your README should include the following sections:
 
-1. About the project - this is where you use your answers from Part 1 and include one of your videos of what it
-does
-2. List of materials
-3. How to wire - include written instructions with visual aids
-4. How to run your program - this should include steps written for beginners. Feel free to use screenshots here two
-5. What does the code do - either add comments to your Python file in the repository already, or copy your code
-into this Markdown file and add comments. These should explain your code.
-6. Resources - you don't need to do a full citation, just the link and the title is fine.
+1. **About the Project** - describe what your project does and the problem it solves. Include one of your videos of it in action.
+2. **List of Materials** - every component someone would need to build your project.
+3. **How to Wire It** - written instructions with visual aids, like diagrams or photos.
+4. **How to Run Your Program** - steps written for beginners. Feel free to use screenshots here too.
+5. **What the Code Does** - explain your code. Either add comments to the Python files in your repository, or copy your code into the README and add comments there.
+6. **Resources** - the title and link of every resource you used. You don't need a full citation.
 
-This document should be written in professional language, as it is the main project that will represent you to
-employees. My hope is that you will be able to use this project on your resume, so you want it to be professional!
+Write your README in professional language. It is the main piece that will represent your project to employers, and my hope is that you will be able to put this project on your resume!
 
 ## Tips, Tricks, and Resources
-- The [gpiozero](https://gpiozero.readthedocs.io/en/stable/) library is a good place to start if you are stuck. Check the 'Basic Recipes' and 'Advanced Recipes' tab  have sample projects to look through. 
+- The [gpiozero](https://gpiozero.readthedocs.io/en/stable/) library is a good place to start if you are stuck. Its 'Basic Recipes' and 'Advanced Recipes' pages have sample projects to look through.
+- Look back at your earlier labs, like [Light the LED](#Pi's-and-Python/Light-the-LED-Lab), [Digital Slot Machine](#Pi's-and-Python/Digital-Slot-Machine-Lab), and [Temperature in Color](#Pi's-and-Python/Temperature-in-Color-Lab), for wiring and code you can build on.
+- See [Style Guides and Great READMEs](#Software-Engineering/Style-Guides-and-Great-READMEs) for examples of strong documentation.
 
 ## Reflection Questions
 1. Who is the audience for your product and what problem does it solve?
 2. What is the biggest thing you learned from this project?
-3. How will programming be relevant to your life moving forward? 
+3. How will programming be relevant to your life moving forward?
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+## How to Submit
+
+Attach your GitHub repository, including your program and your `README.md`, to Google Classroom. Then, demonstrate your working project to your instructor in class and walk them through your repository. You will also need to answer the reflection questions, either in writing or in person.
 
 ## Rubric
 - **40 points** - All required items are present.
