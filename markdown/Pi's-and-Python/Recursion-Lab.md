@@ -49,14 +49,14 @@ For the number 42, we can apply our process and we will end up with 1
 Before you get started, answer the following questions: 
 
 1. What two cases do you need to identify to complete this problem?
-2. Draw a recursion tree for `collatz(5)`. Think critically about what numbers need to be added to the recursive call to get the correct result.
+2. Draw a recursion tree or a stack diagram for `collatz(5)`. Think critically about what numbers need to be added to the recursive call to get the correct result.
 
 
 Decomposing the problem:
 
 1. Define your function with the header `def collatz(n)`
 2. Add your base case. For what value of `n` should your recursion stop?
-3. Using your recursion tree, add your recursive case. Then test your program by printing what your function returns for each of the test cases below.
+3. Using your recursion tree or stack diagram, add your recursive case. Then test your program by printing what your function returns for each of the test cases below.
 
 </details>
 
@@ -82,8 +82,8 @@ Before you get started, answer the following questions:
 1. What two cases do you need to identify to complete this problem?
 2. How can I use string slicing to get the first character in a string? How can I get the last character?
 3. What characters do we need to compare to figure out if `text` is a palindrome? How could we slowly reduce the length of `text` to reach our base case, comparing as we go?
-4. Draw a recursion tree for `is_palindrome("tacocat")`.
-5. Draw a recursion tree for `is_palindrome("abc")`. Remember we don't have to call a recursive case if we already know the solution. 
+4. Draw a recursion tree or a stack diagram for `is_palindrome("tacocat")`.
+5. Draw a recursion tree or a stack diagram for `is_palindrome("abc")`. Remember we don't have to call a recursive case if we already know the solution. 
 6. How does question 4 differ from question 5? 
 
 
@@ -120,7 +120,7 @@ Before you get started, answer the following questions:
 1. What is a dictionary? How do we access elements in a dictionary?
 2. How can we combine for loops with dictionaries to get all of the keys?
 3. How can we check what variable type something is? How can you check if a value is of type `None`?
-4. Draw a recursion tree for `open_doll(doll_two)` in the example test cases. 
+4. Draw a recursion tree or a stack diagram for `open_doll(doll_two)` in the example test cases. 
 
 
 Decomposing the problem:
@@ -180,7 +180,7 @@ This problem will require you to use `print()` statements around your recursive 
 
 Before you get started, answer the following questions: 
 
-1. Start by drawing a recursion tree. 
+1. Start by drawing a recursion tree or a stack diagram. 
 
 
 Decomposing the problem:

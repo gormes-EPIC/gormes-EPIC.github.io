@@ -90,7 +90,7 @@ Ok now that you have all your supplies, we are ready to get started.
 sudo apt install code
 ```
 2. Open VS Code from the Programming tab in the menu on the upper left corner or by typing `code` in your terminal
-3. Use the Explorer menu on the left hand side to open up the folder you created in a previous lab. It should have a folder called `venv` inside it. If you did not create this folder in a previous lab, refer to the [Meet Your Raspberry Pi](#Pi's-and-Python/Meet-Your-Raspberry-Pi) instructions to set up a **virtual environment**. 
+3. Use the Explorer menu on the left hand side to open up the folder you created in a previous lab. It should have a folder called `venv` inside it. If you did not create this folder in a previous lab, refer to the [Meet Your Raspberry Pi](#Pi's-and-Python/Meet-Your-Raspberry-Pi-Lab) instructions to set up a **virtual environment**. 
 4. Use the Terminal menu in the upper left of VSCode to open a new terminal. Change directory into the directory you created for your Python scripts in the last lab. Activate your virtual environment with the command:
 ```
 source venv/bin/activate

@@ -119,7 +119,7 @@ class MenuItem:
         self.price = price
 ```
 
-Create a new class `Order`. `Order` has one instance variable  `receipt` which is a list of `MenuItem`'s. `Order` has three methods:
+Create a new class `Order`. `Order` has one instance variable  `receipt` which is a list of `MenuItem`'s. `Order` has four methods:
 - `add_item(item)`: Appends a `MenuItem` to the order.
 - `calculate_taxes()`: Iterates through the list of items, and calculates the 7% sales tax on the purchase
 - `calculate_total()`: Iterates through the list of items, sums their prices, and returns the total cost including a 7% sales tax.
@@ -144,7 +144,7 @@ def main():
    total = order1.calculate_total()
    print("The total due is " + str(total))
 
-   order1.print_reciept()
+   order1.print_receipt()
    
 
 if __name__ == '__main__':
@@ -169,7 +169,7 @@ Total: 11.235
 
 Before you get started, answer the following questions: 
 
-1. Read the `MenuItem` class. Identify its three instance variables. How do you access them from outside the class?
+1. Read the `MenuItem` class. Identify its two instance variables. How do you access them from outside the class?
 2. For each instance method, write down its parameters(and type) and return type. 
 3. Read through the sample main and summarize it. 
 
@@ -177,7 +177,7 @@ Decomposing the problem:
 
 1. Copy in the `MenuItem` class. Create a sample `MenuItem` and print its properties
 2. Create a new class `Order` with its instance variable. Create a sample `Order` and print its properties. 
-3. Write the method `add_item()`. This should add a `MenuItem` to the `reciept`. 
+3. Write the method `add_item()`. This should add a `MenuItem` to the `receipt`. 
 4. Write the method `calculate_taxes()`. This should return a 7% sales tax based on the total cost of the items in `receipt`. 
 5. Write the method `calculate_total()`. This should sum the value of the items in `receipt` and add the tax calculated by `calculate_taxes()`.
 6. Write the method `print_receipt()`. You will need to use the `calculate_taxes()` and `calculate_total()` methods.
@@ -295,7 +295,7 @@ Decomposing the problem:
 </details>
 
 ## Tips, Tricks, and Resources
-- [Objects in Python Notes](#Pi's-and-Python/Objects-In-Python-Notes)
+- [Objects in Python Notes](#Pi's-and-Python/Objects-Notes)
 - [W3 Schools - Classes](https://www.w3schools.com/python/python_classes.asp)
 - [Geeks for Geeks - Python Objects](https://www.geeksforgeeks.org/python/python-object/)
 - [Introduction to Classes and Objects](https://www.youtube.com/watch?v=8yjkWGRlUmY) and [Using Classes and Objects in Python](https://www.youtube.com/watch?v=wfcWRAxRVBA)

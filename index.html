@@ -459,8 +459,61 @@
             margin-bottom: 0.5rem;
         }
 
-        .nav-buttons { display: flex; margin-bottom: 2rem; }
-        #export-pdf-btn { margin-left: auto; }
+        .nav-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
+        .nav-right { display: flex; gap: 0.5rem; margin-left: auto; }
+
+        /* --- Checklist Mode --- */
+        #checklist-view[hidden], #full-view[hidden] { display: none; }
+        .checklist-progress {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            margin-bottom: 0.5rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .checklist-bar {
+            flex: 1;
+            height: 0.6rem;
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            overflow: hidden;
+        }
+        .checklist-bar span {
+            display: block;
+            height: 100%;
+            width: 0;
+            background: var(--primary);
+            transition: width 0.25s ease;
+        }
+        .checklist-count { font-size: 0.85rem; white-space: nowrap; opacity: 0.8; }
+        .checklist-body ul { padding-left: 0.5rem; }
+        .checklist-body ul ul { padding-left: 1.75rem; }
+        .checklist-body li.task-item {
+            list-style: none;
+            padding: 0.4rem 0.6rem;
+            margin: 0.2rem 0;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.15s, opacity 0.15s;
+        }
+        .checklist-body li.task-item:hover { background: var(--bg); }
+        .checklist-body li.task-item > p { margin: 0.2rem 0; }
+        .checklist-body li.task-item input[type="checkbox"] {
+            width: 1.1rem;
+            height: 1.1rem;
+            margin: 0 0.6rem 0 0;
+            vertical-align: -0.15rem;
+            cursor: pointer;
+            accent-color: var(--primary);
+        }
+        .checklist-body li.task-item.done { opacity: 0.55; }
+        .checklist-body li.task-item pre { cursor: auto; }
         
         .btn {
             background: var(--surface);
@@ -1648,15 +1701,88 @@
             if (event.target.closest('a') && narrowScreen.matches) setSidebarOpen(false);
         });
 
+        // --- Checklist Mode ---
+        // Any file can have a step-by-step checklist version. To add one, save it at:
+        //     markdown/<Class-Name>/Checklists/<Same-File-Name>.md
+        // and write each step as a markdown task: "- [ ] Do the thing".
+        // A "Checklist Mode" button then shows up on that file's page.
+        // Students' checked boxes are saved in their own browser.
+        const CHECKLIST_FOLDER = 'Checklists';
+
+        // The checklist's markdown, or null if this file doesn't have one.
+        async function fetchChecklist(className, assignmentName) {
+            try {
+                const response = await fetch(`markdown/${className}/${CHECKLIST_FOLDER}/${assignmentName}.md`);
+                return response.ok ? await response.text() : null;
+            } catch (e) {
+                return null;
+            }
+        }
+
+        function setUpChecklist(className, assignmentName) {
+            const view = document.getElementById('checklist-view');
+            const storageKey = `checklist-${className}/${assignmentName}`;
+            const boxes = [...view.querySelectorAll('.checklist-body input[type="checkbox"]')];
+            const barFill = view.querySelector('.checklist-bar span');
+            const countEl = view.querySelector('.checklist-count');
+
+            let saved = [];
+            try { saved = JSON.parse(localStorage.getItem(storageKey)) || []; } catch (e) {}
+
+            boxes.forEach((box, i) => {
+                box.disabled = false;
+                box.checked = !!saved[i];
+                box.setAttribute('aria-label', 'Mark step done');
+                box.closest('li')?.classList.add('task-item');
+            });
+
+            function update() {
+                boxes.forEach(box => box.closest('li')?.classList.toggle('done', box.checked));
+                const done = boxes.filter(box => box.checked).length;
+                const percent = boxes.length ? Math.round((done / boxes.length) * 100) : 0;
+                barFill.style.width = `${percent}%`;
+                countEl.textContent = `${done} / ${boxes.length} steps done`;
+                localStorage.setItem(storageKey, JSON.stringify(boxes.map(box => box.checked)));
+            }
+
+            view.addEventListener('change', (event) => {
+                if (boxes.includes(event.target)) update();
+            });
+
+            // Clicking anywhere on a step's text checks it off too (but not links, code, or images).
+            view.addEventListener('click', (event) => {
+                if (event.target.closest('input, a, button, pre, code, img, summary, details')) return;
+                const li = event.target.closest('li.task-item');
+                if (!li) return;
+                const box = li.querySelector(':scope > input[type="checkbox"], :scope > p > input[type="checkbox"]');
+                if (!box) return;
+                box.checked = !box.checked;
+                update();
+            });
+
+            view.querySelector('.checklist-reset-btn').addEventListener('click', () => {
+                if (!confirm('Uncheck every step?')) return;
+                boxes.forEach(box => { box.checked = false; });
+                update();
+            });
+
+            update();
+        }
+
         // --- 6. RENDER INDIVIDUAL FILE ---
         async function renderAssignment(className, assignmentName) {
             if (curriculum[className]) renderSidebar(className, assignmentName);
             appDiv.innerHTML = `<p>Loading...</p>`;
             window.scrollTo(0, 0); // Start each newly opened page at the top.
             try {
-                const response = await fetch(`markdown/${className}/${assignmentName}.md`);
+                // Look for a matching checklist at the same time as the page itself.
+                const isWarmupOrAgenda = assignmentName.startsWith(`${WARMUP_FOLDER}/`) || assignmentName.startsWith(`${AGENDA_FOLDER}/`);
+                const [response, checklistText] = await Promise.all([
+                    fetch(`markdown/${className}/${assignmentName}.md`),
+                    isWarmupOrAgenda ? null : fetchChecklist(className, assignmentName)
+                ]);
                 if (!response.ok) throw new Error('Markdown file not found.');
-                
+
                 const markdownText = await response.text();
                 let htmlContent = marked.parse(markdownText); 
 
@@ -1689,16 +1815,56 @@
                 // Syllabi get a button that opens the print dialog, where students can "Save as PDF".
                 const isSyllabus = assignmentName.endsWith('-Syllabus');
 
+                const hasChecklist = typeof checklistText === 'string';
+                const checklistModeKey = `checklistMode-${className}/${assignmentName}`;
+                const startInChecklist = hasChecklist && localStorage.getItem(checklistModeKey) === 'on';
+
                 appDiv.innerHTML = `
                     <div class="nav-buttons">
                         <a href="#${className}" class="btn">← Back to Class</a>
-                        ${isSyllabus ? '<button type="button" id="export-pdf-btn" class="btn">Export to PDF</button>' : ''}
+                        <div class="nav-right">
+                            ${hasChecklist ? `<button type="button" id="checklist-toggle-btn" class="btn" aria-pressed="${startInChecklist}"></button>` : ''}
+                            ${isSyllabus ? '<button type="button" id="export-pdf-btn" class="btn">Export to PDF</button>' : ''}
+                        </div>
                     </div>
-                    <div class="markdown-body${isWarmup ? ' warmup-content' : ''}">
+                    <div id="full-view" class="markdown-body${isWarmup ? ' warmup-content' : ''}"${startInChecklist ? ' hidden' : ''}>
                         ${htmlContent}
                     </div>
+                    ${hasChecklist ? `
+                    <div id="checklist-view"${startInChecklist ? '' : ' hidden'}>
+                        <div class="checklist-progress">
+                            <div class="checklist-bar"><span></span></div>
+                            <span class="checklist-count"></span>
+                            <button type="button" class="btn checklist-reset-btn">Reset</button>
+                        </div>
+                        <div class="markdown-body checklist-body">
+                            ${marked.parse(checklistText)}
+                        </div>
+                    </div>` : ''}
                 `;
                 await enhanceMarkdown(assignmentName.split('/').pop().replace(/-/g, ' '));
+
+                if (hasChecklist) {
+                    setUpChecklist(className, assignmentName);
+
+                    const toggleBtn = document.getElementById('checklist-toggle-btn');
+                    const fullView = document.getElementById('full-view');
+                    const checklistView = document.getElementById('checklist-view');
+
+                    function showChecklist(on) {
+                        fullView.hidden = on;
+                        checklistView.hidden = !on;
+                        toggleBtn.textContent = on ? '📄 Full Lab View' : '☑ Checklist Mode';
+                        toggleBtn.setAttribute('aria-pressed', String(on));
+                        if (on) localStorage.setItem(checklistModeKey, 'on');
+                        else localStorage.removeItem(checklistModeKey);
+                    }
+                    showChecklist(startInChecklist);
+                    toggleBtn.addEventListener('click', () => {
+                        showChecklist(checklistView.hidden);
+                        window.scrollTo(0, 0);
+                    });
+                }
 
                 if (isSyllabus) {
                     document.getElementById('export-pdf-btn').addEventListener('click', () => {
