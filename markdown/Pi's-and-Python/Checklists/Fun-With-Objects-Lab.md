@@ -1,6 +1,8 @@
 # Fun with Objects Lab: Checklist
 
 > Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
+>
+> **The goal:** write your own classes and objects to solve four programming challenges: Parking Lot, Bookshelf, Coffee Shop, and Playlist (which also reads songs from a file).
 
 ## Step 1: Get Set Up
 

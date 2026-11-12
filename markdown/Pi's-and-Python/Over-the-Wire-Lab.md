@@ -30,12 +30,12 @@ Your task is to complete level 0 to level 5 of bandit. This means you find the p
 2. Access the [bandit](https://overthewire.org/wargames/bandit/) website.
 3. Select Level 0 from the menu on the left. 
 4. Open your terminal. Try `CTRL-ALT-T` as a shortcut.
-5. `ssh` into on the Over the Wire server. The username is **bandit0** and the password is **bandit0**. **Make sure you are on the EPIC CS wifi before attempting.**
+5. `ssh` into the Over the Wire server. The username is **bandit0** and the password is **bandit0**. **Make sure you are on the EPIC CS wifi before attempting.**
 ```
 ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 ```
-6. You are trying find the password to the next level of bandit. [See the instructions](https://overthewire.org/wargames/bandit/bandit1.html) for the level for a hint. **As you go, document the commands you used either with screenshots or copying the commands and their output.**
+6. You are trying to find the password to the next level of bandit. [See the instructions](https://overthewire.org/wargames/bandit/bandit1.html) for the level for a hint. **As you go, document the commands you used either with screenshots or copying the commands and their output.**
 
 *Note: Walkthroughs for this entire assignment exist online. Please do not seek them out as they will impact your learning and take away the satisfaction of figuring the answers out yourself*
 

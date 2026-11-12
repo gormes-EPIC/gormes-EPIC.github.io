@@ -29,14 +29,14 @@ Your task is to download a text file and edit it using an in-line text editor.
 3. Demonstrate these features to your instructor and answer the reflection questions
 
 ## Tips, Tricks, and Resources
-- [W3 Schools](https://www.geeksforgeeks.org/linux-unix/nano-text-editor-in-linux/)
+- [GeeksforGeeks: Nano Text Editor](https://www.geeksforgeeks.org/linux-unix/nano-text-editor-in-linux/)
 
 ## Extensions
 1. Create a custom keybinding for vim by editing your `.vimrc` file. You can make whatever you want, but some ideas are to save and exit with CTRL-S or allow paste with CTRL-P
 
 ## Reflection Questions
 1. What is a text editor?
-2. Why is important to learn a text editor?
+2. Why is it important to learn a text editor?
 3. Give an example where a mouse won't be available and terminal will be the only option you have.
 
 ## How to Submit

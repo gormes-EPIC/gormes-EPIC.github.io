@@ -1,6 +1,8 @@
 # If Statement Lab: Checklist
 
 > Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
+>
+> **The goal:** use if statements to solve five programming challenges: Deep Thought, Leap Year, Sweater Weather, Math Interpreter, and Meal Time.
 
 ## Step 1: Get Set Up
 

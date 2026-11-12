@@ -2,6 +2,8 @@
 
 > Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
 >
+> **The goal:** write recursive functions to solve four programming challenges: The Collatz Conjecture, Palindromes, Matryoshka Dolls, and Fractal Art.
+>
 > Every recursive function needs a **base case** (when to stop and return a value you already know) and a **recursive case** (when the function calls itself on a smaller problem).
 
 ## Step 1: Get Set Up

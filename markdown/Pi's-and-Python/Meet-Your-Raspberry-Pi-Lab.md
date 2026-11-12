@@ -39,7 +39,7 @@ _Every day that you use your Raspberry Pi, you are responsible for cleaning up a
 2. Using Google Drawings or Google Slides or another similar program, label all of the components of your Pi. Make sure you label all of the parts in the image below.
 <img src="/assets/meet-your-raspberry-pi-demo.png">
 
-3. Create an PDF to elaborate on each component and it's purpose
+3. Create a PDF to elaborate on each component and its purpose
 4. You may want to consult the [official Raspberry Pi Documentation](https://www.raspberrypi.com/documentation/)
 
 ## Creating a Virtual Environment for Python
@@ -82,9 +82,9 @@ hint: See PEP 668 for the detailed specification.
 
 1. Once you are all done, we are going to practice submitting documents by uploading them to GitHub. **You will need your phone for this to use two factor authentication.**
 
-2. **Option 1(GUI):** Login to GitHub and create a new repository(this is like a folder in Google Drive). Then, click the `Add File` button next to the green `Code` button on the right side of the screen. Then, select your PDF to upload. Then click the `Commit` *button to upload. Once you can see your PDF in the list of files at the top, you have uploaded it correctly. You can click on the PDF to view it in the browser. Then, return to Google Classroom and select "Mark as Done".
+2. **Option 1(GUI):** Login to GitHub and create a new repository(this is like a folder in Google Drive). Then, click the `Add File` button next to the green `Code` button on the right side of the screen. Then, select your PDF to upload. Then click the `Commit` button to upload. Once you can see your PDF in the list of files at the top, you have uploaded it correctly. You can click on the PDF to view it in the browser. Then, return to Google Classroom and select "Mark as Done".
 3. **Option 2(Terminal):** Login to GitHub and create a new repository(this is like a folder in Google Drive). Then, open the terminal and navigate to where you saved your PDF. Clone your repo(make a local copy of it) with `git clone <url>`. The URL can be found under the green "Code" button. 
-    1. Then login to GitHub using the terminal with `gh auth login`. Use the arrow keys to select GitHub.com and press Enter. Select HTTPS as your preferred protocol. When asked how you want to authenticate, select Paste an authentication token. Open your GitHub site and navigate to the Settings and then the Developer Settings. Then click on Personal Access Token and Classic Token. Create a new token by naming it, select a expiration date, then checking the box for `repo` permissions. Copy your token and paste it back into your terminal and press Enter.
+    1. Then login to GitHub using the terminal with `gh auth login`. Use the arrow keys to select GitHub.com and press Enter. Select HTTPS as your preferred protocol. When asked how you want to authenticate, select Paste an authentication token. Open your GitHub site and navigate to the Settings and then the Developer Settings. Then click on Personal Access Token and Classic Token. Create a new token by naming it, select an expiration date, then checking the box for `repo` permissions. Copy your token and paste it back into your terminal and press Enter.
     2. Now, cd into the directory you just cloned. Then move your PDF into this folder. 
     3. Then to upload: use `git add .` to stage your changes, `git commit -m "message"` to commit them and `git push -u origin main` to push your changes to GitHub. In the future you will only need to use `git push` to push.
 
