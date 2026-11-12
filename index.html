@@ -137,6 +137,29 @@
             --badge-wfr-text: #fef9c3;
         }
 
+        /* Hacker Theme: black, grey, and white with terminal-green accents */
+        body.hacker-mode {
+            --primary: #22e55f;
+            --bg: #0a0a0a;
+            --surface: #171717;
+            --text: #f5f5f5;
+            --border: #333333;
+
+            --badge-note-bg: rgba(245, 245, 245, 0.12);
+            --badge-note-text: #e5e5e5;
+            --badge-assign-bg: rgba(34, 197, 94, 0.25);
+            --badge-assign-text: #4ade80;
+            --badge-exercise-bg: rgba(132, 204, 22, 0.22);
+            --badge-exercise-text: #a3e635;
+            --badge-optional-bg: rgba(82, 82, 91, 0.35);
+            --badge-optional-text: #a1a1aa;
+            --badge-document-bg: rgba(20, 83, 45, 0.6);
+            --badge-document-text: #bbf7d0;
+            --badge-wfr-bg: #e5e5e5;
+            --badge-wfr-text: #0a0a0a;
+        }
+        body.hacker-mode .markdown-body a { color: var(--primary); }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             background-color: var(--bg);
@@ -1014,6 +1037,7 @@
             <button type="button" class="style-option" role="menuitemradio" data-theme="ocean"><span class="style-swatch" style="background: linear-gradient(135deg, #060f1e 50%, #06b6d4 50%)"></span>Ocean</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="forest"><span class="style-swatch" style="background: linear-gradient(135deg, #071007 50%, #22c55e 50%)"></span>Forest</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="sunset"><span class="style-swatch" style="background: linear-gradient(135deg, #140800 50%, #f97316 50%)"></span>Sunset</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="hacker"><span class="style-swatch" style="background: linear-gradient(135deg, #0a0a0a 50%, #22e55f 50%)"></span>Hacker</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Layout</div>
             <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
@@ -1037,7 +1061,7 @@
 
         // --- 0. STYLE MENU (THEMES + SEAMLESS MODE) ---
         const body = document.body;
-        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode'];
+        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode'];
         const styleMenuBtn = document.getElementById('style-menu-btn');
         const styleMenuPanel = document.getElementById('style-menu-panel');
         const themeOptions = [...styleMenuPanel.querySelectorAll('[data-theme]')];
@@ -1055,6 +1079,8 @@
             seamlessOption.setAttribute('aria-checked', String(on));
         }
 
+        // Anyone who picked the old Goth theme moves over to Hacker, its replacement.
+        if (localStorage.getItem('theme') === 'goth') localStorage.setItem('theme', 'hacker');
         applyTheme(localStorage.getItem('theme') || 'dark');
         applySeamless(localStorage.getItem('seamless') === 'true');
 
