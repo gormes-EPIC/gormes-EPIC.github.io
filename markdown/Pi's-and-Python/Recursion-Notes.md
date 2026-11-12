@@ -4,8 +4,8 @@
 | Vocabulary| Description |
 | ----------- | ----------- |
 | recursive function | a function that solves problems by calling itself |
-| base case | the end case for a recusive function. Instead of calling the function again, we return a standard value we know |
-| recursive case | a case for a recusive function where you call the function again |
+| base case | the end case for a recursive function. Instead of calling the function again, we return a standard value we know |
+| recursive case | a case for a recursive function where you call the function again |
 | call stack | the data structure that keeps track of the recursive calls as they are being made |
 
 ## What are Recursive Functions?

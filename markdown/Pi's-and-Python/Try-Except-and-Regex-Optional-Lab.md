@@ -20,7 +20,7 @@ Then, solve these 4 programming challenges:
 
 ## <a id="movie-theater"></a> Movie Theater
 
-You are creating a computer system to calculate the total price of a movie ticket order. Your program will first validate their choise of movie and then tabulate the types of tickets they would like to order.
+You are creating a computer system to calculate the total price of a movie ticket order. Your program will first validate their choice of movie and then tabulate the types of tickets they would like to order.
 
 Here is a sample run of the program:
 

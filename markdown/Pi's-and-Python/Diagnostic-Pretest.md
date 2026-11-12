@@ -2,7 +2,7 @@
 
 **Instructions:** Complete this exam to the best of your ability. 
 
-Your instructor will use this exam to identify students who may need additional resources early. Your performance on this exam is not a guareentee you will do poorly in this course nor is the content of this exam an exact 1-1 representation of what will be taught in your course.
+Your instructor will use this exam to identify students who may need additional resources early. Your performance on this exam is not a guarantee you will do poorly in this course nor is the content of this exam an exact 1-1 representation of what will be taught in your course.
 
 ---
 

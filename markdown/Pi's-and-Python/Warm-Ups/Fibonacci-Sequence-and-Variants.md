@@ -14,7 +14,7 @@ The beginning of the sequence is: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144..
 
 </details>
 
-2. The **tribonacci sequence** is a generalization of the Fibonacci sequence where each term is the sum of the three preceding numbers. Write a recurisve method `tribonacci(n)` by following the same steps as above.
+2. The **tribonacci sequence** is a generalization of the Fibonacci sequence where each term is the sum of the three preceding numbers. Write a recursive method `tribonacci(n)` by following the same steps as above.
 
 
 <details>

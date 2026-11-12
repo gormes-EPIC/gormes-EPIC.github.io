@@ -2,7 +2,7 @@
 
 ## Exercise 1
 
-Use Ohm's law to calcuate the necessary resistory for the following circuit. **V_supply** is  5V.  **V_forward** is 1.5V. The safe current is 50mA which means we can safely send 25mA across it. Solve for resistance.
+Use Ohm's law to calculate the necessary resistor for the following circuit. **V_supply** is  5V.  **V_forward** is 1.5V. The safe current is 50mA which means we can safely send 25mA across it. Solve for resistance.
 
 <details>
 <summary>Click here to view the answer</summary>
@@ -179,7 +179,7 @@ print(c)
 
 ## Exercise 11
 
-Write a Python function that takes a float as an argument representing temperature in Farienheit and returns the temperature converted to Celsius.
+Write a Python function that takes a float as an argument representing temperature in Fahrenheit and returns the temperature converted to Celsius.
 
 
 <details>

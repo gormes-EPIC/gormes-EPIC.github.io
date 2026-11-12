@@ -41,7 +41,7 @@ If I want to know how many elements are in our list, I can use the `len()` funct
 print(len(fruits)) # 4
 ```
 
-Notive that the length is always one more than the last index. If I want to access the last element I can use: `fruits[len(fruits) - 1]` or more simply `fruits[-1]`.
+Notice that the length is always one more than the last index. If I want to access the last element I can use: `fruits[len(fruits) - 1]` or more simply `fruits[-1]`.
 
 To remove something from a list, use the function `pop(index)`. For example, I could remove `"Banana"` from the list with:
 
@@ -137,7 +137,7 @@ This will work exactly the same way for lists!
 
 ## For Loops
 
-Another type of loop that exists in Python is a **for loop**. (Note: if you have used other programming languages liek Java, the Python for loop is eqivalent to a for-each loop or an enhanced for loop, not a regular for loop!) Rather than waiting for a condition, a for loop will loop through every element in a data collection automatically. 
+Another type of loop that exists in Python is a **for loop**. (Note: if you have used other programming languages like Java, the Python for loop is equivalent to a for-each loop or an enhanced for loop, not a regular for loop!) Rather than waiting for a condition, a for loop will loop through every element in a data collection automatically. 
 
 To do the exact same thing as our last while loop example, we could use a for loop:
 

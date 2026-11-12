@@ -26,7 +26,7 @@ Your task is to download a text file and edit it using an in-line text editor.
     4. Go to the beginning of a file
     5. Go to the end of a file
     6. Search for a target string
-3. Demonstrate these features to your instructor and asnwer the reflection questions
+3. Demonstrate these features to your instructor and answer the reflection questions
 
 ## Tips, Tricks, and Resources
 - [W3 Schools](https://www.geeksforgeeks.org/linux-unix/nano-text-editor-in-linux/)

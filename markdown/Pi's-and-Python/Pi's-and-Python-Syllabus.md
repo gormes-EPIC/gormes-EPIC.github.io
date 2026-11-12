@@ -63,7 +63,7 @@ By the end of this course, students will be able to:
 
 If you are taking this class for CE credit, it encompasses two ACC classes: CSC 1019 Introduction to Programming: (Python) (3.0 Credits) and CSC 1060 Computer Science I: (Python) (4.0 Credits).
 
-The drop date for the course is **9/16**. If you drop the class before this date, it will not appear on your ACC transcript. The withdrawl date is **11/17**. If you drop the class before this date, it will appear as a W on your ACC transcript.   
+The drop date for the course is **9/16**. If you drop the class before this date, it will not appear on your ACC transcript. The withdrawal date is **11/17**. If you drop the class before this date, it will appear as a W on your ACC transcript.   
 
 
 ## Policies and Grading
@@ -107,7 +107,7 @@ When a missing assignment is graded, a 50% will be entered into the gradebook in
 
 Regrades are accepted until the end of the next unit. For example, an assignment in Unit 0 will be open for regrades until the end of Unit 1. Regrades are eligible for full credit while the regrade period is open. After it closes, points for late assignments will need to be negotiated with your instructor.
 
-### Absenses
+### Absences
 
 When you are going to be absent from class, you are responsible for:
 - Checking the daily agenda to see what work you are responsible for completing outside of class

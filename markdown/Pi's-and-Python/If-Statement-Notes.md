@@ -24,12 +24,12 @@ There are multiple ways to compare variables in an if statement. They should loo
 
 Let's look closely at the "equals" condition. Notice that there are two equals signs instead of one. **One equals sign** is used to assign values to variables. **Two equals signs** are used to compare two values.
 
-## How If Statments Work
+## How If Statements Work
 
 The if statement evaluates a condition (an expression that results in `True` or `False`). If the condition is true, the code block inside the if statement is executed. If the condition is false, the code block is skipped.
 
 
-Indentation is really important here! The statements inside the if statement(that you want to run if the condtion is true) must be indented! The second example below will raise an error because of incorrect indentation. 
+Indentation is really important here! The statements inside the if statement(that you want to run if the condition is true) must be indented! The second example below will raise an error because of incorrect indentation. 
 
 ```
 number = 15

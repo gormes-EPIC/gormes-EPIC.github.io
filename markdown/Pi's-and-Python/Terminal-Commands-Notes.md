@@ -53,7 +53,7 @@ You have now "changed directories" into your `Desktop` folder. You will see your
 |`find <path> <criteria>`| Lists files in the given path that meet the criteria. For example, `find . -name "file.txt"` looks for an exact file name in the current folder.|
 |`file <options> <file>`| It performs internal tests to identify whether a file is text, an image, a compiled binary, or a zip archive.|
 |`ssh username@ip_address -p <port>`|Lets you remotely control a computer. It logs into the computer at the IP with the username given on the port given. |
-| `scp <file> username@ip_address:/home/username/destination_folder/` |Copies the file to the computer accessiable at the IP using the user listed in the directory listed. |
+| `scp <file> username@ip_address:/home/username/destination_folder/` |Copies the file to the computer accessible at the IP using the user listed in the directory listed. |
 |`nano <file>`| Edits file. Press Ctrl + O to save and Ctrl + X to exit.|
 |`mkdir <directory>`|Creates the directory |
 |`rmdir <directory>`|Removes the directory|

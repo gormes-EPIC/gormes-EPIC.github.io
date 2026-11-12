@@ -20,8 +20,8 @@
 | rails  | Horizontal rows on a breadboard that are connected internally|
 | resistor  | Adds resistance to a circuit to constrict the flow of electric current in a circuit  |
 | Ohm's Law  | V = IR |
-| voltage  | The electrical pressure or potential difference that pushes charges, similar to the water presssure in a pipe  |
-| current  | Current is the actual rate of electron flow through a counductor, similar to the rate of water flow through a pipe |
+| voltage  | The electrical pressure or potential difference that pushes charges, similar to the water pressure in a pipe  |
+| current  | Current is the actual rate of electron flow through a conductor, similar to the rate of water flow through a pipe |
 | resistance  | The opposition to the flow of electric current in a circuit |
 | volts  | The unit representing voltage  |
 | amps  | The unit representing current |
@@ -33,11 +33,11 @@ Your task is to create a circuit and a Python program to light up a 5MM LED ligh
 
 ## Calculating Your Resistor
 
-In this circuit, you will need a specfic resistor to lower the overall current applied to the LED to safe levels. We can calculate the resistor we need using **Ohm's Law**. 
+In this circuit, you will need a specific resistor to lower the overall current applied to the LED to safe levels. We can calculate the resistor we need using **Ohm's Law**. 
 
 Ohm's law states **V = IR**. **V** represents voltage and is measured in volts(V). **I** represents current and is measured in amps(A). **R** represents resistance and is measured in Ohms(Ω).
 
-1. We trying to solve for required **resistance**(which we will apply with a resistor), so reorganize the function to solve for resistance. When you are finished, you should have a function where **R** equals some combination of **V** and **I**.
+1. We are trying to solve for required **resistance**(which we will apply with a resistor), so reorganize the function to solve for resistance. When you are finished, you should have a function where **R** equals some combination of **V** and **I**.
 
 2. Next, we need to find the voltage that will be applied to the light. The total voltage is equal to **V_supply − V_forward** . Replace **V** in the function with **V_supply − V_forward**. 
 
@@ -47,7 +47,7 @@ Ohm's law states **V = IR**. **V** represents voltage and is measured in volts(V
 
 5. Next, we need to find the safe current value for the LED. This information is also [on the SparkFun website](https://www.sparkfun.com/led-basic-red-5mm.html). 
 
-6. But wait! There are two things we need to do before we can plug all our current into our function. Since we only want about half the maximum current to be applied to our LED, half your safe current value. Our safe current value is still in **mA** instead of **A**, so divide you **mA** value by 1000 to get it to **A**.   
+6. But wait! There are two things we need to do before we can plug all our current into our function. Since we only want about half the maximum current to be applied to our LED, half your safe current value. Our safe current value is still in **mA** instead of **A**, so divide your **mA** value by 1000 to get it to **A**.   
 
 7. Now, plug all of your values in and solve for resistance. Check your work with an instructor before moving forward.
 
@@ -70,7 +70,7 @@ Ohm's law states **V = IR**. **V** represents voltage and is measured in volts(V
 **Warning! The following could permanently damage your Pi if you do not heed the warnings below.**
 
 - Turn off your Pi when connecting cables to the GPIO ports.
-- Use a resistor, the LED will consumer as much voltage as it can (and explode!). This may damage your Pi, you or your classmates.
+- Use a resistor, the LED will consume as much voltage as it can (and explode!). This may damage your Pi, you or your classmates.
 - Do not bend the GPIO pins. Once placing your T-Cobbler onto the Pi, you should not remove it.
 
 Ok now that you have all your supplies, we are ready to get started.
@@ -85,7 +85,7 @@ Ok now that you have all your supplies, we are ready to get started.
 
 ## Getting Started - Programming
 
-1. IIf you haven't already, install Visual Studio Code with the command
+1. If you haven't already, install Visual Studio Code with the command
 ```
 sudo apt install code
 ```
@@ -106,19 +106,19 @@ source venv/bin/activate
 
 ## Extensions
 1. Create and document a circuit to control an RGB lightbulb(4 prong).
-2. Create and document how to SSH intro your Raspberry Pi and activate the lightbulb.
+2. Create and document how to SSH into your Raspberry Pi and activate the lightbulb.
 3. Create a game of Simon with 4 LEDs and 4 buttons. If you don't know how to play Simon, [here is an online version](https://freesimon.org/).
 
 
 ## Reflection Questions
 1. What is the purpose of breadboard?
-2. Does the LED orientation matter (cathode & abode)?
+2. Does the LED orientation matter (cathode & anode)?
 3. Why do you put a resistor in your circuit?
 4. How will a resistor with greater resistance affect the light?
 
 ## How to Submit
 
-Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your light turns on in class. Show your instrutor your math for calculating the appropriate resistor. You will also need to answer the reflection questions.
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your light turns on in class. Show your instructor your math for calculating the appropriate resistor. You will also need to answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.

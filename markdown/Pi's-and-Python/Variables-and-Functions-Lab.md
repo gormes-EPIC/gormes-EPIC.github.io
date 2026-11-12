@@ -7,7 +7,7 @@
 ## Vocabulary
 | Vocabulary| Description |
 | ----------- | ----------- |
-| variable | a named value that exists within our program and can be refereced by name |
+| variable | a named value that exists within our program and can be referenced by name |
 | variable type | the type of value a variable is (ex. int or string)|
 | integer(int) | a whole number |
 | float | a decimal number |
@@ -200,7 +200,7 @@ To test your program, use the following inputs and expected outputs.
 
 ## <a id="tip-calculator"></a> Tip Calculator
 
-You are going to write a program to calculate the appropriate tip on a bill. The user will enter the meal total and the tip percetange and the program will display the appropriate tip amount. 
+You are going to write a program to calculate the appropriate tip on a bill. The user will enter the meal total and the tip percentage and the program will display the appropriate tip amount. 
 
 Use the following starter code:
 

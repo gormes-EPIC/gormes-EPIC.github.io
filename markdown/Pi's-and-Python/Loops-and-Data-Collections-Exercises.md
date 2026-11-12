@@ -32,7 +32,7 @@ Hello is printed 9 times.
 
 ## Exercise 3
 
-Write a program that categorizeses every character in a string input as either a letter, digit, or symbol. For example:
+Write a program that categorizes every character in a string input as either a letter, digit, or symbol. For example:
 
 ```
 String: a1!

@@ -7,7 +7,7 @@
 | Vocabulary| Description |
 | ----------- | ----------- |
 | if statement(conditional) | a statement used to run a block of code if a condition is true |
-| elif | a keyword used to deliniate an "else-if" condtion |
+| elif | a keyword used to delineate an "else-if" condition |
 | else | a keyword used to designate a block of code to be run if all the other statements are false |
 | boolean | a variable type that is either `True` or `False` |
 | match statement | a statement used to compare specific variable with given values |
@@ -43,7 +43,7 @@ Yes
 ```
 
 ```
-What is the answer to life, the universe, and everything? fourty-two
+What is the answer to life, the universe, and everything? forty-two
 Yes
 ```
 
@@ -78,10 +78,10 @@ To test your program, use the following inputs and expected outputs.
 
 | Input | Expected Output |
 | ----------- | ----------- |
-| 42 | Yes | |
-| fourty two | Yes |
-| fourty-two | Yes |
-| fOurTy TwO | Yes |
+| 42 | Yes |
+| forty two | Yes |
+| forty-two | Yes |
+| fOrTy TwO | Yes |
 | 50 | No |
 | fifty-two | No |
 
@@ -107,16 +107,16 @@ Leap Year
 Before you get started, answer the following questions: 
 
 1. How do you get input from the user? What data type is returned from that function?
-2. What mathematical function in Python allows you to find if a number is divisable by another number? Think about how we can tell if a number is even or odd.
+2. What mathematical function in Python allows you to find if a number is divisible by another number? Think about how we can tell if a number is even or odd.
 3. How do you convert between strings and integers?
 
 
 Decomposing the problem:
 
 1. Write a program to take input from the user and print it out
-2. Modify your program to print "Leap Year" if the input is divisable by 4 and "Not Leap Year" in all other cases.
-3. Modify your program to print "Not Leap Year" if the year is divisable by 100(which is divisable by 4).
-4. Modify your program to print "Leap Year" if the year is divisable by 400. Remember to exclude all other instances of 100.
+2. Modify your program to print "Leap Year" if the input is divisible by 4 and "Not Leap Year" in all other cases.
+3. Modify your program to print "Not Leap Year" if the year is divisible by 100(which is divisible by 4).
+4. Modify your program to print "Leap Year" if the year is divisible by 400. Remember to exclude all other instances of 100.
 
 
 </details>
@@ -127,7 +127,7 @@ To test your program, use the following inputs and expected outputs.
 
 | Input | Expected Output |
 | ----------- | ----------- |
-| 2026 | Not a Leap Year | |
+| 2026 | Not a Leap Year |
 | 2028 | Leap Year |
 | 1700 | Not a Leap Year |
 | 2400 | Leap Year |
@@ -207,7 +207,7 @@ Input: 3 / 2
 1.5
 ```
 
-You will want to use the Python function `split()` for this problem. The `split` function allows you to separate strings by a given delimeter character. See the example below.
+You will want to use the Python function `split()` for this problem. The `split` function allows you to separate strings by a given delimiter character. See the example below.
 
 ```python
 st = "hello there"

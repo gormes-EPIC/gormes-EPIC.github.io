@@ -70,7 +70,7 @@ This document should be written in professional language, as it is the main proj
 employees. My hope is that you will be able to use this project on your resume, so you want it to be professional!
 
 ## Tips, Tricks, and Resources
-- The [gpiozero](https://gpiozero.readthedocs.io/en/stable/) library is a good place to start if you are stuck. Check the 'Basic Recipies' and 'Advanced Recipies' tab  have sample projects to look through. 
+- The [gpiozero](https://gpiozero.readthedocs.io/en/stable/) library is a good place to start if you are stuck. Check the 'Basic Recipes' and 'Advanced Recipes' tab  have sample projects to look through. 
 
 ## Reflection Questions
 1. Who is the audience for your product and what problem does it solve?

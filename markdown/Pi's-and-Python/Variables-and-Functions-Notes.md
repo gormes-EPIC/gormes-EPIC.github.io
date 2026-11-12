@@ -45,7 +45,7 @@ Try changing `"hello world"` to different string, but keep the quotation marks. 
 
 What happens when you type `print("hello world)`? Or `print("hello world`?
 
-Notice that when you make an error, the interpreter tells you what exact error occured and line the error was on. This is incredibly useful for fixing your program!
+Notice that when you make an error, the interpreter tells you what exact error occurred and line the error was on. This is incredibly useful for fixing your program!
 
 ## Creating Variables
 
@@ -76,7 +76,7 @@ print("Hello " + name + "!")
 We did it! Instead of putting `name` inside the quotes, we added it to two other strings. 
 
 
-Another way to get the same result is to use a formated string. We put `f` before the quotes and then put the name of our variable in curly braces(`{}`).
+Another way to get the same result is to use a formatted string. We put `f` before the quotes and then put the name of our variable in curly braces(`{}`).
 
 ```
 name = "Steve"
@@ -91,7 +91,7 @@ age = "15"
 print("My name is " + name + " and I am " + age + " years old.")
 ```
 
-We can use almost anything as the name of a variable, as long as it is not an existing keyword in Python already. Anytime you want to create a variable, you use the variables's name, then a single equal sign (`=`), followed by what you want to be in the variable. The value on the right is assigned to the variable on the left. 
+We can use almost anything as the name of a variable, as long as it is not an existing keyword in Python already. Anytime you want to create a variable, you use the variable's name, then a single equal sign (`=`), followed by what you want to be in the variable. The value on the right is assigned to the variable on the left. 
 
 To visualize how variables appear in memory throughout execution, use [Python Tutor's Visualizer](https://pythontutor.com/visualize.html#mode=edit). You can step through programs line-by-line and see how the variables exist in memory.
 
@@ -183,7 +183,7 @@ username = input("Enter your username: ")
 print(username + ", you're in!")
 ```
 
-As you run the program, notice the prompt in the parantheses is printed to the terminal. Then whatever the user types in is saved to the variable `username`. 
+As you run the program, notice the prompt in the parentheses is printed to the terminal. Then whatever the user types in is saved to the variable `username`. 
 
 <img src="/assets/var-and-fun-notes-7.gif">
 

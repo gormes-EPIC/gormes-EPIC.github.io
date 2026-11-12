@@ -101,7 +101,7 @@ hint: See PEP 668 for the detailed specification.
 
 ## How to Submit
 
-Show your instructor your GitHub repository with your PDF. You also need to be able to idenify important parts of your Pi and answer the reflection questions.
+Show your instructor your GitHub repository with your PDF. You also need to be able to identify important parts of your Pi and answer the reflection questions.
 
 ## Rubric
 - **20 points** - All required items are present.

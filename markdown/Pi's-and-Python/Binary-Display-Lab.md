@@ -14,8 +14,8 @@
 | Vocabulary| Description |
 | ----------- | ----------- |
 | recursive function | a function that solves problems by calling itself |
-| base case | the end case for a recusive function. Instead of calling the function again, we return a standard value we know |
-| recursive case | a case for a recusive function where you call the function again |
+| base case | the end case for a recursive function. Instead of calling the function again, we return a standard value we know |
+| recursive case | a case for a recursive function where you call the function again |
 
 ## Your Task
 
@@ -25,7 +25,7 @@ Create a function that converts decimal numbers to binary numbers. Then light up
 - 8 5mm LEDs
 - 8 130 Ω(Ohm) resistors
 - 16 M-M jumper wires
-- Additonal breadboard(if needed)
+- Additional breadboard(if needed)
 
 ## Getting Started
 
@@ -54,7 +54,7 @@ Here is a quick example of how to convert from decimal to binary:
 ## Reflection Questions
 1. What is the maximum number your LED display can display? Why?
 2. What is the **base case** and what is the **recursive case** in your function `to_binary()`?
-3. How did you efficiently set up and mangage your lights? If your solution is not effecient, go back and edit it now.
+3. How did you efficiently set up and manage your lights? If your solution is not efficient, go back and edit it now.
 
 ## How to Submit
 

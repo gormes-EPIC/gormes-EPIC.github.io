@@ -62,7 +62,7 @@ Decomposing the problem:
 
 1. Write a program to take input from the user and print it out
 2. Modify your program to print each word on its own line. 
-3. Instead of printing each word, first check if it is in the classified word list and print `[CLASSIFIED]` instead.
+3. Instead of printing each word, first check if it is in the classified word list and print `[REDACTED]` instead.
 4. Modify your program to print everything on the same line.
 
 </details>
@@ -82,7 +82,7 @@ To test your program, use the following inputs and expected outputs.
 
 ## <a id="nutrition-facts"></a> Nutrition Facts
 
-You are writing a program to tell the user the number of calories in a serving of a given fruit. The calories have been stored in a dictionary below for your convience. The user will enter a fruit and if it appears in the list, the program will display the number of calories. Otherwise the program will print "fruit not found".
+You are writing a program to tell the user the number of calories in a serving of a given fruit. The calories have been stored in a dictionary below for your convenience. The user will enter a fruit and if it appears in the list, the program will display the number of calories. Otherwise the program will print "fruit not found".
 
 ```python
 fruits = {
@@ -262,7 +262,7 @@ def main():
 
 
 def is_valid(s):
-    return true
+    return True
 
 
 main()
@@ -286,12 +286,6 @@ Decomposing the problem:
 5. Create a statement to find the first number and return false if it is zero
 6. Use a loop to identify if there are numbers and set a variable to true if so. Then check if there are letters after that point if the variable is true. If so, return false. 
 7. In all other cases return true.
-
- Be between 2 and 6 characters(inclusive)
-- No non-alphanumeric(not letters and numbers) characters are allowed
-- The first two characters must be letters
-- The first number cannot be a 0
-- Letters cannot be placed after numbers 
 
 </details>
 

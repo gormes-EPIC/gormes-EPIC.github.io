@@ -4,7 +4,7 @@
 
 1. Create a program to collect temperature data from a DHT11 sensor
 2. Write to a file from inside a Python program
-3. Make a graph with a line of best fit to illustrate temerature decay
+3. Make a graph with a line of best fit to illustrate temperature decay
 
 ## Vocabulary
 | Vocabulary| Description |
@@ -31,7 +31,7 @@ Create a program that lights a red LED when the temperature sensor reads over 72
 
 3. In this lab, you will learn how to wire the DHT11 temperature and humidity sensor using the diagram above. **Note: There are two different types of DHT11. Be careful about which one you have.** Attach the sensor to GPIO pin 16 or adjust the code accordingly.
 4. **Activate your virtual environment** and install the necessary library with `python3 -m pip install adafruit-circuitpython-dht` in your terminal. 
-5. Copy the following starter code into your program. Complete the method `to_farienheit(c)` before running.
+5. Copy the following starter code into your program. Complete the method `to_fahrenheit(c)` before running.
 
 ```python
 import time
@@ -44,19 +44,19 @@ sensor = adafruit_dht.DHT11(board.D16) # Change the pin number to the data pin o
 print("time,celsius,fahrenheit")
 
 def to_fahrenheit(c):
-    # TODO: Assign f where f represents the Farienheit equivalent to the input Celcius c
+    # TODO: Assign f where f represents the Fahrenheit equivalent to the input Celsius c
     f = ??
     return f 
 
 while True:
     try:
-        celsius = sensor.temperature # Get the temperature in Celcius from the sensor
+        celsius = sensor.temperature # Get the temperature in Celsius from the sensor
         fahrenheit = to_fahrenheit(celsius)
         current_time = datetime.now()
         print("{0},{1:0.1f},{2:0.1f}".format(current_time.strftime("%H:%M:%S"), celsius, fahrenheit))
 
-		# TODO: Light up the red light when the temperature is above 72, and blue when it is below 72.
-		time.sleep(3.0)
+        # TODO: Light up the red light when the temperature is above 72, and blue when it is below 72.
+        time.sleep(3.0)
     except RuntimeError as error:
         # Errors happen fairly often, DHT's are hard to read, just keep going
         print(error.args[0])
@@ -66,7 +66,7 @@ while True:
         sensor.exit()
         raise error    
 ``` 
-5. We are now going to use Python to model a piecewise function. When the temperature is over 72 degrees the red light will turn on and when the temperature is below 72 degrees the blue light will turn on. Once your program runs correctly and is outputting temperatures, combine the starter code with your LED program to turn on a red light when the temperature is above 72 degrees, and the blue light when the temperature is below 72 degrees.  
+6. We are now going to use Python to model a piecewise function. When the temperature is over 72 degrees the red light will turn on and when the temperature is below 72 degrees the blue light will turn on. Once your program runs correctly and is outputting temperatures, combine the starter code with your LED program to turn on a red light when the temperature is above 72 degrees, and the blue light when the temperature is below 72 degrees.  
 
 ## Temperature Decay
 
@@ -86,7 +86,7 @@ while True:
 
 ## Reflection Questions
 1. Answer the following questions about your first graph
-	- What is the equation is the line of best fit? How do you know it is the best option?
+	- What is the equation of the line of best fit? How do you know it is the best option?
 	- Why does that make sense based on what we know about Celsius and Fahrenheit? 
 2. Answer the following questions about your second graph
     - What kind of model best represents our data(linear, quadratic, exponential)? How do you know it is the best option?

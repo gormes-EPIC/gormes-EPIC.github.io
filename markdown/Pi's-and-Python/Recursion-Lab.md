@@ -8,8 +8,8 @@
 | Vocabulary| Description |
 | ----------- | ----------- |
 | recursive function | a function that solves problems by calling itself |
-| base case | the end case for a recusive function. Instead of calling the function again, we return a standard value we know |
-| recursive case | a case for a recusive function where you call the function again |
+| base case | the end case for a recursive function. Instead of calling the function again, we return a standard value we know |
+| recursive case | a case for a recursive function where you call the function again |
 
 
 ## Your Task
@@ -26,7 +26,7 @@ Solve these 4 programming challenges:
 
 ## <a id="collatz"></a>The Collatz Conjecture
 
-There is a mathematical sequence that always seems to end up at the number 1, no matter what positive integer you start with, but nobody has ever been able to prove why. This is called the **Collaz Conjecture**. The process is as follows: if n is even, divide it by 2 and if n is odd, multiply by 3 and add 1 (3n+1).
+There is a mathematical sequence that always seems to end up at the number 1, no matter what positive integer you start with, but nobody has ever been able to prove why. This is called the **Collatz Conjecture**. The process is as follows: if n is even, divide it by 2 and if n is odd, multiply by 3 and add 1 (3n+1).
 
 For the number 42, we can apply our process and we will end up with 1
 ```
