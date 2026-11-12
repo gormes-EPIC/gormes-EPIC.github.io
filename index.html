@@ -643,8 +643,151 @@
             width: 100%;
         }
 
+        /* --- Course Outline Sidebar (shown on file pages) --- */
+        :root { --sidebar-width: 16rem; }
+
+        body { transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.25s ease; }
+
+        #course-sidebar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: var(--sidebar-width);
+            max-width: 85vw;
+            box-sizing: border-box;
+            padding: 1rem 0.75rem 2rem;
+            overflow-y: auto;
+            background: var(--surface);
+            border-right: 1px solid var(--border);
+            font-size: 0.85rem;
+            line-height: 1.4;
+            z-index: 300;
+            transform: translateX(-100%);
+            transition: transform 0.25s ease, background-color 0.3s ease;
+        }
+        body.has-sidebar #course-sidebar { display: block; }
+        body.has-sidebar.sidebar-open #course-sidebar { transform: none; }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 0 0.25rem 0.75rem;
+            margin-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .sidebar-class-link {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        .sidebar-class-link:hover { text-decoration: underline; }
+        .sidebar-icon-btn {
+            flex-shrink: 0;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            border-radius: 6px;
+            padding: 0.15rem 0.5rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        .sidebar-icon-btn:hover { border-color: var(--primary); color: var(--primary); }
+
+        .sidebar-unit { margin: 0.25rem 0; }
+        .sidebar-unit > summary {
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--primary);
+            padding: 0.35rem 0.25rem;
+            border-radius: 4px;
+            user-select: none;
+        }
+        .sidebar-unit > summary:hover { background: var(--bg); }
+        .sidebar-sub { margin: 0.1rem 0 0.1rem 0.75rem; }
+        .sidebar-sub > summary {
+            cursor: pointer;
+            font-weight: 600;
+            opacity: 0.85;
+            padding: 0.25rem 0.25rem;
+            border-radius: 4px;
+            user-select: none;
+        }
+        .sidebar-sub > summary:hover { background: var(--bg); }
+
+        .sidebar-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.3rem 0.5rem 0.3rem 0.75rem;
+            margin-left: 0.5rem;
+            border-left: 2px solid var(--border);
+            color: var(--text);
+            text-decoration: none;
+        }
+        .sidebar-link:hover { color: var(--primary); background: var(--bg); }
+        .sidebar-link.active {
+            color: var(--primary);
+            font-weight: 700;
+            border-left-color: var(--primary);
+            background: var(--bg);
+        }
+        .sidebar-dot {
+            flex-shrink: 0;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background: var(--border);
+        }
+        .sidebar-dot.badge-notes { background: var(--badge-note-text); }
+        .sidebar-dot.badge-assignment { background: var(--badge-assign-text); }
+        .sidebar-dot.badge-exercise { background: var(--badge-exercise-text); }
+        .sidebar-dot.badge-optional { background: var(--badge-optional-text); }
+        .sidebar-dot.badge-document { background: var(--badge-document-text); }
+        .sidebar-dot.badge-wfr { background: var(--badge-wfr-text); }
+
+        /* Button that brings the outline back once it's hidden */
+        #sidebar-open-btn {
+            display: none;
+            position: fixed;
+            top: 1rem;
+            left: 1rem;
+            z-index: 250;
+        }
+        body.has-sidebar:not(.sidebar-open) #sidebar-open-btn { display: inline-block; }
+
+        /* Dims the page behind the outline on small screens */
+        #sidebar-backdrop {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 280;
+        }
+
+        /* Wide screens: the outline sits beside the page and pushes it over */
+        @media (min-width: 900px) {
+            body.has-sidebar.sidebar-open { padding-left: calc(var(--sidebar-width) + 2rem); }
+            body.has-sidebar.sidebar-open #app { max-width: 90%; }
+        }
+        /* Narrow screens: the outline slides over the page instead */
+        @media (max-width: 899px) {
+            body.has-sidebar.sidebar-open #sidebar-backdrop { display: block; }
+        }
+
         /* PRINT MODE */
         @media print {
+            #course-sidebar,
+            #sidebar-open-btn,
+            #sidebar-backdrop {
+                display: none !important;
+            }
+            body.has-sidebar.sidebar-open { padding-left: 0 !important; }
+
             /* 0. Leave a margin above and below every printed page
                (the side margins are padding on #app, so they appear even if the print dialog overrides @page) */
             @page {
@@ -739,6 +882,10 @@
         <option value="sunset">Sunset</option>
     </select>
 
+    <aside id="course-sidebar" aria-label="Course outline"></aside>
+    <div id="sidebar-backdrop"></div>
+    <button type="button" id="sidebar-open-btn" class="btn" aria-label="Show course outline" title="Show course outline">☰ Outline</button>
+
     <div id="app"></div>
 
     <script src="curriculum.js"></script>
@@ -746,6 +893,9 @@
     <script src="agendas.js"></script>
 
     <script>
+
+        // File types are matched in lowercase, so "WFR" and "wfr" both work in curriculum.js.
+        Object.values(curriculum).forEach(files => files.forEach(item => { item.type = item.type.toLowerCase(); }));
 
         // --- 0. THEME LOGIC ---
         const themeToggle = document.getElementById('theme-toggle');
@@ -778,8 +928,11 @@
 
         // --- 2. ROUTING LOGIC ---
         function render() {
-            const hash = window.location.hash.substring(1); 
-            
+            const hash = window.location.hash.substring(1);
+
+            // The course outline only shows on file pages; renderAssignment turns it back on.
+            body.classList.remove('has-sidebar');
+
             if (!hash) {
                 renderHub();
             } else if (hash === ABOUT_PAGE) {
@@ -1159,7 +1312,7 @@
 
             let html = `
                 <div class="nav-buttons">
-                    <a href="#" class="btn">← Back to Hub</a>
+                    <a href="#" class="btn">← Back to All Courses</a>
                 </div>
                 <section id="agenda-box" class="agenda-box" hidden></section>
 
@@ -1364,9 +1517,142 @@
             });
         }
 
+        // --- Course Outline Sidebar ---
+        // On every file page, a panel on the left lists the whole class
+        // (agendas, then each unit's warm-ups and files) so students can jump
+        // between pages. Units fold open/closed in step with the class page.
+        const sidebarEl = document.getElementById('course-sidebar');
+        const sidebarOpenBtn = document.getElementById('sidebar-open-btn');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+        const narrowScreen = window.matchMedia('(max-width: 899px)');
+        let sidebarClass = null;
+
+        // Wide screens remember whether the visitor hid the outline; narrow
+        // screens always start with it tucked away so it doesn't cover the page.
+        function setSidebarOpen(open, remember = true) {
+            body.classList.toggle('sidebar-open', open);
+            if (remember && !narrowScreen.matches) {
+                localStorage.setItem('sidebarHidden', String(!open));
+            }
+        }
+        setSidebarOpen(!narrowScreen.matches && localStorage.getItem('sidebarHidden') !== 'true', false);
+
+        sidebarOpenBtn.addEventListener('click', () => setSidebarOpen(true));
+        sidebarBackdrop.addEventListener('click', () => setSidebarOpen(false));
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && narrowScreen.matches && body.classList.contains('sidebar-open')) {
+                setSidebarOpen(false);
+            }
+        });
+
+        function sidebarLinkHTML(href, label, dotClass, isActive, title = '') {
+            return `<a href="${href}" class="sidebar-link${isActive ? ' active' : ''}"${title ? ` title="${title}"` : ''}${isActive ? ' aria-current="page"' : ''}>
+                <span class="sidebar-dot ${dotClass}"></span><span>${label}</span>
+            </a>`;
+        }
+
+        function renderSidebar(className, currentPath) {
+            const displayName = className.replace(/-/g, ' ');
+            const hiddenUnits = getHiddenUnits(className);
+            const publishedFiles = getPublishedFiles(className, curriculum[className]);
+            const releasedWarmups = getReleasedWarmups(className);
+            const releasedAgendas = getReleasedAgendas(className);
+
+            const currentWarmup = currentPath.startsWith(`${WARMUP_FOLDER}/`)
+                ? releasedWarmups.find(item => `${WARMUP_FOLDER}/${item.file}` === currentPath)
+                : null;
+            const currentFile = publishedFiles.find(item => item.file === currentPath);
+            const currentUnit = currentWarmup ? (currentWarmup.unit ?? 0) : currentFile ? (currentFile.unit ?? 0) : null;
+
+            let html = `
+                <div class="sidebar-header">
+                    <a href="#${className}" class="sidebar-class-link" title="Go to the class page">${displayName}</a>
+                    <button type="button" id="sidebar-close-btn" class="sidebar-icon-btn" aria-label="Hide course outline" title="Hide course outline">«</button>
+                </div>
+            `;
+
+            if (releasedAgendas.length) {
+                const onAgenda = currentPath.startsWith(`${AGENDA_FOLDER}/`);
+                html += `<details class="sidebar-unit"${onAgenda ? ' open' : ''}>
+                    <summary>Agendas</summary>
+                    ${releasedAgendas.map(date => sidebarLinkHTML(
+                        `#${className}/${AGENDA_FOLDER}/${date}`,
+                        formatWarmupDate(date),
+                        '',
+                        currentPath === `${AGENDA_FOLDER}/${date}`
+                    )).join('')}
+                </details>`;
+            }
+
+            const units = [...new Set([...publishedFiles, ...releasedWarmups].map(item => item.unit ?? 0))].sort((a, b) => a - b);
+            units.forEach(unit => {
+                const unitFiles = publishedFiles.filter(item => (item.unit ?? 0) === unit);
+                const unitWarmups = releasedWarmups.filter(item => (item.unit ?? 0) === unit);
+                const open = unit === currentUnit || !hiddenUnits.has(unit);
+
+                let unitHtml = '';
+                if (unitWarmups.length) {
+                    const onWarmup = currentWarmup && (currentWarmup.unit ?? 0) === unit;
+                    unitHtml += `<details class="sidebar-sub"${onWarmup ? ' open' : ''}>
+                        <summary>Warm-Ups (${unitWarmups.length})</summary>
+                        ${unitWarmups.map(item => sidebarLinkHTML(
+                            `#${className}/${WARMUP_FOLDER}/${item.file}`,
+                            item.file.replace(/-/g, ' '),
+                            '',
+                            currentWarmup === item,
+                            formatWarmupDate(item.date)
+                        )).join('')}
+                    </details>`;
+                }
+                unitFiles.forEach(item => {
+                    unitHtml += sidebarLinkHTML(
+                        `#${className}/${item.file}`,
+                        item.file.replace(/-/g, ' '),
+                        getBadgeClass(item.type.toLowerCase()),
+                        item === currentFile,
+                        TYPE_FILTER_LABELS[item.type.toLowerCase()] || item.type
+                    );
+                });
+
+                html += `<details class="sidebar-unit" data-unit="${unit}"${open ? ' open' : ''}>
+                    <summary>${getUnitLabel(className, unit)}</summary>
+                    ${unitHtml}
+                </details>`;
+            });
+
+            // Keep the outline's scroll position when moving within the same class.
+            const keepScroll = sidebarClass === className ? sidebarEl.scrollTop : 0;
+            sidebarEl.innerHTML = html;
+            sidebarEl.scrollTop = keepScroll;
+            sidebarClass = className;
+            body.classList.add('has-sidebar');
+
+            sidebarEl.querySelector('.sidebar-link.active')?.scrollIntoView({ block: 'nearest' });
+
+            document.getElementById('sidebar-close-btn').addEventListener('click', () => setSidebarOpen(false));
+        }
+
+        // Folding a unit in the outline folds it on the class page too.
+        sidebarEl.addEventListener('click', (event) => {
+            const summary = event.target.closest('.sidebar-unit[data-unit] > summary');
+            if (summary && sidebarClass) {
+                const details = summary.parentElement;
+                const unit = Number(details.dataset.unit);
+                const willCollapse = details.open; // The click is about to flip it.
+                const hidden = getHiddenUnits(sidebarClass);
+                if (willCollapse) hidden.add(unit); else hidden.delete(unit);
+                setHiddenUnits(sidebarClass, hidden);
+            }
+
+            // On small screens, get the outline out of the way after picking a page.
+            if (event.target.closest('a') && narrowScreen.matches) setSidebarOpen(false);
+        });
+
         // --- 6. RENDER INDIVIDUAL FILE ---
         async function renderAssignment(className, assignmentName) {
+            if (curriculum[className]) renderSidebar(className, assignmentName);
             appDiv.innerHTML = `<p>Loading...</p>`;
+            window.scrollTo(0, 0); // Start each newly opened page at the top.
             try {
                 const response = await fetch(`markdown/${className}/${assignmentName}.md`);
                 if (!response.ok) throw new Error('Markdown file not found.');

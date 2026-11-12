@@ -183,8 +183,8 @@ const curriculum = {
 
 
                 // Unit 3: Adversarial Simon
-                { file: "Job-Application", type: "WFR", unit: 3 },
-                // { file: "Community-Agreements", type: "WFR", unit: 3 },
+                { file: "Job-Application", type: "wfr", unit: 3 },
+                // { file: "Community-Agreements", type: "wfr", unit: 3 },
                 // { file: "API-Design", type: "assignment", unit: 3 },
                 // { file: "Diagram", type: "assignment", unit: 3 },
                 // { file: "Implementing-Adversarial-Simon", type: "assignment", unit: 3 },
