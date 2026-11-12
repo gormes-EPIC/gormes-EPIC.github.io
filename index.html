@@ -147,18 +147,79 @@
             transition: background-color 0.3s ease, color 0.3s ease;
         }
 
-        #theme-toggle {
+        /* --- Style Menu (themes + seamless mode), top right --- */
+        #style-menu {
             position: absolute;
             top: 1rem;
             right: 1rem;
-            z-index: 100;
-            appearance: none;
-            -webkit-appearance: none;
-            padding-right: 1.75rem;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%239ca3af' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 0.5rem center;
+            z-index: 260;
         }
+        #style-menu-panel {
+            position: absolute;
+            top: calc(100% + 0.4rem);
+            right: 0;
+            min-width: 12rem;
+            padding: 0.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+            font-size: 0.9rem;
+        }
+        #style-menu-panel[hidden] { display: none; }
+        .style-menu-label {
+            padding: 0.25rem 0.5rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.6;
+        }
+        .style-option {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            width: 100%;
+            padding: 0.4rem 0.5rem;
+            background: transparent;
+            border: none;
+            border-radius: 6px;
+            color: var(--text);
+            font: inherit;
+            text-align: left;
+            cursor: pointer;
+        }
+        .style-option:hover { background: var(--bg); }
+        .style-option[aria-checked="true"] { color: var(--primary); font-weight: 700; }
+        .style-option[aria-checked="true"]::after { content: "✓"; margin-left: auto; }
+        .style-swatch {
+            flex-shrink: 0;
+            width: 0.9rem;
+            height: 0.9rem;
+            border-radius: 50%;
+            border: 1px solid var(--border);
+        }
+        .style-divider {
+            height: 1px;
+            margin: 0.4rem 0.25rem;
+            background: var(--border);
+        }
+
+        /* Seamless mode: no separate box behind the page content.
+           Small elements that stood out against the box swap colors so they still stand out. */
+        body.seamless #app { background: transparent; box-shadow: none; }
+        body.seamless .search-bar,
+        body.seamless .type-filter-select,
+        body.seamless .card,
+        body.seamless .unit-heading:hover,
+        body.seamless .agenda-box,
+        body.seamless .markdown-body :not(pre) > code,
+        body.seamless .markdown-body blockquote,
+        body.seamless .checklist-body li.task-item:hover,
+        body.seamless .checklist-bar { background: var(--surface); }
+        body.seamless .markdown-body th { background-color: var(--surface); }
+        body.seamless .agenda-box .markdown-body th,
+        body.seamless .checklist-progress { background-color: var(--bg); }
 
         #app {
             max-width: 75%;
@@ -306,6 +367,23 @@
             border-color: var(--primary);
             color: var(--primary);
             transform: translateY(-2px);
+        }
+        /* Cards with a header photo (set in classImages in curriculum.js) */
+        .card-with-image {
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            overflow: hidden;
+        }
+        .card-image {
+            display: block;
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+            border-bottom: 1px solid var(--border);
+        }
+        .card-title {
+            padding: 1rem 1.5rem;
         }
         
         .list-item {
@@ -848,7 +926,7 @@
             }
 
             /* 1. Hide everything that isn't the document itself */
-            #theme-toggle,
+            #style-menu,
             .nav-buttons,
             .search-container,
             .copy-btn,
@@ -927,13 +1005,20 @@
 </head>
 <body>
 
-    <select id="theme-toggle" class="btn" aria-label="Select theme">
-        <option value="dark">Dark</option>
-        <option value="light">Light</option>
-        <option value="ocean">Ocean</option>
-        <option value="forest">Forest</option>
-        <option value="sunset">Sunset</option>
-    </select>
+    <div id="style-menu">
+        <button type="button" id="style-menu-btn" class="btn" aria-haspopup="true" aria-expanded="false" aria-controls="style-menu-panel">Style ▾</button>
+        <div id="style-menu-panel" role="menu" aria-label="Style" hidden>
+            <div class="style-menu-label">Theme</div>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="dark"><span class="style-swatch" style="background: linear-gradient(135deg, #231f25 50%, #b349f6 50%)"></span>Dark</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="light"><span class="style-swatch" style="background: linear-gradient(135deg, #f8fafc 50%, #2563eb 50%)"></span>Light</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="ocean"><span class="style-swatch" style="background: linear-gradient(135deg, #060f1e 50%, #06b6d4 50%)"></span>Ocean</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="forest"><span class="style-swatch" style="background: linear-gradient(135deg, #071007 50%, #22c55e 50%)"></span>Forest</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="sunset"><span class="style-swatch" style="background: linear-gradient(135deg, #140800 50%, #f97316 50%)"></span>Sunset</button>
+            <div class="style-divider"></div>
+            <div class="style-menu-label">Layout</div>
+            <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
+        </div>
+    </div>
 
     <aside id="course-sidebar" aria-label="Course outline"></aside>
     <div id="sidebar-backdrop"></div>
@@ -950,26 +1035,59 @@
         // File types are matched in lowercase, so "WFR" and "wfr" both work in curriculum.js.
         Object.values(curriculum).forEach(files => files.forEach(item => { item.type = item.type.toLowerCase(); }));
 
-        // --- 0. THEME LOGIC ---
-        const themeToggle = document.getElementById('theme-toggle');
+        // --- 0. STYLE MENU (THEMES + SEAMLESS MODE) ---
         const body = document.body;
         const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode'];
+        const styleMenuBtn = document.getElementById('style-menu-btn');
+        const styleMenuPanel = document.getElementById('style-menu-panel');
+        const themeOptions = [...styleMenuPanel.querySelectorAll('[data-theme]')];
+        const seamlessOption = document.getElementById('seamless-option');
 
         function applyTheme(theme) {
             body.classList.remove(...themeClasses);
             if (theme !== 'dark') body.classList.add(theme + '-mode');
-            themeToggle.value = theme;
+            themeOptions.forEach(option => option.setAttribute('aria-checked', String(option.dataset.theme === theme)));
         }
 
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        applyTheme(savedTheme);
+        // Seamless mode drops the box behind the page content so it sits right on the background.
+        function applySeamless(on) {
+            body.classList.toggle('seamless', on);
+            seamlessOption.setAttribute('aria-checked', String(on));
+        }
 
-        themeToggle.addEventListener('change', () => {
-            const theme = themeToggle.value;
+        applyTheme(localStorage.getItem('theme') || 'dark');
+        applySeamless(localStorage.getItem('seamless') === 'true');
+
+        function setStyleMenuOpen(open) {
+            styleMenuPanel.hidden = !open;
+            styleMenuBtn.setAttribute('aria-expanded', String(open));
+        }
+
+        styleMenuBtn.addEventListener('click', () => setStyleMenuOpen(styleMenuPanel.hidden));
+
+        themeOptions.forEach(option => option.addEventListener('click', () => {
+            const theme = option.dataset.theme;
             applyTheme(theme);
             localStorage.setItem('theme', theme);
             // Re-render the current view so Mermaid diagrams pick up the new theme.
             render();
+        }));
+
+        seamlessOption.addEventListener('click', () => {
+            const on = !body.classList.contains('seamless');
+            applySeamless(on);
+            localStorage.setItem('seamless', String(on));
+        });
+
+        // Close the menu when clicking anywhere else or pressing Escape.
+        document.addEventListener('click', (event) => {
+            if (!styleMenuPanel.hidden && !event.target.closest('#style-menu')) setStyleMenuOpen(false);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !styleMenuPanel.hidden) {
+                setStyleMenuOpen(false);
+                styleMenuBtn.focus();
+            }
         });
 
         // --- Mermaid Diagram Setup ---
@@ -1261,8 +1379,15 @@
             `;
             
             for (const className in curriculum) {
-                const displayName = className.replace(/-/g, ' '); 
-                html += `<a href="#${className}" class="card">${displayName}</a>`;
+                const displayName = className.replace(/-/g, ' ');
+                // Optional header photo, set in classImages in curriculum.js.
+                const image = typeof classImages !== 'undefined' ? classImages[className] : null;
+                html += image
+                    ? `<a href="#${className}" class="card card-with-image">
+                           <img src="${image}" alt="" class="card-image" loading="lazy">
+                           <span class="card-title">${displayName}</span>
+                       </a>`
+                    : `<a href="#${className}" class="card">${displayName}</a>`;
             }
             
             html += `

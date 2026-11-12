@@ -1,3 +1,15 @@
+// --- Class Header Photos ---
+// Add a photo to the top of a class's button on the home screen.
+// Put the image in the assets folder, then add a line below with the
+// class name and the image's path. A class left out of this list just
+// shows its name, like before. Wide photos look best (they're cropped to 16:9).
+const classImages = {
+    // "Pi's-and-Python": "assets/pis-header.png",
+    // "Data-Structures-and-Algorithms": "assets/dsa-header.jpg",
+    // "Software-Engineering": "assets/software-engineering-header.jpg",
+    // "Foundations-of-AI": "assets/foundations-of-ai-header.jpg",
+};
+
 // --- Unit Names & Visibility ---
 // Each file below is tagged with a single unit number (e.g. `unit: 0`).
 // Give a unit a friendly name here so it shows as "Unit 0: Linux and

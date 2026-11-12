@@ -130,7 +130,7 @@ To test your program, use the following inputs and expected outputs.
 | ----------- | ----------- |
 | `This is Pi's and Python` | `This...is...Pi's...and...Python` |
 | `Hello There` | `Hello...There` |
-| `i lUv Cs` | `i luv cs` |
+| `i lUv Cs` | `i...lUv...Cs` |
 | `Let's implement a function called hello` | `Let's...implement...a...function...called...hello` |
 
 ## <a id="weight-on-mars"></a> Weight on Mars
@@ -165,7 +165,7 @@ Mars Weight: 75.6
 
 ```
 Earth Weight: 0
-Mars Weight: 0
+Mars Weight: 0.0
 ```
 
 <details>
@@ -195,8 +195,8 @@ To test your program, use the following inputs and expected outputs.
 | ----------- | ----------- |
 | `150` | `56.7` |
 | `200` | `75.6` |
-| `0` | `0` |
-| `175` | ` 66.15` |
+| `0` | `0.0` |
+| `175` | `66.15` |
 
 ## <a id="tip-calculator"></a> Tip Calculator
 
