@@ -1231,6 +1231,45 @@
             body.has-sidebar.sidebar-open #sidebar-backdrop { display: block; }
         }
 
+        /* --- Resources button (bottom right of every page) --- */
+        #resources-menu {
+            position: fixed;
+            right: 1rem;
+            bottom: 1rem;
+            z-index: 400; /* Above the pet, so it can walk behind the button */
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+        #resources-menu[hidden], #resources-panel[hidden] { display: none; }
+        #resources-btn { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+        #resources-panel {
+            width: 17rem;
+            max-width: calc(100vw - 2rem);
+            max-height: 60vh;
+            overflow-y: auto;
+            padding: 0.75rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        }
+        .resources-title {
+            font-weight: 700;
+            color: var(--primary);
+            padding: 0 0.25rem 0.5rem;
+            margin-bottom: 0.25rem;
+            border-bottom: 1px solid var(--border);
+        }
+        #resources-list { list-style: none; margin: 0; padding: 0; }
+        #resources-list li { padding: 0.4rem 0.25rem; }
+        #resources-list li + li { border-top: 1px solid var(--border); }
+        #resources-list a { color: var(--primary); font-weight: 600; text-decoration: none; }
+        #resources-list a:hover { text-decoration: underline; }
+        .resource-description { display: block; font-size: 0.8rem; opacity: 0.75; margin-top: 0.1rem; }
+        body.oldschool-mode #resources-list a { color: #0000ee; text-decoration: underline; font-weight: normal; }
+
         /* --- 8-Bit Pet (picked in the Style menu) --- */
         #pet {
             position: fixed;
@@ -1316,6 +1355,7 @@
 
             /* 1. Hide everything that isn't the document itself */
             #style-menu,
+            #resources-menu,
             #pet,
             .nav-buttons,
             .search-container,
@@ -1425,6 +1465,13 @@
         </div>
     </div>
 
+    <div id="resources-menu">
+        <div id="resources-panel" role="dialog" aria-label="Helpful resources" hidden>
+            <div class="resources-title">Helpful Resources</div>
+            <ul id="resources-list"></ul>
+        </div>
+        <button type="button" id="resources-btn" class="btn" aria-haspopup="true" aria-expanded="false" aria-controls="resources-panel">Resources</button>
+    </div>
     <div id="pet" hidden title="Click me, or pet me by moving your mouse back and forth!"><div class="pet-heart"></div><div class="pet-hop"><div class="pet-sprite"></div></div></div>
 
     <aside id="course-sidebar" aria-label="Course outline"></aside>
@@ -1436,6 +1483,7 @@
     <script src="curriculum.js"></script>
     <script src="warmups.js"></script>
     <script src="agendas.js"></script>
+    <script src="resources.js"></script>
 
     <script>
 
@@ -1534,6 +1582,44 @@
             if (event.key === 'Escape' && !styleMenuPanel.hidden) {
                 setStyleMenuOpen(false);
                 styleMenuBtn.focus();
+            }
+        });
+
+        // --- RESOURCES BUTTON (bottom right of every page; links come from resources.js) ---
+        const resourcesBtn = document.getElementById('resources-btn');
+        const resourcesPanel = document.getElementById('resources-panel');
+        const resourcesList = document.getElementById('resources-list');
+
+        (typeof studentResources === 'undefined' ? [] : studentResources).forEach(resource => {
+            const item = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = resource.url;
+            link.target = '_blank';
+            link.rel = 'noopener noreferrer';
+            link.textContent = resource.name;
+            item.appendChild(link);
+            if (resource.description) {
+                const note = document.createElement('span');
+                note.className = 'resource-description';
+                note.textContent = resource.description;
+                item.appendChild(note);
+            }
+            resourcesList.appendChild(item);
+        });
+        if (!resourcesList.children.length) document.getElementById('resources-menu').hidden = true;
+
+        function setResourcesOpen(open) {
+            resourcesPanel.hidden = !open;
+            resourcesBtn.setAttribute('aria-expanded', String(open));
+        }
+        resourcesBtn.addEventListener('click', () => setResourcesOpen(resourcesPanel.hidden));
+        document.addEventListener('click', (event) => {
+            if (!resourcesPanel.hidden && !event.target.closest('#resources-menu')) setResourcesOpen(false);
+        });
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape' && !resourcesPanel.hidden) {
+                setResourcesOpen(false);
+                resourcesBtn.focus();
             }
         });
 
