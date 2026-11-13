@@ -867,6 +867,16 @@
             accent-color: var(--primary);
         }
         .checklist-body li.task-item.done { opacity: 0.55; }
+        .checklist-section[hidden], .checklist-stepper[hidden], .checklist-stepper .btn[hidden] { display: none; }
+        /* One step at a time mode: Back / step name / Next bar under the progress bar */
+        .checklist-stepper {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin: 0.25rem 0 0.75rem;
+        }
+        .checklist-step-label { flex: 1; text-align: center; font-weight: 600; }
+        .checklist-stepper .btn:disabled { opacity: 0.4; cursor: not-allowed; }
         .checklist-body li.task-item pre,
         .checklist-body li.task-item details { cursor: auto; }
         
@@ -1360,6 +1370,7 @@
             <div class="style-menu-label">Open Labs In</div>
             <button type="button" class="style-option" role="menuitemradio" data-lab-view="full"><span class="style-swatch style-icon">📄</span>Full lab view</button>
             <button type="button" class="style-option" role="menuitemradio" data-lab-view="checklist"><span class="style-swatch style-icon">☑</span>Checklist mode</button>
+            <button type="button" class="style-option" role="menuitemcheckbox" id="one-step-option"><span class="style-swatch style-icon">①</span>One step at a time</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Pet</div>
             <button type="button" class="style-option" role="menuitemradio" data-pet="none"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>No pet</button>
@@ -1454,6 +1465,22 @@
             // Switch the page that's open right now too, if it has a checklist.
             document.getElementById('checklist-toggle-btn')?.dispatchEvent(new CustomEvent('set-view', { detail: view }));
         }));
+
+        // One step at a time: checklists show a single "Step" section until every box in it is checked.
+        const oneStepOption = document.getElementById('one-step-option');
+        let refreshOneStep = null; // Set by setUpChecklist() so the open checklist updates right away.
+
+        function isOneStepMode() {
+            return localStorage.getItem('checklistOneStep') === 'true';
+        }
+        oneStepOption.setAttribute('aria-checked', String(isOneStepMode()));
+
+        oneStepOption.addEventListener('click', () => {
+            const on = !isOneStepMode();
+            localStorage.setItem('checklistOneStep', String(on));
+            oneStepOption.setAttribute('aria-checked', String(on));
+            refreshOneStep?.();
+        });
 
         // Close the menu when clicking anywhere else or pressing Escape.
         document.addEventListener('click', (event) => {
@@ -2465,6 +2492,20 @@
             let saved = [];
             try { saved = JSON.parse(localStorage.getItem(storageKey)) || []; } catch (e) {}
 
+            // Group the checklist into sections, one per "## Step" heading. Anything before
+            // the first heading (the title and intro) always stays visible.
+            const checklistBody = view.querySelector('.checklist-body');
+            const sections = [];
+            [...checklistBody.children].forEach(node => {
+                if (node.tagName === 'H2') {
+                    const section = document.createElement('section');
+                    section.className = 'checklist-section';
+                    node.before(section);
+                    sections.push(section);
+                }
+                sections.at(-1)?.appendChild(node);
+            });
+
             boxes.forEach((box, i) => {
                 box.disabled = false;
                 box.checked = !!saved[i];
@@ -2479,7 +2520,69 @@
                 barFill.style.width = `${percent}%`;
                 countEl.textContent = `${done} / ${boxes.length} steps done`;
                 localStorage.setItem(storageKey, JSON.stringify(boxes.map(box => box.checked)));
+                updateOneStep();
             }
+
+            // --- One step at a time mode ---
+            const stepper = view.querySelector('.checklist-stepper');
+            const stepLabel = view.querySelector('.checklist-step-label');
+            const backBtn = view.querySelector('.checklist-back-btn');
+            const nextBtn = view.querySelector('.checklist-next-btn');
+            let currentStep = null; // Index of the section being shown
+            let advanceTimer = null;
+
+            const sectionDone = (section) => [...section.querySelectorAll('input[type="checkbox"]')].every(box => box.checked);
+            const firstUnfinished = () => sections.findIndex(section => !sectionDone(section));
+
+            function showSections() {
+                const on = isOneStepMode() && sections.length > 1;
+                const allDone = firstUnfinished() === -1;
+                stepper.hidden = !on;
+                sections.forEach((section, i) => { section.hidden = on && !allDone && i !== currentStep; });
+                if (!on) return;
+                if (allDone) {
+                    stepLabel.textContent = 'All steps done! Here is the whole checklist.';
+                    backBtn.hidden = nextBtn.hidden = true;
+                    return;
+                }
+                const heading = sections[currentStep].querySelector('h2')?.textContent ?? '';
+                stepLabel.textContent = `${currentStep + 1} of ${sections.length}: ${heading.replace(/^Step \d+:\s*/, '')}`;
+                backBtn.hidden = nextBtn.hidden = false;
+                backBtn.disabled = currentStep === 0;
+                // You can only move ahead once every box in this set is checked.
+                nextBtn.disabled = currentStep === sections.length - 1 || !sectionDone(sections[currentStep]);
+            }
+
+            function goToStep(index) {
+                clearTimeout(advanceTimer);
+                currentStep = Math.max(0, Math.min(sections.length - 1, index));
+                showSections();
+                view.scrollIntoView({ block: 'start' });
+            }
+
+            function updateOneStep() {
+                if (!sections.length) return;
+                if (currentStep === null) currentStep = Math.max(0, firstUnfinished());
+                clearTimeout(advanceTimer);
+                showSections();
+                // When the last box in this set gets checked, move on to the next unfinished set
+                // after a short pause, so you can see the check mark land first.
+                if (isOneStepMode() && sectionDone(sections[currentStep])) {
+                    advanceTimer = setTimeout(() => {
+                        const next = firstUnfinished();
+                        if (next === -1) { showSections(); view.scrollIntoView({ block: 'start' }); }
+                        else if (next > currentStep) goToStep(next);
+                    }, 700);
+                }
+            }
+
+            backBtn.addEventListener('click', () => goToStep(currentStep - 1));
+            nextBtn.addEventListener('click', () => goToStep(currentStep + 1));
+            refreshOneStep = () => {
+                if (!view.isConnected) return;
+                currentStep = Math.max(0, firstUnfinished());
+                updateOneStep();
+            };
 
             view.addEventListener('change', (event) => {
                 if (boxes.includes(event.target)) update();
@@ -2501,6 +2604,7 @@
             view.querySelector('.checklist-reset-btn').addEventListener('click', () => {
                 if (!confirm('Uncheck every step?')) return;
                 boxes.forEach(box => { box.checked = false; });
+                currentStep = 0;
                 update();
             });
 
@@ -2575,6 +2679,11 @@
                             <span class="checklist-count"></span>
                             <button type="button" class="btn checklist-reset-btn">Reset</button>
                         </div>
+                        <div class="checklist-stepper" hidden>
+                            <button type="button" class="btn checklist-back-btn">← Back</button>
+                            <span class="checklist-step-label" aria-live="polite"></span>
+                            <button type="button" class="btn checklist-next-btn">Next →</button>
+                        </div>
                         <div class="markdown-body checklist-body">
                             ${marked.parse(checklistText)}
                         </div>
@@ -2592,7 +2701,7 @@
                     function showChecklist(on) {
                         fullView.hidden = on;
                         checklistView.hidden = !on;
-                        toggleBtn.textContent = on ? '📄 Full Lab View' : '☑ Checklist Mode';
+                        toggleBtn.textContent = on ? 'Full Lab View' : 'Checklist Mode';
                         toggleBtn.setAttribute('aria-pressed', String(on));
                     }
                     showChecklist(startInChecklist);

@@ -43,8 +43,7 @@ const unitInfo = {
         0: { name: "CI/CD and Version Control" },
         1: { name: "Databases with SQLite"},
         2: { name: "How Computers Talk and APIs"},
-        3: { name: "Adversarial Simon"},
-        4: { name: "Front-end Development"}
+        3: { name: "Adversarial Simon"}
     },
     "Foundations-of-AI": {
         0: { name: "The Foundations of Data"},
@@ -190,6 +189,7 @@ const curriculum = {
                 { file: "Error-Messages-and-Logging-Lab", type: "optional", unit: 2},
                 // { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
                 { file: "Creating-a-Resume", type: "wfr", unit: 2},
+                { file: "Front-End-Wireframe-Lab", type: "assignment", unit: 2},
                 // { file: "Who-Owns-the-Internet?", type: "wfr", unit: 2},
                 // { file: "Required-Skills-Writeup", type: "wfr", unit: 2},
 
@@ -205,7 +205,6 @@ const curriculum = {
                 // { file: "Post-mortem-Presentation", type: "assignment", unit: 3 },
 
                 // Unit 4: Front-end Development 
-                { file: "Front-End-Wireframe-Lab", type: "assignment", unit: 4 },
                 // { file: "Stylesheets-Lab", type: "assignment", unit: 4 },
                 // { file: "Demo-Day-Presentation", type: "assignment", unit: 4 }
                 
