@@ -187,7 +187,7 @@ const curriculum = {
                 { file: "Requests-and-Using-APIs-Lab", type: "assignment", unit: 2 },
                 { file: "Flask-Notes", type:"notes", unit: 2},
                 { file: "Creating-an-API-Lab", type: "assignment", unit: 2},
-                { file: "Error-Messages-and-Logging-Lab", type: "assignment", unit: 2},
+                { file: "Error-Messages-and-Logging-Lab", type: "optional", unit: 2},
                 // { file: "Design-Review-Discussion", type: "assignment", unit: 2 },
                 { file: "Creating-a-Resume", type: "wfr", unit: 2},
                 // { file: "Who-Owns-the-Internet?", type: "wfr", unit: 2},
@@ -196,6 +196,8 @@ const curriculum = {
 
                 // Unit 3: Adversarial Simon
                 { file: "Job-Application", type: "wfr", unit: 3 },
+                { file: "Team-Charter", type: "wfr", unit: 3 },
+                { file: "API-Contract", type: "assignment", unit: 3 },
                 // { file: "Community-Agreements", type: "wfr", unit: 3 },
                 // { file: "API-Design", type: "assignment", unit: 3 },
                 // { file: "Diagram", type: "assignment", unit: 3 },

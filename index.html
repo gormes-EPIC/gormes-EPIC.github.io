@@ -850,8 +850,8 @@
         .checklist-body ul ul { padding-left: 1.75rem; }
         .checklist-body li.task-item {
             list-style: none;
-            padding: 0.4rem 0.6rem;
-            margin: 0.2rem 0;
+            padding: 0.5rem 0.6rem; /* Rows touch, so there's no gap between steps that ignores clicks */
+            margin: 0;
             border-radius: 6px;
             cursor: pointer;
             transition: background-color 0.15s, opacity 0.15s;
@@ -867,7 +867,8 @@
             accent-color: var(--primary);
         }
         .checklist-body li.task-item.done { opacity: 0.55; }
-        .checklist-body li.task-item pre { cursor: auto; }
+        .checklist-body li.task-item pre,
+        .checklist-body li.task-item details { cursor: auto; }
         
         .btn {
             background: var(--surface);
@@ -2484,9 +2485,11 @@
                 if (boxes.includes(event.target)) update();
             });
 
-            // Clicking anywhere on a step's text checks it off too (but not links, code, or images).
+            // Clicking anywhere on a step's line checks it off, including inline code and images.
+            // Links, buttons, code blocks (so code can be copied), and dropdowns still work normally.
             view.addEventListener('click', (event) => {
-                if (event.target.closest('input, a, button, pre, code, img, summary, details')) return;
+                if (event.target.closest('input, a, button, pre, summary, details')) return;
+                if (String(window.getSelection())) return; // Dragging to select text shouldn't check the box.
                 const li = event.target.closest('li.task-item');
                 if (!li) return;
                 const box = li.querySelector(':scope > input[type="checkbox"], :scope > p > input[type="checkbox"]');

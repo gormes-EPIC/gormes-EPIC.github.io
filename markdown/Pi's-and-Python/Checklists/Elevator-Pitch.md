@@ -21,6 +21,8 @@ Write one or two sentences for each part below. If you get stuck, open the sente
 
 ### Part 1: Introduce Yourself
 
+- [ ] Write your introduction.
+
 <details>
 <summary>Need help getting started? See sentence starters.</summary>
 
@@ -30,9 +32,9 @@ Write one or two sentences for each part below. If you get stuck, open the sente
 
 </details>
 
-- [ ] Write your introduction.
-
 ### Part 2: Share Your Background and Skills
+
+- [ ] Write about your background and your key skills.
 
 <details>
 <summary>Need help getting started? See sentence starters.</summary>
@@ -44,9 +46,9 @@ Write one or two sentences for each part below. If you get stuck, open the sente
 
 </details>
 
-- [ ] Write about your background and your key skills.
-
 ### Part 3: Highlight an Accomplishment
+
+- [ ] Write about one specific accomplishment. Include what **you** did and what the result was.
 
 <details>
 <summary>Need help getting started? See sentence starters.</summary>
@@ -58,9 +60,9 @@ Write one or two sentences for each part below. If you get stuck, open the sente
 
 </details>
 
-- [ ] Write about one specific accomplishment. Include what **you** did and what the result was.
-
 ### Part 4: Show What Makes You Unique
+
+- [ ] Write about what makes you unique.
 
 <details>
 <summary>Need help getting started? See sentence starters.</summary>
@@ -72,9 +74,10 @@ Write one or two sentences for each part below. If you get stuck, open the sente
 
 </details>
 
-- [ ] Write about what makes you unique.
 
 ### Part 5: Close with Your Goals
+
+- [ ] Write a closing sentence about your goals or what you're looking for.
 
 <details>
 <summary>Need help getting started? See sentence starters.</summary>
@@ -85,8 +88,6 @@ Write one or two sentences for each part below. If you get stuck, open the sente
 - "I'm a ___ and ___ student, and I can't wait to ___."
 
 </details>
-
-- [ ] Write a closing sentence about your goals or what you're looking for.
 
 Here's an example pitch:
 
