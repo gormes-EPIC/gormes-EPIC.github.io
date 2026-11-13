@@ -1002,6 +1002,39 @@
             font-weight: 600;
         }
 
+        /* Tabs (<tabs> / <tab title="..."> in markdown) */
+        .tabs-container { margin: 1.5rem 0; }
+        .tab-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem;
+            border-bottom: 2px solid var(--border);
+        }
+        .tab-btn {
+            background: transparent;
+            border: none;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            padding: 0.6rem 1rem;
+            color: var(--text);
+            font: inherit;
+            font-weight: 600;
+            opacity: 0.7;
+            cursor: pointer;
+            border-radius: 6px 6px 0 0;
+        }
+        .tab-btn:hover { opacity: 1; background: var(--bg); }
+        .tab-btn[aria-selected="true"] {
+            opacity: 1;
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        .tab-btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+        .tab-panel { padding-top: 0.5rem; }
+        .tab-panel[hidden] { display: none; }
+        body.oldschool-mode .tab-btn { color: #0000ee; text-decoration: underline; opacity: 1; }
+        body.oldschool-mode .tab-btn[aria-selected="true"] { color: #000000; text-decoration: none; border-bottom-color: #000000; }
+
         /* Expandable Details/Summary Sections */
         .markdown-body details {
             background: var(--surface);
@@ -1257,6 +1290,17 @@
 
         /* PRINT MODE */
         @media print {
+            /* Printed pages show every tab, one after another, each under its title */
+            .tab-list { display: none !important; }
+            .tab-panel[hidden] { display: block !important; }
+            .tab-panel::before {
+                content: attr(data-title);
+                display: block;
+                font-weight: 700;
+                font-size: 1.2em;
+                margin: 1em 0 0.5em;
+                border-bottom: 1px solid #999;
+            }
             #course-sidebar,
             #sidebar-open-btn,
             #sidebar-backdrop {
@@ -2296,6 +2340,23 @@
                 placeholder.replaceWith(btn);
             });
 
+            // --- Tabs ---
+            // In a markdown file, wrap sections in <tabs> and <tab title="..."> to show one at a time:
+            //     <tabs>
+            //     <tab title="Regular Mode">
+            //
+            //     Any **markdown** here (leave the blank lines so it still renders as markdown).
+            //
+            //     </tab>
+            //     <tab title="Another Tab">
+            //
+            //     More markdown.
+            //
+            //     </tab>
+            //     </tabs>
+            // This runs after Mermaid, so diagrams in hidden tabs are drawn at the right size.
+            setUpTabs(appDiv);
+
             // We wrap this in a setTimeout of 0 to ensure the DOM has updated
             // and the KaTeX script has fully loaded before it tries to run.
             setTimeout(() => {
@@ -2330,6 +2391,77 @@
                         }
                     });
                 }
+            });
+        }
+
+        // Turns each <tabs> block into a row of tab buttons with one visible panel.
+        // The last tab title you picked (like "Explain It Like I'm 5") is remembered,
+        // and opens first on any page that has a tab with the same title.
+        let tabGroupCount = 0;
+        function setUpTabs(root) {
+            root.querySelectorAll('.markdown-body tabs').forEach(tabsEl => {
+                const tabs = [...tabsEl.children].filter(child => child.tagName === 'TAB');
+                if (!tabs.length) return;
+                const groupId = `tabs-${++tabGroupCount}`;
+
+                const container = document.createElement('div');
+                container.className = 'tabs-container';
+                const tabList = document.createElement('div');
+                tabList.className = 'tab-list';
+                tabList.setAttribute('role', 'tablist');
+                container.appendChild(tabList);
+
+                const buttons = [];
+                const panels = [];
+                tabs.forEach((tab, i) => {
+                    const title = tab.getAttribute('title') || `Tab ${i + 1}`;
+                    const button = document.createElement('button');
+                    button.type = 'button';
+                    button.className = 'tab-btn';
+                    button.id = `${groupId}-tab-${i}`;
+                    button.textContent = title;
+                    button.setAttribute('role', 'tab');
+                    button.setAttribute('aria-controls', `${groupId}-panel-${i}`);
+                    tabList.appendChild(button);
+                    buttons.push(button);
+
+                    const panel = document.createElement('div');
+                    panel.className = 'tab-panel';
+                    panel.id = `${groupId}-panel-${i}`;
+                    panel.dataset.title = title;
+                    panel.setAttribute('role', 'tabpanel');
+                    panel.setAttribute('aria-labelledby', button.id);
+                    panel.append(...tab.childNodes);
+                    container.appendChild(panel);
+                    panels.push(panel);
+                });
+
+                function select(index, remember = false) {
+                    buttons.forEach((button, i) => {
+                        const on = i === index;
+                        button.setAttribute('aria-selected', String(on));
+                        button.tabIndex = on ? 0 : -1;
+                        panels[i].hidden = !on;
+                    });
+                    if (remember) localStorage.setItem('preferredTab', buttons[index].textContent);
+                }
+
+                buttons.forEach((button, i) => button.addEventListener('click', () => select(i, true)));
+                // Arrow keys, Home, and End move between tabs, like tabs in other apps.
+                tabList.addEventListener('keydown', (event) => {
+                    const current = buttons.indexOf(document.activeElement);
+                    if (current === -1) return;
+                    const last = buttons.length - 1;
+                    const next = { ArrowRight: current === last ? 0 : current + 1, ArrowLeft: current === 0 ? last : current - 1, Home: 0, End: last }[event.key];
+                    if (next === undefined) return;
+                    event.preventDefault();
+                    select(next, true);
+                    buttons[next].focus();
+                });
+
+                const preferred = buttons.findIndex(button => button.textContent === localStorage.getItem('preferredTab'));
+                select(preferred === -1 ? 0 : preferred);
+                tabsEl.replaceWith(container);
             });
         }
 
