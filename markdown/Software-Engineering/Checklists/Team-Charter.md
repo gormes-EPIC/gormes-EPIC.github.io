@@ -1,7 +1,5 @@
 # Team Charter: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** agree as a team on your project goal, what "done" looks like, how you'll treat each other, and how you'll work together, then write it all down in a team charter.
 
 ## Step 1: Get Set Up

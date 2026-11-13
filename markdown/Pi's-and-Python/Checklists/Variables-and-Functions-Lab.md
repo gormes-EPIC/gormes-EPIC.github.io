@@ -1,7 +1,5 @@
 # Variables and Functions Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** use variables and functions to solve four programming challenges: Indoor Voice, Playback Speed, Weight on Mars, and Tip Calculator.
 
 ## Step 1: Get Set Up

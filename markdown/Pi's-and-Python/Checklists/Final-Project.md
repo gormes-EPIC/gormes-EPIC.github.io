@@ -1,7 +1,5 @@
 # Final Project: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** invent a device that combines Python and hardware to do something useful, test it, and document it with a professional README that you could show to an employer.
 
 ## Step 1: Understand the Requirements

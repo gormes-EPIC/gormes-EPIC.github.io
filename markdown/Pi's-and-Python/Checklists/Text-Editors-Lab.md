@@ -1,7 +1,5 @@
 # Text Editors Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** download a book from the terminal, then learn to get around it in a text editor that runs inside the terminal.
 
 ## Step 1: Download a Book with `wget`

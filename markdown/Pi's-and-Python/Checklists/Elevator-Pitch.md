@@ -1,7 +1,5 @@
 # Developing Your Elevator Pitch: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** write and deliver a 30–60 second (75–150 word) answer to "Tell me about yourself," as if you're interviewing for a position in your chosen industry.
 
 ## Step 1: Brainstorm

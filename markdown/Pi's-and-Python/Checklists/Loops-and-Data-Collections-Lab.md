@@ -1,7 +1,5 @@
 # Loops and Data Collections Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** use loops, lists, and dictionaries to solve five programming challenges: Classified, Nutrition Facts, Coke Machine, Music Festival, and Vanity Plates.
 
 ## Step 1: Get Set Up

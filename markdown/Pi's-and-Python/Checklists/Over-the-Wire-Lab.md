@@ -1,7 +1,5 @@
 # Over the Wire Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** beat levels 0 through 5 of the **bandit** wargame by finding the password for each next level, up to the password for level 6, and document how you got through each one.
 
 <img src="assets/bandit-header.png">

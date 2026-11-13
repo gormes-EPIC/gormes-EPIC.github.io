@@ -1,7 +1,5 @@
 # Binary Display Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** write a recursive function that converts a decimal number to binary, then show that binary number on a row of 8 LEDs.
 
 ## Step 1: Gather Your Materials

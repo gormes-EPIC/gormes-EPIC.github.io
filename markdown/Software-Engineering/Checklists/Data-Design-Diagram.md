@@ -1,7 +1,5 @@
 # Data Design Diagram: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** as a team, create two diagrams that explain how data flows through your program: a UX diagram of your screens and how users move between them, and a UML database diagram of your tables and their properties.
 
 ## Step 1: Get Set Up

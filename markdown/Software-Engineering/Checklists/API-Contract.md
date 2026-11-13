@@ -1,12 +1,10 @@
 # API Contract: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** write an API contract that describes every endpoint your program needs, so that front-end and back-end developers can build their parts separately and still have them fit together.
 
 ## Step 1: Get Set Up
 
-- [ ] Create a new shared document for your API contract, and share it with your team.
+- [ ] Create a new shared document for your API contract, and share it with your team. *Optional:* start from the <a href="assets/API-Contract-Template.md" download>fillable API contract template</a>.
 - [ ] Have your [Team Charter](#Software-Engineering/Team-Charter) open. You'll need your project goal and team roles.
 - [ ] Look at the optional endpoint template below, and decide as a team whether you'll use it.
 

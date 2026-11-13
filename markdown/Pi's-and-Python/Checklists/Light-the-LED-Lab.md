@@ -1,7 +1,5 @@
 # Light the LED Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** calculate the right resistor with Ohm's Law, build a circuit on a breadboard, and write a Python program that turns on an LED.
 
 ## Step 1: Calculate Your Resistor

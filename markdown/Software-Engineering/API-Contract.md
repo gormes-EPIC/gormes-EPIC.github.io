@@ -5,11 +5,13 @@
 
 ## Your Task
 
-Create a new document for your API contract. Use the following questions to guide you. There is a template at the end per enpoint if you choose to use it. 
+Create a new document for your API contract. Use the following questions to guide you. There is a template at the end for each endpoint if you choose to use it.
+
+You are welcome to use the <a href="assets/API-Contract-Template.md" download>fillable API contract template</a> in Markdown and upload it to your groups GitHub repo as well. 
 
 1. Start by listing the **use cases** of the program. 
 2. Create a list of **business rules** to define the interactions of our program.
-3. Create a general list of the main "nouns" required for your program and their associated fields. *Your database developer will eventually turn this into a database schema.*
+3. Create a general list of the main "nouns" required for your program and their associated fields. *The database developer will eventually turn this into a database schema.*
 4. For each resource, ask:
     1. Which actions do we need: create, read one, read all, update, delete?
     2. What URL will each endpoint use? For example, `/api/users` or `/api/users/:id`.

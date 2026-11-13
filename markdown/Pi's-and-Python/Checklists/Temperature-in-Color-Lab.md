@@ -1,7 +1,5 @@
 # Temperature in Color Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** a red LED lights up when the temperature is over 72°F, and a blue LED lights up when it's under 72°F. Then you'll record temperature data and graph it.
 
 ## Step 1: Gather Your Materials

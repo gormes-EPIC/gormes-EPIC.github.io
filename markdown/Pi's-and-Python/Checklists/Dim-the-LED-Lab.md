@@ -1,7 +1,5 @@
 # Dim the LED Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** turn a rotary encoder knob to smoothly dim and brighten an LED.
 
 ## Step 1: Gather Your Materials

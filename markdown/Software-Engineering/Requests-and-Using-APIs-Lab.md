@@ -34,9 +34,9 @@ Complete the following four problems using the `requests` library.
 
 ### <a id="pokedex"></a>Pokedex
 
-Use the [PokeAPI](https://pokeapi.co/) to get information about a Pokemon by it's number.
+Use the [PokeAPI](https://pokeapi.co/) to get information about a Pokemon by its number.
 
-An example run of the program work look like: 
+An example run of the program would look like:
 ```
 What number? 2
 ----------------
@@ -104,7 +104,7 @@ cities = {
 
 ### <a id="world-quiz"></a>World Quiz
 
-Use the [REST Countries API](https://restcountries.com/). To create a World Facts quiz. Your program will choose a random country and give you the capital. You will then guess the name of the country.
+Use the [REST Countries API](https://restcountries.com/) to create a World Facts quiz. Your program will choose a random country and give you the capital. You will then guess the name of the country.
 
 1. Create a free account and get your API key. 
 2. Create a new file called `.env`. In the file, add a line `REST_COUNTRIES_API_KEY=your_key_here`. Then add the `.env` file to your `.gitignore`!
@@ -146,7 +146,7 @@ Use the [NASA API](https://api.nasa.gov) to view the NASA "Image of the Day".
 
 1. Create an account for an API key. Then set up your `.env` files and `.gitignore` just like the last question.
 2. Create a Python program to load your API and download the image of the day.
-3. Display the image with this sample code. You will need to install `pygame` with `pip install pygame-ce` and **replace image.jpeg with your image.** . 
+3. Display the image with this sample code. You will need to install `pygame` with `pip install pygame-ce` and **replace `image.jpeg` with your image's file name.**
 
 ```
 import sys
@@ -155,7 +155,7 @@ import pygame
 
 
 def main():
-    # Load images.jpeg from the same directory as this script
+    # Load image.jpeg from the same directory as this script
     base_dir = os.path.dirname(os.path.abspath(__file__))
     image_path = os.path.join(base_dir, "image.jpeg")
 
@@ -185,7 +185,7 @@ def main():
     pos = ((win_w - img_w) // 2, (win_h - img_h) // 2)
 
     screen = pygame.display.set_mode((win_w, win_h))
-    pygame.display.set_caption("images.jpeg")
+    pygame.display.set_caption("NASA Image of the Day")
 
     clock = pygame.time.Clock()
     running = True

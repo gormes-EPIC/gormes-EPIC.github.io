@@ -1,7 +1,5 @@
 # Meet Your Raspberry Pi Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** set up your Raspberry Pi, label and explain its parts in a PDF, create a Python virtual environment, and upload your PDF to GitHub.
 
 ## Step 1: Gather Your Materials

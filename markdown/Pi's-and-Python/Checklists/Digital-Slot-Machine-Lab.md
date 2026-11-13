@@ -1,7 +1,5 @@
 # Digital Slot Machine Lab: Checklist
 
-> Work from top to bottom and check off each step as you finish it. Your progress is saved in this browser, so you can come back to it later.
->
 > **The goal:** when you press the button, the display shows 4 random numbers. If all 4 numbers match, the LED blinks for 5 seconds.
 
 ## Step 1: Gather Your Materials
