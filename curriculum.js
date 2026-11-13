@@ -198,6 +198,7 @@ const curriculum = {
                 { file: "Job-Application", type: "wfr", unit: 3 },
                 { file: "Team-Charter", type: "wfr", unit: 3 },
                 { file: "API-Contract", type: "assignment", unit: 3 },
+                { file: "Data-Design-Diagram", type: "assignment", unit: 3 },
                 // { file: "Community-Agreements", type: "wfr", unit: 3 },
                 // { file: "API-Design", type: "assignment", unit: 3 },
                 // { file: "Diagram", type: "assignment", unit: 3 },
