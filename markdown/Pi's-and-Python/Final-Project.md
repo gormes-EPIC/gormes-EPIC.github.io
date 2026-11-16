@@ -69,6 +69,17 @@ Write your README in professional language. It is the main piece that will repre
 
 As part of finals week at EPIC, be prepared to give a **2 minute** presentation about your project to students **not in computer science**. You will explain and demonstrate your project as part of your presentation.
 
+<details>
+<summary>Need a starting outline?</summary>
+
+1. **Hook (15 seconds):** the problem, in one or two sentences.
+2. **Your project (30 seconds):** what it is and who would use it.
+3. **Demo (45 seconds):** show it working, and say what's happening as you go.
+4. **How it works (20 seconds):** the main parts, in plain words.
+5. **Wrap-up (10 seconds):** what you'd add next, then ask for questions.
+
+</details>
+
 ## Tips, Tricks, and Resources
 - The [gpiozero](https://gpiozero.readthedocs.io/en/stable/) library is a good place to start if you are stuck. Its 'Basic Recipes' and 'Advanced Recipes' pages have sample projects to look through.
 - Look back at your earlier labs, like [Light the LED](#Pi's-and-Python/Light-the-LED-Lab), [Digital Slot Machine](#Pi's-and-Python/Digital-Slot-Machine-Lab), and [Temperature in Color](#Pi's-and-Python/Temperature-in-Color-Lab), for wiring and code you can build on.

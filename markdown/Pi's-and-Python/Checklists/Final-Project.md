@@ -1,6 +1,6 @@
 # Final Project: Checklist
 
-> **The goal:** invent a device that combines Python and hardware to do something useful, test it, and document it with a professional README that you could show to an employer.
+> **The goal:** invent a device that combines Python and hardware to do something useful, test it, document it with a professional README that you could show to an employer, and present it to students outside computer science.
 
 ## Step 1: Understand the Requirements
 
@@ -89,3 +89,27 @@ Your README's audience is other students like you, who know some Python. Write i
 - [ ] Attach your GitHub repository to Google Classroom.
 - [ ] ✋ Demonstrate your working project to your instructor in class.
 - [ ] ✋ Walk your instructor through your repository and README.
+
+## Step 8: Prepare Your Presentation
+
+During finals week, you'll give a **2 minute** presentation about your project to students **not in computer science**.
+
+- [ ] Plan what you'll say: the problem your project solves, what it does, and a quick idea of how it works.
+- [ ] Use everyday words. If you need a technical term, explain it in one sentence.
+- [ ] Plan a live demo, and have a video of your project working as a backup.
+- [ ] If you're on a team, decide who presents each part.
+- [ ] Practice out loud and time yourself. Stay under 2 minutes, including the demo.
+- [ ] Practice once in front of someone who isn't in computer science, and ask what was confusing.
+- [ ] Before you present, check that your project has power, its parts are secure, and your program runs.
+- [ ] ✋ Give your presentation during finals week.
+
+<details>
+<summary>Need a starting outline?</summary>
+
+1. **Hook (15 seconds):** the problem, in one or two sentences.
+2. **Your project (30 seconds):** what it is and who would use it.
+3. **Demo (45 seconds):** show it working, and say what's happening as you go.
+4. **How it works (20 seconds):** the main parts, in plain words.
+5. **Wrap-up (10 seconds):** what you'd add next, then ask for questions.
+
+</details>
