@@ -1051,6 +1051,59 @@
         }
         .email-btn:hover { opacity: 0.85; }
 
+        /* PDF Viewer (embedded in markdown via <pdf-viewer src="...">) */
+        .pdf-viewer {
+            margin: 1rem 0;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            overflow: hidden;
+        }
+        .pdf-viewer:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
+        .pdf-toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+        .pdf-toolbar .btn { padding: 0.35rem 0.75rem; font-size: 0.85rem; }
+        .pdf-toolbar .btn:disabled { opacity: 0.4; cursor: not-allowed; }
+        .markdown-body .pdf-toolbar a.btn { color: var(--text); font-weight: normal; text-decoration: none; }
+        .pdf-spacer { flex: 1; }
+        .pdf-page-input {
+            width: 3.5rem;
+            padding: 0.2rem 0.3rem;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+            background: var(--bg);
+            color: var(--text);
+            text-align: center;
+            font-size: 0.85rem;
+        }
+        .pdf-stage {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0.75rem;
+            min-height: 12rem;
+        }
+        .pdf-stage canvas {
+            display: block;
+            background: #ffffff;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            cursor: pointer; /* Click the right side of a page for the next page, the left side to go back */
+        }
+        .pdf-status { position: absolute; top: 40%; left: 0; right: 0; text-align: center; opacity: 0.8; margin: 0; }
+        .pdf-status[hidden] { display: none; }
+        /* Full screen: the page fills the screen, and long pages scroll */
+        .pdf-viewer:fullscreen { display: flex; flex-direction: column; border: none; border-radius: 0; }
+        .pdf-viewer:fullscreen .pdf-stage { flex: 1; overflow: auto; }
+
         /* Markdown Styles including Links */
         .markdown-body a { color: var(--primary); text-decoration: none; font-weight: 500; }
         .markdown-body a:hover { text-decoration: underline; }
@@ -1506,6 +1559,7 @@
             .nav-buttons,
             .search-container,
             .copy-btn,
+            .pdf-toolbar,
             .toc-sidebar {
                 display: none !important;
             }
@@ -2801,6 +2855,12 @@
                 placeholder.replaceWith(btn);
             });
 
+            // --- PDF Viewer ---
+            // In a markdown file, add (on its own line, with blank lines around it):
+            //     <pdf-viewer src="assets/File-Name.pdf" title="Optional name"></pdf-viewer>
+            // to show the PDF right on the page, one page at a time, with Prev/Next buttons.
+            setUpPdfViewers(appDiv);
+
             // --- Tabs ---
             // In a markdown file, wrap sections in <tabs> and <tab title="..."> to show one at a time:
             //     <tabs>
@@ -2859,6 +2919,145 @@
         // The last tab title you picked (like "Explain It Like I'm 5") is remembered,
         // and opens first on any page that has a tab with the same title.
         let tabGroupCount = 0;
+        // --- PDF VIEWER ---
+        // Uses PDF.js (loaded from a CDN only when a page has a <pdf-viewer>) to draw one page
+        // at a time onto a canvas, so PDFs look the same on every device, including phones
+        // and Chromebooks. Pinned to a version so an update can't break it.
+        const PDFJS_URL = 'https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs';
+        let pdfjsPromise = null;
+        function loadPdfJs() {
+            pdfjsPromise ??= import(PDFJS_URL).then(lib => {
+                lib.GlobalWorkerOptions.workerSrc = PDFJS_URL.replace('pdf.min.mjs', 'pdf.worker.min.mjs');
+                return lib;
+            }).catch(err => { pdfjsPromise = null; throw err; }); // Let the next page try again.
+            return pdfjsPromise;
+        }
+
+        function setUpPdfViewers(root) {
+            root.querySelectorAll('.markdown-body pdf-viewer').forEach(placeholder => {
+                const src = placeholder.getAttribute('src');
+                if (!src) return;
+                // marked wraps the tag in a <p>. Replace that too, since a <div> can't go inside a <p>.
+                const parent = placeholder.parentElement;
+                const target = parent?.tagName === 'P' && parent.childNodes.length === 1 ? parent : placeholder;
+                target.replaceWith(createPdfViewer(src, placeholder.getAttribute('title')));
+            });
+        }
+
+        function createPdfViewer(src, title) {
+            const name = title || decodeURIComponent(src.split('/').pop().replace(/\.pdf$/i, '').replace(/[-_]/g, ' '));
+            const viewer = document.createElement('div');
+            viewer.className = 'pdf-viewer';
+            viewer.tabIndex = 0; // So the arrow keys work after clicking on it
+            viewer.setAttribute('role', 'region');
+            viewer.setAttribute('aria-label', `PDF: ${name}`);
+            viewer.innerHTML = `
+                <div class="pdf-toolbar">
+                    <button type="button" class="btn pdf-prev" aria-label="Previous page" disabled>← Prev</button>
+                    <span>Page <input type="number" class="pdf-page-input" min="1" value="1" aria-label="Page number"> of <span class="pdf-page-count">…</span></span>
+                    <button type="button" class="btn pdf-next" aria-label="Next page" disabled>Next →</button>
+                    <span class="pdf-spacer"></span>
+                    <button type="button" class="btn pdf-fullscreen">Full screen</button>
+                    <a class="btn pdf-open" target="_blank" rel="noopener">Open PDF</a>
+                </div>
+                <div class="pdf-stage"><p class="pdf-status">Loading PDF…</p></div>`;
+            const $ = (selector) => viewer.querySelector(selector);
+            const stage = $('.pdf-stage'), status = $('.pdf-status');
+            const prevBtn = $('.pdf-prev'), nextBtn = $('.pdf-next'), pageInput = $('.pdf-page-input');
+            const fullscreenBtn = $('.pdf-fullscreen');
+            $('.pdf-open').href = src;
+            if (!document.fullscreenEnabled) fullscreenBtn.hidden = true; // iPhones can't make an element full screen
+
+            let pdf = null, pageNum = 1, drawCount = 0, canvas = null, lastWidth = 0;
+
+            async function draw() {
+                if (!pdf) return;
+                const style = getComputedStyle(stage);
+                const width = stage.clientWidth - (parseFloat(style.paddingLeft) || 0) - (parseFloat(style.paddingRight) || 0);
+                if (width <= 0) return; // Hidden in a closed dropdown or another tab. It draws once it's shown.
+                lastWidth = stage.clientWidth;
+                const thisDraw = ++drawCount;
+                const page = await pdf.getPage(pageNum);
+                const unscaled = page.getViewport({ scale: 1 });
+                let scale = width / unscaled.width;
+                if (document.fullscreenElement === viewer) {
+                    // In full screen, fit the whole page on screen.
+                    const height = stage.clientHeight - (parseFloat(style.paddingTop) || 0) - (parseFloat(style.paddingBottom) || 0);
+                    scale = Math.min(scale, height / unscaled.height);
+                }
+                const pixelRatio = window.devicePixelRatio || 1;
+                const viewport = page.getViewport({ scale: scale * pixelRatio });
+                // Draw on a fresh canvas, then swap it in, so pages never flicker half-drawn.
+                const next = document.createElement('canvas');
+                next.width = Math.floor(viewport.width);
+                next.height = Math.floor(viewport.height);
+                next.style.width = `${Math.floor(viewport.width / pixelRatio)}px`;
+                next.style.height = `${Math.floor(viewport.height / pixelRatio)}px`;
+                next.setAttribute('role', 'img');
+                next.setAttribute('aria-label', `${name}, page ${pageNum} of ${pdf.numPages}`);
+                await page.render({ canvasContext: next.getContext('2d'), viewport }).promise;
+                if (thisDraw !== drawCount) return; // A newer page was asked for while this one drew.
+                if (canvas) canvas.replaceWith(next); else stage.appendChild(next);
+                canvas = next;
+            }
+
+            function goTo(number) {
+                if (!pdf) return;
+                pageNum = Math.max(1, Math.min(pdf.numPages, number));
+                pageInput.value = pageNum;
+                prevBtn.disabled = pageNum === 1;
+                nextBtn.disabled = pageNum === pdf.numPages;
+                draw();
+            }
+
+            prevBtn.addEventListener('click', () => goTo(pageNum - 1));
+            nextBtn.addEventListener('click', () => goTo(pageNum + 1));
+            pageInput.addEventListener('change', () => goTo(parseInt(pageInput.value, 10) || 1));
+            // Click the right part of a page to go forward, or the left third to go back.
+            stage.addEventListener('click', (event) => {
+                if (event.target.tagName !== 'CANVAS') return;
+                const rect = event.target.getBoundingClientRect();
+                goTo(event.clientX - rect.left < rect.width / 3 ? pageNum - 1 : pageNum + 1);
+            });
+            viewer.addEventListener('keydown', (event) => {
+                if (event.target === pageInput) return;
+                if (['ArrowRight', 'PageDown'].includes(event.key)) { event.preventDefault(); goTo(pageNum + 1); }
+                if (['ArrowLeft', 'PageUp'].includes(event.key)) { event.preventDefault(); goTo(pageNum - 1); }
+                if (event.key === 'Home') { event.preventDefault(); goTo(1); }
+                if (event.key === 'End') { event.preventDefault(); goTo(pdf ? pdf.numPages : 1); }
+            });
+            fullscreenBtn.addEventListener('click', () => {
+                if (document.fullscreenElement === viewer) document.exitFullscreen();
+                else viewer.requestFullscreen().catch(() => {});
+            });
+            viewer.addEventListener('fullscreenchange', () => {
+                fullscreenBtn.textContent = document.fullscreenElement === viewer ? 'Exit full screen' : 'Full screen';
+                draw();
+            });
+            // Redraw when the page gets wider or narrower, or when a hidden viewer is first shown.
+            let resizeTimer = null;
+            new ResizeObserver(() => {
+                if (stage.clientWidth === lastWidth) return;
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(draw, 150);
+            }).observe(stage);
+
+            loadPdfJs()
+                .then(lib => lib.getDocument({ url: src, isEvalSupported: false }).promise)
+                .then(doc => {
+                    pdf = doc;
+                    status.hidden = true;
+                    $('.pdf-page-count').textContent = doc.numPages;
+                    pageInput.max = doc.numPages;
+                    goTo(1);
+                })
+                .catch(err => {
+                    console.error('PDF load error:', err);
+                    status.innerHTML = 'This PDF couldn\'t be shown here. Use <strong>Open PDF</strong> to view it.';
+                });
+            return viewer;
+        }
+
         function setUpTabs(root) {
             root.querySelectorAll('.markdown-body tabs').forEach(tabsEl => {
                 const tabs = [...tabsEl.children].filter(child => child.tagName === 'TAB');
