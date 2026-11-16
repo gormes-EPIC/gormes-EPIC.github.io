@@ -24,6 +24,7 @@ const warmups = {
         { file: "If-Statement-Vocab", date:"2026-09-10", unit: 2},
         { file: "Hidden-Mystery-Puzzle", date:"2026-10-06", unit: 3},
         { file: "Decode-the-Secret-Message", date:"2026-10-08", unit: 3},
+        { file: "Airport-Class-Design", date:"2026-11-04", unit: 5},
         { file: "Fibonacci-Sequence-and-Variants", date:"2026-11-10", unit: 5},
         { file: "Recursion-Scavenger-Hunt", date:"2026-11-12", unit: 5},
         { file: "Physical-Stack-Frames", date:"2026-11-16", unit: 5},
