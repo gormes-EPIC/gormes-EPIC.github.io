@@ -27,7 +27,7 @@ You are welcome to use the <a href="assets/API-Contract-Template.md" download>fi
 6. For each endpoint, plan for errors:
     1. What can go wrong with each endpoint?
     2. Which status codes will we use (400, 401, 403, 404, 500)?
-    3. What will every error response look like? Agree on one consistent format, for example { "error": "message" }.
+    3. What will every error response look like? Agree on one consistent format, for example `{ "error": "message" }`.
 7. Which endpoints require a user login? Are there different roles, and if so which endpoint go with which role?
 8. Decide on a process for making changes to the API contract? Who needs to approve it and how will you communicate with the team?
 
