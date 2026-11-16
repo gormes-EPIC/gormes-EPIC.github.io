@@ -65,6 +65,10 @@ Your README should include the following sections:
 
 Write your README in professional language. It is the main piece that will represent your project to employers, and my hope is that you will be able to put this project on your resume!
 
+## Presentation
+
+As part of finals week at EPIC, be prepared to give a **2 minute** presentation about your project to students **not in computer science**. You will explain and demonstrate your project as part of your presentation.
+
 ## Tips, Tricks, and Resources
 - The [gpiozero](https://gpiozero.readthedocs.io/en/stable/) library is a good place to start if you are stuck. Its 'Basic Recipes' and 'Advanced Recipes' pages have sample projects to look through.
 - Look back at your earlier labs, like [Light the LED](#Pi's-and-Python/Light-the-LED-Lab), [Digital Slot Machine](#Pi's-and-Python/Digital-Slot-Machine-Lab), and [Temperature in Color](#Pi's-and-Python/Temperature-in-Color-Lab), for wiring and code you can build on.
@@ -80,7 +84,5 @@ Write your README in professional language. It is the main piece that will repre
 Attach your GitHub repository, including your program and your `README.md`, to Google Classroom. Then, demonstrate your working project to your instructor in class and walk them through your repository. You will also need to answer the reflection questions, either in writing or in person.
 
 ## Rubric
-- **40 points** - All required items are present.
-- **30 points** - Task was completed, but supplementary materials are weak or missing.
-- **15 points** - Task was attempted, but is missing major components.
-- **0 points** - Task was not attempted to 50% completion or student should reattempt.
+- **30 points** - Task was completed.
+- **0 points** - Task was not completed. Please resubmir
