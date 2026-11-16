@@ -1,5 +1,8 @@
 # Terminal Commands Notes
 
+<tabs>
+<tab title="Grade Level">
+
 <img src="/assets/terminal-notes-1.gif">
 
 ## Welcome to the Terminal
@@ -71,3 +74,104 @@ You have now "changed directories" into your `Desktop` folder. You will see your
 |`history`| Shows your terminal history |
 |`man <command>`|Shows the manual for the command|
 |`clear` or `CTRL-L`|Clears the screen|
+
+</tab>
+<tab title="Explain It Like I'm 10">
+
+## Words to Know
+
+- **Terminal:** a window where you type commands to your computer instead of clicking on things.
+- **Command:** one instruction, like `ls`. Type it, press Enter, and the computer runs it.
+- **Folder** (also called a **directory**): a container that holds files and other folders.
+- **Path:** directions to a file or folder, written as folder names separated by slashes, like `/home/epic_cs/Desktop`.
+- **Home folder** (`~`): your own folder, where your Desktop, Documents, and Downloads live.
+
+## Opening the Terminal
+
+Press `CTRL-ALT-T` on a school computer. At home or on a Chromebook, use [the website](https://epic-terminal.chals.io/).
+
+The text at the start of each line shows three things: your username, the computer's name (the hostname), and the folder you're in.
+
+## Folders Inside Folders
+
+Think of a filing cabinet. The whole cabinet is `/`. Inside it are drawers, inside the drawers are folders, and inside those are more folders and files. Your home folder is one of them, at `/home/<your username>`.
+
+The terminal is always "in" one folder at a time. Commands work in that folder unless you tell them to look somewhere else.
+
+## Moving Around
+
+| Command | What it does |
+| --- | --- |
+| `pwd` | Shows the folder you're in, as a full path |
+| `ls` | Lists everything in the folder you're in |
+| `cd Desktop` | Moves into the `Desktop` folder |
+| `cd ..` | Moves up one folder |
+| `cd ~` | Goes back to your home folder |
+
+Capital letters matter. `Desktop` and `desktop` are two different names.
+
+## Working With Files
+
+| Command | What it does |
+| --- | --- |
+| `touch notes.txt` | Makes a new, empty file |
+| `nano notes.txt` | Opens the file so you can edit it. `Ctrl + O` saves, `Ctrl + X` exits |
+| `cat notes.txt` | Shows what's inside the file |
+| `cp notes.txt backup.txt` | Makes a copy |
+| `mv notes.txt Desktop/` | Moves the file. `mv old.txt new.txt` renames it |
+| `rm notes.txt` | Deletes the file |
+| `mkdir projects` | Makes a new folder |
+
+`rm` doesn't send files to the Trash. Once a file is deleted, it's gone.
+
+## Other Useful Commands
+
+- `find` searches for files by name, and `grep` searches inside files for words.
+- `ssh` lets you control another computer, and `scp` copies files to it.
+- `wget` downloads a file from the internet.
+- The `git` commands save your code and send it to GitHub.
+
+The full list is on the Grade Level tab.
+
+## Getting Help
+
+- `man ls` shows the manual for `ls`. Press `q` to leave it.
+- The up arrow brings back the last command you typed. `history` shows all of them.
+- The `Tab` key finishes typing a file or folder name for you.
+- `clear` or `CTRL-L` clears the screen.
+
+</tab>
+<tab title="Just the Highlights">
+
+## Key Ideas
+
+- The filesystem is a tree of folders that starts at `/`. Your home folder is `/home/<username>`, or `~` for short.
+- The terminal is always in a **current folder**. `pwd` shows it, and paths that don't start with `/` or `~` start from there.
+- `.` is the current folder, `..` is the folder above it, and `~` is your home folder.
+- Names are case sensitive. Files whose names start with `.` are hidden. Use `ls -a` to see them.
+- `rm` deletes for good. `rmdir` only removes empty folders.
+
+## Commands by Task
+
+| Task | Commands |
+| --- | --- |
+| Find your way around | `pwd`, `ls`, `ls -a`, `cd <directory>`, `cd ..` |
+| Make, view, and edit files | `touch`, `cat`, `nano`, `mkdir` |
+| Move, copy, and delete | `mv`, `cp`, `rm`, `rmdir` |
+| Search | `find <path> -name "<name>"`, `grep "pattern" <file>`, `file <file>` |
+| Other computers and the web | `ssh user@ip -p <port>`, `scp <file> user@ip:<path>`, `wget <url>` |
+| Git | `gh auth login`, `git clone <URL>`, `git add .`, `git commit -m "message"`, `git push` |
+| Help | `man <command>`, `history`, `clear` |
+
+## Shortcuts
+
+| Keys | What they do |
+| --- | --- |
+| `CTRL-ALT-T` | Open the terminal |
+| `Tab` | Finish a file or folder name |
+| Up arrow | Bring back the last command |
+| `CTRL-L` | Clear the screen |
+| `Ctrl + O`, `Ctrl + X` | Save and exit in `nano` |
+
+</tab>
+</tabs>

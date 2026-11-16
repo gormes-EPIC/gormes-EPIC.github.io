@@ -373,6 +373,111 @@
         body.oldschool-mode .checklist-body li.task-item:hover { background: none; }
         body.oldschool-mode .checklist-body li.task-item input[type="checkbox"] { accent-color: auto; }
 
+        /* Hot Dog Stand Theme: based on the loud red-and-yellow color scheme from Windows 3.1.
+           Red desktop, yellow windows with thick black frames, red title bars with white
+           centered titles, square beveled buttons, and white text boxes. Text is always black
+           on red or yellow (white only on the bold title bars), so it stays readable. */
+        body.hotdog-mode {
+            --primary: #000000;
+            --bg: #ff0000;
+            --surface: #ffff00;
+            --text: #000000;
+            --border: #000000;
+
+            --badge-note-bg: #ffffff;
+            --badge-note-text: #000000;
+            --badge-assign-bg: #000000;
+            --badge-assign-text: #ffff00;
+            --badge-exercise-bg: #ff0000;
+            --badge-exercise-text: #000000;
+            --badge-optional-bg: transparent;
+            --badge-optional-text: #000000;
+            --badge-document-bg: #ffffff;
+            --badge-document-text: #b00000;
+            --badge-wfr-bg: #000000;
+            --badge-wfr-text: #ffffff;
+        }
+        /* Square corners and no soft shadows, like 1992 */
+        body.hotdog-mode * { border-radius: 0 !important; }
+        body.hotdog-mode ::selection { background: #000000; color: #ffffff; }
+
+        /* The content box is a window: yellow, with a thick black frame */
+        body.hotdog-mode #app {
+            border: 3px solid #000000;
+            box-shadow: none;
+        }
+        body.hotdog-mode h1, body.hotdog-mode h2, body.hotdog-mode h3 { color: #000000; }
+        /* Page titles are red title bars with white, centered text */
+        body.hotdog-mode #app h1 {
+            background: #ff0000;
+            color: #ffffff;
+            text-align: center;
+            border: 2px solid #000000;
+            padding: 0.2rem 0.75rem;
+            font-size: 1.6rem;
+        }
+        body.hotdog-mode .markdown-body h2 { border-bottom: 2px solid #000000; }
+        body.hotdog-mode .markdown-body a { color: #b00000; text-decoration: underline; }
+
+        /* Beveled, push-in buttons */
+        body.hotdog-mode .btn,
+        body.hotdog-mode .email-btn,
+        body.hotdog-mode .copy-btn,
+        body.hotdog-mode .sidebar-icon-btn,
+        body.hotdog-mode a.btn {
+            background: #ffff00;
+            color: #000000;
+            border: 2px solid #000000;
+            box-shadow: inset 2px 2px 0 #ffffff, inset -2px -2px 0 #a3a300;
+            text-decoration: none;
+            opacity: 1;
+        }
+        body.hotdog-mode .btn:hover,
+        body.hotdog-mode .email-btn:hover,
+        body.hotdog-mode .copy-btn:hover,
+        body.hotdog-mode .sidebar-icon-btn:hover { background: #ffff66; border-color: #000000; }
+        body.hotdog-mode .btn:active,
+        body.hotdog-mode .email-btn:active,
+        body.hotdog-mode .copy-btn:active,
+        body.hotdog-mode .sidebar-icon-btn:active { box-shadow: inset 2px 2px 0 #a3a300, inset -2px -2px 0 #ffffff; }
+
+        /* White text boxes with black borders */
+        body.hotdog-mode .search-bar,
+        body.hotdog-mode .type-filter-select,
+        body.hotdog-mode input[type="text"],
+        body.hotdog-mode input[type="search"],
+        body.hotdog-mode select {
+            background: #ffffff;
+            color: #000000;
+            border: 2px solid #000000;
+        }
+
+        /* Cards and menus */
+        body.hotdog-mode .card { border: 2px solid #000000; color: #000000; }
+        body.hotdog-mode .card:hover { background: #000000; color: #ffff00; }
+        body.hotdog-mode #style-menu-panel,
+        body.hotdog-mode #resources-panel { border: 2px solid #000000; box-shadow: 4px 4px 0 #000000; }
+        body.hotdog-mode .style-option:hover { background: #000000; color: #ffffff; }
+        body.hotdog-mode .sidebar-link.active { color: #000000; border-left-color: #000000; background: #ff0000; }
+
+        /* Code blocks: black with yellow text */
+        body.hotdog-mode .markdown-body pre {
+            background: #000000;
+            border: 2px solid #000000;
+            color: #ffff00;
+        }
+        body.hotdog-mode .markdown-body :not(pre) > code { background: #ffffff; color: #000000; }
+        body.hotdog-mode .markdown-body blockquote { border-left-color: #ff0000; }
+        body.hotdog-mode .markdown-body th { color: #000000; }
+        body.hotdog-mode .markdown-body table,
+        body.hotdog-mode .markdown-body td,
+        body.hotdog-mode .markdown-body th { border-color: #000000; }
+        body.hotdog-mode .checklist-bar { background: #ffffff; border: 2px solid #000000; }
+        body.hotdog-mode .checklist-bar span { background: #ff0000; }
+        body.hotdog-mode .checklist-body li.task-item input[type="checkbox"] { accent-color: #ff0000; }
+        body.hotdog-mode .tab-btn[aria-selected="true"] { background: #ff0000; color: #000000; border-color: #000000; opacity: 1; }
+        body.seamless.hotdog-mode #app { border: none; }
+
         /* Hacker Theme: black, grey, and white with terminal-green accents */
         body.hacker-mode {
             --primary: #22e55f;
@@ -1488,6 +1593,7 @@
             <button type="button" class="style-option" role="menuitemradio" data-theme="hacker"><span class="style-swatch" style="background: linear-gradient(135deg, #0a0a0a 50%, #22e55f 50%)"></span>Hacker</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="pink"><span class="style-swatch" style="background: linear-gradient(135deg, #ffe4f1 50%, #e0218a 50%)"></span>Pink</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="oldschool"><span class="style-swatch" style="background: linear-gradient(135deg, #ffffff 50%, #0000ee 50%)"></span>Old School</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="hotdog"><span class="style-swatch" style="background: linear-gradient(135deg, #ffff00 50%, #ff0000 50%)"></span>Hot Dog Stand</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Layout</div>
             <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
@@ -1537,7 +1643,7 @@
 
         // --- 0. STYLE MENU (THEMES + SEAMLESS MODE) ---
         const body = document.body;
-        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode', 'oldschool-mode'];
+        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode', 'oldschool-mode', 'hotdog-mode'];
         const styleMenuBtn = document.getElementById('style-menu-btn');
         const styleMenuPanel = document.getElementById('style-menu-panel');
         const themeOptions = [...styleMenuPanel.querySelectorAll('[data-theme]')];
@@ -2129,7 +2235,7 @@
 
         // --- Mermaid Diagram Setup ---
         function getMermaidTheme() {
-            return ['light-mode', 'pink-mode', 'oldschool-mode'].some(name => body.classList.contains(name)) ? 'default' : 'dark';
+            return ['light-mode', 'pink-mode', 'oldschool-mode', 'hotdog-mode'].some(name => body.classList.contains(name)) ? 'default' : 'dark';
         }
 
         const appDiv = document.getElementById('app');
