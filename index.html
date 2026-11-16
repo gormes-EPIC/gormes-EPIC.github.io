@@ -2836,8 +2836,15 @@
                 updateOneStep();
             };
 
+            // Checking or unchecking a step does the same to every step nested under it.
+            function setChildren(box) {
+                box.closest('li')?.querySelectorAll(':scope li input[type="checkbox"]').forEach(child => { child.checked = box.checked; });
+            }
+
             view.addEventListener('change', (event) => {
-                if (boxes.includes(event.target)) update();
+                if (!boxes.includes(event.target)) return;
+                setChildren(event.target);
+                update();
             });
 
             // Clicking anywhere on a step's line checks it off, including inline code and images.
@@ -2850,6 +2857,7 @@
                 const box = li.querySelector(':scope > input[type="checkbox"], :scope > p > input[type="checkbox"]');
                 if (!box) return;
                 box.checked = !box.checked;
+                setChildren(box);
                 update();
             });
 
