@@ -1,6 +1,6 @@
 # BST and AVL Tree Exercises
 
-### Exercise 1
+## Exercise 1
 
 Create a binary search tree with the letters: ALANTURING
 
@@ -13,7 +13,7 @@ Create a binary search tree with the letters: ALANTURING
 
 
 
-### Exercise 2
+## Exercise 2
 
 Create a binary search tree with the numbers: 18, 23, 10, 5, 6, 10, 23, 45, 60
 
@@ -25,7 +25,7 @@ Create a binary search tree with the numbers: 18, 23, 10, 5, 6, 10, 23, 45, 60
 </details>
 
 
-### Exercise 3
+## Exercise 3
 
 Create an AVL tree with the numbers: 50, 45, 20, 35, 38, 76, 65
 
@@ -36,7 +36,7 @@ Create an AVL tree with the numbers: 50, 45, 20, 35, 38, 76, 65
 
 </details>
 
-### Exercise 4
+## Exercise 4
 
 Create an AVL tree with the numbers: COMPUTER
 
@@ -47,7 +47,7 @@ Create an AVL tree with the numbers: COMPUTER
 
 </details>
 
-### Exercise 5
+## Exercise 5
 
 Delete the root node from this binary search tree and redraw the tree.
 
@@ -60,7 +60,7 @@ Delete the root node from this binary search tree and redraw the tree.
 
 </details>
 
-### Exercise 6
+## Exercise 6
 Draw the BST created by inserting this exact sequence: 50, 30, 70, 20, 40, 60, 80. Next to it, draw the BST created by inserting the exact same numbers, but sorted: 20, 30, 40, 50, 60, 70, 80.
 
 In Big O notation, what is the worst-case runtime to search each tree.
@@ -74,7 +74,7 @@ The one on the left is $O(log(n))$ in the worst-case. The one on the right is $O
 
 </details>
 
-### Exercise 7
+## Exercise 7
 
 Give the pre-order, in-order, and post-order traversals of the following tree.
 
@@ -89,7 +89,7 @@ Give the pre-order, in-order, and post-order traversals of the following tree.
 
 </details>
 
-### Exercise 8 
+## Exercise 8 
 
 Calculate the balance factor of each node in this AVL tree.
 
@@ -103,7 +103,7 @@ Calculate the balance factor of each node in this AVL tree.
 </details>
 
 
-### Exercise 9
+## Exercise 9
 
 What is the minimum possible number of nodes in an AVL tree of height 3? What is the maximum number of nodes?
 
@@ -115,7 +115,7 @@ Minimum: 7, Maximum: 15
 </details>
 
 
-### Exercise 10 
+## Exercise 10 
 
 What kind of BST traversal allows me to reconstruct the original tree?
 
@@ -126,7 +126,7 @@ A pre-order traversal.
 
 </details>
 
-### Exercise 11
+## Exercise 11
 
 If an AVL tree guarentees $O(log(n))$ searching time in every case, why would an engineer choose to use a regular BST instead?
 
@@ -137,7 +137,7 @@ If the priority was fast adding and removing, the engineer might choose a BST in
 
 </details>
 
-### Exercise 12
+## Exercise 12
 
 What would happen if you had an AVL that required the balance factor to be 0 in every case? What would need to be true about your tree?
 
@@ -148,7 +148,7 @@ Every tree would need to have the right number of elements(1, 3, 7, 15, etc.) so
 
 </details>
 
-### Exercise 13
+## Exercise 13
 
 Write a function `prune_tree(TreeNode<Integer> root, int min_val, int max_val)`that removes any nodes whose values do not fall within the inclusive range `[min_val, max_val]`. As an example, draw a tree with values 1-10. Then remove all the values outside of [4, 7] inclusive.
 
@@ -297,7 +297,7 @@ public class TreePruner {
 
 </details>
 
-### Exercise 14
+## Exercise 14
 
 Write the function `find_closest(TreeNode<Integer> root, double target)` which returns the value in the tree closest to the `target` value. As an example, create a tree with the numbers 1-10. For `target = 3.4`, the function would return `3`.
 
@@ -444,7 +444,7 @@ public class TreeSearcher {
 ```
 </details>
 
-### Exercise 15
+## Exercise 15
 
 For this code segment, draw a memory simulation and the resulting output.
 
@@ -467,7 +467,7 @@ System.out.println(nums.size());
 
 </details>
 
-### Exercise 16
+## Exercise 16
 
 For this code segment, draw a memory simulation and the resulting output.
 
@@ -490,7 +490,7 @@ System.out.println(nums.size());
 
 </details>
 
-### Exercise 17
+## Exercise 17
 
 Assume you have a generic `Node` class that contains a value and a reference to the next node (`next()`). In a `LinkedList` class, you will add a method called `addToFront`, which will add a value to the front of the list. Write the method below. Assume the `LinkedList` has a private instance variable called `headNode`.
 
@@ -516,7 +516,7 @@ public void addToFront(Node<E> node){
 
 </details>
 
-### Exercise 18
+## Exercise 18
 
 The following code is supposed to delete the node at a given index. Why does this not work?
 ```java
@@ -541,7 +541,7 @@ There are two problems. First, of a user calls `delete(0)`, your for loop doesn'
 
 </details>
 
-### Exercise 19
+## Exercise 19
 
 Write a method that will delete the tail element of a singly `LinkedList`. Assume the `LinkedList` has a private instance variable called `headNode`.
 
@@ -582,7 +582,7 @@ public E removeTail() {
 </details>
 
 
-### Exercise 20
+## Exercise 20
 
 For the following tree, trace a breadth-first traversal and a depth-first traversal starting at the root node.
 
@@ -596,7 +596,7 @@ For the following tree, trace a breadth-first traversal and a depth-first traver
 
 </details>
 
-### Exercise 21
+## Exercise 21
 
 An arithmetic sequence is defined by the explicit formula $a_n = 5n - 3$. Calculate the first 6 terms of this sequence ($n = 1, 2, 3, 4, 5, 6$).If you insert these terms sequentially into a standard Binary Search Tree, what will the tree look like? In Big O notation, what is the worst-case runtime to search this specific tree, and why?
 

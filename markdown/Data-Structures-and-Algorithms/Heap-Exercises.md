@@ -1,6 +1,6 @@
 # Heap Exercises
 
-### Exercise 1
+## Exercise 1
 
 Trace the insertion of the following sequence of elements into an initially empty Min-Heap: `[15, 8, 20, 5, 12]`. What is the final array representation of the heap?
 
@@ -18,7 +18,7 @@ The final array representation is `[5, 8, 20, 15, 12]`.
 
 </details>
 
-### Exercise 2
+## Exercise 2
 
 Given the following Max-Heap represented as an array: `[50, 30, 40, 10, 20, 35, 15]`. Trace the state of the array after calling `removeMax()` once.
 
@@ -37,7 +37,7 @@ The final 1-indexed array representation is `[40, 30, 35, 10, 20, 15]`.
 
 </details>
 
-### Exercise 3
+## Exercise 3
 
 In a array representation of a binary heap, what are the mathematical formulas to find the left child, right child, and parent of a node located at index $i$?
 
@@ -53,7 +53,7 @@ In a array representation of a binary heap, what are the mathematical formulas t
 
 
 
-### Exercise 4
+## Exercise 4
 
 Show the resulting min heap when the following data is inserted: EPICCAMPUS
 
@@ -66,7 +66,7 @@ Show the resulting min heap when the following data is inserted: EPICCAMPUS
 </details>
 
 
-### Exercise 5
+## Exercise 5
 
 Show the resulting max heap when the following data is inserted: PENGUINSROCK
 
@@ -80,7 +80,7 @@ Show the resulting max heap when the following data is inserted: PENGUINSROCK
 </details>
 
 
-### Exercise 6
+## Exercise 6
 
 Are the following **complete trees**? Why or why not?
 
@@ -96,7 +96,7 @@ Are the following **complete trees**? Why or why not?
 </details>
 
 
-### Exercise 7
+## Exercise 7
 
 Tell whether each is a valid heap or not. 
 
@@ -112,7 +112,7 @@ Tell whether each is a valid heap or not.
 
 </details>
 
-### Exercise 8
+## Exercise 8
 
 Build the max heap from the following set of data:  50, 23, 11, 14, 52, 66, 19, 20, 13.
 
@@ -128,7 +128,7 @@ The array that corresponds to the heap above is `[66,50,52,20,23,11,19,14,13]`.
 
 </details>
 
-### Exercise 9
+## Exercise 9
 
 Show the resulting heap when the max is removed from the heap in Exercise 8.
 
@@ -140,7 +140,7 @@ Show the resulting heap when the max is removed from the heap in Exercise 8.
 
 </details>
 
-### Exercise 10
+## Exercise 10
 
 Give the following heap:
 
@@ -156,7 +156,7 @@ The array is `[17, 25, 51, 42, 33, 60, 69, 49, 44, 47]`
 
 </details>
 
-### Exercise 11
+## Exercise 11
 
 Show the heap after the minimum has been removed from the heap in Exercise 10.
 

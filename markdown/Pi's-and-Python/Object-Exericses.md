@@ -1,6 +1,6 @@
 # Object Exercises
 
-### Exercise 1
+## Exercise 1
 
 What is the difference between a **class** and an **object**? Give a real-world analogy to support your answer.
 
@@ -13,7 +13,7 @@ For example, a class is like the blueprints for a house. The blueprints define w
 
 </details>
 
-### Exercise 2
+## Exercise 2
 
 What is the purpose of `self` in a Python class? Why must it be the first parameter in every instance method?
 
@@ -24,7 +24,7 @@ What is the purpose of `self` in a Python class? Why must it be the first parame
 
 </details>
 
-### Exercise 3
+## Exercise 3
 
 Predict the output of the following code.
 
@@ -56,7 +56,7 @@ Labrador
 
 </details>
 
-### Exercise 4
+## Exercise 4
 
 Write a `Student` class with the instance variables `name` (string), `grade` (integer), and `passing` (boolean, defaults to `True`). Include a method `fail()` that sets `passing` to `False` and prints `"{name} is now failing."`.
 
@@ -77,7 +77,7 @@ class Student:
 
 </details>
 
-### Exercise 5
+## Exercise 5
 
 Predict the output of the following code.
 
@@ -122,7 +122,7 @@ print(c2.count)
 
 </details>
 
-### Exercise 6
+## Exercise 6
 
 The following `Rectangle` class is missing a method. Add a method called `is_square()` that returns `True` if the rectangle's width and height are equal, and `False` otherwise.
 
@@ -146,7 +146,7 @@ def is_square(self):
 
 </details>
 
-### Exercise 7
+## Exercise 7
 
 The following code has a bug. Identify the problem and explain how to fix it.
 
@@ -175,7 +175,7 @@ def __init__(self, make, model, mpg):
 
 </details>
 
-### Exercise 8
+## Exercise 8
 
 What is a **class attribute**, and how does it differ from an **instance variable**? Write a short example of a class that uses both.
 
@@ -195,7 +195,7 @@ class BankAccount:
 
 </details>
 
-### Exercise 9
+## Exercise 9
 
 Given the list of `Car` objects below, write a loop that prints the `make` and `model` of each car whose `mpg` is greater than 30.
 
@@ -231,7 +231,7 @@ Subaru Outback
 
 </details>
 
-### Exercise 10
+## Exercise 10
 
 Predict the output of the following code.
 
@@ -271,7 +271,7 @@ The first call to `book1.check_out()` succeeds because it wasn't checked out. Th
 
 </details>
 
-### Exercise 11
+## Exercise 11
 
 Write a class `Inventory` that has one instance variable `items`, which starts as an empty list. Add two methods:
 - `add_item(name, quantity)`: appends a tuple `(name, quantity)` to `items`.
@@ -297,7 +297,7 @@ class Inventory:
 
 </details>
 
-### Exercise 12
+## Exercise 12
 
 Predict the output of the following two code snippets. What is the difference between the behavior in **Snippet A** and **Snippet B**, and why does it happen?
 
