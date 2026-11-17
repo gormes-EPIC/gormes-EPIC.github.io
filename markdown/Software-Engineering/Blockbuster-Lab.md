@@ -141,7 +141,7 @@ Aurora Borealis Rising,Every scar tells a different story,Nora Kristiansen,2.94,
 
 
 ## Tips, Tricks, and Resources
-- [Objects in Python Notes](#Pi's-and-Python/Objects-In-Python-Notes)
+- [Objects in Python Notes](#Pi's-and-Python/Objects-Notes)
 - [W3 Schools - Classes](https://www.w3schools.com/python/python_classes.asp)
 - [Geeks for Geeks - Python Objects](https://www.geeksforgeeks.org/python/python-object/)
 - [Introduction to Classes and Objects](https://www.youtube.com/watch?v=8yjkWGRlUmY) and [Using Classes and Objects in Python](https://www.youtube.com/watch?v=wfcWRAxRVBA)

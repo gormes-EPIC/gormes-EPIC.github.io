@@ -1,7 +1,7 @@
 # Light the LED Activity
 
 <video controls width="100%">
-  <source src="assets/light-the-led.mov" type="video/mp4">
+  <source src="assets/light-the-led.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
@@ -34,7 +34,7 @@ Remember
 
 <img src="/assets/light-the-led-walkthrough-figure-3.png">
 
-<img src="/assets/light-the-led-wakthrough-figure-4.png">
+<img src="/assets/light-the-led-walkthrough-figure-4.png">
 ## Setting Up Your Pi
 
 1. Plug the power cord into an outlet and the other end into your Pi's USB-C port

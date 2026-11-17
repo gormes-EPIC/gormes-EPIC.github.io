@@ -20,7 +20,7 @@
 
 ## Step 2: Brainstorm and Get Approved
 
-- [ ] Brainstorm at least three ideas for your invention.
+- [ ] Brainstorm at least three ideas for your invention. Browse the [Sensor Library](#Pi's-and-Python/Sensor-Library) for parts you could use.
 - [ ] For each idea, write down who would use it and what problem it solves.
 - [ ] Pick your favorite idea.
 - [ ] List the inputs, outputs, and new component(s) it will use, and check them against the requirements in Step 1.

@@ -31,7 +31,7 @@ const unitInfo = {
     },
     "Data-Structures-and-Algorithms": {
         0: { name: "Programming in Java" },
-        1: { name: "Seaching and Sorting"},
+        1: { name: "Searching and Sorting"},
         2: { name: "Stacks and Queues"},
         3: { name: "Lists" },
         4: { name: "Trees and Heaps"},
@@ -102,6 +102,7 @@ const curriculum = {
                 { file: "Effective-Collaboration-Activity", type: "wfr", unit: 5 },    
                 
                 { file: "Final-Project", type: "assignment", unit: 6 },
+                { file: "Sensor-Library", type: "document", unit: 6 },
                 { file: "Creating-a-Resume", type: "wfr", unit: 6 },
                 { file: "Update-Your-Portfolio", type: "wfr", unit: 6}
                 

@@ -12,8 +12,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
     <style>
         /* Default Dark Mode Variables */
@@ -373,6 +371,78 @@
         body.oldschool-mode .checklist-body li.task-item:hover { background: none; }
         body.oldschool-mode .checklist-body li.task-item input[type="checkbox"] { accent-color: auto; }
 
+        /* Star Wars Theme: a starfield, crawl-yellow titles in the Star Jedi font
+           (assets/font/Starjedi.ttf, a free fan font by Boba Fonts), and glowing blue "lightsaber" accents.
+           Body text stays in Liberation Sans so it's easy to read. */
+        @font-face {
+            font-family: "Star Jedi";
+            src: url("assets/font/Starjedi.ttf") format("truetype");
+            font-display: swap;
+        }
+        body.starwars-mode {
+            --primary: #ffe81f;
+            --bg: #05060d;
+            --surface: rgba(12, 15, 30, 0.92);
+            --text: #e8e6d9;
+            --border: #2a3050;
+
+            --badge-note-bg: rgba(79, 195, 247, 0.18);
+            --badge-note-text: #7fd6ff;
+            --badge-assign-bg: rgba(255, 232, 31, 0.15);
+            --badge-assign-text: #ffe81f;
+            --badge-exercise-bg: rgba(74, 222, 128, 0.15);
+            --badge-exercise-text: #86efac;
+            --badge-optional-bg: rgba(148, 163, 184, 0.2);
+            --badge-optional-text: #cbd5e1;
+            --badge-document-bg: rgba(248, 113, 113, 0.18);
+            --badge-document-text: #fca5a5;
+            --badge-wfr-bg: rgba(192, 132, 252, 0.18);
+            --badge-wfr-text: #d8b4fe;
+
+            /* Stars: a few layers of tiny dots, repeated at different sizes so the pattern doesn't look tiled */
+            background-color: #05060d;
+            background-image:
+                radial-gradient(1px 1px at 25px 35px, #ffffff, transparent),
+                radial-gradient(1px 1px at 120px 80px, #c7d2fe, transparent),
+                radial-gradient(1.5px 1.5px at 190px 150px, #ffffff, transparent),
+                radial-gradient(1px 1px at 60px 190px, #fde68a, transparent),
+                radial-gradient(1px 1px at 300px 40px, #ffffff, transparent),
+                radial-gradient(2px 2px at 260px 260px, #e0e7ff, transparent),
+                radial-gradient(1px 1px at 350px 330px, #ffffff, transparent);
+            background-size: 220px 220px, 260px 260px, 330px 330px, 280px 280px, 410px 410px, 470px 470px, 390px 390px;
+            background-attachment: fixed;
+        }
+        body.starwars-mode h1,
+        body.starwars-mode h2,
+        body.starwars-mode h3,
+        body.starwars-mode .card-title {
+            font-family: "Star Jedi", "Liberation Sans", sans-serif;
+            /* Star Jedi's capital letters are decorative swash shapes (a capital U looks like a K),
+               while its lowercase letters are the normal all-caps ones. So titles are shown in lowercase. */
+            text-transform: lowercase;
+            font-weight: normal;
+            letter-spacing: 0.04em;
+            color: #ffe81f;
+        }
+        body.starwars-mode #app h1 { text-align: center; text-shadow: 0 0 12px rgba(255, 232, 31, 0.35); }
+        body.starwars-mode #app { border: 1px solid #2a3050; box-shadow: 0 0 30px rgba(79, 195, 247, 0.08); }
+        /* Links and focus glow like a blue lightsaber */
+        body.starwars-mode .markdown-body a { color: #7fd6ff; }
+        body.starwars-mode .btn:hover,
+        body.starwars-mode .card:hover {
+            border-color: #4fc3f7;
+            box-shadow: 0 0 8px rgba(79, 195, 247, 0.7), 0 0 2px #ffffff inset;
+        }
+        body.starwars-mode .checklist-bar span {
+            background: #e0f7ff;
+            box-shadow: 0 0 6px #4fc3f7, 0 0 12px #4fc3f7;
+        }
+        body.starwars-mode .checklist-body li.task-item input[type="checkbox"] { accent-color: #4fc3f7; }
+        body.starwars-mode .markdown-body blockquote { border-left-color: #ffe81f; }
+        body.seamless.starwars-mode #app { border: none; }
+        /* Ships dogfighting behind the page (drawn by the space battle code). It sits under all the content. */
+        #space-battle { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+
         /* Hot Dog Stand Theme: based on the loud red-and-yellow color scheme from Windows 3.1.
            Red desktop, yellow windows with thick black frames, red title bars with white
            centered titles, square beveled buttons, and white text boxes. Text is always black
@@ -549,7 +619,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 2rem;
-            transition: background-color 0.3s ease, color 0.3s ease;
+            transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.25s ease;
         }
         /* Buttons, text boxes, and drop-downs use the page's font instead of the browser's default */
         button, input, select, textarea { font-family: inherit; }
@@ -1134,12 +1204,6 @@
             border: 1px solid #3e4451; /* A subtle border that matches the dark theme */
         }
 
-        /* 2. Inner Code: Remove Highlight.js's default background and padding */
-        .markdown-body pre code.hljs {
-            background: transparent !important;
-            padding: 0 !important;
-        }
-
         .copy-btn {
             position: absolute;
             top: 0.5rem;
@@ -1165,7 +1229,7 @@
             border-color: var(--primary);
             color: var(--primary);
         }
-        /* Only style inline code, let Highlight.js handle the big blocks */
+        /* Only style inline code; code blocks are styled by ".markdown-body pre" */
         .markdown-body :not(pre) > code { 
             background: var(--bg); 
             padding: 0.2rem 0.4rem; 
@@ -1290,7 +1354,6 @@
         /* --- Course Outline Sidebar (shown on file pages) --- */
         :root { --sidebar-width: 16rem; }
 
-        body { transition: background-color 0.3s ease, color 0.3s ease, padding-left 0.25s ease; }
 
         #course-sidebar {
             display: none;
@@ -1471,12 +1534,12 @@
             height: 36px;
             z-index: 350;
             cursor: grab;
+            touch-action: none; /* Lets a finger swipe back and forth to pet it on phones */
         }
         #pet[hidden] { display: none; }
         /* Picked up with the mouse: shows the grabbing hand everywhere and stops text from being selected */
         #pet.held, body.pet-dragging, body.pet-dragging * { cursor: grabbing !important; }
         body.pet-dragging { user-select: none; -webkit-user-select: none; }
-        #pet { touch-action: none; } /* Lets a finger swipe back and forth to pet it on phones */
 
         /* Heart in a speech bubble, shown when you pet the pet */
         .pet-heart {
@@ -1554,6 +1617,7 @@
 
             /* 1. Hide everything that isn't the document itself */
             #style-menu,
+            #space-battle,
             #resources-menu,
             #pet,
             .nav-buttons,
@@ -1602,8 +1666,7 @@
             }
 
             /* 5. Make code blocks printer-friendly */
-            .markdown-body pre,
-            .markdown-body pre code.hljs {
+            .markdown-body pre {
                 background: #D3D3D3 !important; /* Light gray backlight */
                 color: black !important;
                 /* Force browsers to actually print the background color */
@@ -1648,6 +1711,7 @@
             <button type="button" class="style-option" role="menuitemradio" data-theme="pink"><span class="style-swatch" style="background: linear-gradient(135deg, #ffe4f1 50%, #e0218a 50%)"></span>Pink</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="oldschool"><span class="style-swatch" style="background: linear-gradient(135deg, #ffffff 50%, #0000ee 50%)"></span>Old School</button>
             <button type="button" class="style-option" role="menuitemradio" data-theme="hotdog"><span class="style-swatch" style="background: linear-gradient(135deg, #ffff00 50%, #ff0000 50%)"></span>Hot Dog Stand</button>
+            <button type="button" class="style-option" role="menuitemradio" data-theme="starwars"><span class="style-swatch" style="background: linear-gradient(135deg, #05060d 50%, #ffe81f 50%)"></span>Star Wars</button>
             <div class="style-divider"></div>
             <div class="style-menu-label">Layout</div>
             <button type="button" class="style-option" role="menuitemcheckbox" id="seamless-option"><span class="style-swatch" style="background: transparent; border-style: dashed"></span>Seamless mode</button>
@@ -1697,13 +1761,176 @@
 
         // --- 0. STYLE MENU (THEMES + SEAMLESS MODE) ---
         const body = document.body;
-        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode', 'oldschool-mode', 'hotdog-mode'];
+        const themeClasses = ['light-mode', 'ocean-mode', 'forest-mode', 'sunset-mode', 'hacker-mode', 'pink-mode', 'oldschool-mode', 'hotdog-mode', 'starwars-mode'];
         const styleMenuBtn = document.getElementById('style-menu-btn');
         const styleMenuPanel = document.getElementById('style-menu-panel');
         const themeOptions = [...styleMenuPanel.querySelectorAll('[data-theme]')];
         const seamlessOption = document.getElementById('seamless-option');
 
+        // --- STAR WARS THEME: SPACE BATTLE IN THE BACKGROUND ---
+        // Two teams of ships (images in assets/sprites/ships/) chase each other across the screen behind
+        // the page and fire laser bolts. A hit makes a little explosion, and that ship flies back in later.
+        // Only runs in the Star Wars theme, and never for people who turn on "reduce motion".
+        const spaceBattle = (() => {
+            const TEAMS = {
+                // pointsUp: the picture's nose points up, so it turns to face where it's flying.
+                // Otherwise it's a front view, which stays upright and only tilts a little.
+                blue: { file: 'assets/sprites/ships/xwing.png', width: 30, pointsUp: true, bolt: '#4ade80' },
+                red:  { file: 'assets/sprites/ships/tie.png', width: 24, pointsUp: false, bolt: '#f87171' },
+            };
+            Object.values(TEAMS).forEach(team => { team.image = new Image(); team.image.src = team.file; });
+            let canvas = null, ctx = null, rafId = null, lastTime = 0;
+            let ships = [], bolts = [], blasts = [];
+            const W = () => window.innerWidth, H = () => window.innerHeight;
+
+            function spawn(ship) {
+                // Blue ships come in from the left, red ships from the right.
+                const fromLeft = ship.team === 'blue';
+                ship.x = fromLeft ? -40 : W() + 40;
+                ship.y = 60 + Math.random() * Math.max(100, H() - 120);
+                ship.angle = (fromLeft ? 0 : Math.PI) + (Math.random() - 0.5) * 0.6;
+                ship.speed = 90 + Math.random() * 60;
+                ship.cooldown = 1 + Math.random() * 2;
+                ship.dead = false;
+            }
+
+            function drawShip(ship) {
+                const team = TEAMS[ship.team], image = team.image;
+                if (!image.complete || !image.naturalWidth) return; // Still loading
+                const width = team.width, height = width * image.naturalHeight / image.naturalWidth;
+                ctx.save();
+                ctx.translate(ship.x, ship.y);
+                if (team.pointsUp) ctx.rotate(ship.angle + Math.PI / 2);
+                else ctx.rotate(Math.max(-0.35, Math.min(0.35, Math.cos(ship.angle) * Math.sin(ship.angle))));
+                ctx.imageSmoothingEnabled = false; // Keep pixel art crisp
+                ctx.drawImage(image, -width / 2, -height / 2, width, height);
+                ctx.restore();
+            }
+
+            function nearestEnemy(ship) {
+                let best = null, bestDist = Infinity;
+                ships.forEach(other => {
+                    if (other.team === ship.team || other.dead) return;
+                    const d = Math.hypot(other.x - ship.x, other.y - ship.y);
+                    if (d < bestDist) { best = other; bestDist = d; }
+                });
+                return best && { ship: best, dist: bestDist };
+            }
+
+            function step(time) {
+                const dt = Math.min((time - lastTime) / 1000, 0.05);
+                lastTime = time;
+                ctx.clearRect(0, 0, W(), H());
+
+                ships.forEach(ship => {
+                    if (ship.dead) {
+                        if (time > ship.respawnAt) spawn(ship);
+                        return;
+                    }
+                    const enemy = nearestEnemy(ship);
+                    if (enemy) {
+                        // Turn a little toward the nearest enemy each frame.
+                        const want = Math.atan2(enemy.ship.y - ship.y, enemy.ship.x - ship.x);
+                        const diff = Math.atan2(Math.sin(want - ship.angle), Math.cos(want - ship.angle));
+                        ship.angle += Math.max(-1.2 * dt, Math.min(1.2 * dt, diff));
+                        // Fire when the enemy is close and roughly straight ahead.
+                        ship.cooldown -= dt;
+                        if (ship.cooldown <= 0 && enemy.dist < 420 && Math.abs(diff) < 0.3) {
+                            ship.cooldown = 0.5 + Math.random();
+                            bolts.push({ x: ship.x, y: ship.y, angle: ship.angle, team: ship.team, life: 1 });
+                        }
+                    }
+                    ship.x += Math.cos(ship.angle) * ship.speed * dt;
+                    ship.y += Math.sin(ship.angle) * ship.speed * dt;
+                    // Flew too far off screen: come back in from its own side.
+                    if (ship.x < -120 || ship.x > W() + 120 || ship.y < -120 || ship.y > H() + 120) spawn(ship);
+                    drawShip(ship);
+                });
+
+                bolts = bolts.filter(bolt => {
+                    bolt.x += Math.cos(bolt.angle) * 650 * dt;
+                    bolt.y += Math.sin(bolt.angle) * 650 * dt;
+                    bolt.life -= dt;
+                    const hit = ships.find(s => !s.dead && s.team !== bolt.team && Math.hypot(s.x - bolt.x, s.y - bolt.y) < 13);
+                    if (hit) {
+                        hit.dead = true;
+                        hit.respawnAt = time + 2500 + Math.random() * 3000;
+                        blasts.push({ x: hit.x, y: hit.y, age: 0 });
+                        return false;
+                    }
+                    ctx.strokeStyle = TEAMS[bolt.team].bolt;
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.moveTo(bolt.x, bolt.y);
+                    ctx.lineTo(bolt.x - Math.cos(bolt.angle) * 14, bolt.y - Math.sin(bolt.angle) * 14);
+                    ctx.stroke();
+                    return bolt.life > 0;
+                });
+
+                blasts = blasts.filter(blast => {
+                    blast.age += dt;
+                    const t = blast.age / 0.6;
+                    ctx.globalAlpha = Math.max(0, 1 - t);
+                    ctx.fillStyle = '#fde68a';
+                    ctx.beginPath(); ctx.arc(blast.x, blast.y, 4 + t * 18, 0, Math.PI * 2); ctx.fill();
+                    ctx.fillStyle = '#f97316';
+                    ctx.beginPath(); ctx.arc(blast.x, blast.y, 2 + t * 10, 0, Math.PI * 2); ctx.fill();
+                    ctx.globalAlpha = 1;
+                    return t < 1;
+                });
+
+                rafId = requestAnimationFrame(step);
+            }
+
+            function resize() {
+                if (!canvas) return;
+                const ratio = window.devicePixelRatio || 1;
+                canvas.width = W() * ratio;
+                canvas.height = H() * ratio;
+                ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+            }
+
+            function start() {
+                if (canvas || reduceMotionQuery.matches) return;
+                canvas = document.createElement('canvas');
+                canvas.id = 'space-battle';
+                canvas.setAttribute('aria-hidden', 'true');
+                body.prepend(canvas);
+                ctx = canvas.getContext('2d');
+                resize();
+                const perTeam = W() < 700 ? 2 : 3;
+                ships = [];
+                ['blue', 'red'].forEach(team => {
+                    for (let i = 0; i < perTeam; i++) {
+                        const ship = { team };
+                        spawn(ship);
+                        // Start the first ships already on screen, spread out.
+                        ship.x = team === 'blue' ? Math.random() * W() * 0.4 : W() - Math.random() * W() * 0.4;
+                        ships.push(ship);
+                    }
+                });
+                bolts = []; blasts = [];
+                lastTime = performance.now();
+                rafId = requestAnimationFrame(step);
+            }
+
+            function stop() {
+                cancelAnimationFrame(rafId);
+                canvas?.remove();
+                canvas = ctx = null;
+            }
+
+            window.addEventListener('resize', resize);
+            const reduceMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+            reduceMotionQuery.addEventListener?.('change', () => {
+                if (reduceMotionQuery.matches) stop();
+                else if (body.classList.contains('starwars-mode')) start();
+            });
+            return { start, stop };
+        })();
+
         function applyTheme(theme) {
+            if (theme === 'starwars') spaceBattle.start(); else spaceBattle.stop();
             body.classList.remove(...themeClasses);
             if (theme !== 'dark') body.classList.add(theme + '-mode');
             themeOptions.forEach(option => option.setAttribute('aria-checked', String(option.dataset.theme === theme)));
@@ -2786,19 +3013,6 @@
                 }
             }
 
-            // Highting code blocks with Highlight.js
-            // appDiv.querySelectorAll('.markdown-body pre code').forEach((block) => {
-            //     // marked.js adds a "language-X" class if you specify a language.
-            //     // We only want to highlight if that class exists.
-            //     if (block.className.includes('language-')) {
-            //         hljs.highlightElement(block);
-            //     } else {
-            //         // For plain text blocks, just add the base class so it 
-            //         // gets the correct background, but skips the auto-coloring
-            //         block.classList.add('hljs'); 
-            //     }
-            // });
-            
             const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
             
             codeBlocks.forEach(pre => {

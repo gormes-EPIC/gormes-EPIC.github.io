@@ -14,6 +14,7 @@
 Working alone or in a team of 2, brainstorm some ideas for your invention. Your project must contain **at least one
 source of input** and **at least one source of output**. Also, your project must contain **at least one new component**
 you have not used before.
+Browse the [Sensor Library](#Pi's-and-Python/Sensor-Library) to see which sensors are available, where they're kept, and how to wire them.
 
 If you are working in teams of 2, your team needs 2 different sources of input, 2 different sources of output, and two
 new components you have never used before.
