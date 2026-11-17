@@ -526,6 +526,7 @@
         body.hotdog-mode .card { border: 2px solid #000000; color: #000000; }
         body.hotdog-mode .card:hover { background: #000000; color: #ffff00; }
         body.hotdog-mode #style-menu-panel,
+        body.hotdog-mode #scratchpad-panel,
         body.hotdog-mode #resources-panel { border: 2px solid #000000; box-shadow: 4px 4px 0 #000000; }
         body.hotdog-mode .style-option:hover { background: #000000; color: #ffffff; }
         body.hotdog-mode .sidebar-link.active { color: #000000; border-left-color: #000000; background: #ff0000; }
@@ -1486,19 +1487,85 @@
             body.has-sidebar.sidebar-open #sidebar-backdrop { display: block; }
         }
 
-        /* --- Resources button (bottom right of every page) --- */
-        #resources-menu {
+        /* --- Corner buttons: Scratchpad and Resources (bottom right of every page) --- */
+        #corner-tools {
             position: fixed;
             right: 1rem;
             bottom: 1rem;
-            z-index: 400; /* Above the pet, so it can walk behind the button */
+            z-index: 400; /* Above the pet, so it can walk behind the buttons */
+            display: flex;
+            flex-direction: column; /* Scratchpad button on top, Resources below */
+            align-items: flex-end;
+            gap: 0.5rem;
+        }
+        #resources-menu, #scratchpad-menu {
             display: flex;
             flex-direction: column;
             align-items: flex-end;
             gap: 0.5rem;
         }
         #resources-menu[hidden], #resources-panel[hidden] { display: none; }
-        #resources-btn { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+        #resources-btn, #scratchpad-btn { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
+
+        /* Scratchpad: a small notes window that slides out from the right edge, above the corner buttons,
+           and stays open while you change pages */
+        #scratchpad-panel {
+            position: fixed;
+            right: 0;
+            bottom: 6.5rem;
+            z-index: 400;
+            width: 18rem;
+            max-width: calc(100vw - 1rem);
+            box-sizing: border-box;
+            padding: 0.6rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-right: none;
+            border-radius: 10px 0 0 10px;
+            box-shadow: -6px 8px 24px rgba(0, 0, 0, 0.4);
+            transform: translateX(110%);
+            visibility: hidden; /* Also hides it from screen readers and the Tab key while closed */
+            transition: transform 0.25s ease, visibility 0s linear 0.25s;
+        }
+        #scratchpad-panel.open {
+            transform: translateX(0);
+            visibility: visible;
+            transition: transform 0.25s ease, visibility 0s;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            #scratchpad-panel, #scratchpad-panel.open { transition: none; }
+        }
+        .scratchpad-header { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.4rem; }
+        .scratchpad-header .resources-title { flex: 1; border: none; margin: 0; padding: 0 0.25rem; }
+        .scratchpad-close {
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 1.3rem;
+            line-height: 1;
+            padding: 0.1rem 0.4rem;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .scratchpad-close:hover { background: var(--bg); }
+        #scratchpad-text {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+            height: 12rem;
+            min-height: 5rem;
+            max-height: 60vh;
+            resize: vertical;
+            padding: 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            background: var(--bg);
+            color: var(--text);
+            font: inherit;
+            font-size: 0.9rem;
+        }
+        .scratchpad-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; font-size: 0.75rem; opacity: 0.75; }
+        .scratchpad-footer .btn { padding: 0.2rem 0.6rem; font-size: 0.8rem; }
         #resources-panel {
             width: 17rem;
             max-width: calc(100vw - 2rem);
@@ -1618,7 +1685,7 @@
             /* 1. Hide everything that isn't the document itself */
             #style-menu,
             #space-battle,
-            #resources-menu,
+            #corner-tools,
             #pet,
             .nav-buttons,
             .search-container,
@@ -1734,12 +1801,28 @@
         </div>
     </div>
 
-    <div id="resources-menu">
-        <div id="resources-panel" role="dialog" aria-label="Helpful resources" hidden>
-            <div class="resources-title">Helpful Resources</div>
-            <ul id="resources-list"></ul>
+    <div id="corner-tools">
+        <div id="scratchpad-menu">
+            <div id="scratchpad-panel" role="dialog" aria-label="Scratchpad">
+                <div class="scratchpad-header">
+                    <div class="resources-title">Scratchpad</div>
+                    <button type="button" class="scratchpad-close" aria-label="Close scratchpad">×</button>
+                </div>
+                <textarea id="scratchpad-text" placeholder="Paste or type notes here. They stay while you click through pages." aria-label="Scratchpad notes"></textarea>
+                <div class="scratchpad-footer">
+                    <span>Kept until you close this tab</span>
+                    <button type="button" class="btn scratchpad-clear">Clear</button>
+                </div>
+            </div>
+            <button type="button" id="scratchpad-btn" class="btn" aria-expanded="false" aria-controls="scratchpad-panel">Scratchpad</button>
         </div>
-        <button type="button" id="resources-btn" class="btn" aria-haspopup="true" aria-expanded="false" aria-controls="resources-panel">Resources</button>
+        <div id="resources-menu">
+            <div id="resources-panel" role="dialog" aria-label="Helpful resources" hidden>
+                <div class="resources-title">Helpful Resources</div>
+                <ul id="resources-list"></ul>
+            </div>
+            <button type="button" id="resources-btn" class="btn" aria-haspopup="true" aria-expanded="false" aria-controls="resources-panel">Resources</button>
+        </div>
     </div>
     <div id="pet" hidden title="Click me, drag me around, or pet me by moving your mouse back and forth!"><div class="pet-heart"></div><div class="pet-hop"><div class="pet-sprite"></div></div></div>
 
@@ -1753,6 +1836,7 @@
     <script src="warmups.js"></script>
     <script src="agendas.js"></script>
     <script src="resources.js"></script>
+    <script src="assets/hex-error/hex-error.js"></script>
 
     <script>
 
@@ -2054,6 +2138,42 @@
                 resourcesBtn.focus();
             }
         });
+
+        // --- SCRATCHPAD BUTTON (next to Resources) ---
+        // A small notes window. It only closes with its X, its button, or Escape, so it stays open
+        // while you click through pages. Notes are kept in sessionStorage: they survive changing
+        // pages and refreshing, and are cleared when the browser tab is closed.
+        const scratchpadBtn = document.getElementById('scratchpad-btn');
+        const scratchpadPanel = document.getElementById('scratchpad-panel');
+        const scratchpadText = document.getElementById('scratchpad-text');
+
+        const isScratchpadOpen = () => scratchpadPanel.classList.contains('open');
+        function setScratchpadOpen(open, focus = true) {
+            scratchpadPanel.classList.toggle('open', open);
+            scratchpadBtn.setAttribute('aria-expanded', String(open));
+            sessionStorage.setItem('scratchpadOpen', String(open));
+            if (open && focus) scratchpadText.focus();
+        }
+        scratchpadText.value = sessionStorage.getItem('scratchpad') || '';
+        scratchpadText.addEventListener('input', () => sessionStorage.setItem('scratchpad', scratchpadText.value));
+        scratchpadBtn.addEventListener('click', () => setScratchpadOpen(!isScratchpadOpen()));
+        scratchpadPanel.querySelector('.scratchpad-close').addEventListener('click', () => {
+            setScratchpadOpen(false);
+            scratchpadBtn.focus();
+        });
+        scratchpadPanel.querySelector('.scratchpad-clear').addEventListener('click', () => {
+            if (scratchpadText.value && !confirm('Clear your scratchpad notes?')) return;
+            scratchpadText.value = '';
+            sessionStorage.removeItem('scratchpad');
+            scratchpadText.focus();
+        });
+        scratchpadPanel.addEventListener('keydown', (event) => {
+            if (event.key !== 'Escape') return;
+            event.stopPropagation();
+            setScratchpadOpen(false);
+            scratchpadBtn.focus();
+        });
+        if (sessionStorage.getItem('scratchpadOpen') === 'true') setScratchpadOpen(true, false); // Reopen after a refresh
 
         // --- 8-BIT PET ---
         // Each pet is pixel art drawn from the grids below (facing left), one
@@ -2521,9 +2641,23 @@
 
         const appDiv = document.getElementById('app');
 
+        // --- 400-level errors (like 404 Not Found) show the hex warning screen (assets/hex-error/) ---
+        class HttpError extends Error {
+            constructor(status) { super(`HTTP ${status}`); this.status = status; }
+        }
+        let renderCount = 0; // Goes up on every page change, so a slow failed load can't cover a newer page.
+        function showClientError(error, backHref, backText, startedAt = renderCount) {
+            if (startedAt !== renderCount) return false;
+            if (!(error instanceof HttpError) || error.status < 400 || error.status >= 500) return false;
+            showHexError({ code: error.status, message: "We couldn't find that page.", backHref, backText });
+            return true;
+        }
+
         // --- 2. ROUTING LOGIC ---
         function render() {
             const hash = window.location.hash.substring(1);
+            renderCount++;
+            hideHexError(); // Clear any error screen from the last page.
 
             // The course outline only shows on file pages; renderAssignment turns it back on.
             body.classList.remove('has-sidebar');
@@ -2833,10 +2967,11 @@
         const SHOW_ABOUT_BUTTON = false;
 
         async function renderAboutPage() {
+            const startedAt = renderCount;
             appDiv.innerHTML = `<p>Loading...</p>`;
             try {
                 const response = await fetch(`markdown/${ABOUT_PAGE}.md`);
-                if (!response.ok) throw new Error('Markdown file not found.');
+                if (!response.ok) throw new HttpError(response.status);
 
                 appDiv.innerHTML = `
                     <div class="nav-buttons">
@@ -2848,6 +2983,7 @@
                 `;
                 await enhanceMarkdown('About Me');
             } catch (error) {
+                showClientError(error, '#', '← Back to Hub', startedAt);
                 appDiv.innerHTML = `
                     <div class="nav-buttons"><a href="#" class="btn">← Back to Hub</a></div>
                     <div class="error">
@@ -2906,7 +3042,10 @@
 
         // --- 5. CLASS PAGE WITH SEARCH ---
         function renderClassPage(className) {
-            if (!curriculum[className]) return renderHub();
+            if (!curriculum[className]) {
+                appDiv.innerHTML = '';
+                return showClientError(new HttpError(404), '#', '← Back to Hub');
+            }
 
             const displayName = className.replace(/-/g, ' ');
             const hiddenUnits = getHiddenUnits(className);
@@ -3627,6 +3766,7 @@
 
         // --- 6. RENDER INDIVIDUAL FILE ---
         async function renderAssignment(className, assignmentName) {
+            const startedAt = renderCount;
             if (curriculum[className]) renderSidebar(className, assignmentName);
             appDiv.innerHTML = `<p>Loading...</p>`;
             window.scrollTo(0, 0); // Start each newly opened page at the top.
@@ -3637,7 +3777,7 @@
                     fetch(`markdown/${className}/${assignmentName}.md`),
                     isWarmupOrAgenda ? null : fetchChecklist(className, assignmentName)
                 ]);
-                if (!response.ok) throw new Error('Markdown file not found.');
+                if (!response.ok) throw new HttpError(response.status);
 
                 const markdownText = await response.text();
                 let htmlContent = marked.parse(markdownText); 
@@ -3738,6 +3878,8 @@
                 }
 
             } catch (error) {
+                const backHref = curriculum[className] ? `#${className}` : '#';
+                showClientError(error, backHref, curriculum[className] ? '← Back to Class' : '← Back to Hub', startedAt);
                 appDiv.innerHTML = `
                     <div class="nav-buttons"><a href="#${className}" class="btn">← Back to Class</a></div>
                     <div class="error">

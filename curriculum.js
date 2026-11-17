@@ -112,6 +112,7 @@ const curriculum = {
                 
                 { file: "Data-Structures-and-Algorithms-Syllabus", type: "document", unit: 0 },
                 // { file: "Welcome-to-Java-Notes", type: "notes", unit: 0 },
+                { file: "Getting-Started-in-Java-Notes", type: "notes", unit: 0 },
                 { file: "Objects-in-Java-Notes", type: "notes", unit: 0 },
                 { file: "Objects-and-OOP-Exercises", type: "exercise", unit: 0 },
                 { file: "Object-Review-Lab", type: "assignment", unit: 0 },
