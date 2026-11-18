@@ -117,7 +117,7 @@ $$M(n) = C_0 n + C_1 \quad\Rightarrow\quad O(n)$$
 ### Example 2: A Loop Inside a Loop
 
 ```java
-int[][] arr = {{…}, …, {…}};
+int[][] arr = new int[n][n];
 int count = 0;
 
 for (int i = 0; i < arr.length; i++) {
