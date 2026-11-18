@@ -217,6 +217,15 @@ For example, `draw_pattern(3)` should print:
 3. When your function finally reaches the innermost doll and finds its size, how does that specific integer travel all the way back to the original function call?
 4. To draw the mirrored arrow, you likely had to use `print()` statements both before your recursive call and after it. Explain why code placed after the recursive call executes in reverse order.
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "If a number never reached 1, my program would ___, because ___."
+2. "For an odd-length word like 'racecar', my base case ___. For an even-length word like 'noon', my base case ___."
+3. "When the function finds the innermost doll's size, it ___ that value to ___. This keeps happening until ___."
+4. "Code before the recursive call runs ___. Code after the recursive call runs in reverse order because ___."
+
+</details>
 
 ## How to Submit
 

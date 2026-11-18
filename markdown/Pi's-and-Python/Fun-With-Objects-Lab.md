@@ -309,6 +309,15 @@ Decomposing the problem:
 2. How do you decide if something should be a property (a variable holding state) or a method (a function calculating something)?
 3. Object-oriented programming is a fantastic tool, but it's not the _only_ way to write code. Can you think of a simple script or a small data-processing task where creating a class architecture would be overkill?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "All three `Song` objects share ___. Each one has its own ___."
+2. "I make something a property when ___. I make something a method when ___."
+3. "A class would be overkill for ___, because ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your programs in class. You will also need to answer the reflection questions.

@@ -102,6 +102,16 @@ Using the same process — figuring out the right command, the right cron time s
 3. What is the difference between `>` and `>>` when redirecting output to a file?
 4. How did you handle any obstacles or difficulties you encountered? Can you think of alternative approaches you might try next time?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "The five fields, in order, stand for ___, ___, ___, ___, and ___."
+2. "A command might work in the terminal but fail in cron because ___."
+3. "When I use `>`, the file ___. When I use `>>`, the file ___."
+4. "One obstacle I ran into was ___. I handled it by ___. Next time, I could try ___."
+
+</details>
+
 ## How to Submit
 
 Call over your instructor and walk them through your five cron jobs. Show your crontab (`crontab -l`) and the evidence (log files, screenshots, or a live demonstration) that each job ran successfully. Then answer all of the reflection questions verbally.

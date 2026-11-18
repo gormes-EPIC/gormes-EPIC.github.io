@@ -116,6 +116,16 @@ source venv/bin/activate
 3. Why do you put a resistor in your circuit?
 4. How will a resistor with greater resistance affect the light?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "A breadboard is used to ___."
+2. "The LED orientation does / does not matter because ___."
+3. "A resistor is in the circuit to ___."
+4. "A resistor with more resistance would make the light ___, because ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your light turns on in class. Show your instructor your math for calculating the appropriate resistor. You will also need to answer the reflection questions.

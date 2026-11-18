@@ -226,12 +226,13 @@ const curriculum = {
                 { file: "Foundations-of-AI-Syllabus", type: "notes", unit: 0 },
                 
                 { file: "Unit-0-Math-Practice", type: "exercise", unit: 0 },
+                { file: "pandas-Notes", type: "notes", unit: 0 },
                 { file: "Data-Scavenger-Hunt-Activity", type: "assignment", unit: 0 },
                 { file: "Image-Editing-Lab", type: "assignment", unit: 0 },
                 { file: "Answering-Research-Questions-with-Data-Lab", type: "assignment", unit: 0 },
                 
                 { file: "Unit-1-Math-Practice", type: "exercise", unit: 1},
-                { file: "K-Means-Customer-Personas-Activity", type: "assignment", unit: 1},
+                { file: "K-Means-Clustering-Activity", type: "assignment", unit: 1},
                 // { file: "Linear-Regression-Ticket-Price-Calculator-Lab", type: "assignment", unit: 1},
                 // { file: "Titanic-Survival-Classification-Lab", type: "assignment", unit: 1},
                 // { file: "Credit-Analysis-Acitivty", type: "assignment", unit: 1},

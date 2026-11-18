@@ -287,6 +287,15 @@ To test your program, use the following inputs and expected outputs.
 2. What is the return type of the function `calculate_mars_weight()`?
 3. What are some string functions you used in the problems this lab? Are you able to use those same functions on variables that are not strings? 
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "A variable type tells you ___. Some examples are ___."
+2. "The return type of `calculate_mars_weight()` is ___, because ___."
+3. "Some string functions I used were ___. When I tried them on a variable that is not a string, ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your 4 programs. You will also need to answer the reflection questions.

@@ -93,6 +93,19 @@ while True:
 	- What is the equation of the line of best fit? 
 	- Why does this make sense for representing temperature? *Hint: do a little bit of research into the formula for temperature decay according to Newton's Law of Cooling. Watch the first few minutes of [this video](https://www.youtube.com/watch?v=v1ikej73-CY&t=9s) to start.*
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. First graph:
+    - "The equation of my line of best fit is ___. I know it is the best option because ___."
+    - "This makes sense because Celsius and Fahrenheit ___."
+2. Second graph:
+    - "A ___ model best represents our data. I know because ___."
+    - "The equation of the line of best fit is ___."
+    - "This makes sense for temperature because Newton's Law of Cooling says ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your lights and temperature sensor in class. You will also need to answer the reflection questions.

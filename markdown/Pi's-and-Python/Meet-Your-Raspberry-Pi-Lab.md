@@ -99,6 +99,15 @@ hint: See PEP 668 for the detailed specification.
 2. What does CPU stand for and what is its purpose?
 3. What does RAM stand for and what is its purpose?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "GPIO stands for ___. Its purpose is to ___."
+2. "CPU stands for ___. Its purpose is to ___."
+3. "RAM stands for ___. Its purpose is to ___."
+
+</details>
+
 ## How to Submit
 
 Show your instructor your GitHub repository with your PDF. You also need to be able to identify important parts of your Pi and answer the reflection questions.

@@ -7,6 +7,7 @@
 2. Represent data as vectors and matrices, and identify their dimensions.
 3. Perform basic matrix operations, including addition, scalar multiplication, and transposition.
 4. Describe how transformations such as scaling, rotation, and reflection change a set of points.
+5. Use a Venn diagram to organize data and find probabilities.
 
 ## Exercise 1
 
@@ -259,5 +260,53 @@ For each change below, name the transformation (scaling, rotation, or reflection
 1. **Reflection** across the y-axis (only the sign of $x$ flipped)
 2. **Scaling** by $\frac{1}{2}$ (both coordinates were cut in half)
 3. **Rotation** 90° counterclockwise (follows the rule $(x, y) \rightarrow (-y, x)$)
+
+</details>
+
+## Exercise 17
+
+A spam filter checks 50 emails for two words.
+
+- 20 emails contain the word "free."
+- 15 emails contain the word "winner."
+- 8 emails contain **both** words.
+
+1. How many emails contain **neither** word?
+2. What is the probability the email contains "free" **or** "winner"?
+3. What is the probability the email contains **exactly one** of the two words?
+
+*Hint: draw a Venn diagram with one circle for "free" and one for "winner," inside a box for all 50 emails.*
+
+
+<details>
+<summary>Click here to view the answer</summary>
+
+Start with the overlap, then subtract it from each circle:
+
+- **Both:** $8$
+- **Only "free":** $20 - 8 = 12$
+- **Only "winner":** $15 - 8 = 7$
+- **Neither:** $50 - (12 + 8 + 7) = 23$
+
+<div style="text-align: center; margin: 1rem 0;">
+<svg viewBox="0 0 400 270" width="400" style="max-width: 100%; height: auto;" role="img" aria-label="Filled Venn diagram: 12 only free, 8 both, 7 only winner, 23 neither" font-family="inherit" fill="currentColor">
+<rect x="10" y="10" width="380" height="250" rx="8" fill="none" stroke="currentColor" stroke-width="2"/>
+<text x="22" y="34" font-size="15">All 50 emails</text>
+<circle cx="155" cy="150" r="85" fill="#3b82f6" fill-opacity="0.3" stroke="#3b82f6" stroke-width="2"/>
+<circle cx="245" cy="150" r="85" fill="#ef4444" fill-opacity="0.3" stroke="#ef4444" stroke-width="2"/>
+<text x="120" y="56" font-size="15" text-anchor="middle">Has "free"</text>
+<text x="280" y="56" font-size="15" text-anchor="middle">Has "winner"</text>
+<text x="115" y="157" font-size="22" font-weight="bold" text-anchor="middle">12</text>
+<text x="200" y="157" font-size="22" font-weight="bold" text-anchor="middle">8</text>
+<text x="285" y="157" font-size="22" font-weight="bold" text-anchor="middle">7</text>
+<text x="362" y="246" font-size="22" font-weight="bold" text-anchor="middle">23</text>
+</svg>
+</div>
+
+1. $23$ emails contain neither word.
+2. $\frac{12 + 8 + 7}{50} = \frac{27}{50} = 0.54$
+3. $\frac{12 + 7}{50} = \frac{19}{50} = 0.38$
+
+Watch out: if you just add $20 + 15 = 35$, you count the 8 "both" emails twice.
 
 </details>

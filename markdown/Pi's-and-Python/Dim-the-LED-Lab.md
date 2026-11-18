@@ -73,6 +73,15 @@ Now your program should appear to become brighter more linearly.
 2. How could you systematically test whether the issue was in hardware or code?
 3. Write the equation that converts an encoder value x (from 0–180) into a brightness value b (from 0–1)
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "One problem I ran into was ___. I found it by ___, and I fixed it by ___."
+2. "To check if the problem was in the hardware, I could ___. To check the code, I could ___."
+3. "To turn x into b, I need to ___, so my equation is b = ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your light turns on and is able to dim in class. You will also need to answer the reflection questions.

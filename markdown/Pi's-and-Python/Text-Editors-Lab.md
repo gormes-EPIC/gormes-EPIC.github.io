@@ -39,6 +39,15 @@ Your task is to download a text file and edit it using an in-line text editor.
 2. Why is it important to learn a text editor?
 3. Give an example where a mouse won't be available and terminal will be the only option you have.
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "A text editor is ___."
+2. "Learning a text editor is important because ___."
+3. "One time a mouse might not be available is ___. In that case, I would ___."
+
+</details>
+
 ## How to Submit
 
 Demonstrate the 6 functions to your instructor and answer the reflection questions.

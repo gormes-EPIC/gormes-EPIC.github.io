@@ -55,6 +55,16 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 4. How did you handle any obstacles or difficulties you encountered? Can you think of alternative approaches
 you might try next time?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "SSH stands for ___. It is used to ___."
+2. "A hidden file is ___. To make one, you ___."
+3. "To see my current directory, I would use the command ___."
+4. "One obstacle I ran into was ___. I handled it by ___. Next time, I could try ___."
+
+</details>
+
 ## How to Submit
 
 Call over your instructor and walk them through your solutions. Either demonstrate the first 5 levels in the terminal or show the screenshots of your solutions. Then answer all of the reflection questions verbally.

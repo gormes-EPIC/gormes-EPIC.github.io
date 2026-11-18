@@ -10,7 +10,7 @@
 
 | Vocabulary| Description |
 | ----------- | ----------- |
-| dataframe | a two-dimentional data structure consisting of rows and columns, much like an SQL database | 
+| dataframe | a two-dimensional data structure consisting of rows and columns, much like an SQL database | 
 
 ## Your Task
 
@@ -22,11 +22,11 @@
     - Which country is the most successful in World Cup history?
     - Does the host country have an advantage?
 
-4. Take a look at both questions, what do these questions really mean. What does it mean to be "most successful" or "having an advatange"? *There can be multiple correct answers here, but you will need to defend your answer.*
+4. Take a look at both questions, what do these questions really mean? What does it mean to be "most successful" or "having an advantage"? *There can be multiple correct answers here, but you will need to defend your answer.*
 
-5. Using aggregation functions like `.count()` and `.sum()`  with tools like `.join()` and `.groupby()`, answer the following questions. **Think about how you used SQL queries in the previous semester.**
+5. Using aggregation functions like `.count()` and `.sum()` with tools like `.join()` and `.groupby()`, answer the following questions. **Think about how you used SQL queries in the previous semester.**
 
-6. At the end of your notebook, add a short explaination of why your data represents the prompt and what your conclusion was.
+6. At the end of your notebook, add a short explanation of why your data represents the prompt and what your conclusion was.
 
 
 ## Tips, Tricks, and Resources
@@ -40,7 +40,7 @@
 
 ## How to Submit
 
-Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your binary display. You will also need to answer the reflection questions.
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your notebook and walk them through your conclusions. You will also need to answer the reflection questions.
 
 ## Rubric
 - **10 points** - All required items are present.

@@ -18,6 +18,8 @@
 
 ## Your Task
 
+> **Start here:** Download the <a href="assets/Image-Editing-Lab-Template.ipynb" download>Image Editing Lab notebook template</a>. It walks you through each step below.
+
 1. Find an image (`.jpg` or `.png`) that you would like to edit and save it in the same folder as a new Jupyter Notebook file.
 
 2. Import the `matplotlib.pylab` library as `plt` (by convention).

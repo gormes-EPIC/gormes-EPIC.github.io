@@ -326,6 +326,16 @@ To test your program, use the following inputs and expected outputs.
 4. If you were to reorder your if statements from problem 2(leap year) would your code still work? Why or why not?
 5. What is the **return type** of the function `convert()` in the last problem?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "`=` is used to ___, and `==` is used to ___."
+2. "When I compare a string and an integer, ___. To make them the same type, I ___. This is called ___."
+3. "In an if-if-if construction, ___. In an if-elif-else construction, ___. They are / are not interchangeable because ___."
+4. "If I reordered my leap year if statements, my code would / would not still work because ___."
+5. "The return type of `convert()` is ___, because ___."
+
+</details>
 
 ## How to Submit
 

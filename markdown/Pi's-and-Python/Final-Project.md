@@ -91,6 +91,15 @@ As part of finals week at EPIC, be prepared to give a **2 minute** presentation 
 2. What is the biggest thing you learned from this project?
 3. How will programming be relevant to your life moving forward?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "My product is for ___. It solves the problem of ___."
+2. "The biggest thing I learned from this project is ___."
+3. "Programming will matter in my life because ___. In the future, I could use it to ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository, including your program and your `README.md`, to Google Classroom. Then, demonstrate your working project to your instructor in class and walk them through your repository. You will also need to answer the reflection questions, either in writing or in person.

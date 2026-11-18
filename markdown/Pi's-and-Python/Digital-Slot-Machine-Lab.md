@@ -61,6 +61,15 @@ Create a digital slot machine with a button and a display. When you click the bu
 3. How did you use randomness in your program? Was it truly random? How could you test it?
 4. How did you guarantee the results would favor winning? How did you change your game logic to accomplish this? 
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "My program detects a button press by ___. Then it ___."
+2. "For the fair version, the graph would look ___ because ___. For the rigged version, it would look ___."
+3. "I used randomness to ___. It was / was not truly random because ___. I could test it by ___."
+4. "To make winning more likely, I changed ___ so that ___."
+
+</details>
 
 ## How to Submit
 

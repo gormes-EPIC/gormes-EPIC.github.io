@@ -56,6 +56,15 @@ Here is a quick example of how to convert from decimal to binary:
 2. What is the **base case** and what is the **recursive case** in your function `to_binary()`?
 3. How did you efficiently set up and manage your lights? If your solution is not efficient, go back and edit it now.
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "The largest number my display can show is ___, because ___."
+2. "The base case in `to_binary()` is ___. The recursive case is ___."
+3. "I set up my lights by ___. This is efficient because ___."
+
+</details>
+
 ## How to Submit
 
 Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your program and demonstrate your binary display. You will also need to answer the reflection questions.

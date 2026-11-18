@@ -316,6 +316,14 @@ To test your program, use the following inputs and expected outputs.
 2. What is the difference between a for and a while loop?
 3. How did you detect letters appearing after numbers?
 
+<details>
+<summary>Need help getting started? See sentence starters.</summary>
+
+1. "A list stores ___, while a dictionary stores ___."
+2. "I would use a for loop when ___. I would use a while loop when ___."
+3. "To detect letters after numbers, my code ___."
+
+</details>
 
 ## How to Submit
 
