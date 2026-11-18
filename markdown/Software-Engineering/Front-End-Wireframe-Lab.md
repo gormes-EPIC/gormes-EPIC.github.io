@@ -52,7 +52,7 @@
 
 1. Inside `templates`, create a new file `index.html`. Inside the file put the following:
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +68,7 @@
 ```
 2. Add the following endpoint to your Flask API and update your import command to add `render_template`: `from flask import Flask, render_template`
 
-```
+```python
 @app.route('/')
 def home():
     # Render and return the HTML file from the templates folder
@@ -121,7 +121,7 @@ def home():
 
 1. Add a button element to your `<body>` section:
 
-```
+```html
 <button id="loadBtn">Load Table</button>
 <table id="myTable"></table>
 <script src="/static/app.js"></script>
@@ -130,7 +130,7 @@ def home():
 2. Create a new JavaScript file `app.js` in the `static` folder.
 
 Assuming the JSON response is:
-```
+```json
 {
   "info": { data : "something" },
   "info2": { data : "something" },
@@ -139,7 +139,7 @@ Assuming the JSON response is:
 ```
 
 Your `app.js` should be:
-```
+```javascript
 document.getElementById("loadBtn").addEventListener("click", async () => {
   const table = document.getElementById("myTable");
 
@@ -179,7 +179,7 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
 
 1. Add the following to your HTML and substitute each input and label for an input needed for your POST request.
 
-```
+```html
 <section>
   <h2>Contact Form</h2>
   <form id="contactForm">
@@ -211,7 +211,7 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
 
 2. Add the following to `app.js`:
 
-```
+```javascript
     const API_URL = 'YOUR ENDPOINT HERE';
 
     const form = document.getElementById('contactForm');
@@ -265,7 +265,7 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
 
 0. Add another HTML file to your `templates` folder and add the following. I called mine `view2.html`.
 
-```
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -282,14 +282,14 @@ document.getElementById("loadBtn").addEventListener("click", async () => {
 
 1. Add this endpoint or similar to your API
 
-```
+```python
 @app.route("/view2", methods=["GET", "POST"])
 def view2():
     return render_template("view2.html")
 ```
 
 2. Add this button to your `index.html`
-```
+```html
 <form action="{{ url_for('view2') }}" method="post">
   <button type="submit">Go to View 2</button>
 </form>
