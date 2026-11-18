@@ -1395,7 +1395,7 @@
             width: var(--sidebar-width);
             max-width: 85vw;
             box-sizing: border-box;
-            padding: 1rem 0.75rem 2rem;
+            padding: 0 0.75rem 2rem; /* no top padding: the header supplies it, so nothing gaps above it */
             overflow-y: auto;
             background: var(--surface);
             border-right: 1px solid var(--border);
@@ -1408,14 +1408,19 @@
         body.has-sidebar #course-sidebar { display: block; }
         body.has-sidebar.sidebar-open #course-sidebar { transform: none; }
 
+        /* Stays at the top while you scroll the outline, so the hide button is always reachable */
         .sidebar-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 0.5rem;
-            padding: 0 0.25rem 0.75rem;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+            padding: 1rem 0.25rem 0.75rem;
             margin-bottom: 0.5rem;
             border-bottom: 1px solid var(--border);
+            background: inherit; /* matches the outline's background in every theme */
         }
         .sidebar-class-link {
             color: var(--primary);
