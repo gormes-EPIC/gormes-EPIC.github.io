@@ -15,7 +15,7 @@ A base case is the condition where a recursive function stops calling itself and
 
 In the following code snippet, what does `mystery(4)` return?
 
-```
+```python
 def mystery(n):
     if n == 0:
         return 0
@@ -51,7 +51,7 @@ factorial(5)
 <details>
 <summary>Click here to view the answer</summary>
 
-```
+```python
 def factorial(n):
     if n == 0:
         return 1
@@ -75,7 +75,7 @@ Liftoff!
 <details>
 <summary>Click here to view the answer</summary>
 
-```
+```python
 def count_down(n):
     if n == 0:
         print("Liftoff!")
@@ -90,7 +90,7 @@ def count_down(n):
 
 In the following code snippet, what gets printed by `mystery(3)`? Pay close attention to what happens **before** and **after** the recursive call.
 
-```
+```python
 def mystery(n):
     if n == 0:
         return
@@ -130,7 +130,7 @@ sum_list([1, 2, 3, 4])
 <details>
 <summary>Click here to view the answer</summary>
 
-```
+```python
 def sum_list(numbers):
     if len(numbers) == 0:
         return 0
@@ -152,7 +152,7 @@ count_digits(482)
 <details>
 <summary>Click here to view the answer</summary>
 
-```
+```python
 def count_digits(n):
     if n < 10:
         return 1
@@ -174,7 +174,7 @@ olleh
 <details>
 <summary>Click here to view the answer</summary>
 
-```
+```python
 def reverse_string(text):
     if len(text) <= 1:
         return text
@@ -197,7 +197,7 @@ power(2, 5)
 <details>
 <summary>Click here to view the answer</summary>
 
-```
+```python
 def power(base, exp):
     if exp == 0:
         return 1

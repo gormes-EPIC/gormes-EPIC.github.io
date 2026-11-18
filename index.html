@@ -1205,6 +1205,36 @@
             border: 1px solid #3e4451; /* A subtle border that matches the dark theme */
         }
 
+        /* Syntax highlighting (highlight.js, only for fences with a language like ```python).
+           Atom One Dark colors, to match the always-dark code block background. */
+        .markdown-body pre code.hljs { color: inherit; }
+        .hljs-comment, .hljs-quote { color: #7f848e; font-style: italic; }
+        .hljs-keyword, .hljs-doctag, .hljs-formula { color: #c678dd; }
+        .hljs-section, .hljs-name, .hljs-selector-tag, .hljs-deletion, .hljs-subst { color: #e06c75; }
+        .hljs-literal { color: #56b6c2; }
+        .hljs-string, .hljs-regexp, .hljs-addition, .hljs-attribute, .hljs-meta .hljs-string { color: #98c379; }
+        .hljs-attr, .hljs-variable, .hljs-template-variable, .hljs-type, .hljs-selector-class,
+        .hljs-selector-attr, .hljs-selector-pseudo, .hljs-number { color: #d19a66; }
+        .hljs-symbol, .hljs-bullet, .hljs-link, .hljs-meta, .hljs-selector-id, .hljs-title { color: #61aeee; }
+        .hljs-built_in, .hljs-title.class_, .hljs-class .hljs-title { color: #e6c07b; }
+        .hljs-emphasis { font-style: italic; }
+        .hljs-strong { font-weight: bold; }
+        /* Old School code blocks sit on a white page, so keep them plain black. */
+        body.oldschool-mode .markdown-body pre [class*="hljs-"] { color: inherit; font-style: inherit; }
+
+        /* Side-by-side columns in markdown: <div class="side-by-side"><div>…</div><div>…</div></div>
+           (blank lines inside each inner div so its contents render as markdown). Stacks on narrow screens. */
+        .markdown-body .side-by-side {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            align-items: start;
+        }
+        .markdown-body .side-by-side > div { min-width: 0; } /* Lets wide code scroll instead of stretching the column. */
+        @media (max-width: 700px) {
+            .markdown-body .side-by-side { grid-template-columns: 1fr; }
+        }
+
         .copy-btn {
             position: absolute;
             top: 0.5rem;
@@ -1744,6 +1774,7 @@
                 border: 1px solid #ccc !important;
                 white-space: pre-wrap !important; /* Forces long code lines to wrap instead of running off the page */
             }
+            .markdown-body pre [class*="hljs-"] { color: inherit !important; } /* Highlight colors are made for a dark background. */
 
             /* 5b. Give inline code the same light gray backlight */
             .markdown-body :not(pre) > code {
@@ -3152,8 +3183,21 @@
                 }
             }
 
+            // --- Syntax Highlighting ---
+            // Only fences tagged with a language (```python, ```java, …) get colors. Unlabeled
+            // blocks, and languages highlight.js doesn't know (like csv), stay plain.
+            const labeledBlocks = appDiv.querySelectorAll('.markdown-body pre code[class*="language-"]');
+            if (labeledBlocks.length) {
+                loadHighlightJs().then(hljs => {
+                    labeledBlocks.forEach(block => {
+                        const languageClass = [...block.classList].find(c => c.startsWith('language-'));
+                        if (hljs.getLanguage(languageClass.slice('language-'.length))) hljs.highlightElement(block);
+                    });
+                }).catch(err => console.error('Highlight.js load error:', err));
+            }
+
             const codeBlocks = appDiv.querySelectorAll('.markdown-body pre');
-            
+
             codeBlocks.forEach(pre => {
                 // Create the button element
                 const copyBtn = document.createElement('button');
@@ -3272,6 +3316,26 @@
         // The last tab title you picked (like "Explain It Like I'm 5") is remembered,
         // and opens first on any page that has a tab with the same title.
         let tabGroupCount = 0;
+        // --- SYNTAX HIGHLIGHTING ---
+        // highlight.js (common languages: python, java, sql, bash, javascript, html, json, c, …)
+        // loads from a CDN only on pages with a labeled code block. Pinned so an update can't break it.
+        const HLJS_URL = 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11.11.1/highlight.min.js';
+        let hljsPromise = null;
+        function loadHighlightJs() {
+            hljsPromise ??= new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = HLJS_URL;
+                script.onload = () => resolve(window.hljs);
+                script.onerror = () => {
+                    script.remove();
+                    hljsPromise = null; // Let the next page try again.
+                    reject(new Error('Could not load highlight.js'));
+                };
+                document.head.appendChild(script);
+            });
+            return hljsPromise;
+        }
+
         // --- PDF VIEWER ---
         // Uses PDF.js (loaded from a CDN only when a page has a <pdf-viewer>) to draw one page
         // at a time onto a canvas, so PDFs look the same on every device, including phones

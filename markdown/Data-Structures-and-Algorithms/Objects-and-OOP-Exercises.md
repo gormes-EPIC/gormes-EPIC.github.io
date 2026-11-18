@@ -30,7 +30,7 @@ Driving a Red Toyota
 
 </details>
 
-## Exercise 1
+## Exercise 2
 
 Trace the following code and give the output of the program for the Car object.
 
@@ -60,7 +60,7 @@ Driving a Red Toyota
 
 </details>
 
-## Exercise 2
+## Exercise 3
 
 What is the difference between a **class** and an **object**?
 
@@ -71,10 +71,10 @@ A **class** is a piece of code that defines a new variable type. An **object** o
 
 </details>
 
-## Exercise 3
+## Exercise 4
 
 Consider the following Java code snippet:
-```
+```java
 class Robot {
     public void powerOn() {
         System.out.println("Powered on!");
@@ -102,7 +102,7 @@ When you create a new array of type `Robot`, each `Robot` has a value of null. I
 
 </details>
 
-## Exercise 4
+## Exercise 5
 
 Trace the code and predict the console output:
 
@@ -139,7 +139,7 @@ public class Main {
 
 </details>
 
-## Exercise 5
+## Exercise 6
 
 Consider the class defined below:
 

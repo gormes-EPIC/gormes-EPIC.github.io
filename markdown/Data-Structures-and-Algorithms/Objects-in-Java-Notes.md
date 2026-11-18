@@ -61,6 +61,82 @@ classDiagram
     }
 ```
 
+### Python vs. Java
+
+Here is the same `Rectangle` class in Python and in Java.
+
+<div class="side-by-side">
+<div>
+
+**Python**
+
+```python
+class Rectangle:
+    # Constructor
+    def __init__(self, w, h):
+        # Instance variables
+        self.width = w
+        self.height = h
+
+    # Instance method 1
+    def calculate_area(self):
+        return self.width * self.height
+
+    # Instance method 2
+    def calculate_perimeter(self):
+        return 2 * (self.width + self.height)
+
+
+rect1 = Rectangle(10, 50)
+print(rect1.calculate_area())
+```
+
+</div>
+<div>
+
+**Java**
+
+```java
+public class Rectangle {
+    // Instance variables
+    private double width;
+    private double height;
+
+    // Constructor
+    public Rectangle(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    // Instance method 1
+    public double calculateArea() {
+        return width * height;
+    }
+
+    // Instance method 2
+    public double calculatePerimeter() {
+        return 2 * (width + height);
+    }
+}
+
+// In main (or another class):
+Rectangle rect1 = new Rectangle(10, 50);
+System.out.println(rect1.calculateArea());
+```
+
+</div>
+</div>
+
+| | Python | Java |
+| --- | --- | --- |
+| Instance variables | created inside `__init__` with `self.` | declared at the top with a type and `private` |
+| Constructor | named `__init__` | named the same as the class |
+| `self` | written as the first parameter | not written (Java uses `this` behind the scenes) |
+| Types | none | every variable, parameter, and return value has one |
+| Making an object | `Rectangle(10, 50)` | `new Rectangle(10, 50)` |
+| Blocks | indentation and `:` | curly braces `{ }` |
+| Naming | `snake_case` | `camelCase` |
+
 Now that we have a class, we can **instantiate** it.
 
 ```java
