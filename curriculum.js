@@ -116,9 +116,11 @@ const curriculum = {
                 { file: "Objects-in-Java-Notes", type: "notes", unit: 0 },
                 { file: "Objects-and-OOP-Exercises", type: "exercise", unit: 0 },
                 { file: "Object-Review-Lab", type: "assignment", unit: 0 },
+                { file: "Object-Oriented-Programming-Principles-Notes", type: "notes", unit: 0 },
                 { file: "Object-Oriented-Programming-Principles-Lab", type: "assignment", unit: 0 },
                 
                 { file: "Big-O-Notation-and-Sorting-Algorithms-Notes", type: "notes", unit: 1 },
+                { file: "Recursion-Refresher-Notes", type: "notes", unit: 1 },
                 { file: "Big-O-Notation-and-Sorting-Algorithms-Exercises", type: "exercise", unit: 1 },
                 { file: "Quad-Sorts-Lab", type: "assignment", unit: 1 },
                 

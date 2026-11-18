@@ -299,7 +299,7 @@ Order the following functions from largest to smallest.
 
 </details>
 
-# Exercise 14
+## Exercise 14
 
 After ONE full pass of bubble sort, sorting smallest to largest, what does the array look like?  Array: [7, 2, 5, 3, 9, 1, 15, 14]
 
@@ -310,7 +310,7 @@ After ONE full pass of bubble sort, sorting smallest to largest, what does the a
 
 </details>
 
-# Exercise 14
+## Exercise 15
 
 How many calls are made to line 4 in the worst case of this sort? Leave your answer in terms of $n$.
 

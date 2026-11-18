@@ -15,6 +15,9 @@
 | byte | 8 bits |
 | overflow | When a value gets too big for its type and wraps around to the other end of its range |
 | casting | Converting a value from one type to another |
+| array | A fixed-size list of values that all have the same type |
+| index | The position of an item in an array, starting at 0 |
+| for-each loop | A loop that visits every item in an array, one at a time |
 
 ## Your First Program
 
@@ -33,7 +36,7 @@ Unlike Python, Java is **compiled**. Running a program takes two steps:
 1. `javac HelloWorld.java` **compiles** your code into a file called `HelloWorld.class`. If there are any errors, like a missing semicolon or a wrong type, you find out now, before anything runs.
 2. `java HelloWorld` **runs** the compiled program.
 
-Most editors, like VS Code with the Java extensions, do both steps when you press Run.
+Most editors do both steps when you press **Run**. We will use a special Java-speciific IDE(integrated development environment) called **IntelliJ**. This should be pre-installed on your computer.
 
 ## The `main` Method
 
@@ -146,6 +149,114 @@ int dollars = (int) price;       // Cast: 4 (the decimal part is cut off, not ro
 double average = (double) 7 / 2; // 3.5: cast before dividing to avoid integer division
 ```
 
+## If Statements
+
+If statements work like Python's, with three changes: the condition goes in **parentheses**, the code goes in **curly braces**, and `elif` becomes `else if`.
+
+```java
+int score = 85;
+
+if (score >= 90) {
+    System.out.println("A");
+} else if (score >= 80) {
+    System.out.println("B");
+} else {
+    System.out.println("Keep practicing!");
+}
+```
+
+| Python | Java |
+| --- | --- |
+| `and` | `&&` |
+| `or` | `\|\|` |
+| `not` | `!` |
+| `elif` | `else if` |
+
+Compare numbers with `==`, but compare Strings with `.equals()`, like `name.equals("Ana")`. See the [Objects in Java Notes](#Data-Structures-and-Algorithms/Objects-in-Java-Notes) for why.
+
+## Loops
+
+### While Loops
+
+A `while` loop repeats as long as its condition is `true`, just like Python.
+
+```java
+int count = 3;
+while (count > 0) {
+    System.out.println(count);  // 3, then 2, then 1
+    count--;                    // Same as count = count - 1
+}
+```
+
+`count++` adds 1 and `count--` subtracts 1.
+
+### For Loops
+
+A `for` loop has three parts, separated by semicolons: **start**, **condition**, and **update**.
+
+```java
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);  // 0, 1, 2, 3, 4
+}
+```
+
+1. **Start:** `int i = 0` runs once, before the loop.
+2. **Condition:** `i < 5` is checked before each pass. The loop stops when it's `false`.
+3. **Update:** `i++` runs after each pass.
+
+| Python | Java |
+| --- | --- |
+| `for i in range(5):` | `for (int i = 0; i < 5; i++)` |
+| `for i in range(2, 10, 2):` | `for (int i = 2; i < 10; i += 2)` |
+| `for i in range(5, 0, -1):` | `for (int i = 5; i > 0; i--)` |
+
+### For-Each Loops
+
+A **for-each loop** visits every item in an array, like Python's `for name in names:`.
+
+```java
+String[] names = {"Ana", "Ben", "Cy"};
+
+for (String name : names) {
+    System.out.println(name);
+}
+```
+
+Read the `:` as "in." Use a for-each loop when you need every item but not its index.
+
+## Arrays
+
+An **array** stores a list of values. Unlike a Python list, an array has a **fixed size**, and every item must be the **same type**.
+
+```java
+int[] primes = {2, 3, 5, 7};    // Make an array with values
+int[] scores = new int[3];      // Make an empty array of 3 ints: [0, 0, 0]
+
+scores[0] = 95;                 // Set an item by its index
+System.out.println(primes[1]);  // 3
+System.out.println(primes.length);  // 4 (no parentheses)
+```
+
+Use a `for` loop with `.length` when you need the index, like to change items:
+
+```java
+for (int i = 0; i < scores.length; i++) {
+    scores[i] = scores[i] + 5;  // Add 5 to every score
+}
+```
+
+| Python list | Java array |
+| --- | --- |
+| `nums = [2, 3, 5]` | `int[] nums = {2, 3, 5};` |
+| `len(nums)` | `nums.length` |
+| Can grow and shrink | Fixed size |
+| Can mix types | One type only |
+| `print(nums)` shows the items | `System.out.println(nums)` shows a memory address. Use `Arrays.toString(nums)` instead. |
+
+`Arrays.toString()` needs `import java.util.Arrays;` at the top of your file.
+
+If you use an index that doesn't exist, like `primes[4]` or `primes[-1]`, Java stops with an `ArrayIndexOutOfBoundsException`. Valid indexes go from `0` to `length - 1`.
+
 </tab>
 <tab title="Explain It Like I'm 10">
 
@@ -209,6 +320,36 @@ If a number gets bigger than its box can hold, it wraps around to the smallest n
 
 `7 / 2` is `3` in Java, because two whole numbers give a whole-number answer, and the `.5` gets dropped. Use a decimal to get `3.5`: `7 / 2.0`.
 
+## Making Choices
+
+An `if` statement asks a yes-or-no question. The question goes in `( )` and the code to run goes in `{ }`.
+
+```java
+if (score >= 90) {
+    System.out.println("A");
+} else {
+    System.out.println("Keep practicing!");
+}
+```
+
+Java uses symbols instead of words: `&&` means **and**, `||` means **or**, and `!` means **not**.
+
+## Doing Things Again
+
+- A `while` loop keeps going **while** something is true.
+- A `for` loop counts. `for (int i = 0; i < 5; i++)` means: start at 0, keep going while `i` is less than 5, and add 1 each time.
+- A for-each loop visits every item: `for (String name : names)` means "for each name in names."
+
+## Arrays: A Row of Boxes
+
+An **array** is a row of boxes, all the same type. You pick how many boxes when you make it, and you can't add more later.
+
+```java
+int[] primes = {2, 3, 5, 7};
+System.out.println(primes[0]);      // 2 (the first box is number 0)
+System.out.println(primes.length);  // 4 boxes
+```
+
 </tab>
 <tab title="Just the Highlights">
 
@@ -243,6 +384,25 @@ If a number gets bigger than its box can hold, it wraps around to the smallest n
 - `4.99` is a `double`, `4.99f` is a `float`.
 - `'A'` is a `char`, `"A"` is a `String`.
 
+## Control Flow and Arrays
+
+```java
+if (x > 0 && y > 0) { ... } else if (x > 0) { ... } else { ... }
+
+while (count > 0) { count--; }
+
+for (int i = 0; i < 5; i++) { ... }      // 0, 1, 2, 3, 4
+
+for (String name : names) { ... }        // every item
+
+int[] nums = {2, 3, 5};                  // fixed size, one type
+int[] empty = new int[3];                // [0, 0, 0]
+nums[0] = 9;  nums.length;               // index from 0; length has no ()
+```
+
+- `&&` = and, `||` = or, `!` = not. `else if`, not `elif`.
+- `i++` adds 1, `i--` subtracts 1, `i += 2` adds 2.
+
 ## Watch Out For
 
 - **Integer division:** `7 / 2` is `3`. Make one side a `double`: `7 / 2.0` or `(double) 7 / 2`.
@@ -250,6 +410,9 @@ If a number gets bigger than its box can hold, it wraps around to the smallest n
 - **Decimal rounding:** `0.1 + 0.2` prints `0.30000000000000004`.
 - **Casting down cuts off, it doesn't round:** `(int) 4.99` is `4`.
 - **Forgetting the suffix:** `long big = 8000000000;` won't compile. Write `8000000000L`.
+- **Comparing Strings with `==`:** use `.equals()` instead.
+- **Going past the end of an array:** valid indexes are `0` to `length - 1`.
+- **Printing an array:** `println(nums)` shows an address. Use `Arrays.toString(nums)`.
 
 </tab>
 </tabs>

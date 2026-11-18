@@ -1829,6 +1829,7 @@
             <button type="button" class="style-option" role="menuitemradio" data-pet="ryan"><span class="style-swatch pet-swatch"></span>Mr. Ryan</button>
             <button type="button" class="style-option" role="menuitemradio" data-pet="ferret"><span class="style-swatch pet-swatch"></span>Ferret</button>
             <button type="button" class="style-option" role="menuitemradio" data-pet="rat"><span class="style-swatch pet-swatch"></span>Rat</button>
+            <button type="button" class="style-option" role="menuitemradio" data-pet="nate"><span class="style-swatch pet-swatch"></span>Nate</button>
         </div>
     </div>
 
@@ -2385,6 +2386,14 @@
                 width: 60, height: 30, // Walking frames are 30 by 15; standing and jumping are 15 by 15.
                 speed: 45,
                 facesRight: true,
+            },
+            nate: {
+                files: ['assets/sprites/nate/walkingnate_000.png', 'assets/sprites/nate/walkingnate_001.png', 'assets/sprites/nate/walkingnate_002.png', 'assets/sprites/nate/walkingnate_003.png'],
+                heldFile: 'assets/sprites/nate/pickupnate_000.png',
+                hopFile: 'assets/sprites/nate/pickupnate_001.png',
+                width: 90, height: 90, // The art is 45 by 45, shown at 2x so the pixels stay sharp.
+                speed: 40,
+                noFlip: true, // He faces the front, so he isn't mirrored when walking right.
             },
         };
 
