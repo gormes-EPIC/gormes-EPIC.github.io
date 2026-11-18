@@ -20,9 +20,39 @@ You will complete two problems to review creating objects.
 - [Weight on Other Planets](#weight)
 - [Gas Mileage](#gas-mileage)
 
+## Setting Up a New Project
+
+Before you get coding, you will need to set up a new project in IntelliJ. 
+
+1. Launch IntelliJ and go to File-> New -> Project
+
+<img src="/assets/object-review-1.png">
+
+2. Name your project and hit Create. Make sure "Create Git repository" is selected.
+
+<img src="/assets/object-review-2.png">
+
+3. Go to Git -> GitHub -> Share Project on GitHub. Give it a name and hit Share. If you are not signed in with GitHub, follow the prompts to do so.
+
+<img src="/assets/object-review-3.png">
+
+4. Right-click on your projects `src` folder and select New -> Java Class. Give it a name and hit Enter. Remember Java classes should always be capitalized like `Rectangle` or `Planet`. When prompted, add your file to Git. 
+
+<img src="/assets/object-review-4.png">
+
+5. Remember to run code in Java, you must include a `main` method and **all methods must exist within a class**. By convention, create a class called `Main` that holds your `main` method. 
+
+```java
+public static void main(String[] args){
+    // Your code here        
+}
+```
+
 ##  <a id="weight"></a>Weight on Other Planets
 
-Write a program that will determine the user’s weight on another planet. The program should ask the user to enter their weight (on earth) via the keyboard and then present a menu of planets to choose. Then the user will select one of the planets and the program will display their weight on the planet. 
+Write a program that will determine the user’s weight on another planet. The program should ask the user to enter their weight (on Earth) via the keyboard and then present a menu of planets to choose. Then the user will select one of the planets and the program will display their weight on the planet. 
+
+> You can write this entire program in the `main` method if you choose to. You could also design a class.
 
 To find their new weight, multiply their Earth weight by the values in the table (or look up values for other planets)
 
@@ -40,15 +70,15 @@ What is your weight on Earth? 150
 2. Venus
 3. Jupiter
 Selection? 1
-Your weight on Mars would be 57
+Your weight on Mars would be 57.0
 ```
 
 Remember to get input from the user we can use a `Scanner` object shown below
 
-```
+```java
 Scanner scanner = new Scanner();
-String line = scanner.nextLine();
-double number = scanner.nextDouble();
+String line = scanner.nextLine(); // gets any characters as a string
+double number = scanner.nextDouble(); // gets any characters as a number(double)
 ```
 
 ##  <a id="gas-mileage"></a>Gas Mileage Simulation
@@ -96,22 +126,18 @@ public class TestAutomobile {
 
 ## Extensions
 1. For Weight on Other Planets: expand the program to ask for the user's age in Earth years, and then calculate their age in "local" years on the chosen planet based on its orbital period (e.g., 1 Earth year = ~0.53 Mars years, because Mars takes 687 days to orbit the sun).
-2. For Gas Mileage Simulation: update the fillUp method to accept the current price of gas per gallon (e.g., `fillUp(double gallons, double pricePerGallon)`).  Keep a running total in a new instance variable totalSpentOnGas and add a method to report how much money the car has cost the driver over time.
+2. For Gas Mileage Simulation: update the `fillUp` method to accept the current price of gas per gallon (e.g., `fillUp(double gallons, double pricePerGallon)`).  Keep a running total in a new instance variable totalSpentOnGas and add a method to report how much money the car has cost the driver over time.
 
 ## Reflection Questions
-1. If we suddenly discovered 50 new planets and wanted to add them to your program, how tedious would it be to update your current code? What programming structures do you think could make handling a massive menu of planets easier in the future?
+1. If we suddenly discovered 50 new planets and wanted to add them to your program, how tedious would it be to update your current code? How could you address this problem?
 2. What currently happens to your program if a user types "one hundred" instead of the number 100 when asked for their weight? Why does this happen, and how might you fix it?
-3. In the Automobile class, the instance variables (make, model, mileage, etc.) are declared as private. What does private mean in this context, and what could go wrong if they were made public for anyone to change directly?
-4. Explain in your own words what the constructor method `Automobile(...)` does. Why is it necessary to pass arguments into it when we create a new myCar object?
-5.  In your fillUp method, you had to ensure the user couldn't overfill the tank. Walk through the logic you used to solve this. What variables did you have to compare to make this work?
+3. In the `Automobile` class, the instance variables (`make`, `model`, `mileage`, etc.) are declared as `private`. What does `private` mean in this context?
+4. Explain in your own words what the method `Automobile(...)` does. Why is it necessary to pass arguments into it when we create a new `myCar` object?
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person
+## How to Submit
+
+Attach your GitHub repository to Google Classroom. Then, show your instructor your GitHub repository with your programs in class. You will also need to answer the reflection questions.
 
 ## Rubric
-- **6 points** - All required items are present.
-- **5 points** - Task was completed, but supplementary materials are weak or missing.
-- **4 points** - Task was attempted, but is missing major components.
-- **3 points** - Did not attempt or student should reattempt.
+- **20 points** - All required items are present.
+- **0 points** - Task was not attempted to completion or student should reattempt.
