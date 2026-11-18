@@ -99,7 +99,7 @@ const curriculum = {
                 { file: "Recursion-Exercises", type: "exercise", unit: 5},
                 { file: "Recursion-Lab", type: "assignment", unit: 5 },
                 { file: "Binary-Display-Lab", type: "assignment", unit: 5 },
-                { file: "Effective-Collaboration-Activity", type: "wfr", unit: 5 },    
+                // { file: "Effective-Collaboration-Activity", type: "wfr", unit: 5 },    
                 
                 { file: "Final-Project", type: "assignment", unit: 6 },
                 { file: "Sensor-Library", type: "document", unit: 6 },
