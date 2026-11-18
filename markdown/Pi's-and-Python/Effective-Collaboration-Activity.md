@@ -9,7 +9,7 @@
 
 Your team has been hired as an independent software consultants for the company MindForge. They are creating an AI-driven mental health, productivity, and academic companion app designed specifically for university students. Their mission statement is "To empower every student to achieve peak academic performance and unwavering mental well-being through uncompromising, data-driven AI."
 
-Your task is to rank these 15 features in **7 minutes** from most critical to least important, keeping a limited budget and development timeline in mind. 
+Your task is to rank these 15 features in **2 minutes** from most critical to least important, keeping a limited budget and development timeline in mind. 
 
 - **End-to-End Encryption for All Personal Data:** Complete privacy for user journals and chats, meaning not even the company can see the data or use it to train future AI models.
 - **Automated "Crisis Alert" System:** An algorithm that detects keywords related to self-harm or violence and automatically pings campus security and emergency contacts with the user's location.
@@ -29,7 +29,7 @@ Your task is to rank these 15 features in **7 minutes** from most critical to le
 
 ## Press Pause
 
-After 7 minutes, answer the following questions as a group. 
+After 2 minutes, answer the following questions as a group. **Write down your answers!**
 
 1. What was your group’s methodology?
 2. How were disagreements resolved?
@@ -40,19 +40,15 @@ After 7 minutes, answer the following questions as a group.
 
 ## Try Some Strategies
 
-Keeping your strategies in mind, work in groups for the next **ten minutes**. Then answer these questions.
+Keeping your strategies in mind, work in groups for the next **7 minutes**. Then answer these questions. **Write down your answers!**
 
 1. What was your group’s methodology?
 2. How were disagreements resolved?
 3. Who has been talking the most and who has been talking the least? 
 4. How effective were your strategies in upholding your values?
 
-## Deliverables
-
-- [ ] Submit your two sets of reflection questions as a group
 
 ## Rubric
 
-- **30 points** - Answers were thorough and complete.
-- **15 points** - Answers were present, but lacked depth and critical thinking.
+- **30 points** - Answers were thorough and complete 
 - **0 points** - Missing or incomplete 
