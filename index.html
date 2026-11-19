@@ -2581,6 +2581,7 @@
             // Pets drawn from image files in assets/sprites/<name>/ instead of pixel grids.
             //   files:      walking frames, played in order (two or more)
             //   heldFile:   shown while you're carrying it (optional)
+            //   heldFiles:  instead of heldFile, two or more pictures that take turns while carried
             //   restFile:   shown while it stands still (optional)
             //   hopFile:    shown while it hops after a click (optional)
             //   facesRight: true if the art faces right (the code assumes pets face left)
@@ -2615,7 +2616,7 @@
             },
             nate: {
                 files: ['assets/sprites/nate/walkingnate_000.png', 'assets/sprites/nate/walkingnate_001.png', 'assets/sprites/nate/walkingnate_002.png', 'assets/sprites/nate/walkingnate_003.png'],
-                heldFile: 'assets/sprites/nate/pickupnate_000.png',
+                heldFiles: ['assets/sprites/nate/pickupnate_000.png', 'assets/sprites/nate/pickupnate_001.png'], // He waves his arms.
                 hopFile: 'assets/sprites/nate/pickupnate_001.png',
                 width: 90, height: 90, // The art is 45 by 45, shown at 2x so the pixels stay sharp.
                 speed: 40,
@@ -2640,8 +2641,9 @@
             pet.images = pet.files
                 ? pet.files.map(file => `url("${file}")`)
                 : pet.frames.map(grid => drawPetFrame(grid, pet.palette));
-            pet.heldImage = pet.heldFile ? `url("${pet.heldFile}")`
-                : pet.heldFrame ? drawPetFrame(pet.heldFrame, pet.palette) : pet.images[0];
+            pet.heldImages = pet.heldFiles ? pet.heldFiles.map(file => `url("${file}")`)
+                : [pet.heldFile ? `url("${pet.heldFile}")`
+                    : pet.heldFrame ? drawPetFrame(pet.heldFrame, pet.palette) : pet.images[0]];
             pet.restImage = pet.restFile ? `url("${pet.restFile}")` : pet.images[0];
             pet.hopImage = pet.hopFile ? `url("${pet.hopFile}")` : null;
         });
@@ -2653,7 +2655,7 @@
         }
         // Load a picture pet's images ahead of time so it doesn't flicker on its first steps.
         function preloadPet(pet) {
-            [...(pet.files || []), pet.heldFile, pet.restFile, pet.hopFile].filter(Boolean).forEach(file => { new Image().src = file; });
+            [...(pet.files || []), ...(pet.heldFiles || []), pet.heldFile, pet.restFile, pet.hopFile].filter(Boolean).forEach(file => { new Image().src = file; });
         }
 
         const petEl = document.getElementById('pet');
@@ -2678,8 +2680,10 @@
             petState.lastTime = time;
 
             if (petState.held) {
-                // Being carried: the drag code moves it, so just show the "held" picture.
-                petSprite.style.backgroundImage = pet.heldImage;
+                // Being carried: the drag code moves it, so just show the "held" picture
+                // (or flip between the held pictures every quarter second).
+                const heldFrame = reduceMotion.matches ? 0 : Math.floor(time / 250) % pet.heldImages.length;
+                petSprite.style.backgroundImage = pet.heldImages[heldFrame];
                 petEl.classList.remove('squish');
                 petState.rafId = requestAnimationFrame(petTick);
                 return;
