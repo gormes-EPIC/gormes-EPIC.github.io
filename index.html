@@ -1084,6 +1084,119 @@
         .nav-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2rem; }
         .nav-right { display: flex; gap: 0.5rem; margin-left: auto; }
 
+        /* --- Drag-and-drop sorting questions (<drag-sort> in markdown) --- */
+        .drag-sort { margin: 1rem 0; }
+        .drag-sort-help { font-size: 0.85rem; opacity: 0.75; margin: 0 0 0.5rem; }
+        .drag-sort-zone {
+            display: flex;
+            flex-wrap: wrap;
+            align-content: flex-start;
+            gap: 0.5rem;
+            min-height: 3rem;
+            padding: 0.5rem;
+            border: 2px dashed var(--border);
+            border-radius: 8px;
+        }
+        .drag-sort-zone.drag-over { border-color: var(--primary); background: var(--bg); }
+        .drag-sort-buckets {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+            gap: 0.75rem;
+            margin-top: 0.75rem;
+        }
+        .drag-sort-bucket .drag-sort-zone { min-height: 8rem; flex-direction: column; flex-wrap: nowrap; }
+        .drag-sort-title { font-weight: 700; color: var(--primary); margin-bottom: 0.35rem; }
+        .drag-sort-card {
+            padding: 0.4rem 0.6rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            cursor: grab;
+            user-select: none;
+            font-size: 0.9rem;
+        }
+        .drag-sort-card:hover, .drag-sort-card:focus-visible { border-color: var(--primary); }
+        .drag-sort-card.selected { outline: 2px solid var(--primary); outline-offset: 1px; }
+        .drag-sort-card.correct { border-color: #22c55e; box-shadow: inset 4px 0 0 #22c55e; }
+        .drag-sort-card.incorrect { border-color: #ef4444; box-shadow: inset 4px 0 0 #ef4444; }
+        .drag-sort-actions, .quiz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
+
+        /* --- Quiz mode (pages with <quiz-mode></quiz-mode>): one exercise at a time --- */
+        .quiz-nav, .quiz-panel, .quiz-summary { display: none; }
+        #full-view.quiz-active .quiz-nav { display: flex; }
+        #full-view.quiz-active .quiz-panel { display: block; }
+        #full-view.quiz-active .quiz-summary:not([hidden]) { display: block; }
+        #full-view.quiz-active .quiz-section:not(.quiz-current) { display: none; }
+        #full-view.quiz-active > :not(.quiz-section):not(.quiz-nav):not(.quiz-summary):not(h1) { display: none; }
+        /* In quiz mode the answer isn't a dropdown: Show Answer (or a right answer) opens it, with an "Answer" label instead of the summary */
+        #full-view.quiz-active .quiz-answer > summary { display: none; }
+        #full-view.quiz-active .quiz-answer:hover { border-color: var(--border); }
+        .quiz-answer-label { display: none; }
+        #full-view.quiz-active .quiz-answer-label {
+            display: block;
+            margin: 0 0 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+            font-weight: 700;
+            color: var(--primary);
+        }
+        #full-view.quiz-active .quiz-section:not(.quiz-revealed) .quiz-answer,
+        #full-view.quiz-active .quiz-choices-source { display: none; }
+        .quiz-nav {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            margin-bottom: 0.5rem;
+            background: var(--surface);
+            border-bottom: 1px solid var(--border);
+        }
+        .quiz-panel {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }
+        .quiz-panel textarea {
+            box-sizing: border-box;
+            width: 100%;
+            min-height: 6rem;
+            padding: 0.5rem;
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.9rem;
+        }
+        .quiz-choices { display: flex; flex-direction: column; gap: 0.5rem; }
+        .quiz-choice { text-align: left; }
+        .quiz-choice.correct { border-color: #22c55e; box-shadow: inset 4px 0 0 #22c55e; }
+        .quiz-choice.incorrect { border-color: #ef4444; box-shadow: inset 4px 0 0 #ef4444; }
+        .quiz-feedback { font-weight: 700; margin: 0.75rem 0 0; }
+        .quiz-feedback:empty { display: none; }
+        .quiz-feedback.correct, .drag-sort-result.correct { color: #22c55e; }
+        .quiz-feedback.incorrect, .drag-sort-result.incorrect { color: #ef4444; }
+        .quiz-hint { font-size: 0.85rem; opacity: 0.75; margin: 0 0 0.5rem; }
+        quiz-answer { display: none; }
+        .quiz-short-input {
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 24rem;
+            padding: 0.5rem;
+            background: var(--bg);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+        .quiz-summary { text-align: center; padding: 2rem 1rem; }
+        .quiz-score { font-size: 1.5rem; font-weight: 700; color: var(--primary); }
+
         /* --- Checklist Mode --- */
         #checklist-view[hidden], #full-view[hidden] { display: none; }
         .checklist-progress {
@@ -1784,9 +1897,14 @@
             .search-container,
             .copy-btn,
             .pdf-toolbar,
-            .toc-sidebar {
+            .toc-sidebar,
+            .quiz-nav,
+            .quiz-panel,
+            .quiz-summary,
+            .drag-sort-actions {
                 display: none !important;
             }
+            #full-view.quiz-active .quiz-section { display: block !important; }
 
             /* 2. Force a white background and black text */
             body, 
@@ -3392,6 +3510,9 @@
             // This runs after Mermaid, so diagrams in hidden tabs are drawn at the right size.
             setUpTabs(appDiv);
 
+            // --- Drag-and-Drop Sorting Questions --- (see setUpDragSorts() for the markdown to use)
+            setUpDragSorts(appDiv);
+
             // We wrap this in a setTimeout of 0 to ensure the DOM has updated
             // and the KaTeX script has fully loaded before it tries to run.
             setTimeout(() => {
@@ -3590,6 +3711,420 @@
                     status.innerHTML = 'This PDF couldn\'t be shown here. Use <strong>Open PDF</strong> to view it.';
                 });
             return viewer;
+        }
+
+        // --- Drag-and-drop sorting questions ---
+        // In a markdown file (no blank lines inside, and plain HTML only, like <code>):
+        //     <drag-sort buckets="Class, Object, Both">
+        //     <drag-item bucket="Class">A blueprint</drag-item>
+        //     <drag-item bucket="Object">Made with the <code>new</code> keyword</drag-item>
+        //     </drag-sort>
+        // Cards start shuffled. Students drag them into boxes (or click a card, then a box), then press Check.
+        function shuffle(list) {
+            for (let i = list.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [list[i], list[j]] = [list[j], list[i]];
+            }
+            return list;
+        }
+
+        function setUpDragSorts(root) {
+            root.querySelectorAll('.markdown-body drag-sort').forEach(placeholder => {
+                const buckets = (placeholder.getAttribute('buckets') || '').split(',').map(name => name.trim()).filter(Boolean);
+                const widget = document.createElement('div');
+                widget.className = 'drag-sort';
+                widget.innerHTML = `
+                    <p class="drag-sort-help">Drag each card into the right box. You can also click a card, then click a box.</p>
+                    <div class="drag-sort-zone drag-sort-pool" data-bucket="" tabindex="0" aria-label="Cards to sort"></div>
+                    <div class="drag-sort-buckets">
+                        ${buckets.map(name => `
+                            <div class="drag-sort-bucket">
+                                <div class="drag-sort-title"></div>
+                                <div class="drag-sort-zone" tabindex="0"></div>
+                            </div>`).join('')}
+                    </div>
+                    <div class="drag-sort-actions">
+                        <button type="button" class="btn drag-sort-check">Check</button>
+                        <button type="button" class="btn drag-sort-reset">Reset</button>
+                        <span class="drag-sort-result" aria-live="polite"></span>
+                    </div>`;
+                widget.querySelectorAll('.drag-sort-bucket').forEach((bucket, i) => {
+                    bucket.querySelector('.drag-sort-title').textContent = buckets[i];
+                    const zone = bucket.querySelector('.drag-sort-zone');
+                    zone.dataset.bucket = buckets[i];
+                    zone.setAttribute('aria-label', buckets[i]);
+                });
+
+                const pool = widget.querySelector('.drag-sort-pool');
+                const result = widget.querySelector('.drag-sort-result');
+                const cards = [...placeholder.querySelectorAll('drag-item')].map(item => {
+                    const card = document.createElement('div');
+                    card.className = 'drag-sort-card';
+                    card.innerHTML = item.innerHTML.trim();
+                    card.dataset.answer = (item.getAttribute('bucket') || '').trim();
+                    card.draggable = true;
+                    card.tabIndex = 0;
+                    return card;
+                });
+                let selected = null;
+                let dragged = null;
+
+                function clearMarks() {
+                    cards.forEach(card => card.classList.remove('correct', 'incorrect'));
+                    result.textContent = '';
+                    result.className = 'drag-sort-result';
+                }
+                function select(card) {
+                    if (selected) selected.classList.remove('selected');
+                    selected = card === selected ? null : card;
+                    if (selected) selected.classList.add('selected');
+                }
+                function moveTo(card, zone) {
+                    zone.appendChild(card);
+                    card.classList.remove('selected');
+                    if (selected === card) selected = null;
+                    clearMarks();
+                }
+                function reset() {
+                    shuffle(cards).forEach(card => pool.appendChild(card));
+                    select(null);
+                    clearMarks();
+                }
+
+                cards.forEach(card => {
+                    card.addEventListener('click', (event) => { event.stopPropagation(); select(card); });
+                    card.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); event.stopPropagation(); select(card); }
+                    });
+                    card.addEventListener('dragstart', (event) => {
+                        dragged = card;
+                        event.dataTransfer.effectAllowed = 'move';
+                        event.dataTransfer.setData('text/plain', card.textContent);
+                    });
+                    card.addEventListener('dragend', () => { dragged = null; });
+                });
+                widget.querySelectorAll('.drag-sort-zone').forEach(zone => {
+                    zone.addEventListener('click', () => { if (selected) moveTo(selected, zone); });
+                    zone.addEventListener('keydown', (event) => {
+                        if ((event.key === 'Enter' || event.key === ' ') && event.target === zone && selected) {
+                            event.preventDefault();
+                            moveTo(selected, zone);
+                        }
+                    });
+                    zone.addEventListener('dragover', (event) => {
+                        if (!dragged) return;
+                        event.preventDefault();
+                        zone.classList.add('drag-over');
+                    });
+                    zone.addEventListener('dragleave', () => zone.classList.remove('drag-over'));
+                    zone.addEventListener('drop', (event) => {
+                        event.preventDefault();
+                        zone.classList.remove('drag-over');
+                        if (dragged) moveTo(dragged, zone);
+                    });
+                });
+
+                widget.querySelector('.drag-sort-check').addEventListener('click', () => {
+                    clearMarks();
+                    if (pool.children.length) {
+                        result.textContent = 'Put every card in a box first.';
+                        return;
+                    }
+                    let right = 0;
+                    cards.forEach(card => {
+                        const isRight = card.parentElement.dataset.bucket === card.dataset.answer;
+                        card.classList.add(isRight ? 'correct' : 'incorrect');
+                        if (isRight) right++;
+                    });
+                    const allRight = right === cards.length;
+                    result.textContent = allRight ? '✓ Correct!' : `✗ ${right} of ${cards.length} are right. Move the red ones and check again.`;
+                    result.classList.add(allRight ? 'correct' : 'incorrect');
+                    widget.dispatchEvent(new CustomEvent('quiz-checked', { bubbles: true, detail: { correct: allRight } }));
+                });
+                widget.querySelector('.drag-sort-reset').addEventListener('click', reset);
+                widget.resetDragSort = reset;
+
+                reset();
+                placeholder.replaceWith(widget);
+            });
+        }
+
+        // --- Quiz Mode ---
+        // Put <quiz-mode></quiz-mode> anywhere in an exercise file. A "Quiz Mode" button then shows the
+        // exercises (each "## " section) one at a time, and checks answers against the answer dropdown
+        // (the last <details> in the section):
+        //   - a list of "A. …" choices: the answer starts with the right letter, like "D. …"
+        //   - an unlabeled code block in the answer: students type it exactly, like a program's output
+        //     (spaces and blank lines don't matter, and Java hash codes like Item@27716f4 match any hex number).
+        //     A labeled block (```java) is code to write, so it gets the self-check instead.
+        //   - <quiz-answer>…</quiz-answer> in the answer (hidden on the page): a short typed answer.
+        //     Add more than one for other answers that count. hint="…" on one of them sets the instructions.
+        //     Takes priority over the other kinds.
+        //   - a <drag-sort>: graded by its own Check button
+        //   - anything else: students reveal the answer and mark themselves right or wrong
+        function normalizeOutput(text) {
+            return text.split('\n').map(line => line.replace(/\s+/g, '')).filter(Boolean).join('\n');
+        }
+        function outputMatches(given, expected) {
+            const escaped = normalizeOutput(expected).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+            const pattern = escaped.replace(/\b([A-Za-z_]\w*)@[0-9a-f]+\b/g, '$1@[0-9a-f]+');
+            return new RegExp(`^${pattern}$`).test(normalizeOutput(given));
+        }
+
+        // Short answers ignore capitals, spaces, commas, "*", a final period, an O( ) around the
+        // answer, and parentheses after log. So "O(n log n)", "n log(n)", and "NlogN" all match.
+        function normalizeShortAnswer(text) {
+            let s = text.toLowerCase().replace(/²/g, '^2').replace(/[\s,*]/g, '').replace(/\.$/, '');
+            s = s.replace(/log\((\w)\)/g, 'log$1');
+            const bigO = s.match(/^o\((.*)\)$/);
+            return bigO ? bigO[1] : s;
+        }
+
+        function setUpQuiz() {
+            const fullView = document.getElementById('full-view');
+            const toggleBtn = document.getElementById('quiz-toggle-btn');
+            fullView.querySelectorAll('quiz-mode').forEach(marker => {
+                const parent = marker.parentElement;
+                marker.remove();
+                if (parent.tagName === 'P' && !parent.textContent.trim()) parent.remove();
+            });
+
+            // Wrap each "## " section so it can be shown on its own.
+            const sections = [];
+            let current = null;
+            [...fullView.childNodes].forEach(node => {
+                if (node.nodeName === 'H2') {
+                    current = document.createElement('section');
+                    current.className = 'quiz-section';
+                    node.before(current);
+                    sections.push(current);
+                }
+                if (current) current.appendChild(node);
+            });
+            if (!sections.length) { toggleBtn.remove(); return; }
+
+            const nav = document.createElement('div');
+            nav.className = 'quiz-nav';
+            nav.innerHTML = `
+                <button type="button" class="btn quiz-back-btn">← Back</button>
+                <span class="quiz-label" aria-live="polite"></span>
+                <button type="button" class="btn quiz-next-btn">Next →</button>`;
+            sections[0].before(nav);
+            const summary = document.createElement('div');
+            summary.className = 'quiz-summary';
+            summary.hidden = true;
+            summary.innerHTML = `
+                <p>You got</p>
+                <p class="quiz-score"></p>
+                <p>right on the first try.</p>
+                <div class="quiz-actions" style="justify-content: center">
+                    <button type="button" class="btn quiz-restart-btn">Start Over</button>
+                    <button type="button" class="btn quiz-exit-btn">Back to Full View</button>
+                </div>`;
+            sections[sections.length - 1].after(summary);
+
+            const label = nav.querySelector('.quiz-label');
+            const backBtn = nav.querySelector('.quiz-back-btn');
+            const nextBtn = nav.querySelector('.quiz-next-btn');
+            let index = 0;
+
+            sections.forEach(section => {
+                const answer = [...section.querySelectorAll(':scope > details')].pop();
+                if (answer) {
+                    answer.classList.add('quiz-answer');
+                    const answerLabel = document.createElement('p');
+                    answerLabel.className = 'quiz-answer-label';
+                    answerLabel.textContent = 'Answer';
+                    (answer.querySelector(':scope > summary') || answer.firstChild)?.after(answerLabel);
+                }
+                section.firstTry = null;
+
+                const panel = document.createElement('div');
+                panel.className = 'quiz-panel';
+                const feedback = document.createElement('p');
+                feedback.className = 'quiz-feedback';
+                feedback.setAttribute('aria-live', 'polite');
+                const showBtn = document.createElement('button');
+                showBtn.type = 'button';
+                showBtn.className = 'btn';
+                showBtn.textContent = 'Show Answer';
+
+                function reveal() {
+                    section.classList.add('quiz-revealed');
+                    if (answer) answer.open = true;
+                }
+                function grade(correct) {
+                    if (section.firstTry === null) section.firstTry = correct;
+                    feedback.textContent = correct ? '✓ Correct!' : '✗ Not quite. Try again, or show the answer.';
+                    feedback.className = `quiz-feedback ${correct ? 'correct' : 'incorrect'}`;
+                    if (correct) reveal();
+                }
+                showBtn.addEventListener('click', () => {
+                    if (section.firstTry === null) section.firstTry = false;
+                    reveal();
+                });
+
+                const dragSort = section.querySelector('.drag-sort');
+                const choiceList = [...section.querySelectorAll(':scope > ul')]
+                    .find(list => [...list.children].every(item => /^[A-Z]\.\s/.test(item.textContent.trim())));
+                const answerCode = answer?.querySelector('pre code:not([class*="language-"])');
+                const shortAnswers = answer ? [...answer.querySelectorAll('quiz-answer')] : [];
+                // A multiple-choice answer's first line (after the summary and the "Answer" label) starts with the letter, like "D. …".
+                const firstLine = answer && [...answer.children].find(child => child.tagName !== 'SUMMARY' && !child.classList.contains('quiz-answer-label'));
+                const rightLetter = ((firstLine?.textContent || '').trim().match(/^([A-Z])\./) || [])[1];
+                const actions = document.createElement('div');
+                actions.className = 'quiz-actions';
+
+                if (dragSort) {
+                    // The drag-and-drop widget has its own Check button.
+                    section.addEventListener('quiz-checked', (event) => grade(event.detail.correct));
+                    actions.append(showBtn);
+                    panel.append(actions, feedback);
+                    section.resetQuiz = () => dragSort.resetDragSort();
+                } else if (shortAnswers.length) {
+                    // Short typed answer, checked against every <quiz-answer> (any one counts).
+                    const hint = shortAnswers.find(el => el.hasAttribute('hint'))?.getAttribute('hint') || 'Type your answer.';
+                    const expected = shortAnswers.map(el => normalizeShortAnswer(el.textContent));
+                    shortAnswers.forEach(el => {
+                        const parent = el.parentElement;
+                        el.remove();
+                        if (parent.tagName === 'P' && !parent.textContent.trim()) parent.remove();
+                    });
+                    const hintEl = document.createElement('p');
+                    hintEl.className = 'quiz-hint';
+                    hintEl.textContent = hint;
+                    const input = document.createElement('input');
+                    input.type = 'text';
+                    input.className = 'quiz-short-input';
+                    input.setAttribute('aria-label', 'Your answer');
+                    input.spellcheck = false;
+                    input.autocomplete = 'off';
+                    const checkBtn = document.createElement('button');
+                    checkBtn.type = 'button';
+                    checkBtn.className = 'btn';
+                    checkBtn.textContent = 'Check';
+                    const check = () => {
+                        if (!input.value.trim()) return;
+                        grade(expected.includes(normalizeShortAnswer(input.value)));
+                    };
+                    checkBtn.addEventListener('click', check);
+                    input.addEventListener('keydown', (event) => { if (event.key === 'Enter') check(); });
+                    actions.append(checkBtn, showBtn);
+                    panel.append(hintEl, input, actions, feedback);
+                    section.resetQuiz = () => { input.value = ''; };
+                } else if (choiceList && rightLetter) {
+                    choiceList.classList.add('quiz-choices-source');
+                    const choices = document.createElement('div');
+                    choices.className = 'quiz-choices';
+                    [...choiceList.children].forEach(item => {
+                        const choice = document.createElement('button');
+                        choice.type = 'button';
+                        choice.className = 'btn quiz-choice';
+                        choice.innerHTML = item.innerHTML;
+                        const letter = item.textContent.trim()[0];
+                        choice.addEventListener('click', () => {
+                            const correct = letter === rightLetter;
+                            choice.classList.add(correct ? 'correct' : 'incorrect');
+                            grade(correct);
+                        });
+                        choices.append(choice);
+                    });
+                    actions.append(showBtn);
+                    panel.append(choices, feedback, actions);
+                    section.resetQuiz = () => choices.querySelectorAll('.quiz-choice').forEach(choice => choice.classList.remove('correct', 'incorrect'));
+                } else if (answerCode) {
+                    panel.innerHTML = '<p class="quiz-hint">Type your answer exactly, one line at a time. Spaces don\'t matter.</p>';
+                    const input = document.createElement('textarea');
+                    input.setAttribute('aria-label', 'Your answer');
+                    input.spellcheck = false;
+                    const checkBtn = document.createElement('button');
+                    checkBtn.type = 'button';
+                    checkBtn.className = 'btn';
+                    checkBtn.textContent = 'Check';
+                    checkBtn.addEventListener('click', () => {
+                        if (!input.value.trim()) return;
+                        grade(outputMatches(input.value, answerCode.textContent));
+                    });
+                    actions.append(checkBtn, showBtn);
+                    panel.append(input, actions, feedback);
+                    section.resetQuiz = () => { input.value = ''; };
+                } else {
+                    // Can't be checked automatically: students compare their answer and mark themselves.
+                    panel.innerHTML = '<p class="quiz-hint">Write your answer, then show the answer to check it.</p>';
+                    const input = document.createElement('textarea');
+                    input.setAttribute('aria-label', 'Your answer');
+                    const selfCheck = document.createElement('div');
+                    selfCheck.className = 'quiz-actions';
+                    selfCheck.hidden = true;
+                    selfCheck.innerHTML = '<span>Did you get it?</span>';
+                    [['Yes', true], ['No', false]].forEach(([text, correct]) => {
+                        const btn = document.createElement('button');
+                        btn.type = 'button';
+                        btn.className = 'btn';
+                        btn.textContent = text;
+                        btn.addEventListener('click', () => {
+                            section.firstTry = correct;
+                            feedback.textContent = correct ? '✓ Correct!' : '✗ Incorrect. Read over the answer before you move on.';
+                            feedback.className = `quiz-feedback ${correct ? 'correct' : 'incorrect'}`;
+                        });
+                        selfCheck.append(btn);
+                    });
+                    showBtn.addEventListener('click', () => { selfCheck.hidden = false; });
+                    actions.append(showBtn);
+                    panel.append(input, actions, selfCheck, feedback);
+                    section.resetQuiz = () => { input.value = ''; selfCheck.hidden = true; };
+                }
+
+                section.clearQuiz = () => {
+                    section.firstTry = null;
+                    section.classList.remove('quiz-revealed');
+                    if (answer) answer.open = false;
+                    feedback.textContent = '';
+                    feedback.className = 'quiz-feedback';
+                    section.resetQuiz?.();
+                };
+                // Put the panel right before the answer dropdown, or at the end.
+                if (answer) answer.before(panel); else section.append(panel);
+            });
+
+            function show(newIndex) {
+                index = newIndex;
+                const done = index >= sections.length;
+                sections.forEach((section, i) => section.classList.toggle('quiz-current', i === index));
+                summary.hidden = !done;
+                if (done) {
+                    const right = sections.filter(section => section.firstTry === true).length;
+                    summary.querySelector('.quiz-score').textContent = `${right} out of ${sections.length}`;
+                }
+                label.textContent = done ? 'Finished!' : `Question ${index + 1} of ${sections.length}`;
+                backBtn.disabled = index === 0;
+                nextBtn.hidden = done;
+                nextBtn.textContent = index === sections.length - 1 ? 'Finish →' : 'Next →';
+                fullView.scrollIntoView({ block: 'start' });
+            }
+
+            function setQuizMode(on) {
+                fullView.classList.toggle('quiz-active', on);
+                toggleBtn.textContent = on ? 'Exit Quiz' : 'Quiz Mode';
+                toggleBtn.setAttribute('aria-pressed', String(on));
+                // Answers opened in the quiz go back to closed dropdowns in the full view, and come back open in the quiz.
+                sections.forEach(section => {
+                    const answer = section.querySelector('.quiz-answer');
+                    if (answer) answer.open = on && section.classList.contains('quiz-revealed');
+                });
+                if (on) show(Math.min(index, sections.length - 1));
+                else window.scrollTo(0, 0);
+            }
+
+            backBtn.addEventListener('click', () => show(index - 1));
+            nextBtn.addEventListener('click', () => show(index + 1));
+            summary.querySelector('.quiz-restart-btn').addEventListener('click', () => {
+                sections.forEach(section => section.clearQuiz());
+                show(0);
+            });
+            summary.querySelector('.quiz-exit-btn').addEventListener('click', () => setQuizMode(false));
+            toggleBtn.addEventListener('click', () => setQuizMode(!fullView.classList.contains('quiz-active')));
+            setQuizMode(false);
         }
 
         function setUpTabs(root) {
@@ -3993,6 +4528,8 @@
                 const isSyllabus = assignmentName.endsWith('-Syllabus');
 
                 const hasChecklist = typeof checklistText === 'string';
+                // Exercise files with <quiz-mode></quiz-mode> get a Quiz Mode button (see setUpQuiz()).
+                const hasQuiz = markdownText.includes('<quiz-mode>');
                 // Open in the visitor's default view (Style menu). No checklist? Always the full lab.
                 const startInChecklist = hasChecklist && getDefaultLabView() === 'checklist';
 
@@ -4001,6 +4538,7 @@
                         <a href="#${className}" class="btn">← Back to Class</a>
                         <div class="nav-right">
                             ${hasChecklist ? `<button type="button" id="checklist-toggle-btn" class="btn" aria-pressed="${startInChecklist}"></button>` : ''}
+                            ${hasQuiz ? '<button type="button" id="quiz-toggle-btn" class="btn" aria-pressed="false">Quiz Mode</button>' : ''}
                             ${isSyllabus ? '<button type="button" id="export-pdf-btn" class="btn">Export to PDF</button>' : ''}
                         </div>
                     </div>
@@ -4025,6 +4563,8 @@
                     </div>` : ''}
                 `;
                 await enhanceMarkdown(assignmentName.split('/').pop().replace(/-/g, ' '));
+
+                if (hasQuiz) setUpQuiz();
 
                 if (hasChecklist) {
                     setUpChecklist(className, assignmentName);

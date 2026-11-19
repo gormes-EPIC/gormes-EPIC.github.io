@@ -1,5 +1,7 @@
 # Big O Notation and Sorting Algorithms Exercises
 
+<quiz-mode></quiz-mode>
+
 ## Exercise 1
 
 Solve these logarithmic equations:
@@ -11,6 +13,8 @@ Solve these logarithmic equations:
 
 <details>
 <summary>Click here to view the answer</summary>
+
+<quiz-answer hint="Type the 5 answers in order, separated by commas.">3, 2, 2, 3, 0</quiz-answer>
 
 1. $x = 3$
 2. $x = 2$
@@ -44,6 +48,9 @@ public void someMethod(int[] list){
 <details>
 <summary>Click here to view the answer</summary>
 
+<quiz-answer hint="Type the name of the algorithm.">selection sort</quiz-answer>
+<quiz-answer>selection</quiz-answer>
+
 This is an example of selection sort.
 
 </details>
@@ -69,6 +76,9 @@ Use the results from the table to calculate $T(N)$.
 <details>
 <summary>Click here to view the answer</summary>
 
+<quiz-answer hint="Type the Big O of T(N), like O(1) or O(2^n). (The table isn't checked: compare it with the answer after.)">n^2</quiz-answer>
+<quiz-answer>n*n</quiz-answer>
+
 | Line Number | Relative Cost to Execute | Max Times Executed |
 | ----------- | --------------- | ----------- |
 | 1 | $C_0$ | n |
@@ -87,7 +97,7 @@ The runtime of this program is $O(n^2)$
 
 ## Exercise 4
 
-Consider the code below. To which familiar algorithm does this correspond? Preconditions:   p <= q <= r; arr from p to q is non-decreasing, arr from q to r is non-decreasing.
+Consider the code below. To which familiar algorithm does this correspond? Preconditions:   p <= q <= r; arr from p to q is non-decreasing, arr from q + 1 to r is non-decreasing.
 
 ```java
 public void something(int[] arr, int p, int q, int r){
@@ -98,18 +108,21 @@ public void something(int[] arr, int p, int q, int r){
   int[] arrTwo = new int[two + 1];
   
   for(int i = 0; i < one; i++)
-      arrOne[i] = arr[p + i - 1];
+      arrOne[i] = arr[p + i];
       
   for(int j = 0; j < two; j++)
-      arrTwo[j] = arr[q + j];
+      arrTwo[j] = arr[q + 1 + j];
+  
+  arrOne[one] = Integer.MAX_VALUE;
+  arrTwo[two] = Integer.MAX_VALUE;
   
   int i = 0, j = 0;
   for(int k = p; k <= r; k++){
-      if(arrOne[i] <= arrTwo [j]){
+      if(arrOne[i] <= arrTwo[j]){
         arr[k] = arrOne[i];
         i++;
       }else{
-        arr[k] = arrTwo[i];
+        arr[k] = arrTwo[j];
         j++;
       }
   }
@@ -118,6 +131,13 @@ public void something(int[] arr, int p, int q, int r){
 
 <details>
 <summary>Click here to view the answer</summary>
+
+<quiz-answer hint="Type the name of the algorithm.">merge</quiz-answer>
+<quiz-answer>merge sort</quiz-answer>
+<quiz-answer>mergesort</quiz-answer>
+<quiz-answer>merge function</quiz-answer>
+<quiz-answer>the merge function</quiz-answer>
+<quiz-answer>merge from merge sort</quiz-answer>
 
 This is the Merge function within a Merge Sort algorithm.
 
@@ -129,6 +149,8 @@ Calculate the runtime of the algorithm from #4. Use a simliar process to #3.
 
 <details>
 <summary>Click here to view the answer</summary>
+
+<quiz-answer hint="Type the Big O, like O(1) or O(2^n).">n</quiz-answer>
 
 $O(n)$
 
@@ -144,7 +166,9 @@ Suppose the array passed as `A` is `{2, 8, 7, 1, 3, 5, 6, 4}`. Show the final or
 <details>
 <summary>Click here to view the answer</summary>
 
-`{2, 1, 3, 4, 7, 5, 6, 8}`
+```
+{2, 1, 3, 4, 7, 5, 6, 8}
+```
 
 </details>
 
@@ -158,6 +182,8 @@ What does $N$ mean for this algorithm?
 
 <details>
 <summary>Click here to view the answer</summary>
+
+<quiz-answer hint="Type the Big O, like O(1) or O(2^n). (Then check what N means in the answer.)">n</quiz-answer>
 
 $O(N)$. $N$ is the number of elements in the array `A`. 
 
@@ -202,6 +228,10 @@ Using a recursion tree, derive the best case running time for quicksort. When do
 <details>
 <summary>Click here to view the answer</summary>
 
+<quiz-answer hint="Type the Big O, like O(1) or O(2^n). (Then check when it happens in the answer.)">n log n</quiz-answer>
+<quiz-answer>nlog2n</quiz-answer>
+<quiz-answer>n log_2 n</quiz-answer>
+
 The best case for quicksort occurs when the pivot selected always divides the array in equal halves. This limits the possible recursion depth to `log(n)` leaving the runtime to be `O(n log n)`
 </details>
 
@@ -212,6 +242,8 @@ Derive the worst-case running time for quicksort. Under what conditions does thi
 
 <details>
 <summary>Click here to view the answer</summary>
+
+<quiz-answer hint="Type the Big O, like O(1) or O(2^n). (Then check when it happens in the answer.)">n^2</quiz-answer>
 
 The worst case for quicksort is when your pivot does not divide the array at all(it is larger than all elements or smaller than all elements). This results in a recursion tree of height $n$. Therefore the runtime is  $O(n^2)$
 
@@ -235,11 +267,11 @@ public void reverse(ArrayList <Integer> numbers){
 
 ```
 
-A. $O(1)$
-B. $O(log n)$
-C. $O(n)$ 
-D. $O(n^2)$ 
-E. $O(2^n)$
+- A. $O(1)$
+- B. $O(\log n)$
+- C. $O(n)$
+- D. $O(n^2)$
+- E. $O(2^n)$
 
 
 <details>
@@ -256,17 +288,19 @@ Select the larger function as $n \to \infty $
 - $(3/2)^n$	or $n^\frac{3}{2}$
 - $n \log(n)$ or $\log(n^2)$
 - $(n+1)!$ or $n^n$
-- $n^3$ or $\sqrt(n^5)$
+- $n^3$ or $\sqrt{n^5}$
 - $n$ or $e^n$
 
 
 <details>
 <summary>Click here to view the answer</summary>
 
+<quiz-answer hint="For each pair, type 1 if the first function is larger or 2 if the second is, separated by commas.">1, 1, 2, 1, 2</quiz-answer>
+
 - $(3/2)^n$
 - $n \log(n)$
 - $n^n$
-- $n^3$ and $\sqrt(n^5)$ both simplify to $n^2$ even though $n^3$ is larger.
+- $n^3$ (because $\sqrt{n^5} = n^{2.5}$)
 - $e^n$
 
 </details>
@@ -274,28 +308,32 @@ Select the larger function as $n \to \infty $
 ## Exercise 13
 
 Order the following functions from largest to smallest.
-- $n$
-- $n \log (n)$
-- $n^\frac{1}{x}$ when $x > 1$
-- $1$ 
-- $\log{n}$
-- $n!$
-- $x^n$ when $x > 1$
-- $n^2$
-- $n^x$ when $x > 2$
+- A: $n$
+- B: $n \log (n)$
+- C: $n^\frac{1}{x}$ when $x > 1$
+- D: $1$
+- E: $\log{n}$
+- F: $n!$
+- G: $x^n$ when $x > 1$
+- H: $n^2$
+- I: $n^x$ when $x > 2$
 
 <details>
 <summary>Click here to view the answer</summary>
 
-1. $n!$ (Factorial)
-2. $x^n$ when $x > 1$ (Exponential - e.g., $2^n, 3^n$)
-3. $n^x$ when $x > 2$ (Polynomial degree > 2 - e.g., $n^3, n^4$)
-4. $n^2$ (Quadratic)
-5. $n \log n$ (Linearithmic)
-6. $n$ (Linear)
-7. $n^{1/x}$ when $x > 1$ (Fractional power/Root - e.g., $\sqrt{n}$ or $n^{0.5}$)
-8. $\log n$ (Logarithmic)
-9. $1$ (Constant)
+<quiz-answer hint="Type the letters from largest to smallest, separated by commas.">F, G, I, H, B, A, C, E, D</quiz-answer>
+
+**F, G, I, H, B, A, C, E, D**
+
+1. F: $n!$ (Factorial)
+2. G: $x^n$ when $x > 1$ (Exponential - e.g., $2^n, 3^n$)
+3. I: $n^x$ when $x > 2$ (Polynomial degree > 2 - e.g., $n^3, n^4$)
+4. H: $n^2$ (Quadratic)
+5. B: $n \log n$ (Linearithmic)
+6. A: $n$ (Linear)
+7. C: $n^{1/x}$ when $x > 1$ (Fractional power/Root - e.g., $\sqrt{n}$ or $n^{0.5}$)
+8. E: $\log n$ (Logarithmic)
+9. D: $1$ (Constant)
 
 </details>
 
@@ -306,7 +344,9 @@ After ONE full pass of bubble sort, sorting smallest to largest, what does the a
 <details>
 <summary>Click here to view the answer</summary>
 
-{2, 5, 3, 7, 1, 9, 14, 15}
+```
+[2, 5, 3, 7, 1, 9, 14, 15]
+```
 
 </details>
 
@@ -335,7 +375,20 @@ public static void mysterySort(int[] arr) {
 <details>
 <summary>Click here to view the answer</summary>
 
-$O(n^2)$
+<quiz-answer hint="Type a formula in terms of n, like 3n^2 + 1.">n(n-1)/2</quiz-answer>
+<quiz-answer>(n^2-n)/2</quiz-answer>
+<quiz-answer>n^2/2-n/2</quiz-answer>
+<quiz-answer>(n-1)n/2</quiz-answer>
+<quiz-answer>(n(n-1))/2</quiz-answer>
+<quiz-answer>0.5n^2-0.5n</quiz-answer>
+<quiz-answer>1/2n^2-1/2n</quiz-answer>
+<quiz-answer>.5n^2-.5n</quiz-answer>
+
+$\frac{n(n-1)}{2}$ times, which is $O(n^2)$.
+
+The inner loop runs $n - 1$ times the first pass, then $n - 2$, and so on down to $1$:
+
+$$(n-1) + (n-2) + \cdots + 1 = \frac{n(n-1)}{2}$$
 
 </details>
 

@@ -1,17 +1,19 @@
 # Objects and Object-oriented Programming Exercises
 
+<quiz-mode></quiz-mode>
+
 ## Exercise 1
 
 Trace the following code and give the output of the program for the Car object.
 
 ```java
-class Car {
-    String color, brand;
-    Car(String c, String b) { 
+public class Car {
+    public String color, brand;
+    public Car(String c, String b) { 
         color = c; 
         brand = b; 
     }
-    void drive() { 
+    public void drive() { 
         System.out.println("Driving a " + color + " " + brand); 
     }
 }
@@ -35,13 +37,13 @@ Driving a Red Toyota
 Trace the following code and give the output of the program for the Car object.
 
 ```java
-class Car {
-    String color, brand;
-    Car(String c, String b) { 
+public class Car {
+    public String color, brand;
+    public Car(String c, String b) { 
         color = c; 
         brand = b; 
     }
-    void drive() { 
+    public void drive() { 
         System.out.println("Driving a " + color + " " + brand); 
     }
 }
@@ -62,12 +64,32 @@ Driving a Red Toyota
 
 ## Exercise 3
 
-What is the difference between a **class** and an **object**?
+Sort each card into **Class**, **Object**, or **Both**.
+
+<drag-sort buckets="Class, Object, Both">
+<drag-item bucket="Class">A blueprint, like the plans for a house</drag-item>
+<drag-item bucket="Class">Written with the <code>class</code> keyword</drag-item>
+<drag-item bucket="Class">Defines the constructor</drag-item>
+<drag-item bucket="Class"><code>Car</code> in <code>Car myCar = new Car("Red", "Toyota");</code></drag-item>
+<drag-item bucket="Object">Like the actual house that gets built</drag-item>
+<drag-item bucket="Object">Made with the <code>new</code> keyword</drag-item>
+<drag-item bucket="Object">Also called an instance</drag-item>
+<drag-item bucket="Object">Holds its own values, like <code>color = "Red"</code></drag-item>
+<drag-item bucket="Both">Has attributes and methods</drag-item>
+<drag-item bucket="Both">Used in object-oriented programming</drag-item>
+</drag-sort>
 
 <details>
 <summary>Click here to view the answer</summary>
 
-A **class** is a piece of code that defines a new variable type. An **object** or **instance** is the thing created based on the class. Think of the class as a blueprint and an object as the actual house. 
+| Class | Object | Both |
+| --- | --- | --- |
+| A blueprint, like the plans for a house | Like the actual house that gets built | Has attributes and methods |
+| Written with the `class` keyword | Made with the `new` keyword | Used in object-oriented programming |
+| Defines the constructor | Also called an instance | |
+| `Car` in `Car myCar = new Car("Red", "Toyota");` | Holds its own values, like `color = "Red"` | |
+
+A **class** is a piece of code that defines a new variable type. An **object** or **instance** is the thing created based on the class. Think of the class as a blueprint and an object as the actual house.
 
 </details>
 
@@ -75,7 +97,7 @@ A **class** is a piece of code that defines a new variable type. An **object** o
 
 Consider the following Java code snippet:
 ```java
-class Robot {
+public class Robot {
     public void powerOn() {
         System.out.println("Powered on!");
     }
@@ -107,8 +129,8 @@ When you create a new array of type `Robot`, each `Robot` has a value of null. I
 Trace the code and predict the console output:
 
 ```java
-class Box {
-    int value = 10;
+public class Box {
+    public int value = 10;
 }
 
 public class Main {
@@ -248,3 +270,20 @@ inventory[2] weight: 15
 
 </details>
 
+## Exercise 7
+
+Name the **4 principles** of object-oriented programming. For each one, explain it in one sentence and give an example.
+
+<details>
+<summary>Click here to view the answer</summary>
+
+| Principle | What it means | Example |
+| --- | --- | --- |
+| **Encapsulation** | Keep an object's data `private`, and only change it through `public` methods. | `BankAccount` has a `private double balance`. The only way to change it is `deposit()`, which ignores negative amounts. |
+| **Abstraction** | Show *what* an object does and hide *how* it does it. | A `public abstract class Shape` has a `public abstract double area()` method. You can call `area()` on any shape without knowing its formula. |
+| **Inheritance** | A subclass reuses the code of its superclass. | `public class Circle extends Shape` gets `getName()` from `Shape` without writing it again. |
+| **Polymorphism** | One method call does different things depending on the real object. | In a `Shape[]` array holding a `Circle` and a `Square`, calling `area()` runs each shape's own version. |
+
+Your examples can be different, as long as they show the idea. See the [Object-oriented Programming Principles Notes](#Data-Structures-and-Algorithms/Object-Oriented-Programming-Principles-Notes) for more.
+
+</details>

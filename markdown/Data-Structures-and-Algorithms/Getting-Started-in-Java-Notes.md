@@ -18,6 +18,9 @@
 | array | A fixed-size list of values that all have the same type |
 | index | The position of an item in an array, starting at 0 |
 | for-each loop | A loop that visits every item in an array, one at a time |
+| method header | The first line of a method: it gives the method's name, what it takes in, and what it gives back |
+| return type | The type of value a method gives back, or `void` if it gives back nothing |
+| parameter | A variable in a method header that holds a value passed in when the method is called |
 
 ## Your First Program
 
@@ -257,6 +260,50 @@ for (int i = 0; i < scores.length; i++) {
 
 If you use an index that doesn't exist, like `primes[4]` or `primes[-1]`, Java stops with an `ArrayIndexOutOfBoundsException`. Valid indexes go from `0` to `length - 1`.
 
+## Method Headers and Return Types
+
+A Java method is like a Python function, but its **header** says the type of everything that goes in and comes out.
+
+```java
+public double average(int a, int b) {
+    return (a + b) / 2.0;
+}
+```
+
+| Part | Meaning |
+| --- | --- |
+| `public` | Code outside the class can call it |
+| `double` | The **return type**: this method gives back a `double` |
+| `average` | The method's name, in camelCase |
+| `(int a, int b)` | The **parameters**: each one needs a type and a name |
+
+The **return type** says what kind of value comes back:
+- A method with a return type **must** `return` a value of that type, or it won't compile.
+- A `void` method gives nothing back. It does something instead, like printing.
+
+```java
+public boolean isEven(int n) {
+    return n % 2 == 0;
+}
+
+public void greet(String name) {
+    System.out.println("Hi, " + name);   // No return needed
+}
+```
+
+```java
+// Called from another method in the same class
+double avg = average(90, 85);   // 87.5
+boolean even = isEven(7);       // false
+greet("Sam");                   // Prints: Hi, Sam
+```
+
+| Python | Java |
+| --- | --- |
+| `def average(a, b):` | `public double average(int a, int b) {` |
+| Can return anything, or nothing | Must return the type in the header |
+| `return` is optional | `return` is required, unless the method is `void` |
+
 </tab>
 <tab title="Explain It Like I'm 10">
 
@@ -350,6 +397,22 @@ System.out.println(primes[0]);      // 2 (the first box is number 0)
 System.out.println(primes.length);  // 4 boxes
 ```
 
+## Methods: Little Machines
+
+A **method** is a little machine. You put things in, and it might hand something back. The first line, the **header**, is its label:
+
+```java
+public int doubleIt(int n) {
+    return n * 2;
+}
+```
+
+- `int` before the name means "this machine hands back a whole number." That's the **return type**.
+- `(int n)` means "put one whole number in."
+- `void` means the machine hands back nothing. It just does something, like printing.
+
+`doubleIt(4)` hands back `8`.
+
 </tab>
 <tab title="Just the Highlights">
 
@@ -403,6 +466,17 @@ nums[0] = 9;  nums.length;               // index from 0; length has no ()
 - `&&` = and, `||` = or, `!` = not. `else if`, not `elif`.
 - `i++` adds 1, `i--` subtracts 1, `i += 2` adds 2.
 
+## Methods
+
+```java
+// access  return type  name   parameters
+   public  double       average(int a, int b) { return (a + b) / 2.0; }
+   public  void         greet(String name) { System.out.println("Hi, " + name); }
+```
+
+- Non-`void` methods must `return` a value of the return type. `void` methods return nothing.
+- Every parameter needs a type.
+
 ## Watch Out For
 
 - **Integer division:** `7 / 2` is `3`. Make one side a `double`: `7 / 2.0` or `(double) 7 / 2`.
@@ -413,6 +487,7 @@ nums[0] = 9;  nums.length;               // index from 0; length has no ()
 - **Comparing Strings with `==`:** use `.equals()` instead.
 - **Going past the end of an array:** valid indexes are `0` to `length - 1`.
 - **Printing an array:** `println(nums)` shows an address. Use `Arrays.toString(nums)`.
+- **Missing return:** a method that isn't `void` won't compile if any path skips `return`.
 
 </tab>
 </tabs>

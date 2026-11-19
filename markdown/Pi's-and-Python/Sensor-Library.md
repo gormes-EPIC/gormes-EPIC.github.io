@@ -109,7 +109,7 @@ HOW TO ADD A PART: copy this under Inputs or Outputs and fill it in. Put images 
 
 | Bin | Pi 4 library | Pi 5 library | Used in |
 | --- | --- | --- | --- |
-| ___ | [rpi-lcd](https://github.com/bogdal/rpi-lcd) | ___ | [Digital Slot Machine](#Pi's-and-Python/Digital-Slot-Machine-Lab) (extension) |
+| ___ | [rpi-lcd](https://github.com/bogdal/rpi-lcd) or [RPLCD](https://rplcd.readthedocs.io/en/stable/) | ___ | [Digital Slot Machine](#Pi's-and-Python/Digital-Slot-Machine-Lab) (extension) |
 
 **Wiring:** ___. Enable I2C in `sudo raspi-config` first.
 

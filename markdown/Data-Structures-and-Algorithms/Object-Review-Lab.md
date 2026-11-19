@@ -81,6 +81,15 @@ String line = scanner.nextLine(); // gets any characters as a string
 double number = scanner.nextDouble(); // gets any characters as a number(double)
 ```
 
+### Test Cases
+
+| Earth Weight | Selection | Expected Output |
+| --- | --- | --- |
+| `150` | `1` | `Your weight on Mars would be 57.0` |
+| `150` | `2` | `Your weight on Venus would be 135.0` |
+| `150` | `3` | `Your weight on Jupiter would be 360.0` |
+| `100` | `3` | `Your weight on Jupiter would be 240.0` |
+
 ##  <a id="gas-mileage"></a>Gas Mileage Simulation
 
 Create a class `Automobile` with the **private instance variables**:
@@ -120,6 +129,17 @@ public class TestAutomobile {
     }  
 }
 ```
+
+### Test Cases
+
+Each test starts with a new `Automobile("Toyota", "Prius", 35, 8)`.
+
+| Calls | `reportFuel()` returns |
+| --- | --- |
+| *(none)* | `8.0` |
+| `takeTrip(70)` | `6.0` |
+| `takeTrip(100)`, then `fillUp(2)` | about `7.142857` |
+| `fillUp(5)` | `8.0` (the tank can't go past full) |
 
 ## Tips, Tricks, and Resources
 - [W3 Schools](https://www.w3schools.com/java/)
