@@ -3394,6 +3394,23 @@
             });
         }
 
+        // Mermaid draws at the wrong size (or not at all) inside a hidden element, so
+        // diagrams in a hidden view (like the full lab when a page opens in checklist
+        // mode) wait until that view is shown, then this is called again.
+        async function renderVisibleMermaid() {
+            if (!window.mermaid) return;
+            const nodes = [...appDiv.querySelectorAll('.markdown-body .mermaid-diagram:not([data-rendered])')]
+                .filter(el => !el.closest('[hidden]'));
+            if (!nodes.length) return;
+            nodes.forEach(el => { el.dataset.rendered = 'true'; });
+            try {
+                mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
+                await mermaid.run({ nodes });
+            } catch (err) {
+                console.error('Mermaid render error:', err);
+            }
+        }
+
         // --- Markdown Post-Processing ---
         // Run after putting rendered markdown on the page (inside a .markdown-body)
         // to turn on diagrams, copy buttons, email buttons, math, and in-page links.
@@ -3410,12 +3427,7 @@
                     container.textContent = graphDefinition;
                     codeEl.closest('pre').replaceWith(container);
                 });
-                try {
-                    mermaid.initialize({ startOnLoad: false, theme: getMermaidTheme() });
-                    await mermaid.run({ querySelector: '.markdown-body .mermaid-diagram' });
-                } catch (err) {
-                    console.error('Mermaid render error:', err);
-                }
+                await renderVisibleMermaid();
             }
 
             // --- Syntax Highlighting ---
@@ -4173,6 +4185,7 @@
                         panels[i].hidden = !on;
                     });
                     if (remember) localStorage.setItem('preferredTab', buttons[index].textContent);
+                    renderVisibleMermaid();
                 }
 
                 buttons.forEach((button, i) => button.addEventListener('click', () => select(i, true)));
@@ -4400,6 +4413,7 @@
                 const allDone = firstUnfinished() === -1;
                 stepper.hidden = !on;
                 sections.forEach((section, i) => { section.hidden = on && !allDone && i !== currentStep; });
+                renderVisibleMermaid();
                 if (!on) return;
                 if (allDone) {
                     stepLabel.textContent = 'All steps done! Here is the whole checklist.';
@@ -4578,6 +4592,7 @@
                         checklistView.hidden = !on;
                         toggleBtn.textContent = on ? 'Full Lab View' : 'Checklist Mode';
                         toggleBtn.setAttribute('aria-pressed', String(on));
+                        renderVisibleMermaid();
                     }
                     showChecklist(startInChecklist);
                     // The button switches views for this visit only; the Style menu sets the default.
