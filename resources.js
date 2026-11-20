@@ -24,22 +24,24 @@ const studentResources = [
     { name: "W3 Schools Python Exercises", url: "https://www.w3schools.com/python/python_exercises.asp", description: "Answer questions about Python in multiple interactive formats", section: "Pi's and Python", tag: "exercises" },
     { name: "Code Wars", url: "https://www.codewars.com/", description: "Python katas at multiple difficulty levels", section: "Pi's and Python", tag: "exercises" },
     { name: "Code Combat", url: "https://codecombat.com/play", description: "Learn Python or JavaScript by defeating dungeons", section: "Pi's and Python", tag: "exercises" },
-    
-
-
     { name: "How to Think Like a Computer Scientist", url: "https://runestone.academy/ns/books/published/thinkcspy/index.html", description: "Online textbook and interactive modules to learn and practice Python", section: "Pi's and Python", tag: "course" },
     
 
     { name: "Java Tutor", url: "https://pythontutor.com/java.html#", description: "Step through code and see your variables in your Java Program", section: "Data Structures and Algorithms", tag: "tool" },
     { name: "CodingBat Java", url: "https://codingbat.com/java", description: "Practice Java programming with these problems", section: "Data Structures and Algorithms", tag: "exercises" },
     { name: "Exercism", url: "https://exercism.org/", description: "Practice programming in any language", section: "Data Structures and Algorithms", tag: "exercises" },
+    { name: "CSAwesome", url: "https://runestone.academy/ns/books/published/csawesome/index.html", description: "Interactive textbook on Java fundamentals", section: "Data Structures and Algorithms", tag: "course" },
+
 
     { name: "Learn Git Branching", url: "https://learngitbranching.js.org/", description: "Visualize Git commands to practice branching", section: "Software Engineering", tag: "game" },
     { name: "SQLBolt", url: "https://sqlbolt.com/", description: "Learn SQL queries with this interactive site", section: "Software Engineering", tag: "exercises" },
     { name: "SQL Murder Mystery", url: "https://mystery.knightlab.com/", description: "Practice SQL queries by solving this murder mystery", section: "Software Engineering", tag: "game" },
     { name: "SQL Police Department", url: "https://sqlpd.com/", description: "More murder mysteries to solve", section: "Software Engineering", tag: "game" },
     { name: "JSRobot", url: "https://github.com/reaalkhalil/JSRobot", description: "A platformer you play by coding in JavaScript", section: "Software Engineering", tag: "game" },
+    { name: "Untrusted Game", url: "https://untrustedgame.com/", description: "Escape from Dr. Eval with JavaScript", section: "Software Engineering", tag: "game" },
+    { name: "Jamstack Attack", url: "hhttps://jamstack-attack.herokuapp.com/#", description: "Mini-games to practice Frontend Development", section: "Software Engineering", tag: "game" },
     
+
     { name: "Learn Pandas - Kaggle", url: "https://www.kaggle.com/learn/pandas", description: "Practice pandas with these tutorials and exercises", section: "Foundations of AI", tag: "exercises" },
     { name: "Harvard's Introduction to AI", url: "https://cs50.harvard.edu/ai/", description: "Harvard's course on Artificial Intelligence with", section: "Foundations of AI", tag: "course" },
 
