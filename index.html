@@ -277,7 +277,8 @@
         }
 
         /* Style menu looks like an old pop-up menu */
-        body.oldschool-mode #style-menu-panel {
+        body.oldschool-mode #style-menu-panel,
+        body.oldschool-mode #resources-panel {
             background: #ffffff;
             border: 1px solid #000000;
             font-family: Arial, Helvetica, sans-serif;
@@ -633,13 +634,13 @@
             z-index: 260;
         }
         body.settings-open #style-menu { z-index: 1000; } /* Above the outline, corner buttons, and pet */
-        #settings-backdrop {
+        #settings-backdrop, #resources-backdrop {
             position: fixed;
             inset: 0;
             background: rgba(0, 0, 0, 0.5);
         }
-        #settings-backdrop[hidden] { display: none; }
-        #style-menu-panel {
+        #settings-backdrop[hidden], #resources-backdrop[hidden] { display: none; }
+        #style-menu-panel, #resources-panel {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -656,7 +657,7 @@
             font-size: 0.9rem;
             overflow: hidden;
         }
-        #style-menu-panel[hidden] { display: none; }
+        #style-menu-panel[hidden], #resources-panel[hidden] { display: none; }
         .settings-header {
             display: flex;
             align-items: center;
@@ -1710,7 +1711,8 @@
             align-items: flex-end;
             gap: 0.5rem;
         }
-        #resources-menu[hidden], #resources-panel[hidden] { display: none; }
+        #resources-menu[hidden] { display: none; }
+        body.resources-open #corner-tools { z-index: 1000; } /* Above the outline, Settings button, and pet */
         #resources-btn, #scratchpad-btn { box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35); }
 
         /* Scratchpad: a small notes window that slides out from the right edge, above the corner buttons,
@@ -1772,17 +1774,6 @@
         }
         .scratchpad-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 0.4rem; font-size: 0.75rem; opacity: 0.75; }
         .scratchpad-footer .btn { padding: 0.2rem 0.6rem; font-size: 0.8rem; }
-        #resources-panel {
-            width: 17rem;
-            max-width: calc(100vw - 2rem);
-            max-height: 60vh;
-            overflow-y: auto;
-            padding: 0.75rem;
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-        }
         .resources-title {
             font-weight: 700;
             color: var(--primary);
@@ -1790,13 +1781,15 @@
             margin-bottom: 0.25rem;
             border-bottom: 1px solid var(--border);
         }
-        #resources-list { list-style: none; margin: 0; padding: 0; }
-        #resources-list li { padding: 0.4rem 0.25rem; }
-        #resources-list li + li { border-top: 1px solid var(--border); }
-        #resources-list a { color: var(--primary); font-weight: 600; text-decoration: none; }
-        #resources-list a:hover { text-decoration: underline; }
-        .resource-description { display: block; font-size: 0.8rem; opacity: 0.75; margin-top: 0.1rem; }
-        body.oldschool-mode #resources-list a { color: #0000ee; text-decoration: underline; font-weight: normal; }
+        .resources-list { list-style: none; margin: 0; padding: 0; }
+        .resources-list li { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.6rem 0.25rem; }
+        .resource-text { flex: 1; min-width: 0; }
+        .resources-list .badge { flex-shrink: 0; margin-top: 0.15rem; font-size: 0.6rem; padding: 0.15rem 0.4rem; } /* Tag on the right */
+        .resources-list li + li { border-top: 1px solid var(--border); }
+        .resources-list a { color: var(--primary); font-weight: 600; text-decoration: none; }
+        .resources-list a:hover { text-decoration: underline; }
+        .resource-description { display: block; font-size: 0.85rem; opacity: 0.75; margin-top: 0.15rem; }
+        body.oldschool-mode .resources-list a { color: #0000ee; text-decoration: underline; font-weight: normal; }
 
         /* --- 8-Bit Pet (picked in the Style menu) --- */
         #pet {
@@ -2058,11 +2051,18 @@
             <button type="button" id="scratchpad-btn" class="btn" aria-expanded="false" aria-controls="scratchpad-panel">Scratchpad</button>
         </div>
         <div id="resources-menu">
-            <div id="resources-panel" role="dialog" aria-label="Helpful resources" hidden>
-                <div class="resources-title">Helpful Resources</div>
-                <ul id="resources-list"></ul>
+            <div id="resources-backdrop" hidden></div>
+            <div id="resources-panel" role="dialog" aria-modal="true" aria-labelledby="resources-title" hidden>
+                <div class="settings-header">
+                    <div id="resources-title" class="settings-title">Helpful Resources</div>
+                    <button type="button" id="resources-close-btn" class="sidebar-icon-btn" aria-label="Close resources" title="Close resources">✕</button>
+                </div>
+                <div class="settings-body">
+                    <div class="settings-tabs" role="tablist" aria-label="Resource sections"></div>
+                    <div class="settings-content"></div>
+                </div>
             </div>
-            <button type="button" id="resources-btn" class="btn" aria-haspopup="true" aria-expanded="false" aria-controls="resources-panel">Resources</button>
+            <button type="button" id="resources-btn" class="btn" aria-haspopup="dialog" aria-expanded="false" aria-controls="resources-panel">Resources</button>
         </div>
     </div>
     <div id="pet" hidden title="Click me, drag me around, or pet me by moving your mouse back and forth!"><div class="pet-heart"></div><div class="pet-hop"><div class="pet-sprite"></div></div></div>
@@ -2362,33 +2362,97 @@
         // --- RESOURCES BUTTON (bottom right of every page; links come from resources.js) ---
         const resourcesBtn = document.getElementById('resources-btn');
         const resourcesPanel = document.getElementById('resources-panel');
-        const resourcesList = document.getElementById('resources-list');
+        const resourcesBackdrop = document.getElementById('resources-backdrop');
+        const resourcesTabList = resourcesPanel.querySelector('.settings-tabs');
+        const resourcesContent = resourcesPanel.querySelector('.settings-content');
 
+        // Tags borrow the class page's badge colors. Common tags get a set color; any other
+        // tag gets one picked from its letters, so the same tag is always the same color.
+        const RESOURCE_TAG_COLORS = { course: 'badge-notes', exercises: 'badge-exercise', game: 'badge-assignment', tool: 'badge-document' };
+        const BADGE_COLOR_CLASSES = ['badge-notes', 'badge-assignment', 'badge-exercise', 'badge-document', 'badge-wfr', 'badge-optional'];
+        function resourceTagClass(tag) {
+            const key = tag.trim().toLowerCase();
+            if (RESOURCE_TAG_COLORS[key]) return RESOURCE_TAG_COLORS[key];
+            const sum = [...key].reduce((total, ch) => total + ch.charCodeAt(0), 0);
+            return BADGE_COLOR_CLASSES[sum % BADGE_COLOR_CLASSES.length];
+        }
+
+        // Group the links by their section, in the order each section first shows up in resources.js.
+        const resourceSections = new Map();
         (typeof studentResources === 'undefined' ? [] : studentResources).forEach(resource => {
-            const item = document.createElement('li');
-            const link = document.createElement('a');
-            link.href = resource.url;
-            link.target = '_blank';
-            link.rel = 'noopener noreferrer';
-            link.textContent = resource.name;
-            item.appendChild(link);
-            if (resource.description) {
-                const note = document.createElement('span');
-                note.className = 'resource-description';
-                note.textContent = resource.description;
-                item.appendChild(note);
-            }
-            resourcesList.appendChild(item);
+            const name = (resource.section || 'General').trim();
+            if (!resourceSections.has(name)) resourceSections.set(name, []);
+            resourceSections.get(name).push(resource);
         });
-        if (!resourcesList.children.length) document.getElementById('resources-menu').hidden = true;
+
+        const resourceTabs = [];
+        const resourcePanels = [];
+        [...resourceSections].forEach(([name, resources], i) => {
+            const tab = document.createElement('button');
+            tab.type = 'button';
+            tab.className = 'settings-tab';
+            tab.setAttribute('role', 'tab');
+            tab.id = `resources-tab-${i}`;
+            tab.textContent = name;
+            resourceTabs.push(tab);
+            resourcesTabList.appendChild(tab);
+
+            const panel = document.createElement('section');
+            panel.className = 'settings-section';
+            panel.setAttribute('role', 'tabpanel');
+            panel.setAttribute('aria-labelledby', tab.id);
+            const list = document.createElement('ul');
+            list.className = 'resources-list';
+            resources.forEach(resource => {
+                const item = document.createElement('li');
+                const text = document.createElement('div');
+                text.className = 'resource-text';
+                item.appendChild(text);
+                const link = document.createElement('a');
+                link.href = resource.url;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.textContent = resource.name;
+                text.appendChild(link);
+                if (resource.description) {
+                    const note = document.createElement('span');
+                    note.className = 'resource-description';
+                    note.textContent = resource.description;
+                    text.appendChild(note);
+                }
+                if (resource.tag) {
+                    const tag = document.createElement('span');
+                    tag.className = `badge ${resourceTagClass(resource.tag)}`;
+                    tag.textContent = resource.tag.trim().toUpperCase();
+                    item.appendChild(tag);
+                }
+                list.appendChild(item);
+            });
+            panel.appendChild(list);
+            resourcePanels.push(panel);
+            resourcesContent.appendChild(panel);
+        });
+        if (!resourceTabs.length) document.getElementById('resources-menu').hidden = true;
+
+        function showResourceSection(index) {
+            resourceTabs.forEach((tab, i) => tab.setAttribute('aria-selected', String(i === index)));
+            resourcePanels.forEach((panel, i) => { panel.hidden = i !== index; });
+        }
+        showResourceSection(0);
+        resourceTabs.forEach((tab, i) => tab.addEventListener('click', () => showResourceSection(i)));
 
         function setResourcesOpen(open) {
             resourcesPanel.hidden = !open;
+            resourcesBackdrop.hidden = !open;
+            body.classList.toggle('resources-open', open);
             resourcesBtn.setAttribute('aria-expanded', String(open));
+            if (open) document.getElementById('resources-close-btn').focus();
         }
         resourcesBtn.addEventListener('click', () => setResourcesOpen(resourcesPanel.hidden));
-        document.addEventListener('click', (event) => {
-            if (!resourcesPanel.hidden && !event.target.closest('#resources-menu')) setResourcesOpen(false);
+        resourcesBackdrop.addEventListener('click', () => setResourcesOpen(false));
+        document.getElementById('resources-close-btn').addEventListener('click', () => {
+            setResourcesOpen(false);
+            resourcesBtn.focus();
         });
         document.addEventListener('keydown', (event) => {
             if (event.key === 'Escape' && !resourcesPanel.hidden) {
