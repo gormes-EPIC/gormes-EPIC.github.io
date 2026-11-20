@@ -14,7 +14,7 @@
 
 const studentResources = [
 
-    { name: "MIT Terminus", url: "https://web.mit.edu/mprat/Public/web/Terminus/Web/main.html", description: "A text-based adventure game to teach out about the terminal", section: "Pi's and Python", tag: "game" },    
+    { name: "MIT Terminus", url: "https://web.mit.edu/mprat/Public/web/Terminus/Web/main.html", description: "A text-based adventure game to learn out about the terminal", section: "Pi's and Python", tag: "game" },    
     { name: "Harvard's CS50P", url: "https://cs50.harvard.edu/python/", description: "Introductory Python course from Harvard that is the basis for Pi's and Python", section: "Pi's and Python", tag: "course" },
     { name: "Python Tutor", url: "https://pythontutor.com/visualize.html#mode=edit", description: "Step through code and see your variables in your Python Program", section: "Pi's and Python", tag: "tool" },
     { name: "Python Essentials 1", url: "https://edube.org/study/pe1", description: "Study for the PCEP", section: "Pi's and Python", tag: "course" },
