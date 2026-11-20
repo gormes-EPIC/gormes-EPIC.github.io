@@ -22,6 +22,8 @@ const studentResources = [
     { name: "Practice Python", url: "https://www.practicepython.org/", description: "Exercises to practice Python with answers", section: "Pi's and Python", tag: "exercises" },
     { name: "Exercism", url: "https://exercism.org/", description: "Practice programming in any language", section: "Pi's and Python", tag: "exercises" },
     { name: "W3 Schools Python Exercises", url: "https://www.w3schools.com/python/python_exercises.asp", description: "Answer questions about Python in multiple interactive formats", section: "Pi's and Python", tag: "exercises" },
+    { name: "Code Wars", url: "https://www.codewars.com/", description: "Python katas at multiple difficulty levels", section: "Pi's and Python", tag: "exercises" },
+    { name: "Code Combat", url: "https://codecombat.com/play", description: "Learn Python or JavaScript by defeating dungeons", section: "Pi's and Python", tag: "exercises" },
     
 
 
@@ -35,8 +37,8 @@ const studentResources = [
     { name: "Learn Git Branching", url: "https://learngitbranching.js.org/", description: "Visualize Git commands to practice branching", section: "Software Engineering", tag: "game" },
     { name: "SQL Murder Mystery", url: "https://mystery.knightlab.com/", description: "Practice SQL queries by solving this murder mystery", section: "Software Engineering", tag: "game" },
     
-    { name: "Learn Pandas - Kaggle", url: "https://www.kaggle.com/learn/pandas", description: "Practice pandas with these tutorials and exercises", section: "Foundations of AI", tag: "course" },
-
+    { name: "Learn Pandas - Kaggle", url: "https://www.kaggle.com/learn/pandas", description: "Practice pandas with these tutorials and exercises", section: "Foundations of AI", tag: "exercises" },
+    { name: "Harvard's Introduction to AI", url: "https://cs50.harvard.edu/ai/", description: "Harvard's course on Artificial Intelligence with", section: "Foundations of AI", tag: "course" },
 
     { name: "Advent of Code", url: "https://adventofcode.com/", description: "Solve these 25 programming problems leading up to December 25th or work through previous years' challenges", section: "Looking for a Challenge?", tag: "exercises" },
     { name: "LeetCode", url: "https://leetcode.com/", description: "Practice for interviews in any language by solving these programming challenges in shorter runtime than peers", section: "Looking for a Challenge?", tag: "exercises" },
@@ -44,5 +46,11 @@ const studentResources = [
 
 
     { name: "Unfog", url: "https://unfogtimer.com", description: "Prioritize your tasks and use a timer to keep you on track", section: "Study Tools", tag: "tool" },
+
+    { name: "Nand Game", url: "https://nandgame.com/", description: "Build your own computer using nand gates", section: "Just for Fun", tag: "game" },
+    { name: "VIM Adventures", url: "https://vim-adventures.com/", description: "Practice VIM commands while playing a game", section: "Just for Fun", tag: "game" },
+    { name: "Nand to Tetris", url: "https://www.nand2tetris.org/", description: "Online course about building Tetris using nand gates", section: "Just for Fun", tag: "course" },
+    { name: "MOOC.FI", url: "https://www.mooc.fi/en/courses/", description: "Online courses by the University of Helsinki", section: "Just for Fun", tag: "course" },
+
 
 ];
