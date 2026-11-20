@@ -777,6 +777,27 @@
         }
 
         h1, h2, h3 { color: var(--primary); }
+
+        /* "What's new" banner above the page. Closing it saves its data-version in localStorage. */
+        #whats-new {
+            position: relative;
+            max-width: 75%;
+            margin: 0 auto;
+            box-sizing: border-box;
+            padding: 0.9rem 3rem 0.9rem 1.25rem;
+            background: var(--surface);
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+        #whats-new[hidden] { display: none; }
+        #whats-new:not([hidden]) + #app { margin-top: 1rem; }
+        .whats-new-title { font-weight: 700; color: var(--primary); margin-bottom: 0.25rem; }
+        #whats-new ul { margin: 0; padding-left: 1.25rem; }
+        #whats-new li + li { margin-top: 0.15rem; }
+        #whats-new-close { position: absolute; top: 0.6rem; right: 0.6rem; }
         
         /* Search Bar Styles */
         .search-container {
@@ -1687,7 +1708,8 @@
         /* Wide screens: the outline sits beside the page and pushes it over */
         @media (min-width: 900px) {
             body.has-sidebar.sidebar-open { padding-left: calc(var(--sidebar-width) + 2rem); }
-            body.has-sidebar.sidebar-open #app { max-width: 90%; }
+            body.has-sidebar.sidebar-open #app,
+            body.has-sidebar.sidebar-open #whats-new { max-width: 90%; }
         }
         /* Narrow screens: the outline slides over the page instead */
         @media (max-width: 899px) {
@@ -1869,6 +1891,7 @@
                 border-bottom: 1px solid #999;
             }
             #course-sidebar,
+            #whats-new,
             #sidebar-open-btn,
             #sidebar-backdrop {
                 display: none !important;
@@ -2070,6 +2093,18 @@
     <aside id="course-sidebar" aria-label="Course outline"></aside>
     <div id="sidebar-backdrop"></div>
     <button type="button" id="sidebar-open-btn" class="btn" aria-label="Show course outline" title="Show course outline">☰ Outline</button>
+
+    <!-- What's new banner: shows once until a visitor closes it. To announce something new,
+         change the list AND the data-version, so everyone sees it again. -->
+    <div id="whats-new" data-version="2026-11-20" role="region" aria-label="What's new" hidden>
+        <div class="whats-new-title">New on the site!</div>
+        <ul>
+            <li><strong>Settings:</strong> click <strong>Settings</strong> at the top right to pick a theme or a new pet.</li>
+            <li><strong>Resources:</strong> click <strong>Resources</strong> at the bottom right for helpful links, sorted by class.</li>
+            <li><strong>Checklist Mode:</strong> on labs with a checklist, click <strong>Checklist Mode</strong> to check off each step as you go.</li>
+        </ul>
+        <button type="button" id="whats-new-close" class="sidebar-icon-btn" aria-label="Close what's new" title="Close">✕</button>
+    </div>
 
     <div id="app"></div>
 
@@ -2357,6 +2392,14 @@
                 setStyleMenuOpen(false);
                 styleMenuBtn.focus();
             }
+        });
+
+        // --- WHAT'S NEW BANNER (closing it saves its version, so it stays closed) ---
+        const whatsNew = document.getElementById('whats-new');
+        if (localStorage.getItem('whatsNewClosed') !== whatsNew.dataset.version) whatsNew.hidden = false;
+        document.getElementById('whats-new-close').addEventListener('click', () => {
+            whatsNew.hidden = true;
+            localStorage.setItem('whatsNewClosed', whatsNew.dataset.version);
         });
 
         // --- RESOURCES BUTTON (bottom right of every page; links come from resources.js) ---

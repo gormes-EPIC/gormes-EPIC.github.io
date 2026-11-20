@@ -35,7 +35,10 @@ const studentResources = [
     { name: "Exercism", url: "https://exercism.org/", description: "Practice programming in any language", section: "Data Structures and Algorithms", tag: "exercises" },
 
     { name: "Learn Git Branching", url: "https://learngitbranching.js.org/", description: "Visualize Git commands to practice branching", section: "Software Engineering", tag: "game" },
+    { name: "SQLBolt", url: "https://sqlbolt.com/", description: "Learn SQL queries with this interactive site", section: "Software Engineering", tag: "exercises" },
     { name: "SQL Murder Mystery", url: "https://mystery.knightlab.com/", description: "Practice SQL queries by solving this murder mystery", section: "Software Engineering", tag: "game" },
+    { name: "SQL Police Department", url: "https://sqlpd.com/", description: "More murder mysteries to solve", section: "Software Engineering", tag: "game" },
+    { name: "JSRobot", url: "https://github.com/reaalkhalil/JSRobot", description: "A platformer you play by coding in JavaScript", section: "Software Engineering", tag: "game" },
     
     { name: "Learn Pandas - Kaggle", url: "https://www.kaggle.com/learn/pandas", description: "Practice pandas with these tutorials and exercises", section: "Foundations of AI", tag: "exercises" },
     { name: "Harvard's Introduction to AI", url: "https://cs50.harvard.edu/ai/", description: "Harvard's course on Artificial Intelligence with", section: "Foundations of AI", tag: "course" },
@@ -43,14 +46,19 @@ const studentResources = [
     { name: "Advent of Code", url: "https://adventofcode.com/", description: "Solve these 25 programming problems leading up to December 25th or work through previous years' challenges", section: "Looking for a Challenge?", tag: "exercises" },
     { name: "LeetCode", url: "https://leetcode.com/", description: "Practice for interviews in any language by solving these programming challenges in shorter runtime than peers", section: "Looking for a Challenge?", tag: "exercises" },
     { name: "HackerRank", url: "https://www.hackerrank.com/", description: "Similar to LeetCode", section: "Looking for a Challenge?", tag: "exercises" },
+    { name: "Project Euler", url: "https://projecteuler.net/", description: "Series of math/cs problems that require math insight to solve", section: "Looking for a Challenge?", tag: "exercises" },
 
 
     { name: "Unfog", url: "https://unfogtimer.com", description: "Prioritize your tasks and use a timer to keep you on track", section: "Study Tools", tag: "tool" },
+    { name: "roadmap.sh", url: "https://roadmap.sh/", description: "Find topics and courses associated with CS careers", section: "Study Tools", tag: "tool" },
 
-    { name: "Nand Game", url: "https://nandgame.com/", description: "Build your own computer using nand gates", section: "Just for Fun", tag: "game" },
-    { name: "VIM Adventures", url: "https://vim-adventures.com/", description: "Practice VIM commands while playing a game", section: "Just for Fun", tag: "game" },
-    { name: "Nand to Tetris", url: "https://www.nand2tetris.org/", description: "Online course about building Tetris using nand gates", section: "Just for Fun", tag: "course" },
-    { name: "MOOC.FI", url: "https://www.mooc.fi/en/courses/", description: "Online courses by the University of Helsinki", section: "Just for Fun", tag: "course" },
+    { name: "Nand Game", url: "https://nandgame.com/", description: "Build your own computer using nand gates", section: "Just for Fun!", tag: "game" },
+    { name: "VIM Adventures", url: "https://vim-adventures.com/", description: "Practice VIM commands while playing a game", section: "Just for Fun!", tag: "game" },
+    { name: "RegEx Crossword", url: "https://regexcrossword.com/", description: "Solve crosswords that fulfill regex expressions", section: "Just for Fun!", tag: "game" },
+    { name: "RegexOne", url: "https://regexone.com/", description: "Learn regular expressions with this interactive site", section: "Just for Fun!", tag: "exercises" },
+
+    { name: "Nand to Tetris", url: "https://www.nand2tetris.org/", description: "Online course about building Tetris using nand gates", section: "Just for Fun!", tag: "course" },
+    { name: "MOOC.FI", url: "https://www.mooc.fi/en/courses/", description: "Online courses by the University of Helsinki", section: "Just for Fun!", tag: "course" },
 
 
 ];
