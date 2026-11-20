@@ -223,20 +223,23 @@ Convert the following prefix expression into a postfix expression.
 
 Rearrange the lines below to construct the method `isPalindrome` which checks if a string is a palindrome using a **deque** (double ended queue).
 
+<drag-order>
 
 ```java
-if (deque.removeFirst() != deque.removeLast()) {
-Deque<Character> deque = new ArrayDeque<>();
 public boolean isPalindrome(String s) {
-while (deque.size() > 1) {
-return true;
-for (char c : s.toCharArray())
-deque.add(c);
-return false;
-}
-}
+    Deque<Character> deque = new ArrayDeque<>();
+    for (char c : s.toCharArray())
+        deque.add(c);
+    while (deque.size() > 1) {
+        if (deque.removeFirst() != deque.removeLast()) {
+            return false;
+        }
+    }
+    return true;
 }
 ```
+
+</drag-order>
 
 <details>
 <summary>Click here to view the answer</summary>
@@ -263,19 +266,23 @@ public boolean isPalindrome(String s) {
 
 Rearrange the lines of code below to create the method `sortStack` which sorts a stack recursively or iteratively using a temporary stack `r`.
 
+<drag-order>
+
 ```java
-Stack<Integer> r = new Stack<>();
-while (!r.isEmpty() && r.peek() > tmp) {
 public Stack<Integer> sortStack(Stack<Integer> s) {
-s.push(r.pop());
-r.push(tmp);
-while (!s.isEmpty()) {
-int tmp = s.pop();
-return r;
-}
-}
+    Stack<Integer> r = new Stack<>();
+    while (!s.isEmpty()) {
+        int tmp = s.pop();
+        while (!r.isEmpty() && r.peek() > tmp) {
+            s.push(r.pop());
+        }
+        r.push(tmp);
+    }
+    return r;
 }
 ```
+
+</drag-order>
 
 
 <details>

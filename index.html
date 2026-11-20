@@ -1141,6 +1141,17 @@
         .drag-sort-card.selected { outline: 2px solid var(--primary); outline-offset: 1px; }
         .drag-sort-card.correct { border-color: #22c55e; box-shadow: inset 4px 0 0 #22c55e; }
         .drag-sort-card.incorrect { border-color: #ef4444; box-shadow: inset 4px 0 0 #ef4444; }
+        /* --- Put-the-lines-in-order questions (<drag-order> in markdown) --- */
+        .drag-order { margin: 1rem 0; }
+        .drag-order-list { display: flex; flex-direction: column; gap: 0.35rem; }
+        .drag-order-list.drag-over { outline: 2px dashed var(--primary); outline-offset: 4px; border-radius: 6px; }
+        .drag-order-line {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+            font-size: 0.85rem;
+            white-space: pre;
+            overflow-x: auto;
+        }
+        .drag-order-line.dragging { opacity: 0.4; }
         .drag-sort-actions, .quiz-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem; margin-top: 0.75rem; }
 
         /* --- Quiz mode (pages with <quiz-mode></quiz-mode>): one exercise at a time --- */
@@ -1917,7 +1928,8 @@
             .quiz-nav,
             .quiz-panel,
             .quiz-summary,
-            .drag-sort-actions {
+            .drag-sort-actions,
+            .drag-order-help {
                 display: none !important;
             }
             #full-view.quiz-active .quiz-section { display: block !important; }
@@ -3635,6 +3647,7 @@
 
             // --- Drag-and-Drop Sorting Questions --- (see setUpDragSorts() for the markdown to use)
             setUpDragSorts(appDiv);
+            setUpDragOrders(appDiv);
 
             // We wrap this in a setTimeout of 0 to ensure the DOM has updated
             // and the KaTeX script has fully loaded before it tries to run.
@@ -3972,6 +3985,150 @@
             });
         }
 
+        // --- Put-the-lines-in-order questions ---
+        // In a markdown file, wrap a code block, in the RIGHT order, in <drag-order> (blank lines around it):
+        //     <drag-order>
+        //
+        //     ```java
+        //     public int twice(int n) {
+        //         return n * 2;
+        //     }
+        //     ```
+        //
+        //     </drag-order>
+        // The lines show up shuffled, without their indents. Students drag them into order (or click a line,
+        // then click the spot it goes), then press Check. Matching lines, like two "}", are interchangeable.
+        // Blank lines are left out. Once every line is right, the indents come back.
+        function setUpDragOrders(root) {
+            root.querySelectorAll('.markdown-body drag-order').forEach(placeholder => {
+                const code = placeholder.querySelector('pre code');
+                if (!code) return;
+                const lines = code.textContent.split('\n').filter(line => line.trim())
+                    .map(line => ({ text: line.trim(), indent: line.match(/^\s*/)[0].replace(/\t/g, '    ').length }));
+
+                const widget = document.createElement('div');
+                widget.className = 'drag-order';
+                widget.innerHTML = `
+                    <p class="drag-sort-help drag-order-help">Drag the lines into the right order. You can also click a line, then click the spot where it goes.</p>
+                    <div class="drag-order-list" aria-label="Lines to put in order"></div>
+                    <div class="drag-sort-actions">
+                        <button type="button" class="btn drag-sort-check">Check</button>
+                        <button type="button" class="btn drag-sort-reset">Reset</button>
+                        <span class="drag-sort-result" aria-live="polite"></span>
+                    </div>`;
+                const list = widget.querySelector('.drag-order-list');
+                const result = widget.querySelector('.drag-sort-result');
+                const cards = lines.map(line => {
+                    const card = document.createElement('div');
+                    card.className = 'drag-sort-card drag-order-line';
+                    card.textContent = line.text;
+                    card.dataset.indent = line.indent;
+                    card.draggable = true;
+                    card.tabIndex = 0;
+                    return card;
+                });
+                let selected = null;
+                let dragged = null;
+
+                function clearMarks() {
+                    cards.forEach(card => { card.classList.remove('correct', 'incorrect'); card.style.paddingLeft = ''; });
+                    result.textContent = '';
+                    result.className = 'drag-sort-result';
+                }
+                function select(card) {
+                    if (selected) selected.classList.remove('selected');
+                    selected = card === selected ? null : card;
+                    if (selected) selected.classList.add('selected');
+                }
+                // Move a line into another line's spot: moving down puts it after that line, moving up puts it before.
+                function moveOnto(card, target) {
+                    if (card !== target) {
+                        const order = [...list.children];
+                        list.insertBefore(card, order.indexOf(card) < order.indexOf(target) ? target.nextSibling : target);
+                    }
+                    select(null);
+                    clearMarks();
+                }
+                function reset() {
+                    // Shuffle until it's out of order (unless every line is the same).
+                    let order;
+                    for (let tries = 0; tries < 10; tries++) {
+                        order = shuffle([...cards]);
+                        if (order.some((card, i) => card.textContent !== lines[i].text)) break;
+                    }
+                    order.forEach(card => list.appendChild(card));
+                    select(null);
+                    clearMarks();
+                }
+
+                cards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        if (selected && selected !== card) moveOnto(selected, card);
+                        else select(card);
+                    });
+                    card.addEventListener('keydown', (event) => {
+                        if (event.key === 'Enter' || event.key === ' ') {
+                            event.preventDefault();
+                            card.click();
+                        } else if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
+                            // Arrow keys move the focused line up or down one spot.
+                            event.preventDefault();
+                            const neighbor = event.key === 'ArrowUp' ? card.previousElementSibling : card.nextElementSibling;
+                            if (neighbor) moveOnto(card, neighbor);
+                            card.focus();
+                        }
+                    });
+                    card.addEventListener('dragstart', (event) => {
+                        dragged = card;
+                        card.classList.add('dragging');
+                        event.dataTransfer.effectAllowed = 'move';
+                        event.dataTransfer.setData('text/plain', card.textContent);
+                    });
+                    card.addEventListener('dragend', () => {
+                        card.classList.remove('dragging');
+                        list.classList.remove('drag-over');
+                        dragged = null;
+                    });
+                });
+                // While dragging, the line slides to wherever the mouse is: above the middle of the line it's over, or below.
+                list.addEventListener('dragover', (event) => {
+                    if (!dragged) return;
+                    event.preventDefault();
+                    list.classList.add('drag-over');
+                    const after = [...list.children].find(card => card !== dragged && event.clientY < card.getBoundingClientRect().top + card.offsetHeight / 2);
+                    if (after) { if (after !== dragged.nextSibling) list.insertBefore(dragged, after); }
+                    else if (list.lastElementChild !== dragged) list.appendChild(dragged);
+                });
+                list.addEventListener('dragleave', (event) => { if (!list.contains(event.relatedTarget)) list.classList.remove('drag-over'); });
+                list.addEventListener('drop', (event) => {
+                    event.preventDefault();
+                    list.classList.remove('drag-over');
+                    clearMarks();
+                });
+
+                widget.querySelector('.drag-sort-check').addEventListener('click', () => {
+                    clearMarks();
+                    const order = [...list.children];
+                    let right = 0;
+                    order.forEach((card, i) => {
+                        const isRight = card.textContent === lines[i].text;
+                        card.classList.add(isRight ? 'correct' : 'incorrect');
+                        if (isRight) right++;
+                    });
+                    const allRight = right === order.length;
+                    if (allRight) order.forEach((card, i) => { card.style.paddingLeft = `calc(0.6rem + ${lines[i].indent}ch)`; });
+                    result.textContent = allRight ? '✓ Correct!' : `✗ ${right} of ${order.length} lines are in the right spot. Move the red ones and check again.`;
+                    result.classList.add(allRight ? 'correct' : 'incorrect');
+                    widget.dispatchEvent(new CustomEvent('quiz-checked', { bubbles: true, detail: { correct: allRight } }));
+                });
+                widget.querySelector('.drag-sort-reset').addEventListener('click', reset);
+                widget.resetDragSort = reset;
+
+                reset();
+                placeholder.replaceWith(widget);
+            });
+        }
+
         // --- Quiz Mode ---
         // Put <quiz-mode></quiz-mode> anywhere in an exercise file. A "Quiz Mode" button then shows the
         // exercises (each "## " section) one at a time, and checks answers against the answer dropdown
@@ -3983,7 +4140,7 @@
         //   - <quiz-answer>…</quiz-answer> in the answer (hidden on the page): a short typed answer.
         //     Add more than one for other answers that count. hint="…" on one of them sets the instructions.
         //     Takes priority over the other kinds.
-        //   - a <drag-sort>: graded by its own Check button
+        //   - a <drag-sort> or <drag-order>: graded by its own Check button
         //   - anything else: students reveal the answer and mark themselves right or wrong
         function normalizeOutput(text) {
             return text.split('\n').map(line => line.replace(/\s+/g, '')).filter(Boolean).join('\n');
@@ -4087,7 +4244,7 @@
                     reveal();
                 });
 
-                const dragSort = section.querySelector('.drag-sort');
+                const dragSort = section.querySelector('.drag-sort, .drag-order');
                 const choiceList = [...section.querySelectorAll(':scope > ul')]
                     .find(list => [...list.children].every(item => /^[A-Z]\.\s/.test(item.textContent.trim())));
                 const answerCode = answer?.querySelector('pre code:not([class*="language-"])');

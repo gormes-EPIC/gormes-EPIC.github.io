@@ -1,23 +1,40 @@
-# Doubly Linked List
+# Doubly Linked List Lab
 
 ## Objective
 
-- Create a `Node<E>` class using generics to hold a value and the prev/next node in the list
-- Using `Node`, implement a `DoublyLinkedList` class that implements the provided `List` interface.
+1. Create a `Node<E>` class that uses generics to hold a value and the previous and next nodes in the list.
+2. Use `Node` to build a `DoublyLinkedList` class that implements a `List` interface.
+3. Test your list with JUnit.
 
 ## Vocabulary
 
 | Vocabulary| Description |
 | ----------- | ----------- |
 | linked list | An ordered collection of nodes that each point to the next node in the list |
+| doubly linked list | A linked list where each node also points to the node before it |
 | node | A single element of a linked list |
 | interface | A class-like construction that defines the required method headers each class that implements it must use |
-| generics | a programming feature enabling types (classes, interfaces, and methods) to operate on various data types |
+| generics | A programming feature that lets classes, interfaces, and methods work with many data types, like the `E` in `List<E>` |
+| JUnit | A framework for writing and running test cases in Java |
+| code coverage | The percentage of your program's lines that your tests run |
 
+## Your Task
 
-## Getting Started
+You will build your own doubly linked list, then test it with JUnit.
 
-1. Create a new **interface** `List.java` with the following contents.
+Following the steps below, you will create the following:
+
+1. A [`List` interface](#interface)
+2. A [`Node<E>` class](#node)
+3. A [`DoublyLinkedList<E>` class](#list) that implements `List`
+4. A [`DoublyLinkedListTest` class](#junit) of JUnit tests
+5. [Javadoc comments](#javadoc) for `Node` and `DoublyLinkedList`
+
+Test each method as soon as you write it.
+
+### <a id="interface"></a>Step 1: The `List` Interface
+
+Create a new **interface** `List.java` with the following contents.
 
 ```java
 public interface List<E> {
@@ -38,6 +55,7 @@ public interface List<E> {
 
     /**
      * Removes the last element from the list
+     * @return the element that was removed
      */
     public E remove();
 
@@ -55,7 +73,7 @@ public interface List<E> {
      * @param i index of the element
      * @return the element
      */
-    public E  get(int i) throws IndexOutOfBoundsException;
+    public E get(int i) throws IndexOutOfBoundsException;
 
     /**
      * Sets the element at i to a new value
@@ -73,7 +91,7 @@ public interface List<E> {
 
     /**
      * Returns true if the list is empty and false if there are elements
-     * @return
+     * @return true if the list is empty
      */
     public boolean isEmpty();
 
@@ -83,75 +101,93 @@ public interface List<E> {
      */
     @Override
     public String toString();
-
+}
 ```
 
-### `Node<E>` Class
+### <a id="node"></a>Step 2: The `Node<E>` Class
 
-You will use this `Node<E>` class to represent a node in your `DoublyLinkedList`. This class should be able to hold a value  of any type and the previous/next node when appropriate. When there is no previous or next node, the values should be `null`.
+A `Node<E>` holds a value of any type, plus the previous node and the next node. When there is no previous or next node, that value is `null`.
 
-Create and implement the class as you see fit with necessary instance variables, constructors, and getter/setter methods, keeping in mind how it will be used by other classes.
+Choose the instance variables, constructors, and getters and setters you need, keeping in mind how `DoublyLinkedList` will use them. Your `Node` class also needs:
 
-In addition to the required `Node` functionality, your `Node` class should include the following methods.
+| Method | What it does |
+| --- | --- |
+| `String toString()` | Overrides `toString()` to return the node's value. |
+| `boolean equals(Node<E> node)` | Overloads `equals()`. Returns `true` if the nodes are equivalent, `false` otherwise. |
 
-- Overrides `String toString()` to print out the value of the node
-- Overloads `boolean equals(Node<E> node)` and returns true if the nodes are equivalent and false otherwise
+This program should print `rubber goose`, then `false`:
 
-As an example `Node` class should print `rubber goose` and `false` when the following program is run.
-**This is not a comprehensive test of the functionality of your class. You are responsible for rigorously testing your own program.**
+```java
+Node<String> first = new Node<>("obtuse");
 
+Node<String> next = new Node<>("rubber goose");
+first.setNextNode(next);
+next.setPrevNode(first);
+
+Node<String> after = new Node<>("guava juice", next);
+next.setNextNode(after);
+System.out.println(after.getPrevNode().getValue()); // rubber goose
+
+Node<String> last = new Node<>("giant snake");
+System.out.println(next.equals(last)); // false
 ```
-Node<String> first = new Node<>("obtuse");  
-  
-Node<String> next = new Node<>("rubber goose");  
-first.setNextNode(next);  
-next.setPrevNode(first);  
-  
-Node<String> after = new Node<>("guava juice", next);  
-next.setNextNode(after);  
-System.out.println(after.getPrevNode().getValue()); // "rubber goose"  
-  
-Node<String> last = new Node<>("giant snake");  
-System.out.println(next.equals(last));
-```
 
-### DoublyLinkedList
+> This is not a full test of your class. You are responsible for testing your own program.
 
-Create a class `DoublyLinkedList<E>` that implements the provided `List` interface. This class should implement a doubly linked list of a generic type using `Node<E>`. 
+### <a id="list"></a>Step 3: The `DoublyLinkedList<E>` Class
 
-Since your class implements the `List` interface, your class must contain (at least) all the methods defined by the interface. They should fulfill the functionality described by the comments in the interface and throw all exceptions as described. You may add any private helper methods or private instance variables you need to complete the functionality of the class. You will at least need to a default constructor that creates an empty list.
+Create a class `DoublyLinkedList<E>` that implements your `List` interface using `Node<E>`.
 
-*Tip:* Create a new class called `DoublyLinkedList` then add `implements List` to the header. Then use the context actions to populate your class with all the required method headers and Javadoc comments. Since you are implementing an interface that uses generics, you will need to use `Object` in place of `E` for your program. If you run into errors when creating and manipulating node, *casting* should help resolve the error.
+- It needs every method in the interface. Each one should do what its comment says and throw the exceptions it lists.
+- It needs a default constructor that creates an empty list.
+- You can add any private helper methods or private instance variables you need.
 
-Your class should produce the stated output for the given program.
-**This is not a comprehensive test of the functionality of your class. You are responsible for rigorously testing your own program.**
+> **IntelliJ tip:** write the header `public class DoublyLinkedList<E> implements List<E>`. Click the red error, press **Alt+Enter**, and pick **Implement methods**. Check **Copy JavaDoc** to bring the interface's comments along.
 
-```
-DoublyLinkedList<Integer> list = new DoublyLinkedList<>();  
-list.add(10);  
-list.add(20);  
-list.add(30);  
-System.out.println(list.toString()); // [10, 20, 30]  
-  
-list.add(2, 40);  
-list.add(0, 5);  
-list.set(2, 50);  
-System.out.println(list.toString()); // [5, 10, 50, 40, 30]  
-  
-list.remove(4);  
-list.remove(2);  
-System.out.println(list.size()); // 3  
+This program should print the results in the comments:
+
+```java
+DoublyLinkedList<Integer> list = new DoublyLinkedList<>();
+list.add(10);
+list.add(20);
+list.add(30);
+System.out.println(list.toString()); // [10, 20, 30]
+
+list.add(2, 40);
+list.add(0, 5);
+list.set(2, 50);
+System.out.println(list.toString()); // [5, 10, 50, 40, 30]
+
+list.remove(4);
+list.remove(2);
+System.out.println(list.size()); // 3
 System.out.println(list.toString()); // [5, 10, 40]
 ```
-## JUnit
 
-This lab, we are going to start **JUnit testing**. JUnit is a framework for creating and running test cases in your project. From here on out, you will need to write appropriate JUnit tests for all of your projects. For this lab, create a class called `DoublyLinkedListTest` for your test cases.
+| Code | Expected result |
+| --- | --- |
+| `toString()` on an empty list | `[]` |
+| `isEmpty()` on an empty list | `true` |
+| `remove()` on `[5, 10, 40]` | returns `40`, and the list is `[5, 10]` |
+| `get(5)` on a list of size 3 | throws `IndexOutOfBoundsException` |
+| `add(-1, 7)` | throws `IndexOutOfBoundsException` |
 
-*Tip:* To easily create your test class, put your cursor in your class header and press 'Alt-Enter' then select 'Create test'. From the menu, you can then select all the methods you want to create tester methods, and it will auto-generate your class for you. Then, use context actions again to add to the correct library to your classpath. This is often significantly easier than searching for the necessary package.
+### <a id="junit"></a>Step 4: JUnit Tests
 
-The number of tests you write doesn't matter as much as the quality of your tests. One way to assess test quality is through  **code coverage** (how many lines of source code have been run by the test cases). When you run your tests, you can generate a code coverage report which will tell you what percentage of the lines of code in your main program were executed by the test cases. The first 80% is generally straightforward to cover; it's the last 20% that is tricky. Ideally your test cases  will cover all 100%, but for this project we will aim for 80%.
+From now on, you will write JUnit tests for all of your projects. For this lab, put your tests in a class called `DoublyLinkedListTest`.
 
-When writing test cases, focus not just on writing tests to test the accuracy of your code, but the resiliency. Write tests to check that your code is throwing errors when appropriate and rejecting inaccurate input. Coming up with these **edge cases** can be difficult, but is often the most valuable part of testing.
+> **IntelliJ tip:** click on your class header, press **Alt+Enter**, and pick **Create test**. Check the methods you want to test, and IntelliJ makes the test class for you. If JUnit is underlined in red, press **Alt+Enter** again to add it to your project.
+
+The quality of your tests matters more than how many you write:
+- **Test that it works:** check that each method gives the right answer.
+- **Test that it breaks correctly:** check that bad input, like an invalid index, throws the right exception. These **edge cases** are hard to think of, but they're often the most valuable tests.
+- **Check your code coverage:** run your tests **with Coverage** to see what percentage of your `DoublyLinkedList` lines they run. Aim for at least **80%**. The first 80% is usually easy; the last 20% is the tricky part.
+
+### <a id="javadoc"></a>Step 5: Javadoc
+
+Add Javadoc comments to your `Node` and `DoublyLinkedList` classes and each of their methods. See Step 3 of the [Stack and Queue Lab](#Data-Structures-and-Algorithms/Stack-and-Queue-Lab) if you need a refresher.
+
+Your test class doesn't need Javadoc, but it should still have inline comments and follow style conventions, so someone else can tell what each test checks.
 
 ## Tips, Tricks, and Resources
 - [Getting Started with JUnit 5](https://www.jetbrains.com/help/idea/junit.html)
@@ -159,25 +195,18 @@ When writing test cases, focus not just on writing tests to test the accuracy of
 - [Running Tests with Coverage](https://www.jetbrains.com/help/idea/running-test-with-coverage.html#run-config-with-coverage)
 - [Reading the Coverage Report](https://www.jetbrains.com/help/idea/viewing-code-coverage-results.html)
 
-## Javadoc
-
-For your `Node` class and `DoublyLinkedList` class, generate proper Javadoc documentation. The classes you generate to run your JUnit test do not have to commented using Javadoc notation, but should still include inline comments and follow style conventions to make their function understandable to an outside user.
-
 ## Extensions
-1. An LRU cache is a highly practical system used in web browsers, databases, and operating systems to manage memory by discarding the least recently used items first. Combine your doubly linked list with a Hash Map. The doubly linked list will maintain the "recency" of the data, while the Hash Map provides instant access to the nodes. Every time an item is accessed or added, it is moved to the "head" of the list (most recently used). When the cache reaches its capacity limit, the node at the "tail" (least recently used) is popped off and removed from the map.
+1. Build an **LRU cache**. Web browsers, databases, and operating systems use one to manage memory by throwing out the least recently used items first. Combine your doubly linked list with a Hash Map: the list keeps track of how recently each item was used, and the Hash Map finds any node instantly. Every time an item is used or added, move it to the head of the list. When the cache is full, remove the node at the tail (the least recently used) from both the list and the map.
 
 ## Reflection Questions
 1. In what situation would you use an `ArrayList` over a `LinkedList` and vice versa?
 2. Why is accessing an element by its index an O(n) operation in a linked list, whereas it is O(1) in an array?
 3. What specific limitations of a singly linked list do doubly linked lists or circular linked lists solve?
 
-## Deliverables Checklist
-- [ ] Demonstrate a working program to your instructor in class
-- [ ] A repository with your program and test class attached to Google Classroom
-- [ ] Answers to the reflection questions, either written or in person. 
+## How to Submit
+
+Attach your GitHub repository, with your test class, to Google Classroom. Then, show your instructor your GitHub repository and demonstrate your working program and your tests' code coverage in class. You will also need to answer the reflection questions, either written or in person.
 
 ## Rubric
-- **6 points** - All required items are present.
-- **5 points** - Task was completed, but supplementary materials are weak or missing.
-- **4 points** - Task was attempted, but is missing major components.
-- **3 points** - Did not attempt or student should reattempt.
+- **20 points** - All required items are present.
+- **0 points** - Task was not attempted to completion or student should reattempt.
